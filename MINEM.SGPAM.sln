@@ -13,15 +13,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-Servicio", "04-Servicio"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05-Cliente", "05-Cliente", "{8D86B9E9-DCB9-4B9C-B99A-9295E14B9CE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minem.Sgpam.InfraEstructura", "Minem.Sgpam.InfraEstructura\Minem.Sgpam.InfraEstructura.csproj", "{F981DA2B-ACC6-4665-9B71-4F89A557243A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minem.Sgpam.InfraEstructura", "Minem.Sgpam.InfraEstructura\Minem.Sgpam.InfraEstructura.csproj", "{F981DA2B-ACC6-4665-9B71-4F89A557243A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minem.Sgpam.AccesoDatos", "Minem.Sgpam.AccesoDatos\Minem.Sgpam.AccesoDatos.csproj", "{E07F3763-B021-4B7F-AB52-222F1BDBC150}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minem.Sgpam.AccesoDatos", "Minem.Sgpam.AccesoDatos\Minem.Sgpam.AccesoDatos.csproj", "{E07F3763-B021-4B7F-AB52-222F1BDBC150}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minem.Sgpam.Entidades", "Minem.Sgpam.Entidades\Minem.Sgpam.Entidades.csproj", "{C5B0629B-4E8D-4077-A6D4-DD75967D24C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minem.Sgpam.Entidades", "Minem.Sgpam.Entidades\Minem.Sgpam.Entidades.csproj", "{C5B0629B-4E8D-4077-A6D4-DD75967D24C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minem.Sgpam.LogicaNegocio", "Minem.Sgpam.LogicaNegocio\Minem.Sgpam.LogicaNegocio.csproj", "{E1F31D0B-14DB-4A54-B3E4-D41361B9CA93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minem.Sgpam.LogicaNegocio", "Minem.Sgpam.LogicaNegocio\Minem.Sgpam.LogicaNegocio.csproj", "{E1F31D0B-14DB-4A54-B3E4-D41361B9CA93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minem.Sgpam.TransporteDatos", "Minem.Sgpam.TransporteDatos\Minem.Sgpam.TransporteDatos.csproj", "{E2A07273-6817-424B-A251-4F20991858F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minem.Sgpam.TransporteDatos", "Minem.Sgpam.TransporteDatos\Minem.Sgpam.TransporteDatos.csproj", "{E2A07273-6817-424B-A251-4F20991858F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minem.Sgpam.WebApi", "Minem.Sgpam.WebApi\Minem.Sgpam.WebApi.csproj", "{07B54215-27AE-4EB9-B628-8F73A43F20BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{E2A07273-6817-424B-A251-4F20991858F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2A07273-6817-424B-A251-4F20991858F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2A07273-6817-424B-A251-4F20991858F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07B54215-27AE-4EB9-B628-8F73A43F20BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07B54215-27AE-4EB9-B628-8F73A43F20BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07B54215-27AE-4EB9-B628-8F73A43F20BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07B54215-27AE-4EB9-B628-8F73A43F20BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{C5B0629B-4E8D-4077-A6D4-DD75967D24C9} = {E5130C11-ADAC-4086-A2D8-6854F419C3BE}
 		{E1F31D0B-14DB-4A54-B3E4-D41361B9CA93} = {71C4A502-4820-40CA-B980-9B5E0921212F}
 		{E2A07273-6817-424B-A251-4F20991858F5} = {71C4A502-4820-40CA-B980-9B5E0921212F}
+		{07B54215-27AE-4EB9-B628-8F73A43F20BD} = {1CF3AAFA-DEA5-4070-A18D-12FDD67FFFA5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F2CD7262-3DB0-490B-926E-36F514C62066}
