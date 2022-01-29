@@ -719,7 +719,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         public async Task<RegistrarPamDTO> GetComponent(int vId, TipoPam vType)
         {
             RegistrarPamDTO vRecord = await Services<RegistrarPamDTO>.Obtener("Componente/GetFull?vId=" + vId);
-            if (vRecord.Componente != null)
+            if (vRecord != null || vRecord.Componente != null)
             {
                 if ((int)vType == vRecord.Componente.Id_Tipo_Pam)
                 {

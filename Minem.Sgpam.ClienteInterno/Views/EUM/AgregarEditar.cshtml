@@ -1,4 +1,5 @@
 ﻿@using Minem.Sgpam.InfraEstructura;
+@using Minem.Sgpam.InfraEstructura.Enumerados;
 @model Minem.Sgpam.TransporteDatos.DtoEntidades.RegistrarEumDTO
 
 @{
@@ -942,10 +943,28 @@
             $.post("@Url.Action("CreateComponent", "Eum")?vIdEum=" + @Model.Eum.Id_Eum + "&vIdTipo=" + $("#cboTipoComponente").val()).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
-                    alert("Operación exitosa");
-                    window.location.reload();
+                    alert("Fullshito dice: Operación exitosa");
+                    alert(x.key);
+                    switch ($("#cboTipoComponente").val()) {
+                        case "@((int)TipoPam.LABOR_MINERA)":
+                            window.location.href = "@Url.Action("LaborMinera", "RegistrarPAM")?vId=" + x.key;
+                            break;
+                        case "@((int)TipoPam.RESIDUO_MINERO)":
+                            window.location.href = "@Url.Action("ResiduoMinero", "RegistrarPAM")?vId=" + x.key;
+                            break;
+                        case "@((int)TipoPam.OTRO_RESIDUO)":
+                            window.location.href = "@Url.Action("OtrosResiduos", "RegistrarPAM")?vId=" + x.key;
+                            break;
+                        case "@((int)TipoPam.INFRAESTRUCTURA)":
+                            window.location.href = "@Url.Action("Infraestructura", "RegistrarPAM")?vId=" + x.key;
+                            break;
+                        case "@((int)TipoPam.SUSTANCIA_QUIMICA)":
+                            window.location.href = "@Url.Action("SustanciasQuimicas", "RegistrarPAM")?vId=" + x.key;
+                            break;
+                    }
+                    //window.location.reload();
                 } else {
-                    alert("Ocurrió un error al grabar en el servidor")
+                    alert("Fullshito dice: Ocurrió un error al grabar en el servidor")
                 }
             }).fail(function (a, b, c) {
                 alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
@@ -956,10 +975,10 @@
             $.post("@Url.Action("RemoveComponent", "Eum")?vId=" + vId).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
-                    alert("Operación exitosa");
+                    alert("Fullshito dice: Operación exitosa");
                     window.location.reload();
                 } else {
-                    alert("Ocurrió un error al grabar en el servidor")
+                    alert("Fullshito dice: Ocurrió un error al grabar en el servidor")
                 }
             }).fail(function (a, b, c) {
                 alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)

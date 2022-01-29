@@ -93,7 +93,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             };
 
             vRegistro = await Services<ComponenteDTO>.Grabar("Componente/Save", vRegistro);
-            return Json(new ComponentResultModel { Operation = vRegistro.Id_Componente > 0 ? Constantes.Ok : Constantes.Error });
+            return Json(new ComponentResultModel { Operation = vRegistro.Id_Componente > 0 ? Constantes.Ok : Constantes.Error, Key = vRegistro.Id_Componente });
         }
 
         [HttpPost]
