@@ -1,0 +1,52 @@
+﻿@model Minem.Sgpam.TransporteDatos.DtoEntidades.ComponenteDTO
+
+<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Id Comp.</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <input type="hidden" asp-for="Id_Componente" />
+            <input class="form-control" value="@Model.Id_Componente.ToString("D9")" readonly="readonly" />
+        </div>
+    </div>
+</div>
+<div class="col-md-8 col-sm-12 col-xs-12 form-group">
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre componente</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <input asp-for="Nombre" class="form-control" maxlength="100" />
+        </div>
+    </div>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <select id="vId_Tipo_Pam" class="select2_single form-control" asp-for="Id_Tipo_Pam" asp-items="(List<SelectListItem>)ViewBag.CboTipo" disabled="disabled">
+                <option value="">SELECCIONE</option>
+            </select>
+            <input type="hidden" asp-for="Id_Tipo_Pam" />
+        </div>
+    </div>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">SubTipo</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <select id="vId_Sub_Tipo_Pam" class="select2_single form-control" asp-for="Id_Sub_Tipo_Pam" asp-items="(List<SelectListItem>)ViewBag.CboSubTipo">
+                <option value="">SELECCIONE</option>
+            </select>
+            <input type="hidden" asp-for="Id_Sub_Tipo_Pam" />
+        </div>
+    </div>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Otros</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <input asp-for="Otro_Descripcion" class="form-control" maxlength="100" />
+        </div>
+    </div>
+</div>
+
+<input type="hidden" asp-for="Id_Eum" />
+<input type="hidden" asp-for="Flg_Estado" />

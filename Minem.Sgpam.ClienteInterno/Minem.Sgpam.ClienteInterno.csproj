@@ -1,0 +1,103 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\Privacy.cshtml" />
+    <None Include="Views\RegistrarPAM\Infraestructura.cshtml" />
+    <None Include="Views\RegistrarPAM\LaborMinera.cshtml" />
+    <None Include="Views\RegistrarPAM\OtrosResiduos.cshtml" />
+    <None Include="Views\RegistrarPAM\ResiduoMinero.cshtml" />
+    <None Include="Views\RegistrarPAM\SustanciasQuimicas.cshtml" />
+    <None Include="Views\RegistrarPAM\_ComentariosAdicionales.cshtml" />
+    <None Include="Views\RegistrarPAM\_CoordenadasReferenciales.cshtml" />
+    <None Include="Views\RegistrarPAM\_CoordenadasReferenciales2.cshtml" />
+    <None Include="Views\RegistrarPAM\_DatosGenerales.cshtml" />
+    <None Include="Views\RegistrarPAM\_DerechosMineros.cshtml" />
+    <None Include="Views\RegistrarPAM\_EncargoRemediacion.cshtml" />
+    <None Include="Views\RegistrarPAM\_EstadoGestion.cshtml" />
+    <None Include="Views\RegistrarPAM\_EstudiosAmbientales.cshtml" />
+    <None Include="Views\RegistrarPAM\_EvaluaciónCualitativa.cshtml" />
+    <None Include="Views\RegistrarPAM\_HistorialModificaciones.cshtml" />
+    <None Include="Views\RegistrarPAM\_InformacionGrafica.cshtml" />
+    <None Include="Views\RegistrarPAM\_InformeCampo.cshtml" />
+    <None Include="Views\RegistrarPAM\_MedicionesCampo.cshtml" />
+    <None Include="Views\RegistrarPAM\_ModalComentariosAdicionales.cshtml" />
+    <None Include="Views\RegistrarPAM\_ModalEncargoRemediacion.cshtml" />
+    <None Include="Views\RegistrarPAM\_ModalEstadoGestion.cshtml" />
+    <None Include="Views\RegistrarPAM\_ModalEstudioAmbientales.cshtml" />
+    <None Include="Views\RegistrarPAM\_ModalInformacionGrafica.cshtml" />
+    <None Include="Views\RegistrarPAM\_ModalInformeCampo.cshtml" />
+    <None Include="Views\RegistrarPAM\_ModalMedicionesCampo.cshtml" />
+    <None Include="Views\RegistrarPAM\_ModalObservaciones.cshtml" />
+    <None Include="Views\RegistrarPAM\_ModalReaprovechamientos.cshtml" />
+    <None Include="Views\RegistrarPAM\_ModalResultado.cshtml" />
+    <None Include="Views\RegistrarPAM\_ModalRiesgosFaunaSilvestre.cshtml" />
+    <None Include="Views\RegistrarPAM\_ModalRiesgosSaludHumana.cshtml" />
+    <None Include="Views\RegistrarPAM\_ModalRiesgosSeguridad.cshtml" />
+    <None Include="Views\RegistrarPAM\_Observaciones.cshtml" />
+    <None Include="Views\RegistrarPAM\_PrincipalesProductos.cshtml" />
+    <None Include="Views\RegistrarPAM\_Reaprovechamientos.cshtml" />
+    <None Include="Views\RegistrarPAM\_ReinfoDerechosMineros.cshtml" />
+    <None Include="Views\RegistrarPAM\_Resultado.cshtml" />
+    <None Include="Views\RegistrarPAM\_Resultados.cshtml" />
+    <None Include="Views\RegistrarPAM\_RiesgosFauna.cshtml" />
+    <None Include="Views\RegistrarPAM\_RiesgosFaunaSilvestre.cshtml" />
+    <None Include="Views\RegistrarPAM\_RiesgosSalud.cshtml" />
+    <None Include="Views\RegistrarPAM\_RiesgosSaludHumana.cshtml" />
+    <None Include="Views\RegistrarPAM\_RiesgosSeguridad.cshtml" />
+    <None Include="Views\RegistrarPAM\_TitularesReferenciales.cshtml" />
+    <None Include="Views\RegistrarPAM\_Ubicacion.cshtml" />
+    <None Include="Views\RegistrarPAM\_UltimaFila.cshtml" />
+    <None Include="Views\Shared\Error.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <None Include="Views\_ViewImports.cshtml" />
+    <None Include="Views\_ViewStart.cshtml" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\LICENSE" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.7" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Minem.Sgpam.InfraEstructura\Minem.Sgpam.InfraEstructura.csproj" />
+    <ProjectReference Include="..\Minem.Sgpam.TransporteDatos\Minem.Sgpam.TransporteDatos.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\files\" />
+  </ItemGroup>
+
+</Project>

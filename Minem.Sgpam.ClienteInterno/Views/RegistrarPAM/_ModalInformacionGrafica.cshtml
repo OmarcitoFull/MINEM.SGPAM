@@ -1,0 +1,45 @@
+﻿@model Minem.Sgpam.TransporteDatos.DtoEntidades.Comp_Info_GraficaDTO
+<div class="rowGroup">
+    <h1 class="grupoT">nformación Gráfica</h1>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Fotografía</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input type="file" class="form-control-file" name="vFile" id="vFile" >
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input asp-for="Fec_Ingreso" type="date" class="form-control has-feedback-left" aria-describedby="inputSuccess2Status2">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="clearfix"></div>
+    <div class="x_title2">
+        <div align="center" class="titulo-m">
+            <input type="hidden" asp-for="Id_Componente" />
+            <input type="hidden" asp-for="Nombre_Imagen" />
+            <input type="hidden" asp-for="Ruta_Imagen" />
+            <input type="hidden" asp-for="Tamano" />
+        </div>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+                <button type="button" class="boton" style="margin-right: 0px;" onclick="SaveInformacionGrafica()">Guardar  <i class="fa fa-save" style="margin-left: 10px;"></i></button>
+            </li>
+            <li>
+                <div class="boton" data-dismiss="modal">
+                    <a href="#">Cancelar  <i class="fa fa-ban"></i></a>
+                </div>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>

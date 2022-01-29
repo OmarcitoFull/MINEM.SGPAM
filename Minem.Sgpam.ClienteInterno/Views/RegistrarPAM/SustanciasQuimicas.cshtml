@@ -1,0 +1,726 @@
+﻿@using Minem.Sgpam.InfraEstructura;
+@using Minem.Sgpam.InfraEstructura.Enumerados;
+@model Minem.Sgpam.TransporteDatos.DtoEntidades.RegistrarPamDTO
+@{
+    ViewData["Title"] = "Sustancias Quimicas";
+}
+
+<form id="MyForm" asp-controller="RegistrarPAM" asp-action="SustanciasQuimicas" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+    <!-- inicio grupo 1. Datos Generales -->
+    <div class="rowGroup">
+        <h1 class="grupoT">1. Datos Generales</h1>
+        @Html.Partial("_DatosGenerales", Model.Componente)
+        <div class="clearfix"></div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 2. Historial de modificaciones -->
+    <div class="rowGroup">
+        <h1 class="grupoT">2. Historial de modificaciones</h1>
+        @Html.Partial("_HistorialModificaciones", Model.ListaHistorial)
+        <div class="clearfix"></div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 3. Coordenadas Referenciales -->
+    <div class="rowGroup">
+        <h1 class="grupoT">3. Coordenadas Referenciales</h1>
+        @Html.Partial("_CoordenadasReferenciales", Model.Componente)
+        <div class="clearfix"></div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 4. Ubicación -->
+    <div class="rowGroup">
+        <h1 class="grupoT">4. Ubicación</h1>
+        @Html.Partial("_Ubicacion", Model.Componente)
+        <div class="clearfix"></div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 5. Reconocimiento Visual -->
+    <div class="rowGroup">
+        <h1 class="grupoT">5. Reconocimiento Visual</h1>
+        <br>  <br>
+        <div class="clearfix"></div>
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action" style="margin-bottom: 0px !important">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Nombre</th>
+                        <th class="column-title">Cantidad (KG) </th>
+                        <th class="column-title">Volumen (L)</th>
+                    </tr>
+                </thead>
+                <tbody id="ajuste">
+                    @if (!Model.ListarReconocimientoVisual.Any())
+                    {
+                        <tr class="even pointer">
+                            <td class=" " colspan="3">
+                                No existe registros
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var item in Model.ListarReconocimientoVisual)
+                        {
+                            <tr class="odd pointer" data-id="@item.Id_Comp_Reconocimiento">
+                                <td width="40%">
+                                    @item.Descripcion
+                                    <input type="hidden" value="@item.Id_Tipo_Reconocimiento" name="Tipo" />
+                                </td>
+                                <td>
+                                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                                        <div class="form-group">
+                                            <input value="@item.Cantidad" type="number" class="form-control" name="Largo" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                                        <div class="form-group">
+                                            <input value="@item.Volumen" type="number" class="form-control" name="Ancho" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        <br>  <br>
+        <div class="clearfix"></div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 6. Observaciones -->
+    <div class="rowGroup">
+        <h1 class="grupoT">6. Observaciones</h1>
+        <div id="DivObservaciones">
+            @Html.Partial("_Observaciones", Model.ListaObservaciones)
+        </div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 7. Evaluación cualitativa de riesgo-->
+    <div class="rowGroup">
+        <h1 class="grupoT">7. Evaluación cualitativa de riesgo</h1>
+        @Html.Partial("_EvaluaciónCualitativa", Model.Componente)
+        <div class="clearfix"></div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 8. Riesgos a la Seguridad Humana -->
+    <div class="rowGroup">
+        <h1 class="grupoT">8. Riesgos a la Seguridad Humana</h1>
+        <div id="DivRiesgosSeguridadHumana">
+            @Html.Partial("_RiesgosSeguridad", Model.ListaRiesgosSeguridadHumana)
+        </div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 9. Riesgos a la Salud Humana y Ambiente Físico-->
+    <div class="rowGroup">
+        <h1 class="grupoT">9. Riesgos a la Salud Humana y Ambiente Físico</h1>
+        <div id="DivRiesgosSaludHumana">
+            @Html.Partial("_RiesgosSaludHumana", Model.ListaRiesgosSaludHumanaAmbiente)
+        </div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 10. Riesgos a la Fauna Silvestre y Conservación-->
+    <div class="rowGroup">
+        <h1 class="grupoT">10. Riesgos a la Fauna Silvestre y Conservación</h1>
+        <div id="DivRiesgosFaunaSilvestre">
+            @Html.Partial("_RiesgosFaunaSilvestre", Model.ListaRiesgosFaunaSilvestre)
+        </div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 11. Mediciones de Campo -->
+    <div class="rowGroup">
+        <h1 class="grupoT">11. Mediciones de Campo</h1>
+        <div id="DivMedicionesCampo">
+            @Html.Partial("_MedicionesCampo", Model.ListaMedicionesCampo)
+        </div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 12. Información Gráfica-->
+    <div class="rowGroup">
+        <h1 class="grupoT">12. Información Gráfica</h1>
+        <div id="DivInformacionGrafica">
+            @Html.Partial("_InformacionGrafica", Model.ListaInformacionGrafica)
+        </div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 13. Comentarios Adicionales -->
+    <div class="rowGroup">
+        <h1 class="grupoT">13. Comentarios Adicionales</h1>
+        <div id="DivComentariosAdicionales">
+            @Html.Partial("_ComentariosAdicionales", Model.ListaComentariosAdicionales)
+        </div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 14. Derechos Mineros -->
+    <div class="rowGroup">
+        <h1 class="grupoT">14. Derechos Mineros </h1>
+        @Html.Partial("_DerechosMineros", Model.ListaDerechosMineros)
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 15. Situación y Principales Productos -->
+    <div class="rowGroup">
+        <h1 class="grupoT">15. Situación y Principales Productos</h1>
+        @Html.Partial("_PrincipalesProductos", Model.ListaSituacionPrincipalesProducto)
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 16. Titulares Referenciales de los Derechos Mineros-->
+    <div class="rowGroup">
+        <h1 class="grupoT">16. Titulares Referenciales de los Derechos Mineros</h1>
+        @Html.Partial("_TitularesReferenciales", Model.ListaTitularesReferencialesDerechos)
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 17. Reinfo de los Derechos Mineros -->
+    <div class="rowGroup">
+        <h1 class="grupoT">17. Reinfo de los Derechos Mineros</h1>
+        @Html.Partial("_ReinfoDerechosMineros", Model.ListaReinfoDerechosMineros)
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 18. Estudios Ambientales-->
+    <div class="rowGroup">
+        <h1 class="grupoT">18. Estudios Ambientales</h1>
+        <div id="DivEstudioAmbientales">
+            @Html.Partial("_EstudiosAmbientales", Model.ListaEstudioAmbientales)
+        </div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 19. Encargo de Remediación-->
+    <div class="rowGroup">
+        <h1 class="grupoT">19. Encargo de Remediación</h1>
+        <div id="DivEncargoRemediacion">
+            @Html.Partial("_EncargoRemediacion", Model.ListaEncargoRemediacion)
+        </div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 20. Reaprovechamientos-->
+    <div class="rowGroup">
+        <h1 class="grupoT">20. Reaprovechamientos</h1>
+        <div id="DivReaprovechamientos">
+            @Html.Partial("_Reaprovechamientos", Model.ListaReaprovechamientos)
+        </div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 21. Informe de Campo-->
+    <div class="rowGroup">
+        <h1 class="grupoT">21. Informe de Campo</h1>
+        <div id="DivInformeCampo">
+            @Html.Partial("_InformeCampo", Model.ListaInformeCampo)
+        </div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 22. Resultados<-->
+    <div class="rowGroup">
+        <h1 class="grupoT">22. Resultados</h1>
+        <div id="DivResultado">
+            @Html.Partial("_Resultado", Model.ListaResultados)
+        </div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- inicio grupo 23. Estado de Gestión -->
+    <div class="rowGroup">
+        <h1 class="grupoT">23. Estado de Gestión</h1>
+        <div id="DivEstadoGestion">
+            @Html.Partial("_EstadoGestion", Model.ListaEstadoGestion)
+        </div>
+    </div>
+    <!-- Fin  grupo  -->
+    <!-- última fila  -->
+    <div class="x_title">
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="row">
+        @Html.Partial("_UltimaFila", Model.Componente)
+        <div class="clearfix"></div>
+
+        <div class="x_title2">
+            <div align="center" class="titulo-m">
+            </div>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <button type="button" class="boton" id="btnSubmit">
+                        Guardar  <i class="fa fa-save"></i>
+                    </button>
+                </li>
+                <li>
+                    <div class="boton">
+                        <a href="#">Cancelar  <i class="fa fa-ban"></i></a>
+                    </div>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- fin última fila  -->
+</form>
+
+
+
+<!-- Modal 6 observaciones -->
+<div id="modal7" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmObservaciones" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+                <div class="rowGroup" id="fullObservaciones">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal observaciones -->
+<!-- Modal 8 Riesgos a la Seguridad Humana -->
+<div id="modal9" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmRiesgosSeguridadHumana" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+                <div class="rowGroup" id="fullRiesgosSeguridadHumana">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
+<!-- Modal 9 ambien y  fisico-->
+<div id="modal10" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmRiesgosSaludHumana" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+                <div class="rowGroup" id="fullRiesgosSaludHumana">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
+<!-- Modal 10 Riesgos a la Fauna Silvestre y Conservación-->
+<div id="modal11" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmRiesgosFaunaSilvestre" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+                <div class="rowGroup" id="fullRiesgosFaunaSilvestre">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
+<!-- Modal 11 Mediciones de Campo-->
+<div id="modal12" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmMedicionesCampo" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+                <div class="rowGroup" id="fullMedicionesCampo">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
+<!-- Modal 12 Información Gráfica -->
+<div id="modal13" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmInformacionGrafica" data-ajax-method="POST" asp-controller="GrabarInformacionGrafica" asp-action="RegistrarPAM" enctype="multipart/form-data" autocomplete="off" data-ajax="true">
+                <div class="rowGroup" id="fullInformacionGrafica">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
+<!-- Modal 13 Comentarios Adicionales-->
+<div id="modal14" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmComentariosAdicionales" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+                <div class="rowGroup" id="fullComentariosAdicionales">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
+<!-- Modal 18 Estudios Ambientales-->
+<div id="modal19" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmEstudioAmbientales" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+                <div class="rowGroup" id="fullEstudioAmbientales">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
+<!-- Modal 19 ncargo de Remediación-->
+<div id="modal20" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmEncargoRemediacion" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+                <div class="rowGroup" id="fullEncargoRemediacion">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
+<!-- Modal 21 Reaprovechamientos-->
+<div id="modal21" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmReaprovechamiento" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+                <div class="rowGroup" id="fullReaprovechamiento">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
+<!-- Modal 22 Informe de Campo-->
+<div id="modal22" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmInformeCampo" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+                <div class="rowGroup" id="fullInformeCampo">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
+<!-- Modal 23 Resultados -->
+<div id="modal23" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmResultado" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+                <div class="rowGroup" id="fullResultado">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
+<!-- Modal 24 Informe de Campo-->
+<div id="modal24" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmEstadogestion" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+                <div class="rowGroup" id="fullEstadogestion">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
+
+
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            const vSubTipo = @Html.Raw(Json.Serialize(Model.CboSubTipo));
+
+            $("#vId_Tipo_Pam").on("change", function () {
+                const o = vSubTipo.filter(o => o.id_Tipo_Pam == $("#vId_Tipo_Pam").val()).map(function (o) { return { Value: o.id_Sub_Tipo_Pam, Text: o.descripcion }});
+                $("#vId_Sub_Tipo_Pam").empty();
+                $("#vId_Sub_Tipo_Pam").append('<option value="">SELECCIONE</option>');
+                o.forEach(function (o, i) { $("#vId_Sub_Tipo_Pam").append('<option value="' + o.Value + '">' + o.Text + "</option>") });
+            });
+        });
+
+
+        $('#btnSubmit').click(function () {
+            var vList = [];
+            $("#ajuste tr").each(function () {
+                var vRow = $(this);
+                var vEntity = {
+                    Id: vRow.attr("data-id"),
+                    Tipo: vRow.find("td:eq(0)").find('input').val(),
+                    Base: null,
+                    Altura: null,
+                    Profundidad: null,
+                    Largo: null,
+                    Ancho: null,
+                    Area: null,
+                    Volumen: vRow.find("td:eq(2)").find('input').val(),
+                    Cantidad: vRow.find("td:eq(1)").find('input').val()
+                };
+                vList.push(vEntity);
+            });
+
+            var vModel = $("#MyForm").serializeArray();
+            vModel.push({ name: 'ListaReconocimientoMin', value: vList });
+            //console.log(vModel);
+            var vData = {};
+            $.map(vModel, function (n, i) { vData[n.name] = n.value; });
+            console.log(vData);
+
+             $.ajax({
+                type: "POST",
+                url: $("#MyForm").attr("action"),
+                data: vData,
+                success: function (data) {
+                    if (data.operation == "@Constantes.Ok") {
+                        alert("Operación exitosa");
+                        window.location.reload();
+                    } else {
+                        alert("Ocurrio un error al grabar");
+                    }
+                },
+                error: function (req, status, error) {
+                    console.log(req)
+                    alert(req);
+                    alert(status);
+                    alert(error);
+                }
+            });
+
+
+        });
+
+        ShowModal = function (vUrl, vBody) {
+            $.get(vUrl + "?vIdComponente=@Model.Componente.Id_Componente", function (data) { $('#'+vBody).html(data) });
+        }
+
+
+
+        SaveObservacion = function () {
+            $.post("@Url.Action("GrabarObservacion", "RegistrarPAM")", $("#frmObservaciones").serialize()).done(function (x)
+            {
+                if ("@Constantes.Ok" == x.operation) {
+                    alert("Operación exitosa");
+                    $("#modal7").modal("toggle");
+                    $("#DivObservaciones").load("@Url.Action("ListarObservaciones", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                } else {
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                }
+            }).fail(function (a, b, c)
+            {
+                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+            });
+        }
+
+        SaveRiesgosSeguridadHumana = function () {
+            $.post("@Url.Action("GrabarRiesgosSeguridadHumana", "RegistrarPAM")", $("#frmRiesgosSeguridadHumana").serialize()).done(function (x)
+            {
+                if (x.operation == "@Constantes.Ok") {
+                    alert("Operación exitosa");
+                    $("#modal9").modal("toggle");
+                    window.location.reload();
+                } else {
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                }
+            }).fail(function (a, b, c) {
+                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+            });
+        }
+
+        SaveRiesgosSaludHumana = function () {
+            $.post("@Url.Action("GrabarRiesgosSaludHumana", "RegistrarPAM")", $("#frmRiesgosSaludHumana").serialize()).done(function (x)
+            {
+                if (x.operation == "@Constantes.Ok") {
+                    alert("Operación exitosa");
+                    $("#modal10").modal("toggle");
+                    window.location.reload();
+                } else {
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                }
+            }).fail(function (a, b, c) {
+                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+            });
+        }
+
+        SaveRiesgosFaunaSilvestre = function () {
+            $.post("@Url.Action("GrabarRiesgosFaunaSilvestre", "RegistrarPAM")", $("#frmRiesgosFaunaSilvestre").serialize()).done(function (x)
+            {
+                if (x.operation == "@Constantes.Ok") {
+                    alert("Operación exitosa");
+                    $("#modal11").modal("toggle");
+                    window.location.reload();
+                } else {
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                }
+            }).fail(function (a, b, c) {
+                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+            });
+        }
+
+        SaveMedicionCampo = function () {
+            $.post("@Url.Action("GrabarMedicionesCampo", "RegistrarPAM")", $("#frmMedicionesCampo").serialize()).done(function (x)
+            {
+                if (x.operation == "@Constantes.Ok") {
+                    alert("Operación exitosa");
+                    $("#modal12").modal("toggle");
+                    $("#DivMedicionesCampo").load("@Url.Action("ListarMedicionesCampo", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                } else {
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                }
+            }).fail(function (a, b, c) {
+                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+            });
+        }
+
+        SaveInformacionGrafica = function () {
+            var e = new FormData, r = document.getElementById("vFile").files.length;
+            if (0 == r) {
+                alert("Seleccione el archivo");
+            }
+            else {
+                for (var a, o = 0; r > o; o++) {
+                    a = document.getElementById("vFile").files[o];
+                    e.append("vFile", a);
+                };
+
+                var vData = $("#frmInformacionGrafica").serialize().split("&");
+                vData.forEach(function (vRow) {
+                    var vElement = vRow.split("=");
+                    e.append(vElement[0], vElement[1]);
+                });
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("GrabarInformacionGrafica", "RegistrarPAM")",
+                    data: e,
+                    dataType: "json",
+                    contentType: !1,
+                    processData: !1,
+                    success: function (x) {
+                        if (x.operation == "@Constantes.Ok") {
+                            alert("Operación exitosa");
+                            $("#modal13").modal("toggle");
+                            $("#DivInformacionGrafica").load("@Url.Action("ListarInformacionGrafica", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                        } else {
+                            "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor");
+                        }
+                    }
+                });
+            }
+        }
+
+        SaveComentariosAdicionales = function () {
+            $.post("@Url.Action("GrabarComentarios", "RegistrarPAM")", $("#frmComentariosAdicionales").serialize()).done(function (x)
+            {
+                if (x.operation == "@Constantes.Ok") {
+                    alert("Operación exitosa");
+                    $("#modal14").modal("toggle");
+                    $("#DivComentariosAdicionales").load("@Url.Action("ListarComentarios", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                } else {
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                }
+            }).fail(function (a, b, c) {
+                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+            });
+        }
+
+        SaveEstudioAmbientales = function () {
+            $.post("@Url.Action("GrabarEstudioAmbientales", "RegistrarPAM")", $("#frmEstudioAmbientales").serialize()).done(function (x)
+            {
+                if (x.operation == "@Constantes.Ok") {
+                    alert("Operación exitosa");
+                    $("#modal19").modal("toggle");
+                    $("#DivEstudioAmbientales").load("@Url.Action("ListarEstudioAmbientales", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                } else {
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                }
+            }).fail(function (a, b, c) {
+                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+            });
+        }
+
+        SaveEncargoRemediacion = function () {
+            $.post("@Url.Action("GrabarEncargoRemediacion", "RegistrarPAM")", $("#frmEncargoRemediacion").serialize()).done(function (x)
+            {
+                if (x.operation == "@Constantes.Ok") {
+                    alert("Operación exitosa");
+                    $("#modal20").modal("toggle");
+                    $("#DivEncargoRemediacion").load("@Url.Action("ListarEncargoRemediacion", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                } else {
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                }
+            }).fail(function (a, b, c) {
+                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+            });
+        }
+
+        SaveReaprovechamiento = function () {
+            $.post("@Url.Action("GrabarReaprovechamiento", "RegistrarPAM")", $("#frmReaprovechamiento").serialize()).done(function (x)
+            {
+                if (x.operation == "@Constantes.Ok") {
+                    alert("Operación exitosa");
+                    $("#modal21").modal("toggle");
+                    $("#DivReaprovechamientos").load("@Url.Action("ListarReaprovechamiento", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                } else {
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                }
+            }).fail(function (a, b, c) {
+                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+            });
+        }
+
+        SaveInformeCampo = function () {
+            $.post("@Url.Action("GrabarInformeCampo", "RegistrarPAM")", $("#frmInformeCampo").serialize()).done(function (x)
+            {
+                if (x.operation == "@Constantes.Ok") {
+                    alert("Operación exitosa");
+                    $("#modal22").modal("toggle");
+                    $("#DivInformeCampo").load("@Url.Action("ListarInformeCampo", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                } else {
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                }
+            }).fail(function (a, b, c) {
+                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+            });
+        }
+
+        SaveResultado = function () {
+            $.post("@Url.Action("GrabarResultado", "RegistrarPAM")", $("#frmResultado").serialize()).done(function (x)
+            {
+                if (x.operation == "@Constantes.Ok") {
+                    alert("Operación exitosa");
+                    $("#modal23").modal("toggle");
+                    $("#DivResultado").load("@Url.Action("ListarResultado", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                } else {
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                }
+            }).fail(function (a, b, c) {
+                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+            });
+        }
+
+        SaveEstadoGestion = function () {
+            $.post("@Url.Action("GrabarEstadoGestion", "RegistrarPAM")", $("#frmEstadogestion").serialize()).done(function (x)
+            {
+                if (x.operation == "@Constantes.Ok") {
+                    alert("Operación exitosa");
+                    $("#modal24").modal("toggle");
+                    $("#DivEstadoGestion").load("@Url.Action("ListarEstadoGestion", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                } else {
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                }
+            }).fail(function (a, b, c) {
+                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+            });
+        }
+
+
+
+        function fMaxLength(e) { e.value.length > e.maxLength && (e.value = e.value.slice(0, e.maxLength)) }
+
+        fullchkGroupNormal = function () {
+            $('#FullChkExcluir :checkbox').prop("checked", !1);
+            $('#FullChkIncluir :checkbox').prop("checked", !1);
+        }
+        fullchkGroupExcluir = function () {
+            $('#FullChkInventario :checkbox').prop("checked", !1);
+            $('#FullChkSIGEPAM :checkbox').prop("checked", !1);
+            $('#FullChkIncluir :checkbox').prop("checked", !1);
+        }
+        fullchkGroupIncluir = function () {
+            $('#FullChkInventario :checkbox').prop("checked", !1);
+            $('#FullChkSIGEPAM :checkbox').prop("checked", !1);
+            $('#FullChkExcluir :checkbox').prop("checked", !1);
+        }
+    </script>
+}

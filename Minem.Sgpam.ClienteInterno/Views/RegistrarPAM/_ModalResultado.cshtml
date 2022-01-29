@@ -1,0 +1,196 @@
+﻿@model Minem.Sgpam.TransporteDatos.DtoEntidades.Comp_ResultadoDTO
+
+<div class="rowGroup">
+    <h1 class="grupoT">Resultados</h1>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group" id="FullChkInventario">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Actualizar inventario</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Act_Inv_Eum" onchange="fullchkGroupNormal()" />
+                        </div> Ex Unidad Minera
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Act_Inv_Sub_Tipo" onchange="fullchkGroupNormal()" />
+                        </div> Sub Tipo
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Act_Inv_Cuenca" onchange="fullchkGroupNormal()" />
+                        </div> Cuenca
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Act_Inv_Region" onchange="fullchkGroupNormal()" />
+                        </div> Región
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Act_Inv_Provincia" onchange="fullchkGroupNormal()" />
+                        </div> Provincia
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Act_Inv_Distrito" onchange="fullchkGroupNormal()" />
+                        </div> Distrito
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Act_Inv_Coordenadas" onchange="fullchkGroupNormal()" />
+                        </div> Coordenadas
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Act_Inv_Generador" onchange="fullchkGroupNormal()" />
+                        </div> Generador
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Act_Inv_Res_Remedia" onchange="fullchkGroupNormal()" />
+                        </div> Resonsable de remediación
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group" id="FullChkSIGEPAM">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Actualizar SIGEPAM</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Act_Sgp_Q" onchange="fullchkGroupNormal()" />
+                        </div> Q
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Act_Sgp_Ph" onchange="fullchkGroupNormal()" />
+                        </div> pH
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Act_Sgp_Condiciones" onchange="fullchkGroupNormal()" />
+                        </div> Condiciones
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Act_Sgp_Areas" onchange="fullchkGroupNormal()" />
+                        </div> Área
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Act_Sgp_Descripcion" onchange="fullchkGroupNormal()" />
+                        </div> Descripción
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group" id="FullChkExcluir">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Excluir</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Exc_No_Exi_Pam" onchange="fullchkGroupExcluir()" />
+                        </div> No existe PAM
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Exc_Agr_Pam_Id" onchange="fullchkGroupExcluir()"/>
+                        </div> Agrupado al PAM con ID
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Exc_Pam_Inf_Dup" onchange="fullchkGroupExcluir()"/>
+                        </div> PAM con información duplicada
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Exc_No_Sig_Rie" onchange="fullchkGroupExcluir()" />
+                        </div> No significa un rieso
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Exc_Otros" onchange="fullchkGroupExcluir()" />
+                        </div> Otros
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group" id="FullChkIncluir">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Incluir</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat" asp-for="Inc_Inventario" onchange="fullchkGroupIncluir()"/>
+                        </div> Incluir al inventario
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="x_title2">
+        <div align="center" class="titulo-m">
+            <input type="hidden" asp-for="Id_Componente" />
+        </div>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+                <button type="button" class="boton" style="margin-right: 0px;" id="GuardarResultado" onclick="SaveResultado()">Guardar  <i class="fa fa-save" style="margin-left: 10px;"></i></button>
+            </li>
+            <li>
+                <div class="boton" data-dismiss="modal">
+                    <a href="#">Cancelar  <i class="fa fa-ban"></i></a>
+                </div>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>

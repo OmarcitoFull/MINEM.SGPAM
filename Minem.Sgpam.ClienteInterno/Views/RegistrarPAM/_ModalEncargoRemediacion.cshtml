@@ -1,0 +1,85 @@
+﻿@model Minem.Sgpam.TransporteDatos.DtoEntidades.Comp_Enc_RemDTO
+
+<div class="rowGroup">
+    <h1 class="grupoT">Encargo de Remediación</h1>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de Encargo (*)</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <select id="vId_Tipo_Encargo" class="select2_single form-control" asp-for="Id_Tipo_Encargo" asp-items="(List<SelectListItem>)ViewBag.CboTipoEncargo">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Tipo_Encargo" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de Resolución (*)</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <select id="vId_Tipo_Resolucion" class="select2_single form-control" asp-for="Id_Tipo_Resolucion" asp-items="(List<SelectListItem>)ViewBag.CboTipoResolucion">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Tipo_Resolucion" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">NRO. Resolución (*)</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input asp-for="Nro_Remediacion" class="form-control" maxlength="100" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Año de Resolución (*)</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input asp-for="Anio_Resolucion" class="form-control" maxlength="4" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Responsable de la Remediación (*)</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input asp-for="Responsable_Remediacion" class="form-control" maxlength="100" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Resolución de Exclusión del Encargo de Remediación (*)</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input asp-for="Resolucion_Exc_Enc" class="form-control" maxlength="100" />
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="x_title2">
+        <div align="center" class="titulo-m">
+            <input type="hidden" asp-for="Id_Componente" />
+        </div>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+                <button type="button" class="boton" style="margin-right: 0px;" onclick="SaveEncargoRemediacion()">Guardar  <i class="fa fa-save" style="margin-left: 10px;"></i></button>
+            </li>
+            <li>
+                <div class="boton" data-dismiss="modal">
+                    <a href="#">Cancelar  <i class="fa fa-ban"></i></a>
+                </div>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>

@@ -1,0 +1,111 @@
+﻿@model Minem.Sgpam.TransporteDatos.DtoEntidades.Comp_Riesgo_Fau_ConDTO
+
+<div class="rowGroup">
+
+    <h1 class="grupoT">Riesgos a la Fauna Silvestre y Conservación</h1>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-5 col-sm-5 col-xs-12">
+                Accesibilidad y escape para la fauna silvestre (*)
+            </label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <select id="vId_Acceso_Fauna" class="select2_single form-control" asp-for="Id_Acceso_Fauna" asp-items="(List<SelectListItem>)ViewBag.CboAcceso_Fauna">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Acceso_Fauna" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-5 col-sm-5 col-xs-12">
+                Atracción de fauna silvestre (*)
+            </label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <select id="vId_Agua_Contaminada" class="select2_single form-control" asp-for="Id_Agua_Contaminada" asp-items="(List<SelectListItem>)ViewBag.CboAgua_Contaminada">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Agua_Contaminada" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-5 col-sm-5 col-xs-12">
+                Vegetación en el sitio  y alrededores (*)
+            </label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <select id="vId_Atraccion_Fauna" class="select2_single form-control" asp-for="Id_Atraccion_Fauna" asp-items="(List<SelectListItem>)ViewBag.CboAtraccion_Fauna">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Atraccion_Fauna" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-5 col-sm-5 col-xs-12">
+                Proximidad a áreas protegidas (*)
+            </label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <select id="vId_Cerca_Area_Protegida" class="select2_single form-control" asp-for="Id_Cerca_Area_Protegida" asp-items="(List<SelectListItem>)ViewBag.CboCerca_Area_Protegida">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Cerca_Area_Protegida" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-5 col-sm-5 col-xs-12">
+                Sensibilidad del área (uso tradicional del suelo corredor de fauna) (*)
+            </label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <select id="vId_Sensibilidad_Area" class="select2_single form-control" asp-for="Id_Sensibilidad_Area" asp-items="(List<SelectListItem>)ViewBag.CboSensibilidad_Area">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Sensibilidad_Area" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-5 col-sm-5 col-xs-12">
+                Drenaje o filtración hacia cuerpos de agua (*)
+            </label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <select id="vId_Vegetacion_Invasiva" class="select2_single form-control" asp-for="Id_Vegetacion_Invasiva" asp-items="(List<SelectListItem>)ViewBag.CboVegetacion_Invasiva">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Vegetacion_Invasiva" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="clearfix"></div>
+    <div class="x_title2">
+        <div align="center" class="titulo-m">
+            <input type="hidden" asp-for="Id_Componente" />
+        </div>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+                <button type="button" class="boton" style="margin-right: 0px;" id="GuardarRiesgosFaunaSilvestre" onclick="SaveRiesgosFaunaSilvestre()">Guardar  <i class="fa fa-save" style="margin-left: 10px;"></i></button>
+            </li>
+            <li>
+                <div class="boton" data-dismiss="modal">
+                    <a href="#">Cancelar  <i class="fa fa-ban"></i></a>
+                </div>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>

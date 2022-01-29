@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Minem.Sgpam.AccesoDatos\Minem.Sgpam.AccesoDatos.csproj" />
+    <ProjectReference Include="..\Minem.Sgpam.TransporteDatos\Minem.Sgpam.TransporteDatos.csproj" />
+  </ItemGroup>
+
 </Project>

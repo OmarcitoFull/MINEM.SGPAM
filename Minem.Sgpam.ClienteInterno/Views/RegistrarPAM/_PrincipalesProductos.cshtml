@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Minem.Sgpam.TransporteDatos.DtoEntidades.SituacionPrincipalesProductosDTO>
+
+<div class="clearfix"></div>
+<div class="table-responsive">
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th class="column-title">Año</th>
+                <th class="column-title">Nombre Derecho Minero UEA</th>
+                <th class="column-title">Situación</th>
+                <th class="column-title">Tipo Concentrado</th>
+                <th class="column-title">Cantidad (TM)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (!Model.Any())
+            {
+                <tr class="even pointer">
+                    <td class=" " colspan="5">
+                        No existe registros
+                    </td>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+                    <tr class="odd pointer">
+                        <td class=" ">
+                            @item.Anopro
+                        </td>
+                        <td class=" ">
+                            @item.Nombre
+                        </td>
+                        <td class=" ">
+                            @item.Situacion
+                        </td>
+                        <td class=" ">
+                            @item.Tipo_Concentrado
+                        </td>
+                        <td class=" ">
+                            @item.Cantidad
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,109 @@
+﻿@model Minem.Sgpam.TransporteDatos.DtoEntidades.Comp_Riesgo_Seg_HumDTO
+
+<div class="rowGroup">
+
+    <h1 class="grupoT">Riesgos a la Seguridad Humana</h1>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-5 col-sm-5 col-xs-12">Accesibilidad (*)</label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <select id="vId_Accesibilidad" class="select2_single form-control" asp-for="Id_Accesibilidad" asp-items="(List<SelectListItem>)ViewBag.CboAccesibilidad">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Accesibilidad" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-5 col-sm-5 col-xs-12">Potencial de Colapso (estabilidad de  taludes a la corto y largo plazo) (*)</label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <select id="vId_Pot_Colapso" class="select2_single form-control" asp-for="Id_Pot_Colapso" asp-items="(List<SelectListItem>)ViewBag.CboPotenciaColapso">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Pot_Colapso" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-5 col-sm-5 col-xs-12">Condiciones de Cierre (*)</label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <select id="vId_Condicion_Cierre" class="select2_single form-control" asp-for="Id_Condicion_Cierre" asp-items="(List<SelectListItem>)ViewBag.CboCondicionCierre">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Condicion_Cierre" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-5 col-sm-5 col-xs-12">Presencia de señales y cercos para limitar acceso (*)</label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <select id="vId_Presencia_Elemento" class="select2_single form-control" asp-for="Id_Presencia_Elemento" asp-items="(List<SelectListItem>)ViewBag.CboPresenciaSeniales">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Presencia_Elemento" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-5 col-sm-5 col-xs-12">Potencial de hundimiento (*)</label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <select id="vId_Hundimiento" class="select2_single form-control" asp-for="Id_Hundimiento" asp-items="(List<SelectListItem>)ViewBag.CboHundimiento">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Hundimiento" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-5 col-sm-5 col-xs-12">Potencial de daño físico relacionado con el residuo (considerar corto y largo plazo) (*)</label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <select id="vId_Pot_Caida_Persona" class="select2_single form-control" asp-for="Id_Pot_Caida_Persona" asp-items="(List<SelectListItem>)ViewBag.CboPotenciaDanio">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Pot_Caida_Persona" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-5 col-sm-5 col-xs-12">Presencia de escombros (*)</label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <select id="vId_Presencia_Advertencia" class="select2_single form-control" asp-for="Id_Presencia_Advertencia" asp-items="(List<SelectListItem>)ViewBag.CboPresenciaEscombros">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Presencia_Advertencia" />
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="x_title2">
+        <div align="center" class="titulo-m">
+            <input type="hidden" asp-for="Id_Componente" />
+        </div>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+                <button type="button" class="boton" style="margin-right: 0px;" id="GuardarReisgoSeguridad" onclick="SaveRiesgosSeguridadHumana()">Guardar  <i class="fa fa-save" style="margin-left: 10px;"></i></button>
+            </li>
+            <li>
+                <div class="boton" data-dismiss="modal">
+                    <a href="#">Cancelar  <i class="fa fa-ban"></i></a>
+                </div>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>

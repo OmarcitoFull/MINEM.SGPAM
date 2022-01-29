@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Minem.Sgpam.TransporteDatos.DtoEntidades.Comp_ResultadoResumenDTO>
+
+<div class="clearfix"></div>
+<div class="x_titleGrupo">
+    <div align="center" class="titulo-m">
+    </div>
+    <ul class="nav navbar-right panel_toolbox">
+        <li>
+            <div class="boton">
+                <a href="#" data-toggle="modal" data-target="#modal23" onclick="ShowModal('@Url.Action("CrearResultado", "RegistrarPAM")', 'fullResultado')">Agregar  <i class="fa fa-plus"></i></a>
+            </div>
+        </li>
+    </ul>
+    <div class="clearfix"></div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th class="column-title">ACT_INVENTARIO</th>
+                <th class="column-title">ACT_SIGEPAM</th>
+                <th class="column-title">Excluir</th>
+                <th class="column-title">Incluir</th>
+                <th class="column-title">Fecha</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (!Model.Any())
+            {
+                <tr class="even pointer">
+                    <td class=" " colspan="5">
+                        No existe registros
+                    </td>
+                </tr>
+             }
+            else
+            {
+                foreach (var item in Model)
+                {
+                    <tr class="odd pointer">
+                        <td class=" ">
+                            @item.Act_Inventario
+                        </td>
+                        <td class=" ">
+                            @item.Act_IGEPAM
+                        </td>
+
+                        <td class=" ">
+                            @item.Excluir
+                        </td>
+
+                        <td class=" ">
+                            @item.Incluir
+                        </td>
+
+                        <td class=" ">
+                            @item.Fecha.GetValueOrDefault().ToShortDateString()
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

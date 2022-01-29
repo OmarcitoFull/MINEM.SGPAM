@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Minem.Sgpam.TransporteDatos.DtoEntidades.TitularesReferencialesDerechosDTO>
+
+<div class="clearfix"></div>
+<div class="table-responsive">
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th class="column-title">Titular Nombre Derecho Minero</th>
+                <th class="column-title">Fec. Inicio</th>
+                <th class="column-title">Fec. Fin</th>
+                <th class="column-title">Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (!Model.Any())
+            {
+                <tr class="even pointer">
+                    <td class=" " colspan="4">
+                        No existe registros
+                    </td>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+                    <tr class="odd pointer">
+                        <td class=" ">
+                            @item.Titular_Referencial
+                        </td>
+                        <td class=" ">
+                            @item.Fecha_Inicio
+                        </td>
+                        <td class=" ">
+                            @item.Fecha_Final
+                        </td>
+                        <td class=" ">
+                            @item.Estado
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

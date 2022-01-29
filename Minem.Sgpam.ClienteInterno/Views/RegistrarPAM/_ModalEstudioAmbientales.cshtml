@@ -1,0 +1,107 @@
+﻿@model Minem.Sgpam.TransporteDatos.DtoEntidades.Comp_Est_AmbDTO
+
+    <div class="rowGroup">
+        <h1 class="grupoT">Estudios Ambientales</h1>
+
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo (*)</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" asp-for="Tipo_Estudio" class="form-control has-feedback-left" maxlength="50">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre (*)</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" asp-for="Des_Nom_Titular" class="form-control has-feedback-left" maxlength="300">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Unidad Ambiental (*)</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" asp-for="Des_Und_Ambiental" class="form-control has-feedback-left" maxlength="300">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre Proyecto (*)</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" asp-for="Des_Nom_Proyecto" class="form-control has-feedback-left" maxlength="300">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Resolución de Aprobación</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" asp-for="Res_Aprobacion" class="form-control has-feedback-left" maxlength="100">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha de Resolución</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input type="date" asp-for="Fec_Resolucion" class="form-control has-feedback-left" id="single_cal2" placeholder="First Name" aria-describedby="inputSuccess2Status2">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Número de Expediente (*)</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" asp-for="Nro_Expediente" class="form-control has-feedback-left" maxlength="50">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha de Expediente</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input type="date" asp-for="Fec_Expediente" class="form-control has-feedback-left" id="single_cal2" placeholder="First Name" aria-describedby="inputSuccess2Status2">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Situación (*)</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" asp-for="Des_Situacion" class="form-control has-feedback-left" maxlength="100">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Resolución</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input type="file" asp-for="Res_Aprobacion" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="clearfix"></div>
+        <div class="x_title2">
+            <div align="center" class="titulo-m">
+                <input type="hidden" asp-for="Id_Componente" />
+                <input type="hidden" asp-for="Id_Comp_Est_Amb" />
+            </div>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <button type="button" class="boton" style="margin-right: 0px;" id="GuardarEstudioAmbientales" onclick="SaveEstudioAmbientales()">Guardar  <i class="fa fa-save" style="margin-left: 10px;"></i></button>
+                </li>
+                <li>
+                    <div class="boton" data-dismiss="modal">
+                        <a href="#">Cancelar  <i class="fa fa-ban"></i></a>
+                    </div>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>

@@ -1,0 +1,50 @@
+﻿@model Minem.Sgpam.TransporteDatos.DtoEntidades.Comp_Est_GestionDTO
+
+<h1 class="grupoT">Estado de Gestión</h1>
+
+<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado de Gestión (*)</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <select id="vId_Tipo_Pam" class="select2_single form-control" asp-for="Id_Estado_Gestion" asp-items="(List<SelectListItem>)ViewBag.CboEstadoGestion">
+                <option value="">SELECCIONE</option>
+            </select>
+            <input type="hidden" asp-for="Id_Estado_Gestion" />
+        </div>
+    </div>
+</div>
+<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Sustento</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <input asp-for="Sustento" class="form-control" maxlength="100" />
+        </div>
+    </div>
+</div>
+<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha de Actualización</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <input asp-for="Fecha" type="date" class="form-control has-feedback-left" aria-describedby="inputSuccess2Status2">
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+<div class="x_title2">
+    <div align="center" class="titulo-m">
+        <input type="hidden" asp-for="Id_Componente" />
+    </div>
+    <ul class="nav navbar-right panel_toolbox">
+        <li>
+            <button type="button" class="boton" style="margin-right: 0px;" onclick="SaveEstadoGestion()">Guardar  <i class="fa fa-save" style="margin-left: 10px;"></i></button>
+        </li>
+        <li>
+            <div class="boton" data-dismiss="modal">
+                <a href="#">Cancelar  <i class="fa fa-ban"></i></a>
+            </div>
+        </li>
+    </ul>
+    <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>

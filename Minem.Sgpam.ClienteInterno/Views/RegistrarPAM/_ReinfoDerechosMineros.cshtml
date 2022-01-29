@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Minem.Sgpam.TransporteDatos.DtoEntidades.ReinfoDerechosMinerosDTO>
+
+<div class="clearfix"></div>
+<div class="table-responsive">
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th class="column-title" colspan="2">Datos del Declarante</th>
+                <th class="column-title" colspan="2">Derecho Minero</th>
+                <th class="column-title">Ubicación Geográfica</th>
+                <th class="column-title">Estado</th>
+                <th class="column-title" colspan="6">Coordenadas de Ubicación</th>
+                <th class="column-title">Tipo de Activida</th>
+            </tr>
+        </thead>
+        <thead>
+            <tr class="headings">
+                <th class="column-title">RUC</th>
+                <th class="column-title">Minero</th>
+                <th class="column-title">Código Único</th>
+                <th class="column-title">Nombre</th>
+                <th class="column-title">Dpto | Provincia | Distro</th>
+                <th class="column-title"></th>
+                <th class="column-title">Este PSAD</th>
+                <th class="column-title">Norte PSAD</th>
+                <th class="column-title">Este WGS84</th>
+                <th class="column-title">Norte WGS84</th>
+                <th class="column-title">Este WGS84 (2)</th>
+                <th class="column-title">Norte WGS (2)</th>
+                <th class="column-title"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (!Model.Any())
+            {
+                <tr class="even pointer">
+                    <td class=" " colspan="13">
+                        No existe registros
+                    </td>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+                    <tr class="odd pointer">
+                        <td class=" ">
+                            @item.Ruc
+                        </td>
+                        <td class=" ">
+                            @item.Minero
+                        </td>
+                        <td class=" ">
+                            @item.Codigo
+                        </td>
+                        <td class=" ">
+                            @item.Nombre
+                        </td>
+                        <td class=" ">
+                            @item.Departamento | @item.Provincia | @item.Distrito
+                        </td>
+                        <td class=" ">
+                            @item.Estado_Vigencia
+                        </td>
+                        <td class=" ">
+                            @item.Este_Psad56
+                        </td>
+                        <td class=" ">
+                            @item.Norte_Psad56
+                        </td>
+                        <td class=" ">
+                            @item.Este_Wgs84_1p
+                        </td>
+                        <td class=" ">
+                            @item.Norte_Wgs84_1p
+                        </td>
+                        <td class=" ">
+                            @item.Este_Wgs84_2p
+                        </td>
+                        <td class=" ">
+                            @item.Norte_Wgs84_2p
+                        </td>
+                        <td class=" ">
+                            @item.Tipo_Actividad
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

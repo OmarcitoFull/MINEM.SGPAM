@@ -1,0 +1,58 @@
+﻿@model Minem.Sgpam.TransporteDatos.DtoEntidades.ComponenteDTO
+
+<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Tamaño Partícula</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <select id="vId_Tamano_Particula" class="select2_single form-control" asp-for="Id_Tamano_Particula" asp-items="(List<SelectListItem>)ViewBag.CboParticula" >
+                <option value="">SELECCIONE</option>
+            </select>
+            @*<input type="hidden" asp-for="Id_Tamano_Particula" />*@
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Humedad</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <select id="vId_Humedad" class="select2_single form-control" asp-for="Id_Humedad" asp-items="(List<SelectListItem>)ViewBag.CboHumedad">
+                <option value="">SELECCIONE</option>
+            </select>
+            @*<input type="hidden" asp-for="Id_Humedad" />*@
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo Concesión</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <select id="vId_Tipo_Concesion" class="select2_single form-control" asp-for="Id_Tipo_Concesion" asp-items="(List<SelectListItem>)ViewBag.CboConcesion">
+                <option value="">SELECCIONE</option>
+            </select>
+            @*<input type="hidden" asp-for="Id_Tipo_Concesion" />*@
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Cobertura</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <select id="vId_Cobertura" class="select2_single form-control" asp-for="Id_Cobertura" asp-items="(List<SelectListItem>)ViewBag.CboCobertura">
+                <option value="">SELECCIONE</option>
+            </select>
+            @*<input type="hidden" asp-for="Id_Cobertura" />*@
+        </div>
+    </div>
+</div>
+
+<div class="col-md-8 col-sm-12 col-xs-12 form-group">
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Característica</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <input asp-for="Caracteristica" class="form-control" maxlength="100" />
+        </div>
+    </div>
+</div>

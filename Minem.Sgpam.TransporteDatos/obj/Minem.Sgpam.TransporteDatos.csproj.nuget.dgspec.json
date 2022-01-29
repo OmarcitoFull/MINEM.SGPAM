@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\A FULLSOFT\\2021\\MINEM\\Fuentes\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\Minem.Sgpam.TransporteDatos.csproj": {}
+    "D:\\A FULLSOFT\\2021\\MINEM\\Servidor\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\Minem.Sgpam.TransporteDatos.csproj": {}
   },
   "projects": {
-    "D:\\A FULLSOFT\\2021\\MINEM\\Fuentes\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\Minem.Sgpam.TransporteDatos.csproj": {
+    "D:\\A FULLSOFT\\2021\\MINEM\\Servidor\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\Minem.Sgpam.TransporteDatos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\A FULLSOFT\\2021\\MINEM\\Fuentes\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\Minem.Sgpam.TransporteDatos.csproj",
+        "projectUniqueName": "D:\\A FULLSOFT\\2021\\MINEM\\Servidor\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\Minem.Sgpam.TransporteDatos.csproj",
         "projectName": "Minem.Sgpam.TransporteDatos",
-        "projectPath": "D:\\A FULLSOFT\\2021\\MINEM\\Fuentes\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\Minem.Sgpam.TransporteDatos.csproj",
+        "projectPath": "D:\\A FULLSOFT\\2021\\MINEM\\Servidor\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\Minem.Sgpam.TransporteDatos.csproj",
         "packagesPath": "C:\\Users\\omar.rodriguez\\.nuget\\packages\\",
-        "outputPath": "D:\\A FULLSOFT\\2021\\MINEM\\Fuentes\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\obj\\",
+        "outputPath": "D:\\A FULLSOFT\\2021\\MINEM\\Servidor\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

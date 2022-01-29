@@ -1,0 +1,14 @@
+PC2787
+Nombre de alias      administradores
+Comentario           Los administradores tienen acceso completo y sin restricciones al equipo o dominio
+
+Miembros
+
+-------------------------------------------------------------------------------
+Administrador
+HP
+M13STNYADM1N
+MEM\Domain Admins
+MEM\externo_sigepam
+Se ha completado el comando correctamente.
+

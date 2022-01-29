@@ -1,0 +1,41 @@
+﻿@model Minem.Sgpam.TransporteDatos.DtoEntidades.Comp_Info_CampoDTO
+<div class="rowGroup">
+    <h1 class="grupoT">Informe de Campo</h1>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Informe (*)</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input asp-for="Nro_Informe" class="form-control" maxlength="100" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha de Expediente (*)</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input asp-for="Fecha_Informe" type="date" class="form-control has-feedback-left" aria-describedby="inputSuccess2Status2">
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="x_title2">
+        <div align="center" class="titulo-m">
+            <input type="hidden" asp-for="Id_Componente" />
+        </div>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+                <button type="button" class="boton" style="margin-right: 0px;" onclick="SaveInformeCampo()">Guardar  <i class="fa fa-save" style="margin-left: 10px;"></i></button>
+            </li>
+            <li>
+                <div class="boton" data-dismiss="modal">
+                    <a href="#">Cancelar  <i class="fa fa-ban"></i></a>
+                </div>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>

@@ -1,0 +1,171 @@
+﻿@using Minem.Sgpam.InfraEstructura;
+@model Minem.Sgpam.TransporteDatos.DtoEntidades.ListarExpedienteDTO
+
+@{
+    ViewData["Title"] = "Expedientes de LNR";
+}
+
+<form id="MyForm" asp-controller="Expediente" asp-action="Index" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+
+    <div class="row">
+
+        <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Expediente</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" class="form-control" maxlength="20">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Zona-Concesion-Proyecto</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <input type="text" class="form-control" maxlength="50">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+            <div class="boton">
+                @*<a href="#">Buscar <i class="fa fa-search"></i></a>*@
+                <a asp-action="Index">Buscar <i class="fa fa-search"></i></a>
+            </div>
+            @*<button type="submit" >Buscar</button>*@
+
+        </div>
+
+        <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Región:</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <select class="select2_single form-control" tabindex="-1">
+                        <option></option>
+                        <option value="AK">Lima</option>
+                        <option value="HI">Tumbes</option>
+                        <option value="HI">Piura</option>
+                        <option value="HI">Lambayeque</option>
+                        <option value="HI">La Libertad</option>
+                        <option value="HI">Cajamarca</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Provincia:</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <select class="select2_single form-control" tabindex="-1">
+                        <option></option>
+                        <option value="AK">Seleccione</option>
+                        <option value="HI">-</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Distrito:</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <select class="select2_single form-control" tabindex="-1">
+                        <option></option>
+                        <option value="AK">Seleccione</option>
+                        <option value="HI">-</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="x_title2">
+        <div align="center" class="titulo-m">
+            <h3>Lista de Expedientes de LNR</h3>
+        </div>
+
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+                <div class="boton">
+                    <a asp-action="AgregarEditar"> Agregar <i class="fa fa-plus"></i></a>
+                </div>
+            </li>
+            <li>
+                <div class="boton"><a href="#">Exportar  <i class="fa fa-sign-out"></i></a> </div>
+            </li>
+        </ul>
+
+        <div class="clearfix"></div>
+    </div>
+
+    <table id="datatable" class="table table-striped table-bordered pam">
+        <thead>
+            <tr>
+                <th>Nro Exopediente</th>
+                <th>Zona-Concesion-Proyecto</th>
+                <th>Año</th>
+                @*<th>Región</th>
+        <th>Provincia</th>
+        <th>Distrito</th>*@
+                <th>Declarante</th>
+                <th>Total LNR</th>
+                <th>Informe</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (!Model.ListaExpediente.Any())
+            {
+                <tr class="even pointer">
+                    <td class=" " colspan="7">No existen registros</td>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model.ListaExpediente)
+                {
+                    <tr class="even pointer">
+                        <td class=" ">@item.Nro_Expediente</td>
+                        <td class=" ">@item.Zona</td>
+                        <td class=" ">@item.Fec_Ingreso</td>
+                        <td class=" ">@item.Declarante</td>
+                        <td class=" "></td>
+                        <td class=" "></td>
+                        <td class=" ">
+                            <ul class="nav navbar-left panel_toolbox">
+                                <li>
+                                    <div class="boton2">
+                                        <a asp-action="AgregarEditar" asp-route-vId="@item.Id_Expediente" title="Editar Registro"><i class="fas fa-edit"></i></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            }
+            @*<tr>
+                          <td>$320,800</td>
+                    <td><div class="boton2"><a href="#"> Generar <i class="fa fa-plus-square-o"></i></a></div></td>
+                    <td><a href="#" class="enlace">inf 001</a></td>
+                    <td>
+                        <ul class="nav navbar-left panel_toolbox">
+                            <li>
+                                <div class="boton2">
+                                    <a href="#"> <i class="fa fa-edit "></i></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="boton2">
+                                    <a href="#"> <i class="fa fa-external-link "></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>*@
+        </tbody>
+    </table>
+
+
+</form>

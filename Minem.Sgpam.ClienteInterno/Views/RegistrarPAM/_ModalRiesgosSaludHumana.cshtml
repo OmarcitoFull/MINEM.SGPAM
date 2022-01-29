@@ -1,0 +1,73 @@
+﻿@model Minem.Sgpam.TransporteDatos.DtoEntidades.Comp_Riesgo_Sal_AmbDTO
+
+<div class="rowGroup">
+    <h1 class="grupoT">Riesgos a la Salud Humana y Ambiente Físico</h1>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-5 col-sm-5 col-xs-12">Evidencia de erosión  hídrica o eólica (*)</label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <select id="vId_Evidencia_Erosion" class="select2_single form-control" asp-for="Id_Evidencia_Erosion" asp-items="(List<SelectListItem>)ViewBag.CboEvidencia_Erosion">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Evidencia_Erosion" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-5 col-sm-5 col-xs-12">Evidencia de inundaciones, descargas, drenajes o derramprevios (relacionada a la actividad mi (*) </label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <select id="vId_Evidencia_Inundacion" class="select2_single form-control" asp-for="Id_Evidencia_Inundacion" asp-items="(List<SelectListItem>)ViewBag.CboEvidencia_Inundacion">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Evidencia_Inundacion" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-5 col-sm-5 col-xs-12">Potencial de drenaje ácido (según inspección visual) (*) </label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <select id="vId_Potencial_Ard" class="select2_single form-control" asp-for="Id_Potencial_Ard" asp-items="(List<SelectListItem>)ViewBag.CboPotencial_Ard">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Potencial_Ard" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-5 col-sm-5 col-xs-12">Evidencia de sustancias tóx  (cianuro, arsénico, etc.) (*)</label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <select id="vId_Evidencia_Sus_Toxica" class="select2_single form-control" asp-for="Id_Evidencia_Sus_Toxica" asp-items="(List<SelectListItem>)ViewBag.CboEvidencia_Sus_Toxica">
+                    <option value="">SELECCIONE</option>
+                </select>
+                <input type="hidden" asp-for="Id_Evidencia_Sus_Toxica" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="clearfix"></div>
+    <div class="x_title2">
+        <div align="center" class="titulo-m">
+            <input type="hidden" asp-for="Id_Componente" />
+        </div>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+                <button type="button" class="boton" style="margin-right: 0px;" id="GuardarRiesgoSaludHumana" onclick="SaveRiesgosSaludHumana()">Guardar  <i class="fa fa-save" style="margin-left: 10px;"></i></button>
+            </li>
+            <li>
+                <div class="boton" data-dismiss="modal">
+                    <a href="#">Cancelar  <i class="fa fa-ban"></i></a>
+                </div>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>

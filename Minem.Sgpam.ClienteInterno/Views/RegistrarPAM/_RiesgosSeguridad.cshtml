@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Minem.Sgpam.TransporteDatos.DtoEntidades.Comp_Riesgo_Seg_HumDTO>
+
+<div class="x_titleGrupo">
+    <div align="center" class="titulo-m">
+    </div>
+
+    <ul class="nav navbar-right panel_toolbox">
+        <li>
+            <div class="boton">
+                <a href="#" data-toggle="modal" data-target="#modal9" onclick="ShowModal('@Url.Action("CrearRiesgosSeguridadHumana", "RegistrarPAM")', 'fullRiesgosSeguridadHumana')">Agregar  <i class="fa fa-plus"></i></a>
+            </div>
+        </li>
+    </ul>
+    <div class="clearfix"></div>
+</div>
+
+<div class="clearfix"></div>
+<div class="table-responsive">
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th class="column-title">Accesibilidad</th>
+                <th class="column-title"> Potencial de colapso</th>
+                <th class="column-title"> Condiciones de cierre </th>
+                <th class="column-title"> Presencia de señales y cercos</th>
+                <th class="column-title">  Potencial de hundimiento</th>
+                <th class="column-title">  Potencial de daño físico</th>
+                <th class="column-title">  Presencia de escombros</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (!Model.Any())
+            {
+                <tr class="even pointer">
+                    <td class=" " colspan="7">
+                        No existe registros
+                    </td>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+                    <tr class="odd pointer">
+                        <td class=" ">
+                            @item.Accesibilidad
+                        </td>
+                        <td class=" ">
+                            @item.Pot_Colapso
+                        </td>
+                        <td class=" ">
+                            @item.Condicion_Cierre
+                        </td>
+                        <td class=" ">
+                            @item.Presencia_Elemento
+                        </td>
+                        <td class=" ">
+                            @item.Hundimiento
+                        </td>
+                        <td class=" ">
+                            @item.Pot_Caida_Persona
+                        </td>
+                        <td class=" ">
+                            @item.Presencia_Advertencia
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
