@@ -298,7 +298,7 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                             {
                                 Cargo = "SISTEMAS",
                                 Fec_Ingreso = DateTime.Now,
-                                Flg_Estado = "1",
+                                Flg_Estado = Constantes.Activo,
                                 Id_Componente = vRegistro.ID_COMPONENTE,
                                 Id_Componente_Mod = 0,
                                 Ip_Ingreso = vRegistro.IP_MODIFICA,
