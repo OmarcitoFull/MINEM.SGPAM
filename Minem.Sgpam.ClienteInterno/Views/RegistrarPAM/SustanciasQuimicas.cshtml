@@ -451,10 +451,9 @@
 
             var vModel = $("#MyForm").serializeArray();
             vModel.push({ name: 'ListaReconocimientoMin', value: vList });
-            //console.log(vModel);
+            
             var vData = {};
             $.map(vModel, function (n, i) { vData[n.name] = n.value; });
-            console.log(vData);
 
              $.ajax({
                 type: "POST",
@@ -462,14 +461,13 @@
                 data: vData,
                 success: function (data) {
                     if (data.operation == "@Constantes.Ok") {
-                        alert("Operación exitosa");
+                        alert("@Constantes.MsgOk");
                         window.location.reload();
                     } else {
-                        alert("Ocurrio un error al grabar");
+                        alert("@Constantes.MsgErr");
                     }
                 },
                 error: function (req, status, error) {
-                    console.log(req)
                     alert(req);
                     alert(status);
                     alert(error);
@@ -489,11 +487,11 @@
             $.post("@Url.Action("GrabarObservacion", "RegistrarPAM")", $("#frmObservaciones").serialize()).done(function (x)
             {
                 if ("@Constantes.Ok" == x.operation) {
-                    alert("Operación exitosa");
+                    alert("@Constantes.MsgOk");
                     $("#modal7").modal("toggle");
                     $("#DivObservaciones").load("@Url.Action("ListarObservaciones", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
                 } else {
-                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr")
                 }
             }).fail(function (a, b, c)
             {
@@ -505,11 +503,11 @@
             $.post("@Url.Action("GrabarRiesgosSeguridadHumana", "RegistrarPAM")", $("#frmRiesgosSeguridadHumana").serialize()).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
-                    alert("Operación exitosa");
+                    alert("@Constantes.MsgOk");
                     $("#modal9").modal("toggle");
                     window.location.reload();
                 } else {
-                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr")
                 }
             }).fail(function (a, b, c) {
                 alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
@@ -520,11 +518,11 @@
             $.post("@Url.Action("GrabarRiesgosSaludHumana", "RegistrarPAM")", $("#frmRiesgosSaludHumana").serialize()).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
-                    alert("Operación exitosa");
+                    alert("@Constantes.MsgOk");
                     $("#modal10").modal("toggle");
                     window.location.reload();
                 } else {
-                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr")
                 }
             }).fail(function (a, b, c) {
                 alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
@@ -535,11 +533,11 @@
             $.post("@Url.Action("GrabarRiesgosFaunaSilvestre", "RegistrarPAM")", $("#frmRiesgosFaunaSilvestre").serialize()).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
-                    alert("Operación exitosa");
+                    alert("@Constantes.MsgOk");
                     $("#modal11").modal("toggle");
                     window.location.reload();
                 } else {
-                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr")
                 }
             }).fail(function (a, b, c) {
                 alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
@@ -550,11 +548,11 @@
             $.post("@Url.Action("GrabarMedicionesCampo", "RegistrarPAM")", $("#frmMedicionesCampo").serialize()).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
-                    alert("Operación exitosa");
+                    alert("@Constantes.MsgOk");
                     $("#modal12").modal("toggle");
                     $("#DivMedicionesCampo").load("@Url.Action("ListarMedicionesCampo", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
                 } else {
-                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr")
                 }
             }).fail(function (a, b, c) {
                 alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
@@ -588,11 +586,11 @@
                     processData: !1,
                     success: function (x) {
                         if (x.operation == "@Constantes.Ok") {
-                            alert("Operación exitosa");
+                            alert("@Constantes.MsgOk");
                             $("#modal13").modal("toggle");
                             $("#DivInformacionGrafica").load("@Url.Action("ListarInformacionGrafica", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
                         } else {
-                            "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor");
+                            "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr");
                         }
                     }
                 });
@@ -603,11 +601,11 @@
             $.post("@Url.Action("GrabarComentarios", "RegistrarPAM")", $("#frmComentariosAdicionales").serialize()).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
-                    alert("Operación exitosa");
+                    alert("@Constantes.MsgOk");
                     $("#modal14").modal("toggle");
                     $("#DivComentariosAdicionales").load("@Url.Action("ListarComentarios", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
                 } else {
-                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr")
                 }
             }).fail(function (a, b, c) {
                 alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
@@ -618,11 +616,11 @@
             $.post("@Url.Action("GrabarEstudioAmbientales", "RegistrarPAM")", $("#frmEstudioAmbientales").serialize()).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
-                    alert("Operación exitosa");
+                    alert("@Constantes.MsgOk");
                     $("#modal19").modal("toggle");
                     $("#DivEstudioAmbientales").load("@Url.Action("ListarEstudioAmbientales", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
                 } else {
-                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr")
                 }
             }).fail(function (a, b, c) {
                 alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
@@ -633,11 +631,11 @@
             $.post("@Url.Action("GrabarEncargoRemediacion", "RegistrarPAM")", $("#frmEncargoRemediacion").serialize()).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
-                    alert("Operación exitosa");
+                    alert("@Constantes.MsgOk");
                     $("#modal20").modal("toggle");
                     $("#DivEncargoRemediacion").load("@Url.Action("ListarEncargoRemediacion", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
                 } else {
-                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr")
                 }
             }).fail(function (a, b, c) {
                 alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
@@ -648,11 +646,11 @@
             $.post("@Url.Action("GrabarReaprovechamiento", "RegistrarPAM")", $("#frmReaprovechamiento").serialize()).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
-                    alert("Operación exitosa");
+                    alert("@Constantes.MsgOk");
                     $("#modal21").modal("toggle");
                     $("#DivReaprovechamientos").load("@Url.Action("ListarReaprovechamiento", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
                 } else {
-                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr")
                 }
             }).fail(function (a, b, c) {
                 alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
@@ -663,11 +661,11 @@
             $.post("@Url.Action("GrabarInformeCampo", "RegistrarPAM")", $("#frmInformeCampo").serialize()).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
-                    alert("Operación exitosa");
+                    alert("@Constantes.MsgOk");
                     $("#modal22").modal("toggle");
                     $("#DivInformeCampo").load("@Url.Action("ListarInformeCampo", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
                 } else {
-                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr")
                 }
             }).fail(function (a, b, c) {
                 alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
@@ -678,11 +676,11 @@
             $.post("@Url.Action("GrabarResultado", "RegistrarPAM")", $("#frmResultado").serialize()).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
-                    alert("Operación exitosa");
+                    alert("@Constantes.MsgOk");
                     $("#modal23").modal("toggle");
                     $("#DivResultado").load("@Url.Action("ListarResultado", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
                 } else {
-                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr")
                 }
             }).fail(function (a, b, c) {
                 alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
@@ -693,11 +691,11 @@
             $.post("@Url.Action("GrabarEstadoGestion", "RegistrarPAM")", $("#frmEstadogestion").serialize()).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
-                    alert("Operación exitosa");
+                    alert("@Constantes.MsgOk");
                     $("#modal24").modal("toggle");
                     $("#DivEstadoGestion").load("@Url.Action("ListarEstadoGestion", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
                 } else {
-                    "@((int)TipoErr.MODEL)" == x.type ? alert("Falta completar datos") : alert("Ocurrió un error al grabar en el servidor")
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr")
                 }
             }).fail(function (a, b, c) {
                 alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)

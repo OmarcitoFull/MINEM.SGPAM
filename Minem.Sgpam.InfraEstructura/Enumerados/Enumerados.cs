@@ -1,5 +1,10 @@
 ﻿namespace Minem.Sgpam.InfraEstructura.Enumerados
 {
+    /// <summary>
+    /// Objetivo:	Insertar los enumerable que se invocan en toda la solución
+    /// Creado Por:	(ORM) Omar Rodriguez M.
+    /// Fecha Creación:	01/12/2021
+    /// </summary>
     public enum TipoPam
     {
         LABOR_MINERA = 1,

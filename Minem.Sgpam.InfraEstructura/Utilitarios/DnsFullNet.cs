@@ -2,11 +2,13 @@
 
 namespace Minem.Sgpam.InfraEstructura.Utilitarios
 {
+    /// <summary>
+    /// Objetivo:	Clase que permite leer el ip
+    /// Creado Por:	(ORM) Omar Rodriguez M.
+    /// Fecha Creación:	10/12/2021
+    /// </summary>
     public class DnsFullNet
     {
-        //public static string IP = Dns.GetHostByName(Dns.GetHostName()).AddressList[4].ToString();
-        //public static string IP = Dns.GetHostEntry(Dns.GetHostName()).AddressList[4].ToString(); 
-
         public static string GetIp()
         {
             string vIp = "";

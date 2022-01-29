@@ -1,13 +1,16 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Minem.Sgpam.AccesoDatos.Base;
 using Minem.Sgpam.AccesoDatos.Implementaciones;
 using Minem.Sgpam.AccesoDatos.Interfaces;
 using Minem.Sgpam.LogicaNegocio.Implementaciones;
 using Minem.Sgpam.LogicaNegocio.Interfaces;
 
-
 namespace Minem.Sgpam.WebApi
 {
+    /// <summary>
+    /// Objetivo:	Clase donde se Instancias de las interfaces
+    /// Creado Por:	(ORM) - Omar Rodriguez M.
+    /// Fecha Creación:	01/11/2021
+    /// </summary>
     public static class Extensiones
     {
         public static void Inyecciones(this IServiceCollection vServices)

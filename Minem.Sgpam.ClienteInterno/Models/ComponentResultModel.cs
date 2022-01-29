@@ -3,6 +3,11 @@ using Minem.Sgpam.InfraEstructura.Enumerados;
 
 namespace Minem.Sgpam.ClienteInterno.Models
 {
+    /// <summary>
+    /// Objetivo:	Modelo que representa un resultado por json
+    /// Creado Por:	(ORM) - Omar Rodriguez M.
+    /// Fecha Creación:	01/11/2021
+    /// </summary>
     public class ComponentResultModel
     {
         public ComponentResultModel()
