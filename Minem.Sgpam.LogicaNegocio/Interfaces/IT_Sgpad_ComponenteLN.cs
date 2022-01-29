@@ -14,7 +14,7 @@ namespace Minem.Sgpam.LogicaNegocio.Interfaces
         IEnumerable<ComponenteDTO> ListarComponenteDTO();
         ComponenteDTO RecuperarComponenteDTOPorCodigo(int vId_Componente);
         ComponenteDTO GrabarComponenteDTO(ComponenteDTO vComponenteDTO);
-        int AnularComponenteDTOPorCodigo(ComponenteDTO vComponenteDTO);
+        bool AnularComponenteDTOPorCodigo(ComponenteDTO vComponenteDTO);
         IEnumerable<ComponenteDTO> ListarPaginadoComponenteDTO(string vFiltro, int vNumPag, int vCantRegxPag);
         RegistrarPamDTO RecuperarFullComponenteDTOPorCodigo(int vId_Componente);
         IEnumerable<ComponenteMinDTO> ListarComponenteEumDTO(int vId_Eum);

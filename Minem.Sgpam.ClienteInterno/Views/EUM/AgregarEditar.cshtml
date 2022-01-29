@@ -705,6 +705,7 @@
                     <tr class="headings">
                         <th class="column-title">ID Componente </th>
                         <th class="column-title">Nombre Componente </th>
+                        <th class="column-title">Tipo</th>
                         <th class="column-title">Sub Tipo</th>
                         <th class="column-title">Este</th>
                         <th class="column-title">Norte</th>
@@ -713,7 +714,6 @@
                         <th class="column-title">Responsable</th>
                         <th class="column-title">Riesgo</th>
                         <th class="column-title">Puntaje</th>
-                        <th class="column-title">Imagen</th>
                         <th class="column-title">Opciones</th>
                     </tr>
                 </thead>
@@ -736,6 +736,9 @@
                                 </td>
                                 <td class=" ">
                                     @item.Nombre
+                                </td>
+                                <td class=" ">
+                                    @item.Tipo
                                 </td>
                                 <td class=" ">
                                     @item.SubTipo
@@ -762,9 +765,6 @@
                                     @item.Puntaje
                                 </td>
                                 <td class=" ">
-                                    @item.Imagen
-                                </td>
-                                <td class=" ">
                                     @switch (item.Tipo.ToUpper())
                                     {
                                         case "LABOR MINERA":
@@ -784,6 +784,11 @@
                                             break;
 
                                     }
+                                    <div class="boton2">
+                                        <a href="#" onclick="FullRemoveComponent(@item.Id_Componente)">
+                                            <i class="fa fa-trash-o "></i>
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
                         }
@@ -934,9 +939,21 @@
 @section Scripts {
     <script type="text/javascript">
         function FullNewComponent() {
-            alert("Nuevo poder felino");
-
             $.post("@Url.Action("CreateComponent", "Eum")?vIdEum=" + @Model.Eum.Id_Eum + "&vIdTipo=" + $("#cboTipoComponente").val()).done(function (x)
+            {
+                if (x.operation == "@Constantes.Ok") {
+                    alert("Operación exitosa");
+                    window.location.reload();
+                } else {
+                    alert("Ocurrió un error al grabar en el servidor")
+                }
+            }).fail(function (a, b, c) {
+                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+            });
+        }
+
+        function FullRemoveComponent(vId) {
+            $.post("@Url.Action("RemoveComponent", "Eum")?vId=" + vId).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
                     alert("Operación exitosa");
@@ -984,7 +1001,5 @@
 
 
         });
-
-
     </script>
 }

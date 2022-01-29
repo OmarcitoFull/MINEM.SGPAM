@@ -93,8 +93,27 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             };
 
             vRegistro = await Services<ComponenteDTO>.Grabar("Componente/Save", vRegistro);
-            return Ok(new ComponentResultModel(vRegistro?.Id_Componente ?? 0));
+            return Json(new ComponentResultModel { Operation = vRegistro.Id_Componente > 0 ? Constantes.Ok : Constantes.Error });
         }
 
+        [HttpPost]
+        public async Task<IActionResult> RemoveComponent(int vId)
+        {
+            ComponenteDTO vRegistro = new ComponenteDTO
+            {
+                Id_Componente = vId,
+                Flg_Estado = Constantes.Activo,
+                Fec_Ingreso = DateTime.Now,
+                Fec_Modifica = DateTime.Now,
+                Usu_Ingreso = "ORODRIGUEZ",
+                Usu_Modifica = "ORODRIGUEZ",
+                Ip_Ingreso = DnsFullNet.GetIp(),
+                Ip_Modifica = DnsFullNet.GetIp()
+            };
+            bool vResult;
+            vResult = await Services<ComponenteDTO>.Eliminar("Componente/Remove", vRegistro);
+            return Json(new ComponentResultModel { Operation = vResult ? Constantes.Ok : Constantes.Error });
+        }
+        
     }
 }

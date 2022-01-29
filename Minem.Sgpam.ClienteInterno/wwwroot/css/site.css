@@ -110,6 +110,7 @@ table {
     margin-bottom: 3px;
     font-weight: 700;
     width: max-content;
+    min-width: 30px!important;
 }
 
 

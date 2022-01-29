@@ -5,6 +5,11 @@ using System.Collections.Generic;
 
 namespace Minem.Sgpam.WebApi.Controllers
 {
+    /// <summary>
+    /// Objetivo:	Controlador que implementa los servicios
+    /// Creado Por:	Omar Rodriguez Muñoz
+    /// Fecha Creación:	31/10/2021
+    /// </summary>
     public class EstadoGestionController : BaseController
     {
         public readonly IT_Sgpad_Comp_Est_GestionLN Comp_Est_GestionLN;

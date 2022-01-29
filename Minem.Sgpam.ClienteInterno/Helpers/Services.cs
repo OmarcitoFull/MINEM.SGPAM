@@ -8,6 +8,11 @@ using Minem.Sgpam.InfraEstructura;
 
 namespace Minem.Sgpam.ClienteInterno.Helpers
 {
+    /// <summary>
+    /// Objetivo:	Clase que implementa la comunicación con los servicios
+    /// Creado Por:	Omar Rodriguez Muñoz
+    /// Fecha Creación:	01/11/2021
+    /// </summary>
     public class Services<T>
     {
         static string ApiPam = Environment.GetEnvironmentVariable(Constantes.ServiceRoute);

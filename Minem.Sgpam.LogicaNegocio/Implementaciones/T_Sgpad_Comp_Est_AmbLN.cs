@@ -101,10 +101,6 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         {
             try
             {
-                //var vRegistro = new T_Sgpad_Comp_Est_Amb();
-                
-
-
                 if (vComp_Est_AmbDTO != null)
                 {
                     var vRegistro = new T_Sgpad_Comp_Est_Amb

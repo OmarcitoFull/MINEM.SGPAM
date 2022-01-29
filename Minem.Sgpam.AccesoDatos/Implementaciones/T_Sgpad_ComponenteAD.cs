@@ -86,7 +86,6 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     vCmd.Parameters.Add("pOTRO_DESCRIPCION", vT_Sgpad_Componente.OTRO_DESCRIPCION);
                     vCmd.Parameters.Add("pID_TIPO_MINERIA", vT_Sgpad_Componente.ID_TIPO_MINERIA);
                     vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Componente.FLG_ESTADO);
-                    //vCmd.Parameters.Add("pID_COMPONENTE", vT_Sgpad_Componente.ID_COMPONENTE);
                     vCmd.Parameters.Add("pID_CUENCA", vT_Sgpad_Componente.ID_CUENCA);
                     vCmd.Parameters.Add("pPUNTAJE_NORMALIZADO", vT_Sgpad_Componente.PUNTAJE_NORMALIZADO);
                     vCmd.Parameters.Add("pCARACTERISTICA", vT_Sgpad_Componente.CARACTERISTICA);
@@ -162,7 +161,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             return vT_Sgpad_Componente;
         }
 
-        public int AnularT_Sgpad_ComponentePorCodigo(int vId_Componente)
+        public int AnularT_Sgpad_ComponentePorCodigo(T_Sgpad_Componente vT_Sgpad_Componente)
         {
             int vResultado = 0;
             using (OracleConnection vCnn = new OracleConnection(CnnString))
@@ -170,7 +169,10 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_COMPONENTE.USP_DEL_COMPONENTE", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pID_COMPONENTE", vId_Componente);
+                    vCmd.Parameters.Add("pID_COMPONENTE", vT_Sgpad_Componente.ID_COMPONENTE);
+                    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Componente.USU_MODIFICA);
+                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Componente.IP_MODIFICA);
+                    vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Componente.FEC_MODIFICA);
                     vCnn.Open();
                     vResultado = vCmd.ExecuteNonQuery();
                     vCnn.Close();
@@ -209,7 +211,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
 
         public IEnumerable<V_Sgpad_Componente> ListarT_Sgpad_Componente_Eum(int vId_Eum)
         {
-            List<V_Sgpad_Componente> vLista = new List<V_Sgpad_Componente>();
+            List<V_Sgpad_Componente> vList = new List<V_Sgpad_Componente>();
             V_Sgpad_Componente vEntidad;
 
             using (OracleConnection vCnn = new OracleConnection(CnnString))
@@ -224,12 +226,12 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     while (vRdr.Read())
                     {
                         vEntidad = new V_Sgpad_Componente(vRdr);
-                        vLista.Add(vEntidad);
+                        vList.Add(vEntidad);
                     }
                 }
                 vCnn.Close();
             }
-            return vLista;
+            return vList;
         }
     }
 }

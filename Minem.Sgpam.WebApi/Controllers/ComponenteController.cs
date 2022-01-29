@@ -6,6 +6,11 @@ using System.Collections.Generic;
 
 namespace Minem.Sgpam.WebApi.Controllers
 {
+    /// <summary>
+    /// Objetivo:	Controlador que implementa los servicios
+    /// Creado Por:	Omar Rodriguez Muñoz
+    /// Fecha Creación:	31/10/2021
+    /// </summary>
     public class ComponenteController : BaseController
     {
         public readonly IT_Sgpad_ComponenteLN ComponenteLN;
@@ -24,6 +29,12 @@ namespace Minem.Sgpam.WebApi.Controllers
         public ComponenteDTO Save([FromBody] ComponenteDTO vComponenteDTO)
         {
             return ComponenteLN.GrabarComponenteDTO(vComponenteDTO);
+        }
+
+        [HttpPost("Remove")]
+        public bool Remove([FromBody] ComponenteDTO vComponenteDTO)
+        {
+            return ComponenteLN.AnularComponenteDTOPorCodigo(vComponenteDTO);
         }
 
         [HttpGet("ListEum")]

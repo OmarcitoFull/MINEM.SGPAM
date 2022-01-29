@@ -34,18 +34,15 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         private readonly IT_Sgpad_Comp_ReconocimientoLN Comp_ReconocimientoLN;
         private readonly IV_ExternosLN ExternosLN;
         private readonly IT_Sgpad_Comp_Est_GestionLN Est_GestionLN;
-        //private readonly IT_Sgpal_Estado_GestionLN Estado_GestionLN;
         private readonly IT_Sgpad_Comp_Riesgo_Seg_HumLN Riesgo_Seg_HumLN;
         private readonly IT_Sgpad_Comp_Riesgo_Sal_AmbLN Riesgo_Sal_AmbLN;
         private readonly IT_Sgpad_Comp_Riesgo_Fau_ConLN Riesgo_Fau_ConLN;
         private readonly IT_Sgpad_Comp_ResultadoLN ResultadoLN;
         private readonly IT_Sgpad_Comp_Est_AmbLN Comp_Est_AmbLN;
-
         private readonly IT_Sgpal_Tamano_ParticulaLN Tamano_ParticulaLN;
         private readonly IT_Sgpal_HumedadLN HumedadLN;
         private readonly IT_Sgpal_Tipo_ConcesionLN Tipo_ConcesionLN;
         private readonly IT_Sgpal_CoberturaLN CoberturaLN;
-
 
         public T_Sgpad_ComponenteLN(
             IT_Sgpad_ComponenteAD vT_Sgpad_ComponenteAD,
@@ -94,13 +91,11 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             Comp_ReconocimientoLN = vIT_Sgpad_Comp_ReconocimientoLN;
             ExternosLN = vIV_ExternosLN;
             Est_GestionLN = vIT_Sgpad_Comp_Est_GestionLN;
-            //Estado_GestionLN = vIT_Sgpal_Estado_GestionLN;
             Riesgo_Seg_HumLN = vIT_Sgpad_Comp_Riesgo_Seg_HumLN;
             Riesgo_Sal_AmbLN = vIT_Sgpad_Comp_Riesgo_Sal_AmbLN;
             Riesgo_Fau_ConLN = vIT_Sgpad_Comp_Riesgo_Fau_ConLN;
             ResultadoLN = vIT_Sgpad_Comp_ResultadoLN;
             Comp_Est_AmbLN = vIT_Sgpad_Comp_Est_AmbLN;
-
             Tamano_ParticulaLN = vIT_Sgpal_Tamano_ParticulaLN;
             HumedadLN = vIT_Sgpal_HumedadLN;
             Tipo_ConcesionLN = vIT_Sgpal_Tipo_ConcesionLN;
@@ -139,9 +134,6 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         Ip_Modifica = vRegistro.IP_MODIFICA,
                         Usu_Ingreso = vRegistro.USU_INGRESO,
                         Usu_Modifica = vRegistro.USU_MODIFICA,
-                        //Altura = vRegistro.ALTURA,
-                        //Ancho = vRegistro.ANCHO,
-                        //Area_Superficial = vRegistro.AREA_SUPERFICIAL,
                         Caracteristica = vRegistro.CARACTERISTICA,
                         Id_Datum = vRegistro.ID_DATUM,
                         Este = vRegistro.ESTE,
@@ -152,19 +144,15 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         Id_Cuenca_Secundaria = vRegistro.ID_CUENCA_SECUNDARIA,
                         Id_Eum = vRegistro.ID_EUM,
                         Id_Humedad = vRegistro.ID_HUMEDAD,
-                        //Id_Resonsable = vRegistro.ID_RESONSABLE,
-                        //Id_Riesgo = vRegistro.ID_RIESGO,
                         Id_Situacion_Pam = vRegistro.ID_SITUACION_PAM,
                         Id_Sub_Tipo_Pam = vRegistro.ID_SUB_TIPO_PAM,
                         Id_Tamano_Particula = vRegistro.ID_TAMANO_PARTICULA,
                         Id_Tipo_Concesion = vRegistro.ID_TIPO_CONCESION,
                         Id_Tipo_Mineria = vRegistro.ID_TIPO_MINERIA,
                         Id_Tipo_Pam = vRegistro.ID_TIPO_PAM,
-                        //Largo = vRegistro.LARGO,
                         Nombre = vRegistro.NOMBRE,
                         Norte = vRegistro.NORTE,
                         Otro_Descripcion = vRegistro.OTRO_DESCRIPCION,
-                        //Profundidad = vRegistro.PROFUNDIDAD,
                         Puntaje = vRegistro.PUNTAJE,
                         Puntaje_Normalizado = vRegistro.PUNTAJE_NORMALIZADO,
                         Ubicacion = vRegistro.UBICACION,
@@ -195,12 +183,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                 {
                     var vRegistro = new T_Sgpad_Componente
                     {
-                        //ALTURA = vComponenteDTO.Altura,
-                        //ANCHO = vComponenteDTO.Ancho,
-                        //AREA_SUPERFICIAL = vComponenteDTO.Area_Superficial,
                         ID_DATUM = vComponenteDTO.Id_Datum,
                         ID_HUMEDAD = vComponenteDTO.Id_Humedad,
-
                         CARACTERISTICA = vComponenteDTO.Caracteristica,
                         ESTE = vComponenteDTO.Este,
                         ID_COBERTURA = vComponenteDTO.Id_Cobertura,
@@ -209,19 +193,15 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         ID_CUENCA_HIDRO = vComponenteDTO.Id_Cuenca_Hidro,
                         ID_CUENCA_SECUNDARIA = vComponenteDTO.Id_Cuenca_Secundaria,
                         ID_EUM = vComponenteDTO.Id_Eum,
-                        //ID_RESONSABLE = vComponenteDTO.Id_Resonsable,
-                        //ID_RIESGO = vComponenteDTO.Id_Riesgo,
                         ID_SITUACION_PAM = vComponenteDTO.Id_Situacion_Pam,
                         ID_SUB_TIPO_PAM = vComponenteDTO.Id_Sub_Tipo_Pam,
                         ID_TAMANO_PARTICULA = vComponenteDTO.Id_Tamano_Particula,
                         ID_TIPO_CONCESION = vComponenteDTO.Id_Tipo_Concesion,
                         ID_TIPO_MINERIA = vComponenteDTO.Id_Tipo_Mineria,
                         ID_TIPO_PAM = vComponenteDTO.Id_Tipo_Pam,
-                        //LARGO = vComponenteDTO.Largo,
                         NOMBRE = vComponenteDTO.Nombre,
                         NORTE = vComponenteDTO.Norte,
                         OTRO_DESCRIPCION = vComponenteDTO.Otro_Descripcion,
-                        //PROFUNDIDAD = vComponenteDTO.Profundidad,
                         PUNTAJE = vComponenteDTO.Puntaje,
                         PUNTAJE_NORMALIZADO = vComponenteDTO.Puntaje_Normalizado,
                         UBICACION = vComponenteDTO.Ubicacion,
@@ -321,11 +301,24 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
-        public int AnularComponenteDTOPorCodigo(ComponenteDTO vComponenteDTO)
+        public bool AnularComponenteDTOPorCodigo(ComponenteDTO vComponenteDTO)
         {
+            bool vResult = false;
             try
             {
-                return ComponenteAD.AnularT_Sgpad_ComponentePorCodigo(0);
+                if (vComponenteDTO != null)
+                {
+                    var vRegistro = new T_Sgpad_Componente
+                    {
+                        ID_COMPONENTE = vComponenteDTO.Id_Componente,
+                        FLG_ESTADO = Constantes.Inactivo,
+                        IP_MODIFICA = vComponenteDTO.Ip_Modifica,
+                        USU_MODIFICA = vComponenteDTO.Usu_Modifica,
+                        FEC_MODIFICA = vComponenteDTO.Fec_Modifica
+                    };
+                    vResult = ComponenteAD.AnularT_Sgpad_ComponentePorCodigo(vRegistro) != 0;
+                }
+                return vResult;
             }
             catch (Exception ex)
             {
@@ -364,7 +357,6 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         CboHumedad = HumedadLN.ListarHumedadDTO().ToList(),
                         CboConcesion = Tipo_ConcesionLN.ListarTipo_ConcesionDTO().ToList(),
                         CboCobertura = CoberturaLN.ListarCoberturaDTO().ToList(),
-                        //CboEstadoGestion = (List<Estado_GestionDTO>)Estado_GestionLN.ListarEstado_GestionDTO(),
                         //CboRegion = (List<RegionDTO>)RegionLN.ListarRegionDTO(),
                         //CboProvincia = (List<ProvinciaDTO>)ProvinciaLN.ListarProvinciaDTO(),
                         //CboDistrito = (List<DistritoDTO>)DistritoLN.ListarDistritoDTO(),

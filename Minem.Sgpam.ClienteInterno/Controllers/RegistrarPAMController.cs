@@ -16,6 +16,11 @@ using System.Threading.Tasks;
 
 namespace Minem.Sgpam.ClienteInterno.Controllers
 {
+    /// <summary>
+    /// Objetivo:	Controladora que implementa todos los componentes
+    /// Creado Por:	Omar Rodriguez Muñoz
+    /// Fecha Creación:	01/12/2021
+    /// </summary>
     public class RegistrarPAMController : Controller
     {
         [HttpGet]
