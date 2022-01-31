@@ -32,3 +32,20 @@ D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\ref\Minem.Sgpam.AccesoDatos.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.pdb
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.deps.json
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.dll
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\ref\Minem.Sgpam.AccesoDatos.dll
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.pdb
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.Entidades.dll
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.InfraEstructura.dll
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.Entidades.pdb
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.InfraEstructura.pdb
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.csproj.AssemblyReference.cache
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.GeneratedMSBuildEditorConfig.editorconfig
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.AssemblyInfoInputs.cache
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.AssemblyInfo.cs
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.csproj.CoreCompileInputs.cache
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.csproj.CopyComplete
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.dll
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\ref\Minem.Sgpam.AccesoDatos.dll
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.pdb

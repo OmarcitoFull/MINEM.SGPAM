@@ -44,7 +44,7 @@
     <None Include="Views\RegistrarPAM\_Reaprovechamientos.cshtml" />
     <None Include="Views\RegistrarPAM\_ReinfoDerechosMineros.cshtml" />
     <None Include="Views\RegistrarPAM\_Resultado.cshtml" />
-    <None Include="Views\RegistrarPAM\_Resultados.cshtml" />
+    <None Include="Views\RegistrarPAM\_ReconocimientoVisual.cshtml" />
     <None Include="Views\RegistrarPAM\_RiesgosFauna.cshtml" />
     <None Include="Views\RegistrarPAM\_RiesgosFaunaSilvestre.cshtml" />
     <None Include="Views\RegistrarPAM\_RiesgosSalud.cshtml" />

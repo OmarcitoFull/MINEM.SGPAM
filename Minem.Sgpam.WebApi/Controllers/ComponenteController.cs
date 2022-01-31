@@ -14,9 +14,12 @@ namespace Minem.Sgpam.WebApi.Controllers
     public class ComponenteController : BaseController
     {
         public readonly IT_Sgpad_ComponenteLN ComponenteLN;
-        public ComponenteController(IT_Sgpad_ComponenteLN vIT_Sgpad_ComponenteLN)
+        public readonly IT_Sgpad_Comp_ReconocimientoLN ReconocimientoLN;
+
+        public ComponenteController(IT_Sgpad_ComponenteLN vIT_Sgpad_ComponenteLN, IT_Sgpad_Comp_ReconocimientoLN vIT_Sgpad_Comp_ReconocimientoLN)
         {
             ComponenteLN = vIT_Sgpad_ComponenteLN;
+            ReconocimientoLN = vIT_Sgpad_Comp_ReconocimientoLN;
         }
 
         [HttpGet("GetFull")]
@@ -41,6 +44,20 @@ namespace Minem.Sgpam.WebApi.Controllers
         public IEnumerable<ComponenteMinDTO> ListEum(int vId_Eum)
         {
             return ComponenteLN.ListarComponenteEumDTO(vId_Eum);
+        }
+
+        [HttpPost("InsertRecognition")]
+        public Comp_ReconocimientoDTO InsertRecognition([FromBody] Comp_ReconocimientoDTO vComp_ReconocimientoDTO)
+        {
+            int vResult = ReconocimientoLN.Insertar_Reconocimiento_Tipo(vComp_ReconocimientoDTO);
+            vComp_ReconocimientoDTO.Id_Comp_Reconocimiento = (vResult != 0) ? 1 : 0;
+            return vComp_ReconocimientoDTO;
+        }
+
+        [HttpGet("ListRecognition")]
+        public IEnumerable<Comp_ReconocimientoDTO> ListRecognition(int vIdComponente)
+        {
+            return ReconocimientoLN.ListarComp_ReconocimientoDTO(vIdComponente);
         }
     }
 }

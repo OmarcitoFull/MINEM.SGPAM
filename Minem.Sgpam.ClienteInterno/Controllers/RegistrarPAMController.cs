@@ -716,6 +716,41 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
 
 
 
+        [HttpGet]
+        public async Task<IActionResult> ListarReconocimiento(int vIdComponente)
+        {
+            List<Comp_ReconocimientoDTO> vLista = await Services<Comp_ReconocimientoDTO>.Listar("Componente/ListRecognition?vIdComponente=" + vIdComponente);
+            return PartialView("_ReconocimientoVisual", vLista);
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> CargarReconocimiento(int vId, int vIdTipoPam, int vIdTipoMineria)
+        {
+            Comp_ReconocimientoDTO vRegistro = new Comp_ReconocimientoDTO
+            {
+                Id_Componente = vId,
+                Id_Tipo_Mineria = vIdTipoMineria,
+                Id_Tipo_Pam = vIdTipoPam,
+                Flg_Estado = Constantes.Activo,
+                Usu_Ingreso = "ORODRIGUEZ",
+                Ip_Ingreso = DnsFullNet.GetIp(),
+                Fec_Ingreso = DateTime.Now,
+                Usu_Modifica = "ORODRIGUEZ",
+                Ip_Modifica = DnsFullNet.GetIp(),
+                Fec_Modifica = DateTime.Now
+            };
+
+            if (ModelState.IsValid)
+            {
+                vRegistro = await Services<Comp_ReconocimientoDTO>.Grabar("Componente/InsertRecognition", vRegistro);
+                return Json(new ComponentResultModel { Operation = vRegistro.Id_Comp_Reconocimiento > 0 ? Constantes.Ok : Constantes.Error });
+            }
+            else
+            {
+                return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+            }
+        }
+
         public async Task<RegistrarPamDTO> GetComponent(int vId, TipoPam vType)
         {
             RegistrarPamDTO vRecord = await Services<RegistrarPamDTO>.Obtener("Componente/GetFull?vId=" + vId);
@@ -791,6 +826,5 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             }
             return null;
         }
-
     }
 }

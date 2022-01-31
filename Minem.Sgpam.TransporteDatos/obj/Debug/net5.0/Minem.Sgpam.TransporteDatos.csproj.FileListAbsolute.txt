@@ -22,3 +22,15 @@ D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.TransporteDatos\obj\De
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.TransporteDatos\obj\Debug\net5.0\Minem.Sgpam.TransporteDatos.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.TransporteDatos\obj\Debug\net5.0\ref\Minem.Sgpam.TransporteDatos.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.TransporteDatos\obj\Debug\net5.0\Minem.Sgpam.TransporteDatos.pdb
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.TransporteDatos\bin\Debug\net5.0\Minem.Sgpam.TransporteDatos.deps.json
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.TransporteDatos\bin\Debug\net5.0\Minem.Sgpam.TransporteDatos.dll
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.TransporteDatos\bin\Debug\net5.0\ref\Minem.Sgpam.TransporteDatos.dll
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.TransporteDatos\bin\Debug\net5.0\Minem.Sgpam.TransporteDatos.pdb
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.TransporteDatos\obj\Debug\net5.0\Minem.Sgpam.TransporteDatos.csproj.AssemblyReference.cache
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.TransporteDatos\obj\Debug\net5.0\Minem.Sgpam.TransporteDatos.GeneratedMSBuildEditorConfig.editorconfig
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.TransporteDatos\obj\Debug\net5.0\Minem.Sgpam.TransporteDatos.AssemblyInfoInputs.cache
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.TransporteDatos\obj\Debug\net5.0\Minem.Sgpam.TransporteDatos.AssemblyInfo.cs
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.TransporteDatos\obj\Debug\net5.0\Minem.Sgpam.TransporteDatos.csproj.CoreCompileInputs.cache
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.TransporteDatos\obj\Debug\net5.0\Minem.Sgpam.TransporteDatos.dll
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.TransporteDatos\obj\Debug\net5.0\ref\Minem.Sgpam.TransporteDatos.dll
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.TransporteDatos\obj\Debug\net5.0\Minem.Sgpam.TransporteDatos.pdb

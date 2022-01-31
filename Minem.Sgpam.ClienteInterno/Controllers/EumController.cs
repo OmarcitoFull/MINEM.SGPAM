@@ -114,6 +114,23 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             vResult = await Services<ComponenteDTO>.Eliminar("Componente/Remove", vRegistro);
             return Json(new ComponentResultModel { Operation = vResult ? Constantes.Ok : Constantes.Error });
         }
-        
+
+
+
+
+        [HttpGet]
+        public async Task<IActionResult> CrearInspeccion(int vIdEum)//CrearRiesgosSeguridadHumana
+        {
+            Eum_InspeccionDTO vRegistro = await Services<Eum_InspeccionDTO>.Obtener("Inspeccion/Get?vId=0");
+            vRegistro.Id_Eum = vIdEum;
+            ViewBag.CboTipoClima = vRegistro.CboTipoClima.ConvertAll(x =>
+            {
+                return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Tipo_Clima.ToString() };
+            });
+            return PartialView("_ModalInspeccion", vRegistro);
+        }
+
+
+
     }
 }

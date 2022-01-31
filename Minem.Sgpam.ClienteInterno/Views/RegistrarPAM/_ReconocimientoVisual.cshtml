@@ -1,0 +1,348 @@
+﻿@model IEnumerable<Minem.Sgpam.TransporteDatos.DtoEntidades.Comp_ReconocimientoDTO>
+
+    <br>
+    <br>
+    <!-- <h1 class="grupoT">MINERÍA SUBTERRÁNEA</h1> -->
+    <div class="clearfix"></div>
+    <div id="subterranea" class="divOculto" style="display: none">
+        <div class="table-responsive ">
+            <table class="table table-striped jambo_table bulk_action" style="margin-bottom: 0px !important">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Nombre</th>
+                        <th class="column-title">Base </th>
+                        <th class="column-title">Altura</th>
+                        <th class="column-title">Profundidad</th>
+                    </tr>
+                </thead>
+                <tbody id="ajuste1">
+                    @if (!Model.Any())
+                    {
+                    <tr class="even pointer">
+                        <td class=" " colspan="4">
+                            No existe registros
+                        </td>
+                    </tr>
+                    }
+                    else
+                    {
+                    foreach (var item in Model.Where(x => x.Id_Tipo_Reconocimiento == 1))
+                    {
+                    <tr class="odd pointer" data-id="@item.Id_Comp_Reconocimiento">
+                        <td width="30%">
+                            @item.Descripcion
+                            <input type="hidden" value="@item.Id_Tipo_Reconocimiento" name="Tipo" />
+                        </td>
+                        <td>
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                                <div class="form-group">
+                                    <input value="@item.Base" type="number" class="form-control" name="Largo" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                                <div class="form-group">
+                                    <input value="@item.Altura" type="number" class="form-control" name="Ancho" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                                <div class="form-group">
+                                    <input value="@item.Profundidad" type="number" class="form-control" name="Altura" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action" style="margin-bottom: 0px !important">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Nombre</th>
+                        <th class="column-title">largo </th>
+                        <th class="column-title">Ancho</th>
+                        <th class="column-title">Profundidad</th>
+                    </tr>
+                </thead>
+                <tbody id="ajuste2">
+                    @if (!Model.Any())
+                    {
+                    <tr class="even pointer">
+                        <td class=" " colspan="4">
+                            No existe registros
+                        </td>
+                    </tr>
+                    }
+                    else
+                    {
+                    foreach (var item in Model.Where(x => x.Id_Tipo_Reconocimiento == 2))
+                    {
+                    <tr class="odd pointer" data-id="@item.Id_Comp_Reconocimiento">
+                        <td width="30%">
+                            @item.Descripcion
+                            <input type="hidden" value="@item.Id_Tipo_Reconocimiento" name="Tipo" />
+                        </td>
+                        <td>
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                                <div class="form-group">
+                                    <input value="@item.Largo" type="number" class="form-control" name="Largo" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                                <div class="form-group">
+                                    <input value="@item.Ancho" type="number" class="form-control" name="Ancho" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                                <div class="form-group">
+                                    <input value="@item.Profundidad" type="number" class="form-control" name="Altura" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action" style="margin-bottom: 0px !important">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Nombre</th>
+                        <th class="column-title">Base </th>
+                        <th class="column-title">Altura</th>
+                        <th class="column-title">Profundidad</th>
+                    </tr>
+                </thead>
+                <tbody id="ajuste3">
+                    @if (!Model.Any())
+                    {
+                    <tr class="even pointer">
+                        <td class=" " colspan="4">
+                            No existe registros
+                        </td>
+                    </tr>
+                    }
+                    else
+                    {
+                    foreach (var item in Model.Where(x => x.Id_Tipo_Reconocimiento == 3))
+                    {
+                    <tr class="odd pointer" data-id="@item.Id_Comp_Reconocimiento">
+                        <td width="30%">
+                            @item.Descripcion
+                            <input type="hidden" value="@item.Id_Tipo_Reconocimiento" name="Tipo" />
+                        </td>
+                        <td>
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                                <div class="form-group">
+                                    <input value="@item.Base" type="number" class="form-control" name="Largo" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                                <div class="form-group">
+                                    <input value="@item.Altura" type="number" class="form-control" name="Altura" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                                <div class="form-group">
+                                    <input value="@item.Profundidad" type="number" class="form-control" name="Area" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action" style="margin-bottom: 0px !important">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Nombre</th>
+                        <th class="column-title">largo </th>
+                        <th class="column-title">Ancho</th>
+                        <th class="column-title">Profundidad</th>
+                    </tr>
+                </thead>
+                <tbody id="ajuste4">
+                    @if (!Model.Any())
+                    {
+                    <tr class="even pointer">
+                        <td class=" " colspan="4">
+                            No existe registros
+                        </td>
+                    </tr>
+                    }
+                    else
+                    {
+                    foreach (var item in Model.Where(x => x.Id_Tipo_Reconocimiento == 4))
+                    {
+                    <tr class="odd pointer" data-id="@item.Id_Comp_Reconocimiento">
+                        <td width="30%">
+                            @item.Descripcion
+                            <input type="hidden" value="@item.Id_Tipo_Reconocimiento" name="Tipo" />
+                        </td>
+                        <td>
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                                <div class="form-group">
+                                    <input value="@item.Largo" type="number" class="form-control" name="Largo" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                                <div class="form-group">
+                                    <input value="@item.Ancho" type="number" class="form-control" name="Ancho" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                                <div class="form-group">
+                                    <input value="@item.Profundidad" type="number" class="form-control" name="Altura" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action" style="margin-bottom: 0px !important">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Nombre</th>
+                        <th class="column-title">Largo </th>
+                        <th class="column-title">Ancho</th>
+                    </tr>
+                </thead>
+                <tbody id="ajuste5">
+                    @if (!Model.Any())
+                    {
+                    <tr class="even pointer">
+                        <td class=" " colspan="3">
+                            No existe registros
+                        </td>
+                    </tr>
+                    }
+                    else
+                    {
+                    foreach (var item in Model.Where(x => x.Id_Tipo_Reconocimiento == 5))
+                    {
+                    <tr class="odd pointer" data-id="@item.Id_Comp_Reconocimiento">
+                        <td width="30%">
+                            @item.Descripcion
+                            <input type="hidden" value="@item.Id_Tipo_Reconocimiento" name="Tipo" />
+                        </td>
+                        <td>
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                                <div class="form-group">
+                                    <input value="@item.Largo" type="number" class="form-control" name="Largo" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                                <div class="form-group">
+                                    <input value="@item.Ancho" type="number" class="form-control" name="Ancho" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!--   <h1 class="grupoT">MINERÍA SUPERFICIAL</h1> -->
+    <div id="superficial" class="table-responsive divOculto" style="display: none">
+        <table class="table table-striped jambo_table bulk_action" style="margin-bottom: 0px !important">
+            <thead>
+                <tr class="headings">
+                    <th class="column-title">Nombre</th>
+                    <th class="column-title">Largo </th>
+                    <th class="column-title">Ancho</th>
+                    <th class="column-title">Profundidad</th>
+                    <th class="column-title">Área</th>
+                </tr>
+            </thead>
+            <tbody id="ajuste">
+                @if (!Model.Any())
+                {
+                <tr class="even pointer">
+                    <td class=" " colspan="5">
+                        No existe registros
+                    </td>
+                </tr>
+                }
+                else
+                {
+                foreach (var item in Model)
+                {
+                <tr class="odd pointer" data-id="@item.Id_Comp_Reconocimiento">
+                    <td width="30%">
+                        @item.Descripcion
+                        <input type="hidden" value="@item.Id_Tipo_Reconocimiento" name="Tipo" />
+                    </td>
+                    <td>
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                            <div class="form-group">
+                                <input value="@item.Largo" type="number" class="form-control" name="Largo" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                            <div class="form-group">
+                                <input value="@item.Ancho" type="number" class="form-control" name="Ancho" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                            <div class="form-group">
+                                <input value="@item.Profundidad" type="number" class="form-control" name="Altura" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
+                            <div class="form-group">
+                                <input value="@item.Area" type="number" class="form-control" name="Altura" max="999999" min="-999999" maxlength="6" oninput="fMaxLength(this)">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                }
+                }
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+    <div class="clearfix"></div>
