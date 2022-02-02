@@ -60,6 +60,9 @@ namespace Minem.Sgpam.WebApi
             vServices.AddTransient<IT_Sgpal_Tamano_ParticulaAD, T_Sgpal_Tamano_ParticulaAD>();
             vServices.AddTransient<IT_Sgpal_Tamano_ParticulaLN, T_Sgpal_Tamano_ParticulaLN>();
 
+            vServices.AddTransient<IT_Sgpal_Tipo_ClimaAD, T_Sgpal_Tipo_ClimaAD>();
+            vServices.AddTransient<IT_Sgpal_Tipo_ClimaLN, T_Sgpal_Tipo_ClimaLN>();
+
             vServices.AddTransient<IT_Sgpal_Tipo_ConcesionAD, T_Sgpal_Tipo_ConcesionAD>();
             vServices.AddTransient<IT_Sgpal_Tipo_ConcesionLN, T_Sgpal_Tipo_ConcesionLN>();
 

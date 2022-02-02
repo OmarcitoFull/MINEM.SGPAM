@@ -77,19 +77,21 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
                     vCmd.Parameters.Add("pID_INSPECTOR", vT_Sgpad_Eum_Inspeccion.ID_INSPECTOR); 
-				vCmd.Parameters.Add("pID_EUM_INSPECCION", vT_Sgpad_Eum_Inspeccion.ID_EUM_INSPECCION); 
-				vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Eum_Inspeccion.USU_MODIFICA); 
-				vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Eum_Inspeccion.IP_MODIFICA); 
-				vCmd.Parameters.Add("pID_TIPO_CLIMA", vT_Sgpad_Eum_Inspeccion.ID_TIPO_CLIMA); 
-				vCmd.Parameters.Add("pID_EUM", vT_Sgpad_Eum_Inspeccion.ID_EUM); 
-				vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Eum_Inspeccion.USU_INGRESO); 
-				vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Eum_Inspeccion.FEC_INGRESO); 
-				vCmd.Parameters.Add("pFECHA_INSPECCION", vT_Sgpad_Eum_Inspeccion.FECHA_INSPECCION); 
-				vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Eum_Inspeccion.FEC_MODIFICA); 
-				vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Eum_Inspeccion.FLG_ESTADO); 
-				vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Eum_Inspeccion.IP_INGRESO);
+				    //vCmd.Parameters.Add("pID_EUM_INSPECCION", vT_Sgpad_Eum_Inspeccion.ID_EUM_INSPECCION); 
+				    //vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Eum_Inspeccion.USU_MODIFICA); 
+				    //vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Eum_Inspeccion.IP_MODIFICA); 
+				    vCmd.Parameters.Add("pID_TIPO_CLIMA", vT_Sgpad_Eum_Inspeccion.ID_TIPO_CLIMA); 
+				    vCmd.Parameters.Add("pID_EUM", vT_Sgpad_Eum_Inspeccion.ID_EUM); 
+				    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Eum_Inspeccion.USU_INGRESO); 
+				    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Eum_Inspeccion.FEC_INGRESO); 
+				    vCmd.Parameters.Add("pFECHA_INSPECCION", vT_Sgpad_Eum_Inspeccion.FECHA_INSPECCION); 
+				    //vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Eum_Inspeccion.FEC_MODIFICA); 
+				    //vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Eum_Inspeccion.FLG_ESTADO); 
+				    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Eum_Inspeccion.IP_INGRESO);
+                    vCmd.Parameters.Add(":pID_EUM_INSPECCION", OracleDbType.Int64).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
+                    vT_Sgpad_Eum_Inspeccion.ID_EUM_INSPECCION = Convert.ToInt32(vCmd.Parameters[":pID_EUM_INSPECCION"].Value.ToString());
                     vCnn.Close();
                 }
             }

@@ -40,6 +40,7 @@ namespace Minem.Sgpam.WebApi.Controllers
             return Eum_LN.RecuperarFullMaestraDTOPorCodigo(vId);
         }
 
+
         [HttpGet("ListarPaginadoMaestraDTO")]
         public IEnumerable<MaestraDTO> ListarPaginadoMaestraDTO(string vFiltro, int vNumPag, int vCantRegxPag)
         {

@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Minem.Sgpam.AccesoDatos.Base;
 using Minem.Sgpam.AccesoDatos.Interfaces;
 using Minem.Sgpam.Entidades;
+using Minem.Sgpam.InfraEstructura;
 using Oracle.ManagedDataAccess.Client;
 
 namespace Minem.Sgpam.AccesoDatos.Implementaciones
@@ -15,7 +16,12 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
     /// Fecha Creación:	27/10/2021
     /// </summary>
     public partial class T_Sgpal_Tipo_ClimaAD: BaseAD, IT_Sgpal_Tipo_ClimaAD
-    {   
+    {
+        public T_Sgpal_Tipo_ClimaAD(IConfiguration vConfiguration)
+        {
+            CnnString = vConfiguration.GetSection(Constantes.BD).Value;
+        }
+
         public IEnumerable<T_Sgpal_Tipo_Clima> ListarT_Sgpal_Tipo_Clima()
         {
            List<T_Sgpal_Tipo_Clima> vLista = new List<T_Sgpal_Tipo_Clima>();

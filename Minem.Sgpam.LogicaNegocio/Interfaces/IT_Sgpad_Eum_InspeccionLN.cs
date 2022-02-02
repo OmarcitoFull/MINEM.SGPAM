@@ -17,7 +17,11 @@ namespace Minem.Sgpam.LogicaNegocio.Interfaces
         Eum_InspeccionDTO ActualizarEum_InspeccionDTO(Eum_InspeccionDTO vEum_InspeccionDTO);
         int AnularEum_InspeccionDTOPorCodigo(Eum_InspeccionDTO vEum_InspeccionDTO);
         IEnumerable<Eum_InspeccionDTO> ListarPaginadoEum_InspeccionDTO(string vFiltro, int vNumPag, int vCantRegxPag);
+        
+        
         IEnumerable<Eum_InspeccionDTO> ListarPorIdEumEum_InspeccionDTO(int vId_Eum);
+        RegistrarEumInspeccionDTO RecuperarFullEum_InspeccionDTOPorCodigo(int vId_Eum_Inspeccion);
+        Eum_InspeccionDTO GrabarEum_InspeccionDTO(Eum_InspeccionDTO vEum_InspeccionDTO);
 
     }
 }

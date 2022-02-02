@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using Minem.Sgpam.AccesoDatos.Interfaces;
 using Minem.Sgpam.Entidades;
@@ -26,8 +27,20 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         {
             try
             {
-                var vResultado = Tipo_ClimaAD.ListarT_Sgpal_Tipo_Clima();
-                return new List<Tipo_ClimaDTO>();
+                var vResultado = (from vTmp in Tipo_ClimaAD.ListarT_Sgpal_Tipo_Clima()
+                                  select new Tipo_ClimaDTO
+                                  {
+                                      Descripcion = vTmp.DESCRIPCION,
+                                      Fec_Modifica = vTmp.FEC_MODIFICA,
+                                      Id_Tipo_Clima = vTmp.ID_TIPO_CLIMA,
+                                      Ip_Modifica = vTmp.IP_MODIFICA,
+                                      Usu_Modifica = vTmp.USU_MODIFICA,
+                                      Fec_Ingreso = vTmp.FEC_INGRESO,
+                                      Flg_Estado = vTmp.FLG_ESTADO,
+                                      Ip_Ingreso = vTmp.IP_INGRESO,
+                                      Usu_Ingreso = vTmp.USU_INGRESO
+                                  }).ToList();
+                return vResultado;
             }
             catch (Exception ex)
             {

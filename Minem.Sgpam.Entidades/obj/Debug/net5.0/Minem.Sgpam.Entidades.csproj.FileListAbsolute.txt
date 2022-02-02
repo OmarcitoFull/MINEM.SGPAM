@@ -33,3 +33,4 @@ D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sg
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.dll
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\ref\Minem.Sgpam.Entidades.dll
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.pdb
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.csproj.AssemblyReference.cache

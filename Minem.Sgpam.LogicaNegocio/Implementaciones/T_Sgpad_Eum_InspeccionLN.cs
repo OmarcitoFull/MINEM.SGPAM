@@ -16,10 +16,11 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
     public class T_Sgpad_Eum_InspeccionLN : BaseLN, IT_Sgpad_Eum_InspeccionLN
     {
         private readonly IT_Sgpad_Eum_InspeccionAD Eum_InspeccionAD;
-
-        public T_Sgpad_Eum_InspeccionLN(IT_Sgpad_Eum_InspeccionAD vT_Sgpad_Eum_InspeccionAD)
+        private readonly IT_Sgpal_Tipo_ClimaLN Tipo_ClimaLN;
+        public T_Sgpad_Eum_InspeccionLN(IT_Sgpad_Eum_InspeccionAD vT_Sgpad_Eum_InspeccionAD, IT_Sgpal_Tipo_ClimaLN vIT_Sgpal_Tipo_ClimaLN)
         {
             Eum_InspeccionAD = vT_Sgpad_Eum_InspeccionAD;
+            Tipo_ClimaLN = vIT_Sgpal_Tipo_ClimaLN;
         }
 
         public IEnumerable<Eum_InspeccionDTO> ListarEum_InspeccionDTO()
@@ -142,5 +143,66 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
+        public RegistrarEumInspeccionDTO RecuperarFullEum_InspeccionDTOPorCodigo(int vId_Eum_Inspeccion)
+        {
+            try
+            {
+                RegistrarEumInspeccionDTO vResultado = new RegistrarEumInspeccionDTO
+                {
+                    Eum_Inspeccion = RecuperarEum_InspeccionDTOPorCodigo(vId_Eum_Inspeccion),
+                    CboTipoClima = (List<Tipo_ClimaDTO>)Tipo_ClimaLN.ListarTipo_ClimaDTO() 
+                };
+                return vResultado;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            throw new NotImplementedException();
+
+        }
+
+        public Eum_InspeccionDTO GrabarEum_InspeccionDTO(Eum_InspeccionDTO vEum_InspeccionDTO)
+        {
+            try
+            {
+                if (vEum_InspeccionDTO != null)
+                {
+                    var vRegistro = new T_Sgpad_Eum_Inspeccion
+                    {
+                        FEC_INGRESO = vEum_InspeccionDTO.Fec_Ingreso,
+                        FEC_MODIFICA = vEum_InspeccionDTO.Fec_Modifica,
+                        FLG_ESTADO = vEum_InspeccionDTO.Flg_Estado,
+                        IP_INGRESO = vEum_InspeccionDTO.Ip_Ingreso,
+                        IP_MODIFICA = vEum_InspeccionDTO.Ip_Modifica,
+                        USU_INGRESO = vEum_InspeccionDTO.Usu_Ingreso,
+                        USU_MODIFICA = vEum_InspeccionDTO.Usu_Modifica,
+                        ID_INSPECTOR = vEum_InspeccionDTO.Id_Inspector,
+                        ID_EUM = vEum_InspeccionDTO.Id_Eum,
+                        ID_EUM_INSPECCION = vEum_InspeccionDTO.Id_Eum_Inspeccion,
+                        ID_TIPO_CLIMA = vEum_InspeccionDTO.Id_Tipo_Clima,
+                        FECHA_INSPECCION = vEum_InspeccionDTO.Fecha_Inspeccion
+                    };
+                    if (vEum_InspeccionDTO.Id_Eum_Inspeccion == 0)
+                    {
+                        var vResultado = Eum_InspeccionAD.InsertarT_Sgpad_Eum_Inspeccion(vRegistro);
+                        vEum_InspeccionDTO.Id_Eum_Inspeccion = vResultado.ID_EUM_INSPECCION;
+                    }
+                    else
+                    {
+                        var vResultado = Eum_InspeccionAD.ActualizarT_Sgpad_Eum_Inspeccion(vRegistro);
+                        vEum_InspeccionDTO = RecuperarFullEum_InspeccionDTOPorCodigo(vResultado.ID_EUM_INSPECCION).Eum_Inspeccion;
+                    }
+                }
+                return vEum_InspeccionDTO;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }    
+        }
     }
 }

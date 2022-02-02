@@ -1236,3 +1236,6 @@ D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Raz
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\RegistrarPAM\_ReconocimientoVisual.cshtml.g.cs
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_ModalInspeccion.cshtml.g.cs
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\RegistrarPAM\_ReconocimientoVisual.cshtml.g.cs
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_ModalInfoDescargo.cshtml.g.cs
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_ModalInfoGrafica.cshtml.g.cs
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_ModalInformes.cshtml.g.cs
