@@ -5,4 +5,34 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+
+    <ul class="nav navbar-left panel_toolbox">
+        <li>
+            <div class="boton2">
+                <a href="#" onClick="Confirm('Seguro de eliminar')"> <i class="fa fa-trash-o "></i></a>
+            </div>
+        </li>
+        <li>
+            <div class="boton">
+                <a href="#" onClick="Success('Se guardo exitosamente')">Guardar  <i class="fa fa-save" aria-hidden="true"></i></a>
+            </div>
+        </li>
+        <li>
+            <div class="boton">
+                <a href="#" onClick="Error('ocurrio un error')">Error  </a>
+            </div>
+        </li>
+        <li>
+            <div class="boton">
+                <a href="#" onClick="Info('Falta ingregar datos')">Info  </a>
+            </div>
+        </li>
+        <li>
+            <div style="text-align: center;">
+                <img width="50" src="~/images/loading.gif" alt=""> <br> <span>Un momento, por favor...</span>
+            </div>
+        </li>
+    </ul>
+
 </div>
