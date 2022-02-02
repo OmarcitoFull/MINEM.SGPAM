@@ -559,9 +559,9 @@
             $.post("@Url.Action("GrabarRiesgosSeguridadHumana", "RegistrarPAM")", $("#frmRiesgosSeguridadHumana").serialize()).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
-                    Success("@Constantes.MsgOk");
                     $("#modal9").modal("toggle");
                     window.location.reload();
+                    Success("@Constantes.MsgOk");
                 } else {
                     "@((int)TipoErr.MODEL)" == x.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr")
                 }
@@ -574,9 +574,9 @@
             $.post("@Url.Action("GrabarRiesgosSaludHumana", "RegistrarPAM")", $("#frmRiesgosSaludHumana").serialize()).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
-                    Success("@Constantes.MsgOk");
                     $("#modal10").modal("toggle");
                     window.location.reload();
+                    Success("@Constantes.MsgOk");
                 } else {
                     "@((int)TipoErr.MODEL)" == x.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr")
                 }
@@ -589,9 +589,9 @@
             $.post("@Url.Action("GrabarRiesgosFaunaSilvestre", "RegistrarPAM")", $("#frmRiesgosFaunaSilvestre").serialize()).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
-                    Success("@Constantes.MsgOk");
                     $("#modal11").modal("toggle");
                     window.location.reload();
+                    Success("@Constantes.MsgOk");
                 } else {
                     "@((int)TipoErr.MODEL)" == x.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr")
                 }
