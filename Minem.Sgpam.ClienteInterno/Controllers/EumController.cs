@@ -117,18 +117,42 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
 
 
 
-
+        #region Inspeccion
         [HttpGet]
         public async Task<IActionResult> CrearInspeccion(int vIdEum)//CrearRiesgosSeguridadHumana
         {
-            Eum_InspeccionDTO vRegistro = await Services<Eum_InspeccionDTO>.Obtener("Inspeccion/Get?vId=0");
-            vRegistro.Id_Eum = vIdEum;
-            ViewBag.CboTipoClima = vRegistro.CboTipoClima.ConvertAll(x =>
+            RegistrarEumInspeccionDTO vRecord = new RegistrarEumInspeccionDTO();
+
+            vRecord = await Services<RegistrarEumInspeccionDTO>.Obtener("Inspeccion/GetFull?vId=" + vIdEum);
+            if (vIdEum == 0)
+                vRecord.Eum_Inspeccion = new Eum_InspeccionDTO();
+
+            ViewBag.CboTipoClima = vRecord.CboTipoClima.ConvertAll(x =>
             {
                 return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Tipo_Clima.ToString() };
             });
-            return PartialView("_ModalInspeccion", vRegistro);
+            return PartialView("_ModalInspeccion", vRecord.Eum_Inspeccion);
         }
+
+        [HttpPost]
+        public async Task<JsonResult> GrabarInspeccion(Eum_InspeccionDTO vEum_Inspeccion)
+        {
+            vEum_Inspeccion.Flg_Estado = Constantes.Activo;
+            vEum_Inspeccion.Fec_Ingreso = vEum_Inspeccion.Fec_Modifica = DateTime.Now;
+            vEum_Inspeccion.Usu_Ingreso = vEum_Inspeccion.Usu_Modifica = "MSALVADOR";
+            vEum_Inspeccion.Ip_Ingreso = vEum_Inspeccion.Ip_Modifica = DnsFullNet.GetIp();
+            if (ModelState.IsValid)
+            {
+                vEum_Inspeccion = await Services<Eum_InspeccionDTO>.Grabar("Inspeccion/Save", vEum_Inspeccion);
+                return Json(new ComponentResultModel { Operation = vEum_Inspeccion.Id_Eum_Inspeccion > 0 ? Constantes.Ok : Constantes.Error });
+            }
+            else
+            {
+                return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+            }
+        }
+        #endregion
+
 
 
 

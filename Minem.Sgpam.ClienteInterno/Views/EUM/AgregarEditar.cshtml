@@ -70,13 +70,9 @@
                 <li>
                     @if (@Model.Eum.Id_Eum != 0)
                     {
-                        @*<div class="boton">
-                                <a href="#modal4" data-toggle="modal" data-target="#modal4">Agregar  <i class="fa fa-plus"></i></a>
-                            </div>*@
-                    <div class="boton">
-                        <a href="#" data-toggle="modal" data-target="#modal2" onclick="ShowModal('@Url.Action("CrearInspeccion", "Eum")', 'fullInspeccion')">Agregar  <i class="fa fa-plus"></i></a>
-                    </div>
-
+                        <div class="boton">
+                            <a href="#" data-toggle="modal" data-target="#modal2" onclick="ShowModal('@Url.Action("CrearInspeccion", "Eum")', 'fullInspeccion')">Agregar  <i class="fa fa-plus"></i></a>
+                        </div>
                     }
                 </li>
             </ul>
@@ -94,7 +90,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if (!Model.ListaInspeccion.Any())
+                    @if (Model.ListaInspeccion == null)
                     {
                         <tr class="even pointer">
                             <td class=" " colspan="4">No existen registros</td>
@@ -946,7 +942,7 @@
 <div id="modal2" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="frmRiesgosSeguridadHumana" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+            <form id="frmInspeccion" autocomplete="off" data-ajax="true" data-ajax-method="POST">
                 <div class="rowGroup" id="fullInspeccion">
                 </div>
             </form>
@@ -954,6 +950,8 @@
     </div>
 </div>
 <!-- fin modal-->
+
+
 
 
 
@@ -1040,5 +1038,32 @@
 
 
         });
+
+
+
+
+
+
+
+        ShowModal = function (vUrl, vBody) {
+            $.get(vUrl + "?vIdEum=@Model.Eum.Id_Eum", function (data) { $('#'+vBody).html(data) });
+        }
+
+        SaveInspeccion = function () {
+            $.post("@Url.Action("GrabarInspeccion", "Eum")", $("#frmInspeccion").serialize()).done(function (x)
+            {
+                if (x.operation == "@Constantes.Ok") {
+                    $("#modal2").modal("toggle");
+                    window.location.reload();
+                    Success("@Constantes.MsgOk");
+                } else {
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr")
+                }
+            }).fail(function (a, b, c) {
+                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+            });
+        }
+
+
     </script>
 }

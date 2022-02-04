@@ -96,8 +96,4 @@
     <ProjectReference Include="..\Minem.Sgpam.TransporteDatos\Minem.Sgpam.TransporteDatos.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\files\" />
-  </ItemGroup>
-
 </Project>

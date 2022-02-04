@@ -750,6 +750,10 @@ D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Raz
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_DatosGenerales.cshtml.g.cs
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_HistorialModificaciones.cshtml.g.cs
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_Inspecciones.cshtml.g.cs
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_ModalInfoDescargo.cshtml.g.cs
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_ModalInfoGrafica.cshtml.g.cs
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_ModalInformes.cshtml.g.cs
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_ModalInspeccion.cshtml.g.cs
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_Ubicacion.cshtml.g.cs
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\Expediente\AgregarEditar.cshtml.g.cs
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\Expediente\Index.cshtml.g.cs
@@ -792,6 +796,7 @@ D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Raz
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\RegistrarPAM\_Observaciones.cshtml.g.cs
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\RegistrarPAM\_PrincipalesProductos.cshtml.g.cs
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\RegistrarPAM\_Reaprovechamientos.cshtml.g.cs
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\RegistrarPAM\_ReconocimientoVisual.cshtml.g.cs
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\RegistrarPAM\_ReinfoDerechosMineros.cshtml.g.cs
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\RegistrarPAM\_Resultado.cshtml.g.cs
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\RegistrarPAM\_RiesgosFauna.cshtml.g.cs
@@ -815,11 +820,6 @@ D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Min
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\ref\Minem.Sgpam.ClienteInterno.dll
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Minem.Sgpam.ClienteInterno.pdb
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Minem.Sgpam.ClienteInterno.genruntimeconfig.cache
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_ModalInspeccion.cshtml.g.cs
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\RegistrarPAM\_ReconocimientoVisual.cshtml.g.cs
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_ModalInfoDescargo.cshtml.g.cs
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_ModalInfoGrafica.cshtml.g.cs
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_ModalInformes.cshtml.g.cs
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\bin\Debug\net5.0\appsettings.Development.json
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\bin\Debug\net5.0\appsettings.json
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\bin\Debug\net5.0\Minem.Sgpam.ClienteInterno.exe
@@ -1174,7 +1174,7 @@ D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Deb
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_Inspecciones.cshtml.g.cs
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_ModalInfoDescargo.cshtml.g.cs
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_ModalInfoGrafica.cshtml.g.cs
-D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_ModalInformes.cshtml.g.cs
+D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_ModalInforme.cshtml.g.cs
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_ModalInspeccion.cshtml.g.cs
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\EUM\_Ubicacion.cshtml.g.cs
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\Expediente\AgregarEditar.cshtml.g.cs

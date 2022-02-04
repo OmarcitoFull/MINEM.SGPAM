@@ -9,6 +9,7 @@
                 <div class="col-md-9 col-sm-9 col-xs-12">
                     <input type="text" class="form-control" placeholder="">
                 </div>
+                <input type="hidden" asp-for="Id_Inspector" />
             </div>
         </div>
 
@@ -18,6 +19,7 @@
                 <div class="col-md-9 col-sm-9 col-xs-12">
                     <input type="date" class="form-control has-feedback-left" id="single_cal2" placeholder="First Name" aria-describedby="inputSuccess2Status2">
                 </div>
+                <input type="hidden" asp-for="Fecha_Inspeccion" />
             </div>
         </div>
 
@@ -50,11 +52,12 @@
             </div>
             <ul class="nav navbar-right panel_toolbox">
                 <li>
-                    <div class="boton"><a href="#">Guardar  <i class="fa fa-save"></i></a></div>
-                    @*<button type="button" class="boton" style="margin-right: 0px;" id="GuardarRiesgoSaludHumana" onclick="SaveRiesgosSaludHumana()">Guardar  <i class="fa fa-save" style="margin-left: 10px;"></i></button>*@
+                    <button type="button" class="boton" style="margin-right: 0px;" id="GuardarInspeccion" onclick="SaveInspeccion()">Guardar  <i class="fa fa-save" style="margin-left: 10px;"></i></button>
                 </li>
                 <li>
-                    <div class="boton"><a href="#">Cancelar  <i class="fa fa-ban"></i></a></div>
+                    <div class="boton" data-dismiss="modal">
+                        <a href="#">Cancelar  <i class="fa fa-ban"></i></a>
+                    </div>
                 </li>
             </ul>
             <div class="clearfix"></div>

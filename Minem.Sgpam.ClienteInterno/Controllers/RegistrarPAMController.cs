@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Configuration;
 using Minem.Sgpam.ClienteInterno.Helpers;
 using Minem.Sgpam.ClienteInterno.Models;
 using Minem.Sgpam.InfraEstructura;
@@ -23,6 +24,14 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
     /// </summary>
     public class RegistrarPAMController : Controller
     {
+        public IConfiguration Configuration { get; }
+
+        public RegistrarPAMController(IConfiguration vIConfiguration)
+        {
+            Configuration = vIConfiguration;
+        }
+
+
         [HttpGet]
         public async Task<IActionResult> Infraestructura(int vId)
         {
@@ -410,42 +419,62 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             if (vFile != null)
             {
                 vInfo_Grafica.Extencion = Path.GetExtension(vFile.FileName).Substring(1);
-                vInfo_Grafica.Nombre_Imagen = vFile.FileName;
-                vInfo_Grafica.Tamano = (int)vFile.Length;
 
-                var vDirectory = $"{vHostingEnviroment.WebRootPath}\\files";
-                if (Directory.Exists(vDirectory))
+                if (!string.IsNullOrEmpty(vInfo_Grafica.Extencion) && vInfo_Grafica.Extencion.Length <= 4)
                 {
-                    string vFileName = $"{vDirectory}\\{vFile.FileName}";
-                    try
+                    string vFileNameEmpty = Path.GetFileNameWithoutExtension(vFile.FileName);
+
+                    if (!string.IsNullOrEmpty(vFileNameEmpty))
                     {
-                        using (FileStream vFileStream = System.IO.File.Create(vFileName))
-                        {
-                            vFile.CopyTo(vFileStream);
-                            vFileStream.Flush();
-                        }
+                        vFileNameEmpty = $"{vFileNameEmpty}-{DateTime.Now.ToString("yyyyMMdd-HHmmss")}{Path.GetExtension(vFile.FileName)}";
+                        vInfo_Grafica.Nombre_Imagen = vFileNameEmpty;
+                        vInfo_Grafica.Tamano = (int)vFile.Length;
 
-                        vInfo_Grafica.Ruta_Imagen = vFileName;
+                        try
+                        {
+                            var vDirectorioIG = Configuration.GetValue<string>("DirectoryIG");
+                            var vDirectory = $"{vHostingEnviroment.WebRootPath}\\{vDirectorioIG}";
+                            if (!Directory.Exists(vDirectory)) Directory.CreateDirectory(vDirectory);
 
-                        if (ModelState.IsValid)
-                        {
-                            vInfo_Grafica = await Services<Comp_Info_GraficaDTO>.Grabar("InformacionGrafica/Save", vInfo_Grafica);
-                            return Json(new ComponentResultModel { Operation = vInfo_Grafica.Id_Comp_Info_Grafica > 0 ? Constantes.Ok : Constantes.Error });
+                            string vSubDirectory = vInfo_Grafica.Id_Componente.ToString("D9");
+                            vDirectory = $"{vDirectory}\\{vSubDirectory}";
+                            if (!Directory.Exists(vDirectory)) Directory.CreateDirectory(vDirectory);
+
+                            string vFileName = $"{vDirectory}\\{vFileNameEmpty}";
+                            using (FileStream vFileStream = System.IO.File.Create(vFileName))
+                            {
+                                vFile.CopyTo(vFileStream);
+                                vFileStream.Flush();
+                            }
+
+                            vInfo_Grafica.Ruta_Imagen = vFileName;
+
+                            if (ModelState.IsValid)
+                            {
+                                vInfo_Grafica = await Services<Comp_Info_GraficaDTO>.Grabar("InformacionGrafica/Save", vInfo_Grafica);
+                                return Json(new ComponentResultModel { Operation = vInfo_Grafica.Id_Comp_Info_Grafica > 0 ? Constantes.Ok : Constantes.Error });
+                            }
+                            else
+                            {
+                                return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+                            }
+
                         }
-                        else
+                        catch (Exception)
                         {
-                            return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+                            return Json(new ComponentResultModel());
                         }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        return Json(new ComponentResultModel());
+                        return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
                     }
                 }
                 else
                 {
-                    return Json(new ComponentResultModel());
+                    return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
                 }
+
             }
             else
             {
