@@ -17,5 +17,7 @@ namespace Minem.Sgpam.LogicaNegocio.Interfaces
         ExpedienteDTO ActualizarExpedienteDTO(ExpedienteDTO vExpedienteDTO);
         int AnularExpedienteDTOPorCodigo(ExpedienteDTO vExpedienteDTO);
         IEnumerable<ExpedienteDTO> ListarPaginadoExpedienteDTO(string vNroExp, string vFiltro, int vNumPag, int vCantRegxPag);
+        RegistrarExpedienteDTO RecuperarFullExpedienteDTOPorCodigo(int vId_Expediente);
+
     }
 }

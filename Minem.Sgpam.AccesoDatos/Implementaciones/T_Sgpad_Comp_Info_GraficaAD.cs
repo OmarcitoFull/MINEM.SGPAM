@@ -90,6 +90,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Comp_Info_Grafica.TAMANO);
                     vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Comp_Info_Grafica.USU_MODIFICA);
                     vCmd.Parameters.Add("pRUTA_IMAGEN", vT_Sgpad_Comp_Info_Grafica.RUTA_IMAGEN);
+                    vCmd.Parameters.Add("pFECHA", vT_Sgpad_Comp_Info_Grafica.FECHA);
                     vCmd.Parameters.Add(":pID_COMP_INFO_GRAFICA", OracleDbType.Int64).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
@@ -120,6 +121,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Comp_Info_Grafica.TAMANO);
                     vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Comp_Info_Grafica.USU_MODIFICA);
                     vCmd.Parameters.Add("pRUTA_IMAGEN", vT_Sgpad_Comp_Info_Grafica.RUTA_IMAGEN);
+                    vCmd.Parameters.Add("pFECHA", vT_Sgpad_Comp_Info_Grafica.FECHA);
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
                     vCnn.Close();

@@ -139,5 +139,31 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             }
             return vLista;
         }
+
+        public IEnumerable<T_Sgpad_Comp_Dd_Minero> ListarPorIdEumT_Sgpad_Comp_Dd_Minero(int vId_Eum)
+        {
+            List<T_Sgpad_Comp_Dd_Minero> vLista = new List<T_Sgpad_Comp_Dd_Minero>();
+            T_Sgpad_Comp_Dd_Minero vEntidad;
+
+            using (OracleConnection vCnn = new OracleConnection(CnnString))
+            {
+                using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_COMP_DD_MINERO.USP_PAG_COMP_DD_MINERO", vCnn)) // falta modificar
+                {
+                    vCmd.CommandType = CommandType.StoredProcedure;
+                    vCmd.Parameters.Add("pId_Eum", vId_Eum);
+                    vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                    vCnn.Open();
+                    OracleDataReader vRdr = vCmd.ExecuteReader();
+                    while (vRdr.Read())
+                    {
+                        vEntidad = new T_Sgpad_Comp_Dd_Minero(vRdr);
+                        //vEntidad.TotalVirtual = System.Convert.ToInt32(vRdr["TotalVirtual"]);
+                        vLista.Add(vEntidad);
+                    }
+                }
+                vCnn.Close();
+            }
+            return vLista;
+        }
     }
 }

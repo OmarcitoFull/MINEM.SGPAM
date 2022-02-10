@@ -357,9 +357,10 @@
                     @if (@Model.Eum.Id_Eum != 0)
                     {
                         <div class="boton">
-                            <a href="#modal4" data-toggle="modal" data-target="#modal4">Agregar  <i class="fa fa-plus"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#modal8" onclick="ShowModal('@Url.Action("CrearInfoGrafica", "Eum")', 'fullInfoGrafica')">Agregar  <i class="fa fa-plus"></i></a>
                         </div>
                     }
+                    @*--GuardarInfoGrafica*@
                 </li>
             </ul>
             <div class="clearfix"></div>
@@ -552,7 +553,7 @@
                     @if (@Model.Eum.Id_Eum != 0)
                     {
                         <div class="boton">
-                            <a href="#modal5" data-toggle="modal" data-target="#modal5">Agregar  <i class="fa fa-plus"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#modal12" onclick="ShowModal('@Url.Action("CrearInfoDescargo", "Eum")', 'fullInfoDescargo')">Agregar  <i class="fa fa-plus"></i></a>
                         </div>
                     }
                 </li>
@@ -950,7 +951,31 @@
     </div>
 </div>
 <!-- fin modal-->
-
+<!-- Modal 8 Info Grafica -->
+<div id="modal8" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmInfoGrafica" data-ajax-method="POST" asp-controller="GrabarInfoGrafica" asp-action="Eum" enctype="multipart/form-data" autocomplete="off" data-ajax="true">
+                <div class="rowGroup" id="fullInfoGrafica">
+                    Entraaaa
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
+<!-- Modal 12 Info Descargo -->
+<div id="modal12" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmInfoDescargo" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+                <div class="rowGroup" id="fullInfoDescargo">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
 
 
 
@@ -1063,6 +1088,23 @@
                 alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
             });
         }
+
+        SaveInfoGrafica = function () {
+            $.post("@Url.Action("GrabarInfoGrafica", "Eum")", $("#frmInfoGrafica").serialize()).done(function (x)
+            {
+                if (x.operation == "@Constantes.Ok") {
+                    $("#modal8").modal("toggle");
+                    window.location.reload();
+                    Success("@Constantes.MsgOk");
+                } else {
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr")
+                }
+            }).fail(function (a, b, c) {
+                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+            });
+        }
+
+
 
 
     </script>

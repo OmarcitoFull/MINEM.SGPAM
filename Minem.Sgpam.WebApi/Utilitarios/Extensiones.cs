@@ -30,9 +30,19 @@ namespace Minem.Sgpam.WebApi
             vServices.AddTransient<IT_Sgpad_Eum_Info_DescargoAD, T_Sgpad_Eum_Info_DescargoAD>();
             vServices.AddTransient<IT_Sgpad_Eum_Info_DescargoLN, T_Sgpad_Eum_Info_DescargoLN>();
 
-
             vServices.AddTransient<IT_Sgpam_ExpedienteAD, T_Sgpam_ExpedienteAD>();
             vServices.AddTransient<IT_Sgpam_ExpedienteLN, T_Sgpam_ExpedienteLN>();
+
+
+            vServices.AddTransient<IT_Sgpad_Comp_Dd_MineroAD, T_Sgpad_Comp_Dd_MineroAD>();
+            vServices.AddTransient<IT_Sgpad_Comp_Dd_MineroLN, T_Sgpad_Comp_Dd_MineroLN>();
+
+            vServices.AddTransient<IT_Sgpad_Comp_Dm_SituacionAD, T_Sgpad_Comp_Dm_SituacionAD>();
+            vServices.AddTransient<IT_Sgpad_Comp_Dm_SituacionLN, T_Sgpad_Comp_Dm_SituacionLN>();
+
+            vServices.AddTransient<IT_Sgpad_Comp_Dm_TitularAD, T_Sgpad_Comp_Dm_TitularAD>();
+            vServices.AddTransient<IT_Sgpad_Comp_Dm_TitularLN, T_Sgpad_Comp_Dm_TitularLN>();
+
 
 
 

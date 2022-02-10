@@ -32,20 +32,3 @@ D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.dll
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\ref\Minem.Sgpam.AccesoDatos.dll
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.pdb
-D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.deps.json
-D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.dll
-D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\ref\Minem.Sgpam.AccesoDatos.dll
-D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.pdb
-D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.Entidades.dll
-D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.InfraEstructura.dll
-D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.Entidades.pdb
-D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.InfraEstructura.pdb
-D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.csproj.AssemblyReference.cache
-D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.GeneratedMSBuildEditorConfig.editorconfig
-D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.AssemblyInfoInputs.cache
-D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.AssemblyInfo.cs
-D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.csproj.CoreCompileInputs.cache
-D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.csproj.CopyComplete
-D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.dll
-D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\ref\Minem.Sgpam.AccesoDatos.dll
-D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.pdb

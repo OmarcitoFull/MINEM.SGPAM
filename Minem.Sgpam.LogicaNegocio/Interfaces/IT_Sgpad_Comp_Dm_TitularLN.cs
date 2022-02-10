@@ -17,5 +17,6 @@ namespace Minem.Sgpam.LogicaNegocio.Interfaces
         Comp_Dm_TitularDTO ActualizarComp_Dm_TitularDTO(Comp_Dm_TitularDTO vComp_Dm_TitularDTO);
         int AnularComp_Dm_TitularDTOPorCodigo(Comp_Dm_TitularDTO vComp_Dm_TitularDTO);
         IEnumerable<Comp_Dm_TitularDTO> ListarPaginadoComp_Dm_TitularDTO(string vFiltro, int vNumPag, int vCantRegxPag);
+        IEnumerable<Comp_Dm_TitularDTO> ListarPorIdEumComp_Dm_Titular(int vId_Eum);
     }
 }

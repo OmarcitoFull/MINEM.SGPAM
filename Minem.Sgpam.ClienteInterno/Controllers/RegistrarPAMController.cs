@@ -403,7 +403,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         [HttpGet]
         public IActionResult CrearInformacionGrafica(int vIdComponente)
         {
-            Comp_Info_GraficaDTO vRegistro = new Comp_Info_GraficaDTO { Fec_Ingreso = DateTime.Now, Id_Componente = vIdComponente };
+            Comp_Info_GraficaDTO vRegistro = new Comp_Info_GraficaDTO { Fecha = DateTime.Now, Id_Componente = vIdComponente };
             return PartialView("_ModalInformacionGrafica", vRegistro);
         }
 

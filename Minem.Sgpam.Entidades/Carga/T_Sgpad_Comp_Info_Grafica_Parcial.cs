@@ -21,8 +21,11 @@ namespace Minem.Sgpam.Entidades
 			this.ID_COMPONENTE = Convert.ToInt32(vRdr["ID_COMPONENTE"]);  
 			this.FLG_ESTADO = Convert.ToString(vRdr["FLG_ESTADO"]);  
 			if (!Convert.IsDBNull(vRdr["EXTENCION"]))  			{				this.EXTENCION = Convert.ToString(vRdr["EXTENCION"]);  			}			this.ID_COMP_INFO_GRAFICA = Convert.ToInt32(vRdr["ID_COMP_INFO_GRAFICA"]);  
-			if (!Convert.IsDBNull(vRdr["FEC_MODIFICA"]))  			{				this.FEC_MODIFICA = Convert.ToDateTime(vRdr["FEC_MODIFICA"]);  			}			if (!Convert.IsDBNull(vRdr["IP_MODIFICA"]))  			{				this.IP_MODIFICA = Convert.ToString(vRdr["IP_MODIFICA"]);  			}			if (!Convert.IsDBNull(vRdr["IP_INGRESO"]))  			{				this.IP_INGRESO = Convert.ToString(vRdr["IP_INGRESO"]);  			}			if (!Convert.IsDBNull(vRdr["FEC_INGRESO"]))  			{				this.FEC_INGRESO = Convert.ToDateTime(vRdr["FEC_INGRESO"]);  			}			if (!Convert.IsDBNull(vRdr["TAMANO"]))  			{				this.TAMANO = Convert.ToInt32(vRdr["TAMANO"]);  			}			if (!Convert.IsDBNull(vRdr["USU_MODIFICA"]))  			{				this.USU_MODIFICA = Convert.ToString(vRdr["USU_MODIFICA"]);  			}			this.RUTA_IMAGEN = Convert.ToString(vRdr["RUTA_IMAGEN"]);  
+			if (!Convert.IsDBNull(vRdr["FEC_MODIFICA"]))  			{				this.FEC_MODIFICA = Convert.ToDateTime(vRdr["FEC_MODIFICA"]);  			}			if (!Convert.IsDBNull(vRdr["IP_MODIFICA"]))  			{				this.IP_MODIFICA = Convert.ToString(vRdr["IP_MODIFICA"]);  			}			if (!Convert.IsDBNull(vRdr["IP_INGRESO"]))  			{				this.IP_INGRESO = Convert.ToString(vRdr["IP_INGRESO"]);  			}			if (!Convert.IsDBNull(vRdr["FEC_INGRESO"]))  			{				this.FEC_INGRESO = Convert.ToDateTime(vRdr["FEC_INGRESO"]);  			}			if (!Convert.IsDBNull(vRdr["TAMANO"]))  			{				this.TAMANO = Convert.ToInt32(vRdr["TAMANO"]);  			}			if (!Convert.IsDBNull(vRdr["USU_MODIFICA"]))  			{				this.USU_MODIFICA = Convert.ToString(vRdr["USU_MODIFICA"]);  			}			this.RUTA_IMAGEN = Convert.ToString(vRdr["RUTA_IMAGEN"]);
 
-        }
+			if (!Convert.IsDBNull(vRdr["FECHA"]))
+			{				this.FECHA = Convert.ToDateTime(vRdr["FECHA"]);
+			}
+		}
     }
 }

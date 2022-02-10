@@ -21,8 +21,6 @@ namespace Minem.Sgpam.WebApi.Controllers
 
 
 
-
-
         [HttpPost("Save")]
         public Eum_InspeccionDTO Save([FromBody] Eum_InspeccionDTO vEum_InspeccionDTO)
         {
