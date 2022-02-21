@@ -52,6 +52,7 @@ D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Debug\net5.0\Min
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Debug\net5.0\ref\Minem.Sgpam.WebApi.dll
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Debug\net5.0\Minem.Sgpam.WebApi.pdb
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Debug\net5.0\Minem.Sgpam.WebApi.genruntimeconfig.cache
+<<<<<<< HEAD
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.WebApi\bin\Debug\net5.0\appsettings.Development.json
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.WebApi\bin\Debug\net5.0\appsettings.json
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.WebApi\bin\Debug\net5.0\Minem.Sgpam.WebApi.exe
@@ -106,6 +107,8 @@ D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Debug\net5.
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Debug\net5.0\ref\Minem.Sgpam.WebApi.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Debug\net5.0\Minem.Sgpam.WebApi.pdb
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Debug\net5.0\Minem.Sgpam.WebApi.genruntimeconfig.cache
+=======
+>>>>>>> 5a32e50402ea7cb5e4d08c612a511f34365be334
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.WebApi\bin\Debug\net5.0\appsettings.Development.json
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.WebApi\bin\Debug\net5.0\appsettings.json
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.WebApi\bin\Debug\net5.0\Minem.Sgpam.WebApi.exe

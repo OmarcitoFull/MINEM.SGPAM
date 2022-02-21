@@ -19,6 +19,7 @@ D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.dll
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\ref\Minem.Sgpam.LogicaNegocio.dll
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.pdb
+<<<<<<< HEAD
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.LogicaNegocio.deps.json
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.LogicaNegocio.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\ref\Minem.Sgpam.LogicaNegocio.dll
@@ -40,6 +41,8 @@ D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debu
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\ref\Minem.Sgpam.LogicaNegocio.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.pdb
+=======
+>>>>>>> 5a32e50402ea7cb5e4d08c612a511f34365be334
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.LogicaNegocio.deps.json
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.LogicaNegocio.dll
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\ref\Minem.Sgpam.LogicaNegocio.dll

@@ -42,7 +42,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                                       Id_Comp_Info_Grafica = vTmp.ID_COMP_INFO_GRAFICA,
                                       Nombre_Imagen = vTmp.NOMBRE_IMAGEN,
                                       Ruta_Imagen = vTmp.RUTA_IMAGEN,
-                                      Tamano = vTmp.TAMANO
+                                      Tamano = vTmp.TAMANO,
+                                      Fecha = vTmp.FECHA
                                   }).ToList();
                 return vResultado;
             }
@@ -87,7 +88,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         ID_COMP_INFO_GRAFICA = vComp_Info_GraficaDTO.Id_Comp_Info_Grafica,
                         NOMBRE_IMAGEN = vComp_Info_GraficaDTO.Nombre_Imagen,
                         RUTA_IMAGEN = vComp_Info_GraficaDTO.Ruta_Imagen,
-                        TAMANO = vComp_Info_GraficaDTO.Tamano
+                        TAMANO = vComp_Info_GraficaDTO.Tamano,
+                        FECHA = vComp_Info_GraficaDTO.Fecha
                     };
                     if (vComp_Info_GraficaDTO.Id_Comp_Info_Grafica == 0)
                     {

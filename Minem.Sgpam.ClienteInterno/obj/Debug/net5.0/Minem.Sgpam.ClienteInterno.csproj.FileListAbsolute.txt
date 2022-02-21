@@ -398,6 +398,7 @@ D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\ne
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\Expediente\Index.cshtml.g.cs
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\LNR\AgregarEditar.cshtml.g.cs
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Razor\Views\LNR\Index.cshtml.g.cs
+<<<<<<< HEAD
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\bin\Debug\net5.0\appsettings.Development.json
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\bin\Debug\net5.0\appsettings.json
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\bin\Debug\net5.0\Minem.Sgpam.ClienteInterno.exe
@@ -817,6 +818,8 @@ D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Deb
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\ref\Minem.Sgpam.ClienteInterno.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Minem.Sgpam.ClienteInterno.pdb
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Debug\net5.0\Minem.Sgpam.ClienteInterno.genruntimeconfig.cache
+=======
+>>>>>>> 5a32e50402ea7cb5e4d08c612a511f34365be334
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\bin\Debug\net5.0\appsettings.Development.json
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\bin\Debug\net5.0\appsettings.json
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\bin\Debug\net5.0\Minem.Sgpam.ClienteInterno.exe

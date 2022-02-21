@@ -10,6 +10,7 @@ D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Debug\n
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Debug\net5.0\ref\Minem.Sgpam.InfraEstructura.dll
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Debug\net5.0\Minem.Sgpam.InfraEstructura.pdb
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Debug\net5.0\Minem.Sgpam.InfraEstructura.csproj.AssemblyReference.cache
+<<<<<<< HEAD
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\bin\Debug\net5.0\Minem.Sgpam.InfraEstructura.deps.json
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\bin\Debug\net5.0\Minem.Sgpam.InfraEstructura.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\bin\Debug\net5.0\ref\Minem.Sgpam.InfraEstructura.dll
@@ -22,6 +23,8 @@ D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\De
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Debug\net5.0\Minem.Sgpam.InfraEstructura.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Debug\net5.0\ref\Minem.Sgpam.InfraEstructura.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Debug\net5.0\Minem.Sgpam.InfraEstructura.pdb
+=======
+>>>>>>> 5a32e50402ea7cb5e4d08c612a511f34365be334
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\bin\Debug\net5.0\Minem.Sgpam.InfraEstructura.deps.json
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\bin\Debug\net5.0\Minem.Sgpam.InfraEstructura.dll
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\bin\Debug\net5.0\ref\Minem.Sgpam.InfraEstructura.dll
@@ -33,4 +36,7 @@ D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Debug\net5.0\Mi
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Debug\net5.0\Minem.Sgpam.InfraEstructura.dll
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Debug\net5.0\ref\Minem.Sgpam.InfraEstructura.dll
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Debug\net5.0\Minem.Sgpam.InfraEstructura.pdb
+<<<<<<< HEAD
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Debug\net5.0\Minem.Sgpam.InfraEstructura.csproj.AssemblyReference.cache
+=======
+>>>>>>> 5a32e50402ea7cb5e4d08c612a511f34365be334

@@ -15,6 +15,7 @@ D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.dll
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\ref\Minem.Sgpam.AccesoDatos.dll
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.pdb
+<<<<<<< HEAD
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.deps.json
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\ref\Minem.Sgpam.AccesoDatos.dll
@@ -32,6 +33,8 @@ D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\ref\Minem.Sgpam.AccesoDatos.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.pdb
+=======
+>>>>>>> 5a32e50402ea7cb5e4d08c612a511f34365be334
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.deps.json
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.dll
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\ref\Minem.Sgpam.AccesoDatos.dll

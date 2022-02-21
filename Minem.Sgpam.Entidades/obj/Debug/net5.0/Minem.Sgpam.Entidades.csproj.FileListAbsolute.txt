@@ -10,6 +10,7 @@ D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\ref\Minem.Sgpam.Entidades.dll
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.pdb
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.csproj.AssemblyReference.cache
+<<<<<<< HEAD
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Debug\net5.0\Minem.Sgpam.Entidades.deps.json
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Debug\net5.0\Minem.Sgpam.Entidades.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Debug\net5.0\ref\Minem.Sgpam.Entidades.dll
@@ -22,6 +23,8 @@ D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\ne
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\ref\Minem.Sgpam.Entidades.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.pdb
+=======
+>>>>>>> 5a32e50402ea7cb5e4d08c612a511f34365be334
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Debug\net5.0\Minem.Sgpam.Entidades.deps.json
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Debug\net5.0\Minem.Sgpam.Entidades.dll
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Debug\net5.0\ref\Minem.Sgpam.Entidades.dll
@@ -33,4 +36,7 @@ D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sg
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.dll
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\ref\Minem.Sgpam.Entidades.dll
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.pdb
+<<<<<<< HEAD
 D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.csproj.AssemblyReference.cache
+=======
+>>>>>>> 5a32e50402ea7cb5e4d08c612a511f34365be334
