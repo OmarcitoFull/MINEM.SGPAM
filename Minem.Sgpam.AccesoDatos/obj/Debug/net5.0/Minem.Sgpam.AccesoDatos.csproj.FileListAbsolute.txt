@@ -1,21 +1,3 @@
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.deps.json
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.dll
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\ref\Minem.Sgpam.AccesoDatos.dll
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.pdb
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.Entidades.dll
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.InfraEstructura.dll
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.Entidades.pdb
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.InfraEstructura.pdb
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.csproj.AssemblyReference.cache
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.GeneratedMSBuildEditorConfig.editorconfig
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.AssemblyInfoInputs.cache
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.AssemblyInfo.cs
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.csproj.CoreCompileInputs.cache
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.csproj.CopyComplete
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.dll
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\ref\Minem.Sgpam.AccesoDatos.dll
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.pdb
-<<<<<<< HEAD
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.deps.json
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\ref\Minem.Sgpam.AccesoDatos.dll
@@ -33,22 +15,3 @@ D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\ref\Minem.Sgpam.AccesoDatos.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.pdb
-=======
->>>>>>> 5a32e50402ea7cb5e4d08c612a511f34365be334
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.deps.json
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.dll
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\ref\Minem.Sgpam.AccesoDatos.dll
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.pdb
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.Entidades.dll
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.InfraEstructura.dll
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.Entidades.pdb
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Debug\net5.0\Minem.Sgpam.InfraEstructura.pdb
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.csproj.AssemblyReference.cache
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.GeneratedMSBuildEditorConfig.editorconfig
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.AssemblyInfoInputs.cache
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.AssemblyInfo.cs
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.csproj.CoreCompileInputs.cache
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.csproj.CopyComplete
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.dll
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\ref\Minem.Sgpam.AccesoDatos.dll
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Debug\net5.0\Minem.Sgpam.AccesoDatos.pdb

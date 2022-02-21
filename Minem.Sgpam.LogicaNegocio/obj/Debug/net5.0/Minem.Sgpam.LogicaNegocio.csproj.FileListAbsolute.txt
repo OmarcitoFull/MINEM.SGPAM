@@ -1,25 +1,3 @@
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.LogicaNegocio.deps.json
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.LogicaNegocio.dll
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\ref\Minem.Sgpam.LogicaNegocio.dll
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.LogicaNegocio.pdb
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.dll
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.Entidades.dll
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.InfraEstructura.dll
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.TransporteDatos.dll
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.pdb
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.TransporteDatos.pdb
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.Entidades.pdb
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.InfraEstructura.pdb
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.csproj.AssemblyReference.cache
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.GeneratedMSBuildEditorConfig.editorconfig
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.AssemblyInfoInputs.cache
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.AssemblyInfo.cs
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.csproj.CoreCompileInputs.cache
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.csproj.CopyComplete
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.dll
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\ref\Minem.Sgpam.LogicaNegocio.dll
-D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.pdb
-<<<<<<< HEAD
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.LogicaNegocio.deps.json
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.LogicaNegocio.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\ref\Minem.Sgpam.LogicaNegocio.dll
@@ -41,26 +19,3 @@ D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debu
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\ref\Minem.Sgpam.LogicaNegocio.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.pdb
-=======
->>>>>>> 5a32e50402ea7cb5e4d08c612a511f34365be334
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.LogicaNegocio.deps.json
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.LogicaNegocio.dll
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\ref\Minem.Sgpam.LogicaNegocio.dll
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.LogicaNegocio.pdb
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.dll
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.Entidades.dll
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.InfraEstructura.dll
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.TransporteDatos.dll
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.AccesoDatos.pdb
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.TransporteDatos.pdb
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.Entidades.pdb
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\bin\Debug\net5.0\Minem.Sgpam.InfraEstructura.pdb
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.csproj.AssemblyReference.cache
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.GeneratedMSBuildEditorConfig.editorconfig
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.AssemblyInfoInputs.cache
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.AssemblyInfo.cs
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.csproj.CoreCompileInputs.cache
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.csproj.CopyComplete
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.dll
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\ref\Minem.Sgpam.LogicaNegocio.dll
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.LogicaNegocio\obj\Debug\net5.0\Minem.Sgpam.LogicaNegocio.pdb
