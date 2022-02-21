@@ -2500,3 +2500,9 @@ $(document).ready(function () {
     init_autocomplete();
 });
 
+fullLoadTable = function (vObjects) {
+    $(vObjects).DataTable().destroy();
+    $(vObjects).dataTable({
+        ordering: false, pageLength: 2, searching: !1, bInfo: !1, bLengthChange: !1, language: { paginate: { sPrevious: "Anterior", sNext: "Siguiente" } }
+    });
+}

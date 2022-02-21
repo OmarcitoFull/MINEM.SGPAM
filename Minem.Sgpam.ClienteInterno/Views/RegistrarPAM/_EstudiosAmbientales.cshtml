@@ -16,7 +16,7 @@
 
 <div class="clearfix"></div>
 <div class="table-responsive">
-    <table class="table table-striped jambo_table bulk_action">
+    <table id="fulltbl13" class="table table-striped jambo_table bulk_action">
         <thead>
             <tr class="headings">
                 <th class="column-title">Tipo</th>
@@ -32,51 +32,40 @@
             </tr>
         </thead>
         <tbody>
-            @if (!Model.Any())
+            @foreach (var item in Model)
             {
-                <tr class="even pointer">
-                    <td class=" " colspan="10">
-                        No existe registros
+                <tr class="odd pointer">
+                    <td class=" ">
+                        @item.Tipo_Estudio
                     </td>
+                    <td class=" ">
+                        @item.Des_Nom_Titular
+                    </td>
+                    <td class=" ">
+                        @item.Des_Und_Ambiental
+                    </td>
+                    <td class=" ">
+                        @item.Des_Nom_Proyecto
+                    </td>
+                    <td class=" ">
+                        @item.Res_Aprobacion
+                    </td>
+                    <td class=" ">
+                        @item.Fec_Resolucion.GetValueOrDefault().ToShortDateString()
+                    </td>
+                    <td class=" ">
+                        @item.Nro_Expediente
+                    </td>
+                    <td class=" ">
+                        @item.Fec_Expediente.GetValueOrDefault().ToShortDateString()
+                    </td>
+                    <td class=" ">
+                        @item.Des_Situacion
+                    </td>
+                    <td class=" "><a href="#" class="enlace">
+                        Resol_01
+                        </a></td>
                 </tr>
-            }
-            else
-            {
-                foreach (var item in Model)
-                {
-                    <tr class="odd pointer">
-                        <td class=" ">
-                            @item.Tipo_Estudio
-                        </td>
-                        <td class=" ">
-                            @item.Des_Nom_Titular
-                        </td>
-                        <td class=" ">
-                            @item.Des_Und_Ambiental
-                        </td>
-                        <td class=" ">
-                            @item.Des_Nom_Proyecto
-                        </td>
-                        <td class=" ">
-                            @item.Res_Aprobacion
-                        </td>
-                        <td class=" ">
-                            @item.Fec_Resolucion.GetValueOrDefault().ToShortDateString()
-                        </td>
-                        <td class=" ">
-                            @item.Nro_Expediente
-                        </td>
-                        <td class=" ">
-                            @item.Fec_Expediente.GetValueOrDefault().ToShortDateString()
-                        </td>
-                        <td class=" ">
-                            @item.Des_Situacion
-                        </td>
-                        <td class=" "><a href="#" class="enlace">
-                            Resol_01
-                         </a></td>
-                    </tr>
-                }
             }
         </tbody>
     </table>

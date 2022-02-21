@@ -14,8 +14,8 @@
         public const string Activo = "1";
         public const string Inactivo = "0";
 
-        public const string MsgOk = "Operación exitosa";
-        public const string MsgErr= "Ocurrió un error al grabar en el servidor";
+        public const string MsgOk = "Operacion exitosa";
+        public const string MsgErr = "Ocurrió un error al grabar en el servidor";
         public const string MsgModel = "Falta completar datos";
     }
 }

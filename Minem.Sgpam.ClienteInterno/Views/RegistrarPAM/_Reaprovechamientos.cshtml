@@ -15,7 +15,7 @@
 </div>
 <div class="clearfix"></div>
 <div class="table-responsive">
-    <table class="table table-striped jambo_table bulk_action">
+    <table id="fulltbl15" class="table table-striped jambo_table bulk_action">
         <thead>
             <tr class="headings">
                 <th class="column-title">Número de Expediente</th>
@@ -27,39 +27,28 @@
             </tr>
         </thead>
         <tbody>
-            @if (!Model.Any())
+            @foreach (var item in Model)
             {
-                <tr class="even pointer">
-                    <td class=" " colspan="6">
-                        No existe registros
+                <tr class="odd pointer">
+                    <td class=" ">
+                        @item.Nro_Expediente
+                    </td>
+                    <td class=" ">
+                        @(item.Fecha_Expediente.GetValueOrDefault().ToShortDateString() == "01/01/0001" ? "" : item.Fecha_Expediente.GetValueOrDefault().ToShortDateString())
+                    </td>
+                    <td class=" ">
+                        @item.Resolucion_Reapro
+                    </td>
+                    <td class=" ">
+                        @(item.Fecha_Resolucion.GetValueOrDefault().ToShortDateString() == "01/01/0001" ? "" : item.Fecha_Resolucion.GetValueOrDefault().ToShortDateString())
+                    </td>
+                    <td class=" ">
+                        @item.Titular
+                    </td>
+                    <td class=" ">
+                        @item.Nombre_Proyecto
                     </td>
                 </tr>
-            }
-            else
-            {
-                foreach (var item in Model)
-                {
-                    <tr class="odd pointer">
-                        <td class=" ">
-                            @item.Nro_Expediente
-                        </td>
-                        <td class=" ">
-                            @item.Fecha_Expediente.GetValueOrDefault().ToShortDateString()
-                        </td>
-                        <td class=" ">
-                            @item.Resolucion_Reapro
-                        </td>
-                        <td class=" ">
-                            @item.Fecha_Resolucion.GetValueOrDefault().ToShortDateString()
-                        </td>
-                        <td class=" ">
-                            @item.Titular
-                        </td>
-                        <td class=" ">
-                            @item.Nombre_Proyecto
-                        </td>
-                    </tr>
-                }
             }
         </tbody>
     </table>

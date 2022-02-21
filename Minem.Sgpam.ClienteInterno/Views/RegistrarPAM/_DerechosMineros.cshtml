@@ -2,7 +2,7 @@
 
 <div class="clearfix"></div>
 <div class="table-responsive">
-    <table class="table table-striped jambo_table bulk_action">
+    <table id="fulltbl9" class="table table-striped jambo_table bulk_action">
         <thead>
             <tr class="headings">
                 <th class="column-title">Código</th>
@@ -19,54 +19,43 @@
             </tr>
         </thead>
         <tbody>
-            @if (!Model.Any())
+            @foreach (var item in Model)
             {
-                <tr class="even pointer">
-                    <td class=" " colspan="11">
-                        No existe registros
+                <tr class="odd pointer">
+                    <td class=" ">
+                        @item.Codigo
+                    </td>
+                    <td class=" ">
+                        @item.Nombre
+                    </td>
+                    <td class=" ">
+                        @item.UEA
+                    </td>
+                    <td class=" ">
+                        @item.Tipo
+                    </td>
+                    <td class=" ">
+                        @item.Sustancia
+                    </td>
+                    <td class=" ">
+                        @item.Situacion
+                    </td>
+                    <td class=" ">
+                        @item.Estado
+                    </td>
+                    <td class=" ">
+                        @item.Resolucion
+                    </td>
+                    <td class=" ">
+                        @item.Fecha_Resolucion
+                    </td>
+                    <td class=" ">
+                        @item.Resolucion_Caducidad
+                    </td>
+                    <td class=" ">
+                        @item.Fecha_Caducidad
                     </td>
                 </tr>
-            }
-            else
-            {
-                foreach (var item in Model)
-                {
-                    <tr class="odd pointer">
-                        <td class=" ">
-                            @item.Codigo
-                        </td>
-                        <td class=" ">
-                            @item.Nombre
-                        </td>
-                        <td class=" ">
-                            @item.UEA
-                        </td>
-                        <td class=" ">
-                            @item.Tipo
-                        </td>
-                        <td class=" ">
-                            @item.Sustancia
-                        </td>
-                        <td class=" ">
-                            @item.Situacion
-                        </td>
-                        <td class=" ">
-                            @item.Estado
-                        </td>
-                        <td class=" ">
-                            @item.Resolucion
-                        </td>
-                        <td class=" ">
-                            @item.Fecha_Resolucion
-                        </td>
-                        <td class=" ">
-                            @item.Resolucion_Caducidad
-                        </td>
-                        <td class=" ">
-                            @item.Fecha_Caducidad
-                        </td>
-                    </tr>
-                }
             }
         </tbody>
     </table>

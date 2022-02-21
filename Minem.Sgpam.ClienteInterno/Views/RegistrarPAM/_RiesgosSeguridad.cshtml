@@ -16,7 +16,7 @@
 
 <div class="clearfix"></div>
 <div class="table-responsive">
-    <table class="table table-striped jambo_table bulk_action">
+    <table id="fulltbl3" class="table table-striped jambo_table bulk_action">
         <thead>
             <tr class="headings">
                 <th class="column-title">Accesibilidad</th>
@@ -29,42 +29,31 @@
             </tr>
         </thead>
         <tbody>
-            @if (!Model.Any())
+            @foreach (var item in Model)
             {
-                <tr class="even pointer">
-                    <td class=" " colspan="7">
-                        No existe registros
+                <tr class="odd pointer">
+                    <td class=" ">
+                        @item.Accesibilidad
+                    </td>
+                    <td class=" ">
+                        @item.Pot_Colapso
+                    </td>
+                    <td class=" ">
+                        @item.Condicion_Cierre
+                    </td>
+                    <td class=" ">
+                        @item.Presencia_Elemento
+                    </td>
+                    <td class=" ">
+                        @item.Hundimiento
+                    </td>
+                    <td class=" ">
+                        @item.Pot_Caida_Persona
+                    </td>
+                    <td class=" ">
+                        @item.Presencia_Advertencia
                     </td>
                 </tr>
-            }
-            else
-            {
-                foreach (var item in Model)
-                {
-                    <tr class="odd pointer">
-                        <td class=" ">
-                            @item.Accesibilidad
-                        </td>
-                        <td class=" ">
-                            @item.Pot_Colapso
-                        </td>
-                        <td class=" ">
-                            @item.Condicion_Cierre
-                        </td>
-                        <td class=" ">
-                            @item.Presencia_Elemento
-                        </td>
-                        <td class=" ">
-                            @item.Hundimiento
-                        </td>
-                        <td class=" ">
-                            @item.Pot_Caida_Persona
-                        </td>
-                        <td class=" ">
-                            @item.Presencia_Advertencia
-                        </td>
-                    </tr>
-                }
             }
         </tbody>
     </table>

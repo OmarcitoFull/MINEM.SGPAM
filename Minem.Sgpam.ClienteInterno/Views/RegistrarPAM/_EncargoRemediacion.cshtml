@@ -16,7 +16,7 @@
 
 <div class="clearfix"></div>
 <div class="table-responsive">
-    <table class="table table-striped jambo_table bulk_action">
+    <table id="fulltbl14" class="table table-striped jambo_table bulk_action">
         <thead>
             <tr class="headings">
                 <th class="column-title">NRO</th>
@@ -26,33 +26,22 @@
             </tr>
         </thead>
         <tbody>
-            @if (!Model.Any())
+            @foreach (var item in Model)
             {
-                <tr class="even pointer">
-                    <td class=" " colspan="4">
-                        No existe registros
+                <tr class="odd pointer">
+                    <td class=" ">
+                        @item.Nro_Remediacion
+                    </td>
+                    <td class=" ">
+                        @item.Resolucion_Exc_Enc
+                    </td>
+                    <td class=" ">
+                        @item.Responsable_Remediacion
+                    </td>
+                    <td class=" ">
+                        @item.Resolucion_Exc_Enc
                     </td>
                 </tr>
-            }
-            else
-            {
-                foreach (var item in Model)
-                {
-                    <tr class="odd pointer">
-                        <td class=" ">
-                            @item.Nro_Remediacion
-                        </td>
-                        <td class=" ">
-                            @item.Resolucion_Exc_Enc
-                        </td>
-                        <td class=" ">
-                            @item.Responsable_Remediacion
-                        </td>
-                        <td class=" ">
-                            @item.Resolucion_Exc_Enc
-                        </td>
-                    </tr>
-                }
             }
         </tbody>
     </table>

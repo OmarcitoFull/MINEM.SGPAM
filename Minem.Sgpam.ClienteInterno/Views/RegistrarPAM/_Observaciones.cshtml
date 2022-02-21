@@ -16,7 +16,7 @@
 
 <div class="clearfix"></div>
 <div class="table-responsive">
-    <table class="table table-striped jambo_table bulk_action">
+    <table id="fulltbl2" class="table table-striped jambo_table bulk_action">
         <thead>
             <tr class="headings">
                 <th class="column-title">Suelos distorbados</th>
@@ -26,33 +26,22 @@
             </tr>
         </thead>
         <tbody>
-            @if (!Model.Any())
+            @foreach (var item in Model)
             {
                 <tr class="even pointer">
-                    <td class=" " colspan="4">
-                        No existe registros
+                    <td class=" ">
+                        @item.Suelos_Disturbados
+                    </td>
+                    <td class=" ">
+                        @item.Obras_Rehabilitacion
+                    </td>
+                    <td class=" ">
+                        @item.Fecha.ToShortDateString()
+                    </td>
+                    <td class=" ">
+                        @item.Descripcion_Comp
                     </td>
                 </tr>
-            }
-            else
-            {
-                foreach (var item in Model)
-                {
-                    <tr class="even pointer">
-                        <td class=" ">
-                            @item.Suelos_Disturbados
-                        </td>
-                        <td class=" ">
-                            @item.Obras_Rehabilitacion
-                        </td>
-                        <td class=" ">
-                            @item.Fecha.ToShortDateString()
-                        </td>
-                        <td class=" ">
-                            @item.Descripcion_Comp
-                        </td>
-                    </tr>
-                }
             }
         </tbody>
     </table>

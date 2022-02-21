@@ -262,7 +262,7 @@
                 </li>
                 <li>
                     <div class="boton">
-                        <a href="#">Cancelar  <i class="fa fa-ban"></i></a>
+                        <a href="@Url.Action("AgregarEditar", "Eum", new { vId = Model.Componente.Id_Eum })">Cancelar  <i class="fa fa-ban"></i></a>
                     </div>
                 </li>
             </ul>
@@ -436,30 +436,32 @@
 @section Scripts {
     <script type="text/javascript">
         $(document).ready(function () {
+            fullLoadTable("#fulltbl1,#fulltbl2,#fulltbl3,#fulltbl4,#fulltbl5,#fulltbl6,#fulltbl7,#fulltbl8,#fulltbl9,#fulltbl10,#fulltbl11,#fulltbl12,#fulltbl13,#fulltbl14,#fulltbl15,#fulltbl16,#fulltbl17,#fulltbl18");
+
             const vSubTipo = @Html.Raw(Json.Serialize(Model.CboSubTipo));
 
             $("#vId_Tipo_Pam").on("change", function () {
                 const o = vSubTipo.filter(o => o.id_Tipo_Pam == $("#vId_Tipo_Pam").val()).map(function (o) { return { Value: o.id_Sub_Tipo_Pam, Text: o.descripcion }});
                 $("#vId_Sub_Tipo_Pam").empty();
-                $("#vId_Sub_Tipo_Pam").append('<option value="">SELECCIONE</option>');
+                $("#vId_Sub_Tipo_Pam").append("<option value=''>SELECCIONE</option>");
                 o.forEach(function (o, i) { $("#vId_Sub_Tipo_Pam").append('<option value="' + o.Value + '">' + o.Text + "</option>") });
             });
         });
 
 
-        $('#btnSubmit').click(function () {
+        $("#btnSubmit").click(function () {
             var vList = [];
             $("#ajuste tr").each(function () {
                 var vRow = $(this);
                 var vEntity = {
                     Id: vRow.attr("data-id"),
-                    Tipo: vRow.find("td:eq(0)").find('input').val(),
+                    Tipo: vRow.find("td:eq(0)").find("input").val(),
                     Base: null,
-                    Altura: vRow.find("td:eq(3)").find('input').val(),
+                    Altura: vRow.find("td:eq(3)").find("input").val(),
                     Profundidad: null,
-                    Largo: vRow.find("td:eq(1)").find('input').val(),
-                    Ancho: vRow.find("td:eq(2)").find('input').val(),
-                    Area: vRow.find("td:eq(4)").find('input').val(),
+                    Largo: vRow.find("td:eq(1)").find("input").val(),
+                    Ancho: vRow.find("td:eq(2)").find("input").val(),
+                    Area: vRow.find("td:eq(4)").find("input").val(),
                     Volumen: null,
                     Cantidad: null
                 };
@@ -467,7 +469,7 @@
             });
 
             var vModel = $("#MyForm").serializeArray();
-            vModel.push({ name: 'ListaReconocimientoMin', value: vList });
+            vModel.push({ name: "ListaReconocimientoMin", value: vList });
 
             var vData = {};
             $.map(vModel, function (n, i) { vData[n.name] = n.value; });
@@ -491,13 +493,11 @@
                 }
             });
 
-
         });
 
         ShowModal = function (vUrl, vBody) {
-            $.get(vUrl + "?vIdComponente=@Model.Componente.Id_Componente", function (data) { $('#'+vBody).html(data) });
+            $.get(vUrl + "?vIdComponente=@Model.Componente.Id_Componente", function (data) { $("#"+vBody).html(data) });
         }
-
 
 
         SaveObservacion = function () {
@@ -506,7 +506,7 @@
                 if ("@Constantes.Ok" == x.operation) {
                     Success("@Constantes.MsgOk");
                     $("#modal7").modal("toggle");
-                    $("#DivObservaciones").load("@Url.Action("ListarObservaciones", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                    $("#DivObservaciones").load("@Url.Action("ListarObservaciones", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })", function () { fullLoadTable("#fulltbl2"); });
                 } else {
                     "@((int)TipoErr.MODEL)" == x.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr")
                 }
@@ -567,7 +567,7 @@
                 if (x.operation == "@Constantes.Ok") {
                     Success("@Constantes.MsgOk");
                     $("#modal12").modal("toggle");
-                    $("#DivMedicionesCampo").load("@Url.Action("ListarMedicionesCampo", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                    $("#DivMedicionesCampo").load("@Url.Action("ListarMedicionesCampo", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })", function () { fullLoadTable("#fulltbl6"); });
                 } else {
                     "@((int)TipoErr.MODEL)" == x.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr")
                 }
@@ -588,11 +588,7 @@
                 };
 
                 var vData = $("#frmInformacionGrafica").serialize().split("&");
-                vData.forEach(function (vRow) {
-                    var vElement = vRow.split("=");
-                    e.append(vElement[0], vElement[1]);
-                });
-
+                vData.forEach(function (a) { a = a.split("="); e.append(a[0], a[1]) });
 
                 $.ajax({
                     type: "POST",
@@ -605,7 +601,7 @@
                         if (x.operation == "@Constantes.Ok") {
                             Success("@Constantes.MsgOk");
                             $("#modal13").modal("toggle");
-                            $("#DivInformacionGrafica").load("@Url.Action("ListarInformacionGrafica", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                            $("#DivInformacionGrafica").load("@Url.Action("ListarInformacionGrafica", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })", function () { fullLoadTable("#fulltbl7"); });
                         } else {
                             "@((int)TipoErr.MODEL)" == x.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr");
                         }
@@ -620,7 +616,7 @@
                 if (x.operation == "@Constantes.Ok") {
                     Success("@Constantes.MsgOk");
                     $("#modal14").modal("toggle");
-                    $("#DivComentariosAdicionales").load("@Url.Action("ListarComentarios", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                    $("#DivComentariosAdicionales").load("@Url.Action("ListarComentarios", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })", function () { fullLoadTable("#fulltbl8"); });
                 } else {
                     "@((int)TipoErr.MODEL)" == x.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr")
                 }
@@ -650,7 +646,7 @@
                 if (x.operation == "@Constantes.Ok") {
                     Success("@Constantes.MsgOk");
                     $("#modal20").modal("toggle");
-                    $("#DivEncargoRemediacion").load("@Url.Action("ListarEncargoRemediacion", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                    $("#DivEncargoRemediacion").load("@Url.Action("ListarEncargoRemediacion", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })", function () { fullLoadTable("#fulltbl14"); });
                 } else {
                     "@((int)TipoErr.MODEL)" == x.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr")
                 }
@@ -665,7 +661,7 @@
                 if (x.operation == "@Constantes.Ok") {
                     Success("@Constantes.MsgOk");
                     $("#modal21").modal("toggle");
-                    $("#DivReaprovechamientos").load("@Url.Action("ListarReaprovechamiento", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                    $("#DivReaprovechamientos").load("@Url.Action("ListarReaprovechamiento", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })", function () { fullLoadTable("#fulltbl15"); });
                 } else {
                     "@((int)TipoErr.MODEL)" == x.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr")
                 }
@@ -680,7 +676,7 @@
                 if (x.operation == "@Constantes.Ok") {
                     Success("@Constantes.MsgOk");
                     $("#modal22").modal("toggle");
-                    $("#DivInformeCampo").load("@Url.Action("ListarInformeCampo", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                    $("#DivInformeCampo").load("@Url.Action("ListarInformeCampo", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })", function () { fullLoadTable("#fulltbl16"); });
                 } else {
                     "@((int)TipoErr.MODEL)" == x.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr")
                 }
@@ -695,7 +691,7 @@
                 if (x.operation == "@Constantes.Ok") {
                     Success("@Constantes.MsgOk");
                     $("#modal23").modal("toggle");
-                    $("#DivResultado").load("@Url.Action("ListarResultado", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                    $("#DivResultado").load("@Url.Action("ListarResultado", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })", function () { fullLoadTable("#fulltbl17"); });
                 } else {
                     "@((int)TipoErr.MODEL)" == x.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr")
                 }
@@ -710,7 +706,7 @@
                 if (x.operation == "@Constantes.Ok") {
                     Success("@Constantes.MsgOk");
                     $("#modal24").modal("toggle");
-                    $("#DivEstadoGestion").load("@Url.Action("ListarEstadoGestion", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
+                    $("#DivEstadoGestion").load("@Url.Action("ListarEstadoGestion", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })", function () { fullLoadTable("#fulltbl18"); });
                 } else {
                     "@((int)TipoErr.MODEL)" == x.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr")
                 }
@@ -720,22 +716,21 @@
         }
 
 
-
         function fMaxLength(e) { e.value.length > e.maxLength && (e.value = e.value.slice(0, e.maxLength)) }
 
         fullchkGroupNormal = function () {
-            $('#FullChkExcluir :checkbox').prop("checked", !1);
-            $('#FullChkIncluir :checkbox').prop("checked", !1);
+            $("#FullChkExcluir :checkbox").prop("checked", !1);
+            $("#FullChkIncluir :checkbox").prop("checked", !1);
         }
         fullchkGroupExcluir = function () {
-            $('#FullChkInventario :checkbox').prop("checked", !1);
-            $('#FullChkSIGEPAM :checkbox').prop("checked", !1);
-            $('#FullChkIncluir :checkbox').prop("checked", !1);
+            $("#FullChkInventario :checkbox").prop("checked", !1);
+            $("#FullChkSIGEPAM :checkbox").prop("checked", !1);
+            $("#FullChkIncluir :checkbox").prop("checked", !1);
         }
         fullchkGroupIncluir = function () {
-            $('#FullChkInventario :checkbox').prop("checked", !1);
-            $('#FullChkSIGEPAM :checkbox').prop("checked", !1);
-            $('#FullChkExcluir :checkbox').prop("checked", !1);
+            $("#FullChkInventario :checkbox").prop("checked", !1);
+            $("#FullChkSIGEPAM :checkbox").prop("checked", !1);
+            $("#FullChkExcluir :checkbox").prop("checked", !1);
         }
     </script>
 }

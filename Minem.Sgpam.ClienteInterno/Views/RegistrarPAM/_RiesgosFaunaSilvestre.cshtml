@@ -16,7 +16,7 @@
 
 <div class="clearfix"></div>
 <div class="table-responsive">
-    <table class="table table-striped jambo_table bulk_action">
+    <table id="fulltbl5" class="table table-striped jambo_table bulk_action">
         <thead>
             <tr class="headings">
                 <th class="column-title">Accesibilidad y escape para la fauna</th>
@@ -28,40 +28,29 @@
             </tr>
         </thead>
         <tbody>
-            @if (!Model.Any())
+            @foreach (var item in Model)
             {
-                <tr class="even pointer">
-                    <td class=" " colspan="6">
-                        No existe registros
+                <tr class="odd pointer">
+                    <td class=" ">
+                        @item.Acceso_Fauna
+                    </td>
+                    <td class=" ">
+                        @item.Atraccion_Fauna
+                    </td>
+                    <td class=" ">
+                        @item.Vegetacion_Invasiva
+                    </td>
+                    <td class=" ">
+                        @item.Cerca_Area_Protegida
+                    </td>
+                        
+                    <td class=" ">
+                        @item.Sensibilidad_Area
+                    </td>
+                    <td class=" ">
+                        @item.Agua_Contaminada
                     </td>
                 </tr>
-            }
-            else
-            {
-                foreach (var item in Model)
-                {
-                    <tr class="odd pointer">
-                        <td class=" ">
-                            @item.Acceso_Fauna
-                        </td>
-                        <td class=" ">
-                            @item.Atraccion_Fauna
-                        </td>
-                        <td class=" ">
-                            @item.Vegetacion_Invasiva
-                        </td>
-                        <td class=" ">
-                            @item.Cerca_Area_Protegida
-                        </td>
-                        
-                        <td class=" ">
-                            @item.Sensibilidad_Area
-                        </td>
-                        <td class=" ">
-                            @item.Agua_Contaminada
-                        </td>
-                    </tr>
-                }
             }
         </tbody>
     </table>

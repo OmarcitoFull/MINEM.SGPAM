@@ -15,7 +15,7 @@
 </div>
 
 <div class="table-responsive">
-    <table class="table table-striped jambo_table bulk_action">
+    <table id="fulltbl17" class="table table-striped jambo_table bulk_action">
         <thead>
             <tr class="headings">
                 <th class="column-title">ACT_INVENTARIO</th>
@@ -27,39 +27,28 @@
         </thead>
 
         <tbody>
-            @if (!Model.Any())
+            @foreach (var item in Model)
             {
-                <tr class="even pointer">
-                    <td class=" " colspan="5">
-                        No existe registros
+                <tr class="odd pointer">
+                    <td class=" ">
+                        @item.Act_Inventario
+                    </td>
+                    <td class=" ">
+                        @item.Act_IGEPAM
+                    </td>
+
+                    <td class=" ">
+                        @item.Excluir
+                    </td>
+
+                    <td class=" ">
+                        @item.Incluir
+                    </td>
+
+                    <td class=" ">
+                        @item.Fecha.GetValueOrDefault().ToShortDateString()
                     </td>
                 </tr>
-             }
-            else
-            {
-                foreach (var item in Model)
-                {
-                    <tr class="odd pointer">
-                        <td class=" ">
-                            @item.Act_Inventario
-                        </td>
-                        <td class=" ">
-                            @item.Act_IGEPAM
-                        </td>
-
-                        <td class=" ">
-                            @item.Excluir
-                        </td>
-
-                        <td class=" ">
-                            @item.Incluir
-                        </td>
-
-                        <td class=" ">
-                            @item.Fecha.GetValueOrDefault().ToShortDateString()
-                        </td>
-                    </tr>
-                }
             }
         </tbody>
     </table>
