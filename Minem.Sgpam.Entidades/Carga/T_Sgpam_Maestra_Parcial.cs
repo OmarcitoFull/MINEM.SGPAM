@@ -57,8 +57,12 @@ namespace Minem.Sgpam.Entidades
 			{
 				this.USU_INGRESO = Convert.ToString(vRdr["USU_INGRESO"]);  
 			}
-			this.USO_AGUA = Convert.ToString(vRdr["USO_AGUA"]);  
-			this.ID_TIPO_OPERACION = Convert.ToInt32(vRdr["ID_TIPO_OPERACION"]);  
+			this.USO_AGUA = Convert.ToString(vRdr["USO_AGUA"]);
+
+			if (!Convert.IsDBNull(vRdr["ID_TIPO_OPERACION"]))
+			{
+				this.ID_TIPO_OPERACION = Convert.ToInt32(vRdr["ID_TIPO_OPERACION"]);
+			}
 			this.HISTORIA_EUM = Convert.ToString(vRdr["HISTORIA_EUM"]);  
 			this.RELIEVE = Convert.ToString(vRdr["RELIEVE"]);  
 			this.ID_EUM = Convert.ToInt32(vRdr["ID_EUM"]);  

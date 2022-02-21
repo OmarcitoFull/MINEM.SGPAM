@@ -29,6 +29,9 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         private readonly IT_Sgpad_Eum_Info_GraficaLN Eum_Info_GraficaLN;
         //private readonly IT_Sgpad_Eum_InformeLN Eum_InformeLN;
         private readonly IT_Sgpad_ComponenteLN ComponenteLN;
+        private readonly IT_Sgpad_Comp_Dd_MineroLN Comp_Dd_MineroLN;
+        private readonly IT_Sgpad_Comp_Dm_SituacionLN Comp_Dm_SituacionLN;
+        private readonly IT_Sgpad_Comp_Dm_TitularLN Comp_Dm_TitularLN;
 
 
         public T_Sgpam_MaestraLN
@@ -43,8 +46,11 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             //       IT_Sgpad_Eum_UbicacionLN vIT_Sgpad_Eum_UbicacionLN,
             IT_Sgpad_Eum_Info_DescargoLN vIT_Sgpad_Eum_Info_DescargoLN,
             IT_Sgpad_Eum_Info_GraficaLN vIT_Sgpad_Eum_Info_GraficaLN,
-            IT_Sgpad_ComponenteLN vIT_Sgpad_ComponenteLN
         //       IT_Sgpad_Eum_InformeLN vIT_Sgpad_Eum_InformeLN
+            IT_Sgpad_ComponenteLN vIT_Sgpad_ComponenteLN,
+            IT_Sgpad_Comp_Dd_MineroLN vIT_Sgpad_Comp_Dd_MineroLN,
+            IT_Sgpad_Comp_Dm_SituacionLN vIT_Sgpad_Comp_Dm_SituacionLN,
+            IT_Sgpad_Comp_Dm_TitularLN vIT_Sgpad_Comp_Dm_TitularLN
         )
         {
             MaestraAD = vT_Sgpam_MaestraAD;
@@ -59,6 +65,9 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             Eum_Info_GraficaLN = vIT_Sgpad_Eum_Info_GraficaLN;
             //     Eum_InformeLN = vIT_Sgpad_Eum_InformeLN;
             ComponenteLN = vIT_Sgpad_ComponenteLN;
+            Comp_Dd_MineroLN = vIT_Sgpad_Comp_Dd_MineroLN;
+            Comp_Dm_SituacionLN = vIT_Sgpad_Comp_Dm_SituacionLN;
+            Comp_Dm_TitularLN = vIT_Sgpad_Comp_Dm_TitularLN;
         }
 
         public IEnumerable<MaestraDTO> ListarMaestraDTO()
@@ -101,7 +110,7 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         Id_Conflicto_Social = vRegistro.ID_CONFLICTO_SOCIAL,
                         Id_Estado_Registro = vRegistro.ID_ESTADO_REGISTRO,
                         Id_Eum = vRegistro.ID_EUM,
-                        Id_Tipo_Operacion = vRegistro.ID_TIPO_OPERACION,
+                        Id_Tipo_Operacion = 1, //vRegistro.ID_TIPO_OPERACION,
                         Id_Tipo_Sustancia = vRegistro.ID_TIPO_SUSTANCIA,
                         Infra_Urbana = vRegistro.INFRA_URBANA,
                         Num_Eum = vRegistro.NUM_EUM,
@@ -248,7 +257,7 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                             Id_Conflicto_Social = item.ID_CONFLICTO_SOCIAL,
                             Id_Estado_Registro = item.ID_ESTADO_REGISTRO,
                             Id_Eum = item.ID_EUM,
-                            Id_Tipo_Operacion = item.ID_TIPO_OPERACION,
+                            Id_Tipo_Operacion = 1,//item.ID_TIPO_OPERACION,
                             Id_Tipo_Sustancia = item.ID_TIPO_SUSTANCIA,
                             Infra_Urbana = item.INFRA_URBANA,
                             Num_Eum = item.NUM_EUM,
@@ -295,6 +304,11 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                                                                    //ListaInfor = (List<Eum_InspeccionDTO>)Eum_InspeccionLN.ListarPorIdEumEum_InspeccionDTO(vId_Eum),
                     ListaInformacionDescargo = (List<Eum_Info_DescargoDTO>)Eum_Info_DescargoLN.ListarPorIdEumEum_Info_DescargoDTO(vId_Eum),
                     ListaInformacionGrafica = (List<Eum_Info_GraficaDTO>)Eum_Info_GraficaLN.ListarPorIdEumEum_Info_GraficaDTO(vId_Eum),
+
+                    //ListaDerechosMineros = (List<Comp_Dd_MineroDTO>)Comp_Dd_MineroLN.ListarPorIdEumComp_Dd_MineroDTO(vId_Eum),
+                    //ListaSituacionPrincipalesProducto = (List<Comp_Dm_SituacionDTO>)Comp_Dm_SituacionLN.ListarPorIdEumComp_Dm_Situacion(vId_Eum),
+                    //ListaTitularesReferencialesDerechos = (List<Comp_Dm_TitularDTO>)Comp_Dm_TitularLN.ListarPorIdEumComp_Dm_Titular(vId_Eum),
+
                     ListaComponenteActivo = vListComponente.Where(x => x.Flg_Estado == Constantes.Activo).ToList(),
                     ListaComponenteInactivo = vListComponente.Where(x => x.Flg_Estado == Constantes.Inactivo).ToList()
                 };

@@ -17,5 +17,7 @@ namespace Minem.Sgpam.LogicaNegocio.Interfaces
         Comp_Dd_MineroDTO ActualizarComp_Dd_MineroDTO(Comp_Dd_MineroDTO vComp_Dd_MineroDTO);
         int AnularComp_Dd_MineroDTOPorCodigo(Comp_Dd_MineroDTO vComp_Dd_MineroDTO);
         IEnumerable<Comp_Dd_MineroDTO> ListarPaginadoComp_Dd_MineroDTO(string vFiltro, int vNumPag, int vCantRegxPag);
+        IEnumerable<Comp_Dd_MineroDTO> ListarPorIdEumComp_Dd_MineroDTO(int vId_Eum);
+
     }
 }

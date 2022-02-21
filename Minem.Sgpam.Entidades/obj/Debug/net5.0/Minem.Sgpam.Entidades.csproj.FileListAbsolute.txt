@@ -10,17 +10,6 @@ D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\ref\Minem.Sgpam.Entidades.dll
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.pdb
 D:\msalvador\Fuentes\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.csproj.AssemblyReference.cache
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Debug\net5.0\Minem.Sgpam.Entidades.deps.json
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Debug\net5.0\Minem.Sgpam.Entidades.dll
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Debug\net5.0\ref\Minem.Sgpam.Entidades.dll
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Debug\net5.0\Minem.Sgpam.Entidades.pdb
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.GeneratedMSBuildEditorConfig.editorconfig
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.AssemblyInfoInputs.cache
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.AssemblyInfo.cs
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.csproj.CoreCompileInputs.cache
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.dll
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\ref\Minem.Sgpam.Entidades.dll
-D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.pdb
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Debug\net5.0\Minem.Sgpam.Entidades.deps.json
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Debug\net5.0\Minem.Sgpam.Entidades.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Debug\net5.0\ref\Minem.Sgpam.Entidades.dll
@@ -33,3 +22,15 @@ D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\ne
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\ref\Minem.Sgpam.Entidades.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.pdb
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Debug\net5.0\Minem.Sgpam.Entidades.deps.json
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Debug\net5.0\Minem.Sgpam.Entidades.dll
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Debug\net5.0\ref\Minem.Sgpam.Entidades.dll
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Debug\net5.0\Minem.Sgpam.Entidades.pdb
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.GeneratedMSBuildEditorConfig.editorconfig
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.AssemblyInfoInputs.cache
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.AssemblyInfo.cs
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.csproj.CoreCompileInputs.cache
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.dll
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\ref\Minem.Sgpam.Entidades.dll
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.pdb
+D:\fullshito\Fuentes\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Debug\net5.0\Minem.Sgpam.Entidades.csproj.AssemblyReference.cache

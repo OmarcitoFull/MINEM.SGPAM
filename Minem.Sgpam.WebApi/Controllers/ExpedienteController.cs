@@ -25,11 +25,11 @@ namespace Minem.Sgpam.WebApi.Controllers
             return Expediente_LN.RecuperarExpedienteDTOPorCodigo(vId);
         }
 
-        //[HttpGet("GetFull")]
-        //public RegistrarExpedienteDTO GetFull(int vId)
-        //{
-        //    return Expediente_LN.RecuperarFullMaestraDTOPorCodigo(vId);
-        //}
+        [HttpGet("GetFull")]
+        public RegistrarExpedienteDTO GetFull(int vId)
+        {
+            return Expediente_LN.RecuperarFullExpedienteDTOPorCodigo(vId);
+        }
 
 
         [HttpGet("ListarPaginadoExpedienteDTO")]

@@ -24,15 +24,28 @@ namespace Minem.Sgpam.WebApi
             vServices.AddTransient<IT_Sgpad_Eum_InspeccionAD, T_Sgpad_Eum_InspeccionAD>();
             vServices.AddTransient<IT_Sgpad_Eum_InspeccionLN, T_Sgpad_Eum_InspeccionLN>();
 
+            vServices.AddTransient<IT_Sgpad_Eum_OperacionAD, T_Sgpad_Eum_OperacionAD>();
+            vServices.AddTransient<IT_Sgpad_Eum_OperacionLN, T_Sgpad_Eum_OperacionLN>();
+
             vServices.AddTransient<IT_Sgpad_Eum_Info_GraficaAD, T_Sgpad_Eum_Info_GraficaAD>();
             vServices.AddTransient<IT_Sgpad_Eum_Info_GraficaLN, T_Sgpad_Eum_Info_GraficaLN>();
 
             vServices.AddTransient<IT_Sgpad_Eum_Info_DescargoAD, T_Sgpad_Eum_Info_DescargoAD>();
             vServices.AddTransient<IT_Sgpad_Eum_Info_DescargoLN, T_Sgpad_Eum_Info_DescargoLN>();
 
-
             vServices.AddTransient<IT_Sgpam_ExpedienteAD, T_Sgpam_ExpedienteAD>();
             vServices.AddTransient<IT_Sgpam_ExpedienteLN, T_Sgpam_ExpedienteLN>();
+
+
+            vServices.AddTransient<IT_Sgpad_Comp_Dd_MineroAD, T_Sgpad_Comp_Dd_MineroAD>();
+            vServices.AddTransient<IT_Sgpad_Comp_Dd_MineroLN, T_Sgpad_Comp_Dd_MineroLN>();
+
+            vServices.AddTransient<IT_Sgpad_Comp_Dm_SituacionAD, T_Sgpad_Comp_Dm_SituacionAD>();
+            vServices.AddTransient<IT_Sgpad_Comp_Dm_SituacionLN, T_Sgpad_Comp_Dm_SituacionLN>();
+
+            vServices.AddTransient<IT_Sgpad_Comp_Dm_TitularAD, T_Sgpad_Comp_Dm_TitularAD>();
+            vServices.AddTransient<IT_Sgpad_Comp_Dm_TitularLN, T_Sgpad_Comp_Dm_TitularLN>();
+
 
 
 

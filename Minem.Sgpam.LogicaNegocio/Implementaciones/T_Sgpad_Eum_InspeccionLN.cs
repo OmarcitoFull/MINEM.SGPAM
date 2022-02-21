@@ -128,6 +128,7 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                             Ip_Ingreso = item.IP_INGRESO,
                             Id_Inspector = item.ID_INSPECTOR,
                             Id_Tipo_Clima = item.ID_TIPO_CLIMA,
+                            Descripcion_Clima = item.DESCRIPCION_CLIMA,
                             Usu_Ingreso = item.USU_INGRESO,
                             Fecha_Inspeccion = item.FECHA_INSPECCION
                         };

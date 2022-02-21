@@ -16,6 +16,7 @@ namespace Minem.Sgpam.Entidades
 		public string USU_MODIFICA { get; set; }  
 		public string IP_MODIFICA { get; set; }  
 		public int? ID_TIPO_CLIMA { get; set; }  
+		public string DESCRIPCION_CLIMA { get; set; }
 		public int ID_EUM { get; set; }  
 		public string USU_INGRESO { get; set; }  
 		public DateTime? FEC_INGRESO { get; set; }  

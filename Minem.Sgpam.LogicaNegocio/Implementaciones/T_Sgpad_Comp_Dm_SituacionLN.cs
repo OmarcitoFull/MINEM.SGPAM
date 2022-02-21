@@ -106,5 +106,19 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                 throw;
             }
         }
+
+        public IEnumerable<Comp_Dm_SituacionDTO> ListarPorIdEumComp_Dm_Situacion(int vId_Eum)
+        {
+            try
+            {
+                var vResultado = Comp_Dm_SituacionAD.ListarPorIdEumT_Sgpad_Comp_Dm_Situacion(vId_Eum);
+                return new List<Comp_Dm_SituacionDTO>();
+            }
+            catch (Exception ex)
+            {
+                //Log.Error(ex.Message, ex);
+                throw;
+            }
+        }
     }
 }

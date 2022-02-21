@@ -16,5 +16,6 @@ namespace Minem.Sgpam.AccesoDatos.Interfaces
         T_Sgpad_Comp_Dd_Minero ActualizarT_Sgpad_Comp_Dd_Minero(T_Sgpad_Comp_Dd_Minero vT_Sgpad_Comp_Dd_Minero);
         int AnularT_Sgpad_Comp_Dd_MineroPorCodigo(int vId_Comp_Dm);
         IEnumerable<T_Sgpad_Comp_Dd_Minero> ListarPaginadoT_Sgpad_Comp_Dd_Minero(string vFiltro, int vNumPag, int vCantRegxPag);
+        IEnumerable<T_Sgpad_Comp_Dd_Minero> ListarPorIdEumT_Sgpad_Comp_Dd_Minero(int vId_Eum);
     }
 }
