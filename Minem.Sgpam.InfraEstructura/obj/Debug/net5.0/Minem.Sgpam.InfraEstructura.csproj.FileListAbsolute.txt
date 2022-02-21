@@ -9,3 +9,4 @@ D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\De
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Debug\net5.0\Minem.Sgpam.InfraEstructura.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Debug\net5.0\ref\Minem.Sgpam.InfraEstructura.dll
 D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Debug\net5.0\Minem.Sgpam.InfraEstructura.pdb
+D:\A FULLSOFT\2021\MINEM\Servidor\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Debug\net5.0\Minem.Sgpam.InfraEstructura.csproj.AssemblyReference.cache
