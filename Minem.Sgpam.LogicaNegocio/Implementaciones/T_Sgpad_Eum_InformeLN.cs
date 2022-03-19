@@ -106,5 +106,44 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                 throw;
             }
         }
+
+        public IEnumerable<Eum_InformeDTO> ListarPorIdEumEum_InformeDTO(int vId_Eum)
+        {
+            try
+            {
+                IEnumerable<T_Sgpad_Eum_Informe> vResultado = Eum_InformeAD.ListarPorIdEumT_Sgpad_Eum_Informe(vId_Eum);
+                if (vResultado != null)
+                {
+                    List<Eum_InformeDTO> vLista = new List<Eum_InformeDTO>();
+                    Eum_InformeDTO vEntidad;
+                    foreach (T_Sgpad_Eum_Informe item in vResultado)
+                    {
+                        vEntidad = new Eum_InformeDTO()
+                        {
+                            Fec_Ingreso = item.FEC_INGRESO,
+                            Flg_Estado = item.FLG_ESTADO,
+                            Id_Eum = item.ID_EUM,
+                            Id_Eum_Informe = item.ID_EUM_INFORME,
+                            Ip_Ingreso = item.IP_INGRESO,
+                            Usu_Ingreso = item.USU_INGRESO,
+                            Nro_Expediente = item.NRO_EXPEDIENTE,
+                            Nombre_Informe = item.NOMBRE_INFORME,
+                            Nro_Informe = item.NRO_INFORME,
+                            Ruta_Informe = item.RUTA_INFORME,
+                            Tamano = item.TAMANO,
+                            Fecha_Informe = item.FECHA_INFORME,
+                            Descripcion = item.DESCRIPCION
+                        };
+                        vLista.Add(vEntidad);
+                    }
+                    return vLista;
+                }
+                return null;
+            }
+            catch (Exception)
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

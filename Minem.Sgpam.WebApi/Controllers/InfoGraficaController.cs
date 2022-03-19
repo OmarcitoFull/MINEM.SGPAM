@@ -32,10 +32,10 @@ namespace Minem.Sgpam.WebApi.Controllers
         //}
 
 
-        //[HttpPost("Save")]
-        //public Eum_Info_GraficaDTO Save([FromBody] Eum_Info_GraficaDTO vEum_Info_GraficaDTO)
-        //{
-        //    return Eum_Info_GraficaLN.GrabarComp_Info_GraficaDTO(vEum_Info_GraficaDTO);
-        //}
+        [HttpPost("Save")]
+        public Eum_Info_GraficaDTO Save([FromBody] Eum_Info_GraficaDTO vEum_Info_GraficaDTO)
+        {
+           return Eum_Info_GraficaLN.GrabarEum_Info_GraficaDTO(vEum_Info_GraficaDTO);
+        }
     }
 }

@@ -79,7 +79,8 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Resolución</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input type="file" asp-for="Res_Aprobacion" class="form-control-file" id="exampleFormControlFile1">
+                    <input type="file" class="form-control-file" name="vFile" id="vFile">
+                    @*<input type="file" asp-for="Res_Aprobacion" class="form-control-file" id="exampleFormControlFile1">*@
                 </div>
             </div>
         </div>
@@ -90,6 +91,9 @@
             <div align="center" class="titulo-m">
                 <input type="hidden" asp-for="Id_Componente" />
                 <input type="hidden" asp-for="Id_Comp_Est_Amb" />
+                <input type="hidden" asp-for="Nombre_Documento" />
+                <input type="hidden" asp-for="Ruta_Documento" />
+                <input type="hidden" asp-for="Tamano" />
             </div>
             <ul class="nav navbar-right panel_toolbox">
                 <li>

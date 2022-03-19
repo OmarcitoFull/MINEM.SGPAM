@@ -161,8 +161,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         Riesgo = vRegistro.RIESGO,
 
                         Id_Distrito = vRegistro.UBIGEO,
-                        Id_Provincia = string.IsNullOrEmpty(vRegistro.UBIGEO) ? "": vRegistro.UBIGEO.Substring(0, 4),
-                        Id_Region = string.IsNullOrEmpty(vRegistro.UBIGEO) ? "" : vRegistro.UBIGEO.Substring(0, 2) 
+                        Id_Provincia = string.IsNullOrEmpty(vRegistro.UBIGEO) ? "" : vRegistro.UBIGEO.Substring(0, 4),
+                        Id_Region = string.IsNullOrEmpty(vRegistro.UBIGEO) ? "" : vRegistro.UBIGEO.Substring(0, 2)
                     };
                     return vResultado;
                 }
@@ -274,6 +274,9 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                             }
 
                             var vResultado = ComponenteAD.ActualizarT_Sgpad_Componente(vRegistro);
+
+                            //
+
                             var vHistoria = Componente_ModLN.GrabarComponente_ModDTO(new Componente_ModDTO
                             {
                                 Cargo = "SISTEMAS",
@@ -380,7 +383,14 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         ListaReinfoDerechosMineros = ExternosLN.Listar_ReinfoDerechosMineros(),
                         ListaSituacionPrincipalesProducto = ExternosLN.Listar_SituacionPrincipalesProductos(),
                         ListaTitularesReferencialesDerechos = ExternosLN.Listar_TitularesReferencialesDerechos(),
-                        ListaDerechosMineros = ExternosLN.Listar_DerechosMineros()
+                        ListaDerechosMineros = ExternosLN.Listar_DerechosMineros(new ComponenteDTO
+                        {
+                            Id_Zona = 18,
+                            Id_Datum = "2",
+                            Este = 800324,
+                            Norte = 8305104,
+                            Ubigeo = "041010"
+                        })
                     };
                     return vResultado;
                 }

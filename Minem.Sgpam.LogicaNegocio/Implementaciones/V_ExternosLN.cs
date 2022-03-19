@@ -100,11 +100,19 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
-        public List<DerechosMinerosDTO> Listar_DerechosMineros()
+        public List<DerechosMinerosDTO> Listar_DerechosMineros(ComponenteDTO vComponenteDTO)
         {
             try
             {
-                var vResultado = (from vTmp in ExternosAD.Listar_DerechosMineros()
+                var vParametros = new Entidades.T_Sgpad_Componente
+                {
+                    ID_ZONA = vComponenteDTO.Id_Zona,
+                    ID_DATUM = vComponenteDTO.Id_Datum,
+                    ESTE = vComponenteDTO.Este,
+                    NORTE = vComponenteDTO.Norte,
+                    UBIGEO = vComponenteDTO.Ubigeo
+                };
+                var vResultado = (from vTmp in ExternosAD.Listar_DerechosMineros(vParametros)
                                   select new DerechosMinerosDTO
                                   {
                                       Codigo = vTmp.CODIGO,

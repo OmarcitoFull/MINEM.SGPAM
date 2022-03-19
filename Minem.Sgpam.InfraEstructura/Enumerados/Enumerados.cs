@@ -22,16 +22,15 @@
 
     public enum Datum
     {
-        Datum_A = 100,
-        Datum_B = 200,
-        Datum_C = 300
+        Psad56 = 1,
+        Wgs81 = 2
     }
 
     public enum Zona
     {
-        Zona_A = 10,
-        Zona_B = 20,
-        Zona_C = 30
+        Zona_17 = 17,
+        Zona_18 = 18,
+        Zona_19 = 19
     }
 
     public enum CuencaPrincipal

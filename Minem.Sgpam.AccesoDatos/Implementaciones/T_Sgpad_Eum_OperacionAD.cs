@@ -72,19 +72,16 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
                     //vCmd.Parameters.Add("pID_EUM_OPERACION", vT_Sgpad_Eum_Operacion.ID_EUM_OPERACION); 
-                    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Eum_Operacion.USU_MODIFICA);
-                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Eum_Operacion.IP_MODIFICA);
-                    vCmd.Parameters.Add("pID_TIPO_OPERACION", vT_Sgpad_Eum_Operacion.ID_TIPO_OPERACION);
                     vCmd.Parameters.Add("pID_EUM", vT_Sgpad_Eum_Operacion.ID_EUM);
+                    vCmd.Parameters.Add("pID_TIPO_OPERACION", vT_Sgpad_Eum_Operacion.ID_TIPO_OPERACION);
                     vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Eum_Operacion.USU_INGRESO);
-                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Eum_Operacion.FEC_INGRESO);
-                    vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Eum_Operacion.FEC_MODIFICA);
-                    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Eum_Operacion.FLG_ESTADO);
+                    //vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Eum_Operacion.FEC_INGRESO);
                     vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Eum_Operacion.IP_INGRESO);
-                    //vCmd.Parameters.Add(":pID_EUM_OPERACION", OracleDbType.Int64).Direction = ParameterDirection.Output;
+                    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Eum_Operacion.FLG_ESTADO);
+                    vCmd.Parameters.Add(":pID_EUM_OPERACION", OracleDbType.Int64).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
-                    //vT_Sgpad_Eum_Operacion.ID_EUM_OPERACION = Convert.ToInt32(vCmd.Parameters[":pID_EUM_OPERACION"].Value.ToString());
+                    vT_Sgpad_Eum_Operacion.ID_EUM_OPERACION = Convert.ToInt32(vCmd.Parameters[":pID_EUM_OPERACION"].Value.ToString());
                     vCnn.Close();
                 }
             }
@@ -98,16 +95,11 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_EUM_OPERACION.USP_UPD_EUM_OPERACION", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pID_EUM_OPERACION", vT_Sgpad_Eum_Operacion.ID_EUM_OPERACION);
-                    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Eum_Operacion.USU_MODIFICA);
-                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Eum_Operacion.IP_MODIFICA);
+                    vCmd.Parameters.Add("pID_EUM_OPERACION", vT_Sgpad_Eum_Operacion.ID_EUM_OPERACION); 
                     vCmd.Parameters.Add("pID_TIPO_OPERACION", vT_Sgpad_Eum_Operacion.ID_TIPO_OPERACION);
-                    vCmd.Parameters.Add("pID_EUM", vT_Sgpad_Eum_Operacion.ID_EUM);
-                    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Eum_Operacion.USU_INGRESO);
-                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Eum_Operacion.FEC_INGRESO);
-                    vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Eum_Operacion.FEC_MODIFICA);
-                    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Eum_Operacion.FLG_ESTADO);
-                    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Eum_Operacion.IP_INGRESO);
+                    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Eum_Operacion.USU_MODIFICA);
+                    //vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Eum_Operacion.FEC_MODIFICA);
+                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Eum_Operacion.IP_MODIFICA);
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
                     vCnn.Close();

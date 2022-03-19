@@ -36,6 +36,13 @@ namespace Minem.Sgpam.WebApi
             vServices.AddTransient<IT_Sgpam_ExpedienteAD, T_Sgpam_ExpedienteAD>();
             vServices.AddTransient<IT_Sgpam_ExpedienteLN, T_Sgpam_ExpedienteLN>();
 
+            vServices.AddTransient<IT_Sgpal_InspectorAD, T_Sgpal_InspectorAD>();
+            vServices.AddTransient<IT_Sgpal_InspectorLN, T_Sgpal_InspectorLN>();
+
+            vServices.AddTransient<IT_Sgpad_Eum_InformeAD, T_Sgpad_Eum_InformeAD>();
+            vServices.AddTransient<IT_Sgpad_Eum_InformeLN, T_Sgpad_Eum_InformeLN>();
+
+
 
             vServices.AddTransient<IT_Sgpad_Comp_Dd_MineroAD, T_Sgpad_Comp_Dd_MineroAD>();
             vServices.AddTransient<IT_Sgpad_Comp_Dd_MineroLN, T_Sgpad_Comp_Dd_MineroLN>();

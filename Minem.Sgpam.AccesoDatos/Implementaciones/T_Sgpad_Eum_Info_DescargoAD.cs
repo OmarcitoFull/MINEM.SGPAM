@@ -76,25 +76,24 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_EUM_INFO_DESCARGO.USP_INS_EUM_INFO_DESCARGO", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Eum_Info_Descargo.USU_MODIFICA); 
-				vCmd.Parameters.Add("pID_EUM", vT_Sgpad_Eum_Info_Descargo.ID_EUM); 
-				vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Eum_Info_Descargo.USU_INGRESO); 
-				vCmd.Parameters.Add("pTITULAR", vT_Sgpad_Eum_Info_Descargo.TITULAR); 
-				vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Eum_Info_Descargo.FEC_MODIFICA); 
-				vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Eum_Info_Descargo.FEC_INGRESO); 
-				vCmd.Parameters.Add("pDECLARACION", vT_Sgpad_Eum_Info_Descargo.DECLARACION); 
-				vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Eum_Info_Descargo.IP_MODIFICA); 
-				vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Eum_Info_Descargo.EXTENCION); 
-				vCmd.Parameters.Add("pID_EUM_INFO_DESCARGO", vT_Sgpad_Eum_Info_Descargo.ID_EUM_INFO_DESCARGO); 
-				vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Eum_Info_Descargo.IP_INGRESO); 
-				vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Eum_Info_Descargo.TAMANO); 
-				vCmd.Parameters.Add("pFECHA_DESCARGO", vT_Sgpad_Eum_Info_Descargo.FECHA_DESCARGO); 
-				vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Eum_Info_Descargo.FLG_ESTADO); 
-				vCmd.Parameters.Add("pRUTA_DOCUMENTO", vT_Sgpad_Eum_Info_Descargo.RUTA_DOCUMENTO); 
-				vCmd.Parameters.Add("pASUNTO", vT_Sgpad_Eum_Info_Descargo.ASUNTO); 
-				vCmd.Parameters.Add("pNOMBRE_DOCUMENTO", vT_Sgpad_Eum_Info_Descargo.NOMBRE_DOCUMENTO);
+                    //vCmd.Parameters.Add("pID_EUM_INFO_DESCARGO", vT_Sgpad_Eum_Info_Descargo.ID_EUM_INFO_DESCARGO);
+                    vCmd.Parameters.Add("pID_EUM", vT_Sgpad_Eum_Info_Descargo.ID_EUM);
+                    vCmd.Parameters.Add("pFECHA_DESCARGO", vT_Sgpad_Eum_Info_Descargo.FECHA_DESCARGO);
+                    vCmd.Parameters.Add("pTITULAR", vT_Sgpad_Eum_Info_Descargo.TITULAR); 
+				    vCmd.Parameters.Add("pDECLARACION", vT_Sgpad_Eum_Info_Descargo.DECLARACION);
+                    vCmd.Parameters.Add("pASUNTO", vT_Sgpad_Eum_Info_Descargo.ASUNTO);
+                    vCmd.Parameters.Add("pNOMBRE_DOCUMENTO", vT_Sgpad_Eum_Info_Descargo.NOMBRE_DOCUMENTO);
+                    vCmd.Parameters.Add("pRUTA_DOCUMENTO", vT_Sgpad_Eum_Info_Descargo.RUTA_DOCUMENTO);
+                    vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Eum_Info_Descargo.EXTENCION); 
+				    vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Eum_Info_Descargo.TAMANO); 
+                    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Eum_Info_Descargo.USU_INGRESO);
+                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Eum_Info_Descargo.FEC_INGRESO);
+                    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Eum_Info_Descargo.IP_INGRESO);
+                    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Eum_Info_Descargo.FLG_ESTADO);
+                    vCmd.Parameters.Add(":pID_EUM_INFO_DESCARGO", OracleDbType.Int64).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
+                    vT_Sgpad_Eum_Info_Descargo.ID_EUM_INFO_DESCARGO = Convert.ToInt32(vCmd.Parameters[":pID_EUM_INFO_DESCARGO"].Value.ToString());
                     vCnn.Close();
                 }
             }
@@ -108,23 +107,18 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_EUM_INFO_DESCARGO.USP_UPD_EUM_INFO_DESCARGO", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Eum_Info_Descargo.USU_MODIFICA); 
-				    vCmd.Parameters.Add("pID_EUM", vT_Sgpad_Eum_Info_Descargo.ID_EUM); 
-				    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Eum_Info_Descargo.USU_INGRESO); 
-				    vCmd.Parameters.Add("pTITULAR", vT_Sgpad_Eum_Info_Descargo.TITULAR); 
-				    vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Eum_Info_Descargo.FEC_MODIFICA); 
-				    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Eum_Info_Descargo.FEC_INGRESO); 
-				    vCmd.Parameters.Add("pDECLARACION", vT_Sgpad_Eum_Info_Descargo.DECLARACION); 
-				    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Eum_Info_Descargo.IP_MODIFICA); 
-				    vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Eum_Info_Descargo.EXTENCION); 
-				    vCmd.Parameters.Add("pID_EUM_INFO_DESCARGO", vT_Sgpad_Eum_Info_Descargo.ID_EUM_INFO_DESCARGO); 
-				    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Eum_Info_Descargo.IP_INGRESO); 
-				    vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Eum_Info_Descargo.TAMANO); 
-				    vCmd.Parameters.Add("pFECHA_DESCARGO", vT_Sgpad_Eum_Info_Descargo.FECHA_DESCARGO); 
-				    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Eum_Info_Descargo.FLG_ESTADO); 
-				    vCmd.Parameters.Add("pRUTA_DOCUMENTO", vT_Sgpad_Eum_Info_Descargo.RUTA_DOCUMENTO); 
-				    vCmd.Parameters.Add("pASUNTO", vT_Sgpad_Eum_Info_Descargo.ASUNTO); 
-				    vCmd.Parameters.Add("pNOMBRE_DOCUMENTO", vT_Sgpad_Eum_Info_Descargo.NOMBRE_DOCUMENTO);
+                    vCmd.Parameters.Add("pID_EUM_INFO_DESCARGO", vT_Sgpad_Eum_Info_Descargo.ID_EUM_INFO_DESCARGO);
+                    vCmd.Parameters.Add("pFECHA_DESCARGO", vT_Sgpad_Eum_Info_Descargo.FECHA_DESCARGO);
+                    vCmd.Parameters.Add("pTITULAR", vT_Sgpad_Eum_Info_Descargo.TITULAR);
+                    vCmd.Parameters.Add("pDECLARACION", vT_Sgpad_Eum_Info_Descargo.DECLARACION);
+                    vCmd.Parameters.Add("pASUNTO", vT_Sgpad_Eum_Info_Descargo.ASUNTO);
+                    vCmd.Parameters.Add("pNOMBRE_DOCUMENTO", vT_Sgpad_Eum_Info_Descargo.NOMBRE_DOCUMENTO);
+                    vCmd.Parameters.Add("pRUTA_DOCUMENTO", vT_Sgpad_Eum_Info_Descargo.RUTA_DOCUMENTO);
+                    vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Eum_Info_Descargo.EXTENCION);
+                    vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Eum_Info_Descargo.TAMANO);
+                    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Eum_Info_Descargo.USU_MODIFICA);
+                    vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Eum_Info_Descargo.FEC_MODIFICA);
+                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Eum_Info_Descargo.IP_MODIFICA);
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
                     vCnn.Close();

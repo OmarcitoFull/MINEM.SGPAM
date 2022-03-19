@@ -13,6 +13,6 @@ namespace Minem.Sgpam.AccesoDatos.Interfaces
         List<V_Ext_ReinfoDerechosMineros> Listar_ReinfoDerechosMineros();
         List<V_Ext_SituacionPrincipalesProductos> Listar_SituacionPrincipalesProductos();
         List<V_Ext_TitularesReferencialesDerechos> Listar_TitularesReferencialesDerechos();
-        List<V_Ext_DerechosMineros> Listar_DerechosMineros();
+        List<V_Ext_DerechosMineros> Listar_DerechosMineros(T_Sgpad_Componente vT_Sgpad_Componente);
     }
 }

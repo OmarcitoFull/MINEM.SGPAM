@@ -14,6 +14,9 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
         public List<Eum_UbicacionDTO> ListaUbicacion { get; set; }
         public List<Eum_Info_GraficaDTO> ListaInformacionGrafica { get; set; }
         public List<Eum_Info_DescargoDTO> ListaInformacionDescargo { get; set; }
+        public List<Eum_InformeDTO> ListaInforme { get; set; }
+        public List<Eum_OperacionDTO> ListaOperacion { get; set; }
+
         public List<ComponenteMinDTO> ListaComponenteActivo { get; set; }
         public List<ComponenteMinDTO> ListaComponenteInactivo { get; set; }
         public List<Comp_Dd_MineroDTO> ListaDerechosMineros { get; set; }

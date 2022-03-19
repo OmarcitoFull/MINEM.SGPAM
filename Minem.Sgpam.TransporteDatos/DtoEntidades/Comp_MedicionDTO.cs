@@ -17,15 +17,16 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
         [Required]
         public DateTime Fecha_Desicion { get; set; }
         [Required]
-        public int Ph { get; set; }
+        [RegularExpression(@"^\d+\.\d{0,2}$")]
+        public decimal Ph { get; set; }
         [Required]
-        [StringLength(100)]
-        public string Conductividad { get; set; }
+        [RegularExpression(@"^\d+\.\d{0,2}$")]
+        public decimal Conductividad { get; set; }
         [Required]
-        [StringLength(100)]
-        public string Caudal { get; set; }
+        [Range(-999, 999)]
+        public int Caudal { get; set; }
         [Required]
-        [StringLength(100)]
+        [StringLength(250)]
         public string Observacion { get; set; }
         public string Ip_Modifica { get; set; }
         public string Ip_Ingreso { get; set; }

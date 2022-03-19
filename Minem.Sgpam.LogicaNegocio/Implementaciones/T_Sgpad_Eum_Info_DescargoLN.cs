@@ -50,12 +50,73 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
-        public Eum_Info_DescargoDTO InsertarEum_Info_DescargoDTO(Eum_Info_DescargoDTO vEum_Info_DescargoDTO)
+        //public Eum_Info_DescargoDTO InsertarEum_Info_DescargoDTO(Eum_Info_DescargoDTO vEum_Info_DescargoDTO)
+        //{
+        //    try
+        //    {
+        //        var vRegistro = new T_Sgpad_Eum_Info_Descargo();
+        //        var vResultado = Eum_Info_DescargoAD.InsertarT_Sgpad_Eum_Info_Descargo(vRegistro);
+        //        return vEum_Info_DescargoDTO;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //Log.Error(ex.Message, ex);
+        //        throw;
+        //    }
+        //}
+
+        //public Eum_Info_DescargoDTO ActualizarEum_Info_DescargoDTO(Eum_Info_DescargoDTO vEum_Info_DescargoDTO)
+        //{
+        //    try
+        //    {
+        //        var vRegistro = new T_Sgpad_Eum_Info_Descargo();
+        //        var vResultado = Eum_Info_DescargoAD.ActualizarT_Sgpad_Eum_Info_Descargo(vRegistro);
+        //        return vEum_Info_DescargoDTO;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //Log.Error(ex.Message, ex);
+        //        throw;
+        //    }
+        //}
+
+        public Eum_Info_DescargoDTO GrabarEum_Info_DescargoDTO(Eum_Info_DescargoDTO vEum_Info_DescargoDTO)
         {
             try
             {
-                var vRegistro = new T_Sgpad_Eum_Info_Descargo();
-                var vResultado = Eum_Info_DescargoAD.InsertarT_Sgpad_Eum_Info_Descargo(vRegistro);
+                if (vEum_Info_DescargoDTO != null)
+                {
+                    var vRegistro = new T_Sgpad_Eum_Info_Descargo
+                    {
+                        FEC_INGRESO = vEum_Info_DescargoDTO.Fec_Ingreso,
+                        FEC_MODIFICA = vEum_Info_DescargoDTO.Fec_Modifica,
+                        FLG_ESTADO = vEum_Info_DescargoDTO.Flg_Estado,
+                        IP_INGRESO = vEum_Info_DescargoDTO.Ip_Ingreso,
+                        IP_MODIFICA = vEum_Info_DescargoDTO.Ip_Modifica,
+                        USU_INGRESO = vEum_Info_DescargoDTO.Usu_Ingreso,
+                        USU_MODIFICA = vEum_Info_DescargoDTO.Usu_Modifica,
+                        ID_EUM = vEum_Info_DescargoDTO.Id_Eum,
+                        EXTENCION = vEum_Info_DescargoDTO.Extencion,
+                        ID_EUM_INFO_DESCARGO = vEum_Info_DescargoDTO.Id_Eum_Info_Descargo,
+                        ASUNTO = vEum_Info_DescargoDTO.Asunto,
+                        DECLARACION = vEum_Info_DescargoDTO.Declaracion,
+                        TAMANO = vEum_Info_DescargoDTO.Tamano,
+                        FECHA_DESCARGO = vEum_Info_DescargoDTO.Fecha_Descargo,
+                        NOMBRE_DOCUMENTO = vEum_Info_DescargoDTO.Nombre_Documento,
+                        RUTA_DOCUMENTO = vEum_Info_DescargoDTO.Ruta_Documento,
+                        TITULAR = vEum_Info_DescargoDTO.Titular
+                    };
+                    if (vEum_Info_DescargoDTO.Id_Eum_Info_Descargo == 0)
+                    {
+                        var vResultado = Eum_Info_DescargoAD.InsertarT_Sgpad_Eum_Info_Descargo(vRegistro);
+                        vEum_Info_DescargoDTO.Id_Eum_Info_Descargo = vResultado.ID_EUM_INFO_DESCARGO;
+                    }
+                    else
+                    {
+                        var vResultado = Eum_Info_DescargoAD.ActualizarT_Sgpad_Eum_Info_Descargo(vRegistro);
+                        vEum_Info_DescargoDTO = RecuperarEum_Info_DescargoDTOPorCodigo(vResultado.ID_EUM_INFO_DESCARGO);
+                    }
+                }
                 return vEum_Info_DescargoDTO;
             }
             catch (Exception ex)
@@ -65,21 +126,6 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
-        public Eum_Info_DescargoDTO ActualizarEum_Info_DescargoDTO(Eum_Info_DescargoDTO vEum_Info_DescargoDTO)
-        {
-            try
-            {
-                var vRegistro = new T_Sgpad_Eum_Info_Descargo();
-                var vResultado = Eum_Info_DescargoAD.ActualizarT_Sgpad_Eum_Info_Descargo(vRegistro);
-                return vEum_Info_DescargoDTO;
-            }
-            catch (Exception ex)
-            {
-                //Log.Error(ex.Message, ex);
-                throw;
-            }
-        }
-        
         public int AnularEum_Info_DescargoDTOPorCodigo(Eum_Info_DescargoDTO vEum_Info_DescargoDTO)
         {
             try

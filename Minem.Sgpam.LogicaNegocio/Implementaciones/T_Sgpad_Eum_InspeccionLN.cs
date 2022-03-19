@@ -17,10 +17,12 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
     {
         private readonly IT_Sgpad_Eum_InspeccionAD Eum_InspeccionAD;
         private readonly IT_Sgpal_Tipo_ClimaLN Tipo_ClimaLN;
-        public T_Sgpad_Eum_InspeccionLN(IT_Sgpad_Eum_InspeccionAD vT_Sgpad_Eum_InspeccionAD, IT_Sgpal_Tipo_ClimaLN vIT_Sgpal_Tipo_ClimaLN)
+        private readonly IT_Sgpal_InspectorLN InspectorLN;
+        public T_Sgpad_Eum_InspeccionLN(IT_Sgpad_Eum_InspeccionAD vT_Sgpad_Eum_InspeccionAD, IT_Sgpal_Tipo_ClimaLN vIT_Sgpal_Tipo_ClimaLN, IT_Sgpal_InspectorLN vIT_Sgpal_InspectorLN)
         {
             Eum_InspeccionAD = vT_Sgpad_Eum_InspeccionAD;
             Tipo_ClimaLN = vIT_Sgpal_Tipo_ClimaLN;
+            InspectorLN = vIT_Sgpal_InspectorLN;
         }
 
         public IEnumerable<Eum_InspeccionDTO> ListarEum_InspeccionDTO()
@@ -130,7 +132,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                             Id_Tipo_Clima = item.ID_TIPO_CLIMA,
                             Descripcion_Clima = item.DESCRIPCION_CLIMA,
                             Usu_Ingreso = item.USU_INGRESO,
-                            Fecha_Inspeccion = item.FECHA_INSPECCION
+                            Fecha_Inspeccion = item.FECHA_INSPECCION,
+                            Nomnbre_Inspector = item.NOMBRE_INSPECTOR
                         };
                         vLista.Add(vEntidad);
                     }
@@ -151,7 +154,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                 RegistrarEumInspeccionDTO vResultado = new RegistrarEumInspeccionDTO
                 {
                     Eum_Inspeccion = RecuperarEum_InspeccionDTOPorCodigo(vId_Eum_Inspeccion),
-                    CboTipoClima = (List<Tipo_ClimaDTO>)Tipo_ClimaLN.ListarTipo_ClimaDTO() 
+                    CboTipoClima = (List<Tipo_ClimaDTO>)Tipo_ClimaLN.ListarTipo_ClimaDTO(), 
+                    CboInspector = (List<InspectorDTO>)InspectorLN.ListarInspectorDTO()
                 };
                 return vResultado;
             }
@@ -183,7 +187,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         ID_EUM = vEum_InspeccionDTO.Id_Eum,
                         ID_EUM_INSPECCION = vEum_InspeccionDTO.Id_Eum_Inspeccion,
                         ID_TIPO_CLIMA = vEum_InspeccionDTO.Id_Tipo_Clima,
-                        FECHA_INSPECCION = vEum_InspeccionDTO.Fecha_Inspeccion
+                        FECHA_INSPECCION = vEum_InspeccionDTO.Fecha_Inspeccion,
+                        DESCRIPCION_CLIMA = vEum_InspeccionDTO.Descripcion_Clima
                     };
                     if (vEum_InspeccionDTO.Id_Eum_Inspeccion == 0)
                     {

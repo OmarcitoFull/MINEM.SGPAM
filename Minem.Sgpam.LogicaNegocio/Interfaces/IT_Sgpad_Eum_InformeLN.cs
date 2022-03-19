@@ -17,5 +17,6 @@ namespace Minem.Sgpam.LogicaNegocio.Interfaces
         Eum_InformeDTO ActualizarEum_InformeDTO(Eum_InformeDTO vEum_InformeDTO);
         int AnularEum_InformeDTOPorCodigo(Eum_InformeDTO vEum_InformeDTO);
         IEnumerable<Eum_InformeDTO> ListarPaginadoEum_InformeDTO(string vFiltro, int vNumPag, int vCantRegxPag);
+        IEnumerable<Eum_InformeDTO> ListarPorIdEumEum_InformeDTO(int vId_Eum);
     }
 }

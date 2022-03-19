@@ -76,21 +76,22 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_EUM_INFO_GRAFICA.USP_INS_EUM_INFO_GRAFICA", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Eum_Info_Grafica.IP_MODIFICA); 
-				    vCmd.Parameters.Add("pID_EUM_INFO_GRAFICA", vT_Sgpad_Eum_Info_Grafica.ID_EUM_INFO_GRAFICA); 
-				    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Eum_Info_Grafica.IP_INGRESO); 
-				    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Eum_Info_Grafica.USU_INGRESO); 
-				    vCmd.Parameters.Add("pRUTA_IMAGEN", vT_Sgpad_Eum_Info_Grafica.RUTA_IMAGEN); 
-				    vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Eum_Info_Grafica.FEC_MODIFICA); 
-				    vCmd.Parameters.Add("pID_EUM", vT_Sgpad_Eum_Info_Grafica.ID_EUM); 
-				    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Eum_Info_Grafica.FEC_INGRESO); 
-				    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Eum_Info_Grafica.USU_MODIFICA); 
+                    //vCmd.Parameters.Add("pID_EUM_INFO_GRAFICA", vT_Sgpad_Eum_Info_Grafica.ID_EUM_INFO_GRAFICA); 
+                    vCmd.Parameters.Add("pID_EUM", vT_Sgpad_Eum_Info_Grafica.ID_EUM);
+                    vCmd.Parameters.Add("pDESCRIPCION", vT_Sgpad_Eum_Info_Grafica.DESCRIPCION);
+                    vCmd.Parameters.Add("pNOMBRE_IMAGEN", vT_Sgpad_Eum_Info_Grafica.NOMBRE_IMAGEN);
+                    vCmd.Parameters.Add("pRUTA_IMAGEN", vT_Sgpad_Eum_Info_Grafica.RUTA_IMAGEN); 
 				    vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Eum_Info_Grafica.EXTENCION); 
-				    vCmd.Parameters.Add("pNOMBRE_IMAGEN", vT_Sgpad_Eum_Info_Grafica.NOMBRE_IMAGEN); 
-				    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Eum_Info_Grafica.FLG_ESTADO); 
 				    vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Eum_Info_Grafica.TAMANO);
+                    vCmd.Parameters.Add("pFECHA_TOMA", vT_Sgpad_Eum_Info_Grafica.FECHA_TOMA);
+                    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Eum_Info_Grafica.USU_INGRESO);
+                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Eum_Info_Grafica.FEC_INGRESO);
+                    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Eum_Info_Grafica.IP_INGRESO);
+                    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Eum_Info_Grafica.FLG_ESTADO);
+                    vCmd.Parameters.Add(":pID_EUM_INFO_GRAFICA", OracleDbType.Int64).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
+                    vT_Sgpad_Eum_Info_Grafica.ID_EUM_INFO_GRAFICA =   Convert.ToInt32(vCmd.Parameters[":pID_EUM_INFO_GRAFICA"].Value.ToString());
                     vCnn.Close();
                 }
             }
@@ -104,19 +105,16 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_EUM_INFO_GRAFICA.USP_UPD_EUM_INFO_GRAFICA", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Eum_Info_Grafica.IP_MODIFICA); 
-				    vCmd.Parameters.Add("pID_EUM_INFO_GRAFICA", vT_Sgpad_Eum_Info_Grafica.ID_EUM_INFO_GRAFICA); 
-				    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Eum_Info_Grafica.IP_INGRESO); 
-				    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Eum_Info_Grafica.USU_INGRESO); 
-				    vCmd.Parameters.Add("pRUTA_IMAGEN", vT_Sgpad_Eum_Info_Grafica.RUTA_IMAGEN); 
-				    vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Eum_Info_Grafica.FEC_MODIFICA); 
-				    vCmd.Parameters.Add("pID_EUM", vT_Sgpad_Eum_Info_Grafica.ID_EUM); 
-				    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Eum_Info_Grafica.FEC_INGRESO); 
-				    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Eum_Info_Grafica.USU_MODIFICA); 
-				    vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Eum_Info_Grafica.EXTENCION); 
-				    vCmd.Parameters.Add("pNOMBRE_IMAGEN", vT_Sgpad_Eum_Info_Grafica.NOMBRE_IMAGEN); 
-				    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Eum_Info_Grafica.FLG_ESTADO); 
-				    vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Eum_Info_Grafica.TAMANO);
+                    vCmd.Parameters.Add("pID_EUM_INFO_GRAFICA", vT_Sgpad_Eum_Info_Grafica.ID_EUM_INFO_GRAFICA);
+                    vCmd.Parameters.Add("pNOMBRE_IMAGEN", vT_Sgpad_Eum_Info_Grafica.NOMBRE_IMAGEN);
+                    vCmd.Parameters.Add("pRUTA_IMAGEN", vT_Sgpad_Eum_Info_Grafica.RUTA_IMAGEN);
+                    vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Eum_Info_Grafica.EXTENCION);
+                    vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Eum_Info_Grafica.TAMANO);
+                    vCmd.Parameters.Add("pFECHA_TOMA", vT_Sgpad_Eum_Info_Grafica.FECHA_TOMA);
+                    vCmd.Parameters.Add("pDESCRIPCION", vT_Sgpad_Eum_Info_Grafica.DESCRIPCION);
+                    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Eum_Info_Grafica.USU_MODIFICA);
+                    vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Eum_Info_Grafica.FEC_MODIFICA);
+                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Eum_Info_Grafica.IP_MODIFICA);
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
                     vCnn.Close();

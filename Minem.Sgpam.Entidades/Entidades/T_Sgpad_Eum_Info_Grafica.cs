@@ -11,7 +11,22 @@ namespace Minem.Sgpam.Entidades
     public partial class T_Sgpad_Eum_Info_Grafica : BEPaginacion
     {
         #region Propiedades
-        public string IP_MODIFICA { get; set; }  		public int ID_EUM_INFO_GRAFICA { get; set; }  		public string IP_INGRESO { get; set; }  		public string USU_INGRESO { get; set; }  		public string RUTA_IMAGEN { get; set; }  		public DateTime? FEC_MODIFICA { get; set; }  		public int ID_EUM { get; set; }  		public DateTime? FEC_INGRESO { get; set; }  		public string USU_MODIFICA { get; set; }  		public string EXTENCION { get; set; }  		public string NOMBRE_IMAGEN { get; set; }  		public string FLG_ESTADO { get; set; }  		public int? TAMANO { get; set; }  		
-        #endregion
-    }
+        public string IP_MODIFICA { get; set; }  
+		public int ID_EUM_INFO_GRAFICA { get; set; }  
+		public string IP_INGRESO { get; set; }  
+		public string USU_INGRESO { get; set; }  
+		public string RUTA_IMAGEN { get; set; }  
+		public DateTime? FEC_MODIFICA { get; set; }  
+		public int ID_EUM { get; set; }  
+		public DateTime? FEC_INGRESO { get; set; }  
+		public string USU_MODIFICA { get; set; }  
+		public string EXTENCION { get; set; }  
+		public string NOMBRE_IMAGEN { get; set; }  
+		public string FLG_ESTADO { get; set; }  
+		public int? TAMANO { get; set; }
+		public DateTime? FECHA_TOMA { get; set; }
+		public string DESCRIPCION { get; set; }
+
+		#endregion
+	}
 }

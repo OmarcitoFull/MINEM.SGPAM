@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Minem.Sgpam.AccesoDatos.Base;
 using Minem.Sgpam.AccesoDatos.Interfaces;
 using Minem.Sgpam.Entidades;
+using Minem.Sgpam.InfraEstructura;
 using Oracle.ManagedDataAccess.Client;
 
 namespace Minem.Sgpam.AccesoDatos.Implementaciones
@@ -15,7 +16,12 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
     /// Fecha Creación:	27/10/2021
     /// </summary>
     public partial class T_Sgpad_Eum_InformeAD: BaseAD, IT_Sgpad_Eum_InformeAD
-    {   
+    {
+        public T_Sgpad_Eum_InformeAD(IConfiguration vConfiguration)
+        {
+            CnnString = vConfiguration.GetSection(Constantes.BD).Value;
+        }
+
         public IEnumerable<T_Sgpad_Eum_Informe> ListarT_Sgpad_Eum_Informe()
         {
            List<T_Sgpad_Eum_Informe> vLista = new List<T_Sgpad_Eum_Informe>();
@@ -70,9 +76,23 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_EUM_INFORME.USP_INS_EUM_INFORME", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pNRO_EXPEDIENTE", vT_Sgpad_Eum_Informe.NRO_EXPEDIENTE); 				vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Eum_Informe.USU_MODIFICA); 				vCmd.Parameters.Add("pID_EUM", vT_Sgpad_Eum_Informe.ID_EUM); 				vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Eum_Informe.FEC_MODIFICA); 				vCmd.Parameters.Add("pFECHA_INFORME", vT_Sgpad_Eum_Informe.FECHA_INFORME); 				vCmd.Parameters.Add("pNRO_INFORME", vT_Sgpad_Eum_Informe.NRO_INFORME); 				vCmd.Parameters.Add("pDESCRIPCION", vT_Sgpad_Eum_Informe.DESCRIPCION); 				vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Eum_Informe.FLG_ESTADO); 				vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Eum_Informe.IP_INGRESO); 				vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Eum_Informe.TAMANO); 				vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Eum_Informe.IP_MODIFICA); 				vCmd.Parameters.Add("pNOMBRE_INFORME", vT_Sgpad_Eum_Informe.NOMBRE_INFORME); 				vCmd.Parameters.Add("pID_EUM_INFORME", vT_Sgpad_Eum_Informe.ID_EUM_INFORME); 				vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Eum_Informe.USU_INGRESO); 				vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Eum_Informe.FEC_INGRESO); 				vCmd.Parameters.Add("pRUTA_INFORME", vT_Sgpad_Eum_Informe.RUTA_INFORME);
+                    //vCmd.Parameters.Add("pID_EUM_INFORME", vT_Sgpad_Eum_Informe.ID_EUM_INFORME);
+                    vCmd.Parameters.Add("pID_EUM", vT_Sgpad_Eum_Informe.ID_EUM);
+                    vCmd.Parameters.Add("pNRO_EXPEDIENTE", vT_Sgpad_Eum_Informe.NRO_EXPEDIENTE);
+                    vCmd.Parameters.Add("pNRO_INFORME", vT_Sgpad_Eum_Informe.NRO_INFORME);
+                    vCmd.Parameters.Add("pDESCRIPCION", vT_Sgpad_Eum_Informe.DESCRIPCION);
+                    vCmd.Parameters.Add("pFECHA_INFORME", vT_Sgpad_Eum_Informe.FECHA_INFORME);
+                    vCmd.Parameters.Add("pNOMBRE_INFORME", vT_Sgpad_Eum_Informe.NOMBRE_INFORME);
+                    vCmd.Parameters.Add("pRUTA_INFORME", vT_Sgpad_Eum_Informe.RUTA_INFORME);
+                    vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Eum_Informe.TAMANO);
+                    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Eum_Informe.USU_INGRESO);
+                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Eum_Informe.FEC_INGRESO);
+                    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Eum_Informe.IP_INGRESO);
+                    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Eum_Informe.FLG_ESTADO);
+                    vCmd.Parameters.Add(":pID_EUM_INFORME", OracleDbType.Int64).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
+                    vT_Sgpad_Eum_Informe.ID_EUM_INFORME = Convert.ToInt32(vCmd.Parameters[":pID_EUM_INFORME"].Value.ToString());
                     vCnn.Close();
                 }
             }
@@ -86,7 +106,17 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_EUM_INFORME.USP_UPD_EUM_INFORME", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pNRO_EXPEDIENTE", vT_Sgpad_Eum_Informe.NRO_EXPEDIENTE); 				vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Eum_Informe.USU_MODIFICA); 				vCmd.Parameters.Add("pID_EUM", vT_Sgpad_Eum_Informe.ID_EUM); 				vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Eum_Informe.FEC_MODIFICA); 				vCmd.Parameters.Add("pFECHA_INFORME", vT_Sgpad_Eum_Informe.FECHA_INFORME); 				vCmd.Parameters.Add("pNRO_INFORME", vT_Sgpad_Eum_Informe.NRO_INFORME); 				vCmd.Parameters.Add("pDESCRIPCION", vT_Sgpad_Eum_Informe.DESCRIPCION); 				vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Eum_Informe.FLG_ESTADO); 				vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Eum_Informe.IP_INGRESO); 				vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Eum_Informe.TAMANO); 				vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Eum_Informe.IP_MODIFICA); 				vCmd.Parameters.Add("pNOMBRE_INFORME", vT_Sgpad_Eum_Informe.NOMBRE_INFORME); 				vCmd.Parameters.Add("pID_EUM_INFORME", vT_Sgpad_Eum_Informe.ID_EUM_INFORME); 				vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Eum_Informe.USU_INGRESO); 				vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Eum_Informe.FEC_INGRESO); 				vCmd.Parameters.Add("pRUTA_INFORME", vT_Sgpad_Eum_Informe.RUTA_INFORME);
+                    vCmd.Parameters.Add("pID_EUM_INFORME", vT_Sgpad_Eum_Informe.ID_EUM_INFORME);
+                    vCmd.Parameters.Add("pNRO_EXPEDIENTE", vT_Sgpad_Eum_Informe.NRO_EXPEDIENTE);
+                    vCmd.Parameters.Add("pNRO_INFORME", vT_Sgpad_Eum_Informe.NRO_INFORME);
+                    vCmd.Parameters.Add("pDESCRIPCION", vT_Sgpad_Eum_Informe.DESCRIPCION);
+                    vCmd.Parameters.Add("pFECHA_INFORME", vT_Sgpad_Eum_Informe.FECHA_INFORME);
+                    vCmd.Parameters.Add("pNOMBRE_INFORME", vT_Sgpad_Eum_Informe.NOMBRE_INFORME);
+                    vCmd.Parameters.Add("pRUTA_INFORME", vT_Sgpad_Eum_Informe.RUTA_INFORME);
+                    vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Eum_Informe.TAMANO);
+                    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Eum_Informe.USU_MODIFICA);
+                    vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Eum_Informe.FEC_MODIFICA);
+                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Eum_Informe.IP_MODIFICA);
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
                     vCnn.Close();
@@ -132,6 +162,32 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     {
                         vEntidad = new T_Sgpad_Eum_Informe(vRdr);
                         vEntidad.TotalVirtual = System.Convert.ToInt32(vRdr["TotalVirtual"]);
+                        vLista.Add(vEntidad);
+                    }
+                }
+                vCnn.Close();
+            }
+            return vLista;
+        }
+
+        public IEnumerable<T_Sgpad_Eum_Informe> ListarPorIdEumT_Sgpad_Eum_Informe(int vId_Eum)
+        {
+            List<T_Sgpad_Eum_Informe> vLista = new List<T_Sgpad_Eum_Informe>();
+            T_Sgpad_Eum_Informe vEntidad;
+
+            using (OracleConnection vCnn = new OracleConnection(CnnString))
+            {
+                using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_EUM_INFORME.USP_LIS_POR_IDEUM_EUM_INFORME", vCnn))
+                {
+                    vCmd.CommandType = CommandType.StoredProcedure;
+                    vCmd.Parameters.Add("pID_EUM", vId_Eum);
+                    vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                    vCnn.Open();
+
+                    OracleDataReader vRdr = vCmd.ExecuteReader();
+                    while (vRdr.Read())
+                    {
+                        vEntidad = new T_Sgpad_Eum_Informe(vRdr);
                         vLista.Add(vEntidad);
                     }
                 }

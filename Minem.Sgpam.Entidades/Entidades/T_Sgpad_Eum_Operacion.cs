@@ -12,15 +12,17 @@ namespace Minem.Sgpam.Entidades
     {
 		#region Propiedades
 		public int ID_EUM_OPERACION { get; set; }
-		public string USU_MODIFICA { get; set; }
-		public string IP_MODIFICA { get; set; }
-		public int ID_TIPO_OPERACION { get; set; }
 		public int ID_EUM { get; set; }
+		public int ID_TIPO_OPERACION { get; set; }
 		public string USU_INGRESO { get; set; }
 		public DateTime? FEC_INGRESO { get; set; }
-		public DateTime? FEC_MODIFICA { get; set; }
-		public string FLG_ESTADO { get; set; }
 		public string IP_INGRESO { get; set; }
+		public string USU_MODIFICA { get; set; }
+		public DateTime? FEC_MODIFICA { get; set; }
+		public string IP_MODIFICA { get; set; }
+		public string FLG_ESTADO { get; set; }
+
+		public string TIPO_OPERACION { get; set; }
 
 		#endregion
 

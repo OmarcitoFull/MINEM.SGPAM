@@ -16,5 +16,6 @@ namespace Minem.Sgpam.AccesoDatos.Interfaces
         T_Sgpad_Eum_Informe ActualizarT_Sgpad_Eum_Informe(T_Sgpad_Eum_Informe vT_Sgpad_Eum_Informe);
         int AnularT_Sgpad_Eum_InformePorCodigo(int vId_Eum_Informe);
         IEnumerable<T_Sgpad_Eum_Informe> ListarPaginadoT_Sgpad_Eum_Informe(string vFiltro, int vNumPag, int vCantRegxPag);
+        IEnumerable<T_Sgpad_Eum_Informe> ListarPorIdEumT_Sgpad_Eum_Informe(int vId_Eum);
     }
 }

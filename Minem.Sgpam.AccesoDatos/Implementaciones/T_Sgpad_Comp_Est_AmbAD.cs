@@ -94,6 +94,10 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     vCmd.Parameters.Add("pRES_APROBACION", vT_Sgpad_Comp_Est_Amb.RES_APROBACION);
                     vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Comp_Est_Amb.FLG_ESTADO);
                     vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Comp_Est_Amb.IP_INGRESO);
+                    vCmd.Parameters.Add("pNOMBRE_DOCUMENTO", vT_Sgpad_Comp_Est_Amb.NOMBRE_DOCUMENTO);
+                    vCmd.Parameters.Add("pRUTA_DOCUMENTO", vT_Sgpad_Comp_Est_Amb.RUTA_DOCUMENTO);
+                    vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Comp_Est_Amb.EXTENCION);
+                    vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Comp_Est_Amb.TAMANO);
                     vCmd.Parameters.Add(":pID_COMP_EST_AMB", OracleDbType.Int64).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
@@ -129,6 +133,10 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Comp_Est_Amb.FLG_ESTADO);
                     //vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Comp_Est_Amb.IP_INGRESO);
                     vCmd.Parameters.Add("pID_COMP_EST_AMB", vT_Sgpad_Comp_Est_Amb.ID_COMP_EST_AMB);
+                    vCmd.Parameters.Add("pNOMBRE_DOCUMENTO", vT_Sgpad_Comp_Est_Amb.NOMBRE_DOCUMENTO);
+                    vCmd.Parameters.Add("pRUTA_DOCUMENTO", vT_Sgpad_Comp_Est_Amb.RUTA_DOCUMENTO);
+                    vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Comp_Est_Amb.EXTENCION);
+                    vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Comp_Est_Amb.TAMANO);
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
                     vCnn.Close();

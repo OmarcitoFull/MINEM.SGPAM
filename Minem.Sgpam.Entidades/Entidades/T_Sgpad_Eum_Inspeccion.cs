@@ -23,8 +23,10 @@ namespace Minem.Sgpam.Entidades
 		public DateTime FECHA_INSPECCION { get; set; }  
 		public DateTime? FEC_MODIFICA { get; set; }  
 		public string FLG_ESTADO { get; set; }  
-		public string IP_INGRESO { get; set; }  
-		
-        #endregion
-    }
+		public string IP_INGRESO { get; set; }
+
+
+		public string NOMBRE_INSPECTOR { get; set; }
+		#endregion
+	}
 }

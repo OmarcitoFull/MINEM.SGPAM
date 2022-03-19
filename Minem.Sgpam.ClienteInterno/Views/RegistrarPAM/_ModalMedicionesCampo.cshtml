@@ -16,7 +16,7 @@
         <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">PH (*)</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
-                <input asp-for="Ph" class="form-control has-feedback-left" max="99999999" min="-99999999" maxlength="8" oninput="fMaxLength(this)" />
+                <input asp-for="Ph" type="number" class="form-control" max="99.9" min="-99.9" maxlength="4" oninput="fMaxLength(this)" asp-is-invariant="true" />
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@
         <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Conductividad (*)</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
-                <input asp-for="Conductividad" class="form-control" maxlength="100" />
+                <input asp-for="Conductividad" class="form-control" max="99999.9" min="-99999.9" maxlength="7" oninput="fMaxLength(this)" asp-is-invariant="true" />
             </div>
         </div>
     </div>
@@ -34,7 +34,7 @@
         <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Caudal (*)</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
-                <input asp-for="Caudal" class="form-control" maxlength="100" />
+                <input asp-for="Caudal" class="form-control" max="999" min="-999" maxlength="3" oninput="fMaxLength(this)" asp-is-invariant="true"/>
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@
         <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Observación (*)</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
-                <textarea asp-for="Observacion" class="form-controlArea " rows="3" maxlength="100"></textarea>
+                <textarea asp-for="Observacion" class="form-controlArea " rows="3" maxlength="250"></textarea>
             </div>
         </div>
     </div>

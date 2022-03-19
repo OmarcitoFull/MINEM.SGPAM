@@ -27,7 +27,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         //private readonly IT_Sgpad_Eum_UbicacionLN Eum_UbicacionLN;
         private readonly IT_Sgpad_Eum_Info_DescargoLN Eum_Info_DescargoLN;
         private readonly IT_Sgpad_Eum_Info_GraficaLN Eum_Info_GraficaLN;
-        //private readonly IT_Sgpad_Eum_InformeLN Eum_InformeLN;
+        private readonly IT_Sgpad_Eum_InformeLN Eum_InformeLN;
+        private readonly IT_Sgpad_Eum_OperacionLN Eum_OperacionLN;
         private readonly IT_Sgpad_ComponenteLN ComponenteLN;
         private readonly IT_Sgpad_Comp_Dd_MineroLN Comp_Dd_MineroLN;
         private readonly IT_Sgpad_Comp_Dm_SituacionLN Comp_Dm_SituacionLN;
@@ -46,7 +47,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             //       IT_Sgpad_Eum_UbicacionLN vIT_Sgpad_Eum_UbicacionLN,
             IT_Sgpad_Eum_Info_DescargoLN vIT_Sgpad_Eum_Info_DescargoLN,
             IT_Sgpad_Eum_Info_GraficaLN vIT_Sgpad_Eum_Info_GraficaLN,
-        //       IT_Sgpad_Eum_InformeLN vIT_Sgpad_Eum_InformeLN
+            IT_Sgpad_Eum_InformeLN vIT_Sgpad_Eum_InformeLN,
+            IT_Sgpad_Eum_OperacionLN vIT_Sgpad_Eum_OperacionLN,
             IT_Sgpad_ComponenteLN vIT_Sgpad_ComponenteLN,
             IT_Sgpad_Comp_Dd_MineroLN vIT_Sgpad_Comp_Dd_MineroLN,
             IT_Sgpad_Comp_Dm_SituacionLN vIT_Sgpad_Comp_Dm_SituacionLN,
@@ -63,7 +65,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             //     Eum_UbicacionLN = vIT_Sgpad_Eum_UbicacionLN;
             Eum_Info_DescargoLN = vIT_Sgpad_Eum_Info_DescargoLN;
             Eum_Info_GraficaLN = vIT_Sgpad_Eum_Info_GraficaLN;
-            //     Eum_InformeLN = vIT_Sgpad_Eum_InformeLN;
+            Eum_InformeLN = vIT_Sgpad_Eum_InformeLN;
+            Eum_OperacionLN = vIT_Sgpad_Eum_OperacionLN;
             ComponenteLN = vIT_Sgpad_ComponenteLN;
             Comp_Dd_MineroLN = vIT_Sgpad_Comp_Dd_MineroLN;
             Comp_Dm_SituacionLN = vIT_Sgpad_Comp_Dm_SituacionLN;
@@ -304,7 +307,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                                                                    //ListaInfor = (List<Eum_InspeccionDTO>)Eum_InspeccionLN.ListarPorIdEumEum_InspeccionDTO(vId_Eum),
                     ListaInformacionDescargo = (List<Eum_Info_DescargoDTO>)Eum_Info_DescargoLN.ListarPorIdEumEum_Info_DescargoDTO(vId_Eum),
                     ListaInformacionGrafica = (List<Eum_Info_GraficaDTO>)Eum_Info_GraficaLN.ListarPorIdEumEum_Info_GraficaDTO(vId_Eum),
-
+                    ListaInforme = (List<Eum_InformeDTO>)Eum_InformeLN.ListarPorIdEumEum_InformeDTO(vId_Eum),
+                    ListaOperacion = (List<Eum_OperacionDTO>)Eum_OperacionLN.ListarPorIdEumEum_OperacionDTO(vId_Eum),
                     //ListaDerechosMineros = (List<Comp_Dd_MineroDTO>)Comp_Dd_MineroLN.ListarPorIdEumComp_Dd_MineroDTO(vId_Eum),
                     //ListaSituacionPrincipalesProducto = (List<Comp_Dm_SituacionDTO>)Comp_Dm_SituacionLN.ListarPorIdEumComp_Dm_Situacion(vId_Eum),
                     //ListaTitularesReferencialesDerechos = (List<Comp_Dm_TitularDTO>)Comp_Dm_TitularLN.ListarPorIdEumComp_Dm_Titular(vId_Eum),

@@ -10,5 +10,6 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
     {
         public Eum_InspeccionDTO Eum_Inspeccion { get; set; }
         public List<Tipo_ClimaDTO> CboTipoClima { get; set; }
+        public List<InspectorDTO> CboInspector { get; set; }
     }
 }

@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using System.Globalization;
 
 namespace Minem.Sgpam.WebApi
 {
@@ -18,6 +20,10 @@ namespace Minem.Sgpam.WebApi
 
         public void ConfigureServices(IServiceCollection vServices)
         {
+            vServices.Configure<RequestLocalizationOptions>(vOption => {
+                vOption.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");
+                vOption.SupportedCultures = vOption.SupportedUICultures = new[] { new CultureInfo("en"), new CultureInfo("pe") };
+            });
             vServices.AddControllers();
             vServices.Inyecciones();
             vServices.AddSwaggerGen(x =>
@@ -36,9 +42,8 @@ namespace Minem.Sgpam.WebApi
             }
 
             vApp.UseRouting();
-
+            vApp.UseRequestLocalization(vApp.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>().Value);
             vApp.UseAuthorization();
-
             vApp.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }

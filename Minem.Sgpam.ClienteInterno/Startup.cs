@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Minem.Sgpam.InfraEstructura;
 using System;
+using System.Globalization;
 
 namespace Minem.Sgpam.ClienteInterno
 {
@@ -20,6 +22,10 @@ namespace Minem.Sgpam.ClienteInterno
         public void ConfigureServices(IServiceCollection vServices)
         {
             Environment.SetEnvironmentVariable(Constantes.ServiceRoute, Configuration.GetValue<string>("BackEndConfig:UrlApi"));
+            vServices.Configure<RequestLocalizationOptions>(vOption => {
+                vOption.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");
+                vOption.SupportedCultures = vOption.SupportedUICultures = new[] { new CultureInfo("en"), new CultureInfo("pe") };
+            });
             vServices.AddControllersWithViews();
         }
 
@@ -33,8 +39,10 @@ namespace Minem.Sgpam.ClienteInterno
             {
                 vApp.UseExceptionHandler("/Home/Error");
             }
+
             vApp.UseStaticFiles();
             vApp.UseRouting();
+            vApp.UseRequestLocalization(vApp.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>().Value);
             vApp.UseAuthorization();
             vApp.UseEndpoints(endpoints =>
             {

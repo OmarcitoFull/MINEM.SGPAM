@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using Minem.Sgpam.AccesoDatos.Interfaces;
 using Minem.Sgpam.Entidades;
@@ -50,12 +51,71 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
-        public Eum_Info_GraficaDTO InsertarEum_Info_GraficaDTO(Eum_Info_GraficaDTO vEum_Info_GraficaDTO)
+        //public Eum_Info_GraficaDTO InsertarEum_Info_GraficaDTO(Eum_Info_GraficaDTO vEum_Info_GraficaDTO)
+        //{
+        //    try
+        //    {
+        //        var vRegistro = new T_Sgpad_Eum_Info_Grafica();
+        //        var vResultado = Eum_Info_GraficaAD.InsertarT_Sgpad_Eum_Info_Grafica(vRegistro);
+        //        return vEum_Info_GraficaDTO;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //Log.Error(ex.Message, ex);
+        //        throw;
+        //    }
+        //}
+
+        //public Eum_Info_GraficaDTO ActualizarEum_Info_GraficaDTO(Eum_Info_GraficaDTO vEum_Info_GraficaDTO)
+        //{
+        //    try
+        //    {
+        //        var vRegistro = new T_Sgpad_Eum_Info_Grafica();
+        //        var vResultado = Eum_Info_GraficaAD.ActualizarT_Sgpad_Eum_Info_Grafica(vRegistro);
+        //        return vEum_Info_GraficaDTO;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //Log.Error(ex.Message, ex);
+        //        throw;
+        //    }
+        //}
+
+        public Eum_Info_GraficaDTO GrabarEum_Info_GraficaDTO(Eum_Info_GraficaDTO vEum_Info_GraficaDTO)
         {
             try
             {
-                var vRegistro = new T_Sgpad_Eum_Info_Grafica();
-                var vResultado = Eum_Info_GraficaAD.InsertarT_Sgpad_Eum_Info_Grafica(vRegistro);
+                if (vEum_Info_GraficaDTO != null)
+                {
+                    var vRegistro = new T_Sgpad_Eum_Info_Grafica
+                    {
+                        FEC_INGRESO = vEum_Info_GraficaDTO.Fec_Ingreso,
+                        FEC_MODIFICA = vEum_Info_GraficaDTO.Fec_Modifica,
+                        FLG_ESTADO = vEum_Info_GraficaDTO.Flg_Estado,
+                        IP_INGRESO = vEum_Info_GraficaDTO.Ip_Ingreso,
+                        IP_MODIFICA = vEum_Info_GraficaDTO.Ip_Modifica,
+                        USU_INGRESO = vEum_Info_GraficaDTO.Usu_Ingreso,
+                        USU_MODIFICA = vEum_Info_GraficaDTO.Usu_Modifica,
+                        ID_EUM = vEum_Info_GraficaDTO.Id_Eum,
+                        EXTENCION = vEum_Info_GraficaDTO.Extencion,
+                        ID_EUM_INFO_GRAFICA = vEum_Info_GraficaDTO.Id_Eum_Info_Grafica,
+                        NOMBRE_IMAGEN = vEum_Info_GraficaDTO.Nombre_Imagen,
+                        RUTA_IMAGEN = vEum_Info_GraficaDTO.Ruta_Imagen,
+                        TAMANO = vEum_Info_GraficaDTO.Tamano,
+                        FECHA_TOMA = vEum_Info_GraficaDTO.Fecha_Toma,
+                        DESCRIPCION = vEum_Info_GraficaDTO.Descripcion
+                    };
+                    if (vEum_Info_GraficaDTO.Id_Eum_Info_Grafica == 0)
+                    {
+                        var vResultado = Eum_Info_GraficaAD.InsertarT_Sgpad_Eum_Info_Grafica(vRegistro);
+                        vEum_Info_GraficaDTO.Id_Eum_Info_Grafica = vResultado.ID_EUM_INFO_GRAFICA;
+                    }
+                    else
+                    {
+                        var vResultado = Eum_Info_GraficaAD.ActualizarT_Sgpad_Eum_Info_Grafica(vRegistro);
+                        vEum_Info_GraficaDTO = RecuperarEum_Info_GraficaDTOPorCodigo(vResultado.ID_EUM_INFO_GRAFICA);
+                    }
+                }
                 return vEum_Info_GraficaDTO;
             }
             catch (Exception ex)
@@ -65,21 +125,6 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
-        public Eum_Info_GraficaDTO ActualizarEum_Info_GraficaDTO(Eum_Info_GraficaDTO vEum_Info_GraficaDTO)
-        {
-            try
-            {
-                var vRegistro = new T_Sgpad_Eum_Info_Grafica();
-                var vResultado = Eum_Info_GraficaAD.ActualizarT_Sgpad_Eum_Info_Grafica(vRegistro);
-                return vEum_Info_GraficaDTO;
-            }
-            catch (Exception ex)
-            {
-                //Log.Error(ex.Message, ex);
-                throw;
-            }
-        }
-        
         public int AnularEum_Info_GraficaDTOPorCodigo(Eum_Info_GraficaDTO vEum_Info_GraficaDTO)
         {
             try
@@ -129,7 +174,9 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                             Extencion = item.EXTENCION,
                             Nombre_Imagen = item.NOMBRE_IMAGEN,
                             Ruta_Imagen = item.RUTA_IMAGEN,
-                            Tamano = item.TAMANO
+                            Tamano = item.TAMANO,
+                            Fecha_Toma = item.FECHA_TOMA,
+                            Descripcion = item.DESCRIPCION
                         };
                         vLista.Add(vEntidad);
                     }

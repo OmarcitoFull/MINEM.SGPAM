@@ -128,21 +128,18 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
 
         #region Inspeccion
         [HttpGet]
-        public async Task<IActionResult> CrearInspeccion(int vIdEumInspeccion)//CrearRiesgosSeguridadHumana
+        public async Task<IActionResult> CrearInspeccion(int vIdEum)
         {
-            RegistrarEumInspeccionDTO vRecord = new RegistrarEumInspeccionDTO();
+            RegistrarEumInspeccionDTO vRecord = await Services<RegistrarEumInspeccionDTO>.Obtener("Inspeccion/GetFull?vId=" + 0);
+            vRecord.Eum_Inspeccion = new Eum_InspeccionDTO { Fecha_Inspeccion = DateTime.Now, Id_Eum = vIdEum };
 
-            vRecord = await Services<RegistrarEumInspeccionDTO>.Obtener("Inspeccion/GetFull?vId=" + vIdEumInspeccion);
-            if (vIdEumInspeccion == 0)
-                vRecord.Eum_Inspeccion = new Eum_InspeccionDTO();
-
-            ViewBag.CboTipoClima = vRecord.CboTipoClima.ConvertAll(x =>
+            //ViewBag.CboTipoClima = vRecord.CboTipoClima.ConvertAll(x =>
+            //{
+            //    return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Tipo_Clima.ToString() };
+            //});
+            ViewBag.CboInspector = vRecord.CboInspector.ConvertAll(x =>
             {
-                return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Tipo_Clima.ToString() };
-            });
-            ViewBag.CboTipoClima = vRecord.CboTipoClima.ConvertAll(x =>
-            {
-                return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Tipo_Clima.ToString() };
+                return new SelectListItem() { Text = x.Nombre_Completo, Value = x.Id_Inspector.ToString() };
             });
             return PartialView("_ModalInspeccion", vRecord.Eum_Inspeccion);
         }
@@ -169,12 +166,11 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
 
         #region InfoGrafica
         [HttpGet]
-        public async Task<IActionResult> CrearInfoGrafica(int vIdEum)
+        public IActionResult CrearInfoGrafica(int vIdEum)
         {
-            Eum_Info_GraficaDTO vRegistro = await Services<Eum_Info_GraficaDTO>.Obtener("InfoGrafica/Get?vId=" + vIdEum);
-            if (vIdEum == 0)
-                vRegistro = new Eum_Info_GraficaDTO { Fec_Ingreso = DateTime.Now, Id_Eum = vIdEum };
-
+            //Eum_Info_GraficaDTO vRegistro = await Services<Eum_Info_GraficaDTO>.Obtener("InfoGrafica/Get?vId=" + vIdEum);
+            //if (vIdEum == 0)
+            Eum_Info_GraficaDTO vRegistro = new Eum_Info_GraficaDTO { Fec_Ingreso = DateTime.Now, Id_Eum = vIdEum };
             return PartialView("_ModalInfoGrafica", vRegistro);
         }
 
@@ -203,7 +199,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
 
                         try
                         {
-                            var vDirectorioIG = Configuration.GetValue<string>("DirectoryIG");
+                            var vDirectorioIG = Configuration.GetValue<string>("DirectoryEumIG");
                             var vDirectory = $"{vHostingEnviroment.WebRootPath}\\{vDirectorioIG}";
                             if (!Directory.Exists(vDirectory)) Directory.CreateDirectory(vDirectory);
 
@@ -222,7 +218,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
 
                             if (ModelState.IsValid)
                             {
-                                vInfo_Grafica = await Services<Eum_Info_GraficaDTO>.Grabar("InformacionGrafica/Save", vInfo_Grafica);
+                                vInfo_Grafica = await Services<Eum_Info_GraficaDTO>.Grabar("InfoGrafica/Save", vInfo_Grafica);
                                 return Json(new ComponentResultModel { Operation = vInfo_Grafica.Id_Eum_Info_Grafica > 0 ? Constantes.Ok : Constantes.Error });
                             }
                             else
@@ -260,9 +256,86 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         [HttpGet]
         public IActionResult CrearInfoDescargo(int vIdEum)
         {
-            Eum_Info_DescargoDTO vRegistro = new Eum_Info_DescargoDTO { Fec_Ingreso = DateTime.Now, Id_Eum = vIdEum };
+            Eum_Info_DescargoDTO vRegistro = new Eum_Info_DescargoDTO { Fecha_Descargo = DateTime.Now, Id_Eum = vIdEum };
             return PartialView("_ModalInfoDescargo", vRegistro);
         }
+
+        [HttpPost]
+        [Obsolete]
+        public async Task<JsonResult> GrabarInfoDescargo(Eum_Info_DescargoDTO vInfo_Descargo, IFormFile vFile, [FromServices] IHostingEnvironment vHostingEnviroment)
+        {
+            vInfo_Descargo.Flg_Estado = Constantes.Activo;
+            vInfo_Descargo.Fec_Ingreso = vInfo_Descargo.Fec_Modifica = DateTime.Now;
+            vInfo_Descargo.Usu_Ingreso = vInfo_Descargo.Usu_Modifica = "MSALVADOR";
+            vInfo_Descargo.Ip_Ingreso = vInfo_Descargo.Ip_Modifica = DnsFullNet.GetIp();
+
+            if (vFile != null)
+            {
+                vInfo_Descargo.Extencion = Path.GetExtension(vFile.FileName).Substring(1);
+
+                if (!string.IsNullOrEmpty(vInfo_Descargo.Extencion) && vInfo_Descargo.Extencion.Length <= 4)
+                {
+                    string vFileNameEmpty = Path.GetFileNameWithoutExtension(vFile.FileName);
+
+                    if (!string.IsNullOrEmpty(vFileNameEmpty))
+                    {
+                        vFileNameEmpty = $"{vFileNameEmpty}-{DateTime.Now.ToString("yyyyMMdd-HHmmss")}{Path.GetExtension(vFile.FileName)}";
+                        vInfo_Descargo.Nombre_Documento = vFileNameEmpty;
+                        vInfo_Descargo.Tamano = (int)vFile.Length;
+
+                        try
+                        {
+                            var vDirectorioIG = Configuration.GetValue<string>("DirectoryEumID");
+                            var vDirectory = $"{vHostingEnviroment.WebRootPath}\\{vDirectorioIG}";
+                            if (!Directory.Exists(vDirectory)) Directory.CreateDirectory(vDirectory);
+
+                            string vSubDirectory = vInfo_Descargo.Id_Eum.ToString("D9");
+                            vDirectory = $"{vDirectory}\\{vSubDirectory}";
+                            if (!Directory.Exists(vDirectory)) Directory.CreateDirectory(vDirectory);
+
+                            string vFileName = $"{vDirectory}\\{vFileNameEmpty}";
+                            using (FileStream vFileStream = System.IO.File.Create(vFileName))
+                            {
+                                vFile.CopyTo(vFileStream);
+                                vFileStream.Flush();
+                            }
+
+                            vInfo_Descargo.Ruta_Documento = vFileName;
+
+                            if (ModelState.IsValid)
+                            {
+                                vInfo_Descargo = await Services<Eum_Info_DescargoDTO>.Grabar("InfoDescargo/Save", vInfo_Descargo);
+                                return Json(new ComponentResultModel { Operation = vInfo_Descargo.Id_Eum_Info_Descargo > 0 ? Constantes.Ok : Constantes.Error });
+                            }
+                            else
+                            {
+                                return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+                            }
+
+                        }
+                        catch (Exception)
+                        {
+                            return Json(new ComponentResultModel());
+                        }
+                    }
+                    else
+                    {
+                        return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+                    }
+                }
+                else
+                {
+                    return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+                }
+
+            }
+            else
+            {
+                return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+            }
+        }
+
+
         #endregion
 
 

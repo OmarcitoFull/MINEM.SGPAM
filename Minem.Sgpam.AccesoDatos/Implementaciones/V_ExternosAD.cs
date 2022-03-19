@@ -94,7 +94,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             return vLista;
         }
 
-        public List<V_Ext_DerechosMineros> Listar_DerechosMineros()
+        public List<V_Ext_DerechosMineros> Listar_DerechosMineros(T_Sgpad_Componente vT_Sgpad_Componente)
         {
             List<V_Ext_DerechosMineros> vLista = new List<V_Ext_DerechosMineros>();
             V_Ext_DerechosMineros vEntidad;
@@ -104,6 +104,11 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_FULLEXTERNOS.USP_LIS_DERECHOS_MINEROS", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
+                    vCmd.Parameters.Add("pID_ZONA", vT_Sgpad_Componente.ID_ZONA);
+                    vCmd.Parameters.Add("pID_DATUM", vT_Sgpad_Componente.ID_DATUM);
+                    vCmd.Parameters.Add("pESTE", vT_Sgpad_Componente.ESTE);
+                    vCmd.Parameters.Add("pNORTE", vT_Sgpad_Componente.NORTE);
+                    vCmd.Parameters.Add("pUBIGEO", vT_Sgpad_Componente.UBIGEO);
                     vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     OracleDataReader vRdr = vCmd.ExecuteReader();

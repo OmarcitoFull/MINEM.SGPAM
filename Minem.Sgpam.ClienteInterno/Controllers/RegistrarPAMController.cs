@@ -538,16 +538,73 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         }
 
         [HttpPost]
-        public async Task<JsonResult> GrabarEstudioAmbientales(Comp_Est_AmbDTO vEst_Amb)
+        [Obsolete]
+        public async Task<JsonResult> GrabarEstudioAmbientales(Comp_Est_AmbDTO vEst_Amb, IFormFile vFile, [FromServices] IHostingEnvironment vHostingEnviroment)
         {
             vEst_Amb.Flg_Estado = Constantes.Activo;
             vEst_Amb.Fec_Ingreso = vEst_Amb.Fec_Modifica = DateTime.Now;
             vEst_Amb.Usu_Ingreso = vEst_Amb.Usu_Modifica = "ORODRIGUEZ";
             vEst_Amb.Ip_Ingreso = vEst_Amb.Ip_Modifica = DnsFullNet.GetIp();
-            if (ModelState.IsValid)
+
+            if (vFile != null)
             {
-                vEst_Amb = await Services<Comp_Est_AmbDTO>.Grabar("EstudioAmbiental/Save", vEst_Amb);
-                return Json(new ComponentResultModel { Operation = vEst_Amb.Id_Comp_Est_Amb > 0 ? Constantes.Ok : Constantes.Error });
+                vEst_Amb.Extension = Path.GetExtension(vFile.FileName).Substring(1);
+
+                if (!string.IsNullOrEmpty(vEst_Amb.Extension) && vEst_Amb.Extension.Length <= 4)
+                {
+                    string vFileNameEmpty = Path.GetFileNameWithoutExtension(vFile.FileName);
+
+                    if (!string.IsNullOrEmpty(vFileNameEmpty))
+                    {
+                        vFileNameEmpty = $"{vFileNameEmpty}-{DateTime.Now.ToString("yyyyMMdd-HHmmss")}{Path.GetExtension(vFile.FileName)}";
+                        vEst_Amb.Nombre_Documento = vFileNameEmpty;
+                        vEst_Amb.Tamano = (int)vFile.Length;
+
+                        try
+                        {
+                            var vDirectorioIG = Configuration.GetValue<string>("DirectoryEA");
+                            var vDirectory = $"{vHostingEnviroment.WebRootPath}\\{vDirectorioIG}";
+                            if (!Directory.Exists(vDirectory)) Directory.CreateDirectory(vDirectory);
+
+                            string vSubDirectory = vEst_Amb.Id_Componente.ToString("D9");
+                            vDirectory = $"{vDirectory}\\{vSubDirectory}";
+                            if (!Directory.Exists(vDirectory)) Directory.CreateDirectory(vDirectory);
+
+                            string vFileName = $"{vDirectory}\\{vFileNameEmpty}";
+                            using (FileStream vFileStream = System.IO.File.Create(vFileName))
+                            {
+                                vFile.CopyTo(vFileStream);
+                                vFileStream.Flush();
+                            }
+
+                            vEst_Amb.Ruta_Documento = vFileName;
+
+                            if (ModelState.IsValid)
+                            {
+                                vEst_Amb = await Services<Comp_Est_AmbDTO>.Grabar("EstudioAmbiental/Save", vEst_Amb);
+                                return Json(new ComponentResultModel { Operation = vEst_Amb.Id_Comp_Est_Amb > 0 ? Constantes.Ok : Constantes.Error });
+                            }
+                            else
+                            {
+                                return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+                            }
+
+                        }
+                        catch (Exception)
+                        {
+                            return Json(new ComponentResultModel());
+                        }
+                    }
+                    else
+                    {
+                        return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+                    }
+                }
+                else
+                {
+                    return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+                }
+
             }
             else
             {

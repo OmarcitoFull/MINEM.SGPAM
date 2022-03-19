@@ -13,6 +13,6 @@ namespace Minem.Sgpam.LogicaNegocio.Interfaces
         List<ReinfoDerechosMinerosDTO> Listar_ReinfoDerechosMineros();
         List<SituacionPrincipalesProductosDTO> Listar_SituacionPrincipalesProductos();
         List<TitularesReferencialesDerechosDTO> Listar_TitularesReferencialesDerechos();
-        List<DerechosMinerosDTO> Listar_DerechosMineros();
+        List<DerechosMinerosDTO> Listar_DerechosMineros(ComponenteDTO vComponenteDTO);
     }
 }

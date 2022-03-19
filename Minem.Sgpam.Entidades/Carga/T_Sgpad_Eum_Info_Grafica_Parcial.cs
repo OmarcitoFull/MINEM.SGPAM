@@ -62,7 +62,11 @@ namespace Minem.Sgpam.Entidades
 			{
 				this.TAMANO = Convert.ToInt32(vRdr["TAMANO"]);  
 			}
-
-        }
-    }
+			if (!Convert.IsDBNull(vRdr["FECHA_TOMA"]))
+			{
+				this.FECHA_TOMA = Convert.ToDateTime(vRdr["FECHA_TOMA"]);
+			}
+			this.DESCRIPCION = Convert.ToString(vRdr["DESCRIPCION"]);
+		}
+	}
 }

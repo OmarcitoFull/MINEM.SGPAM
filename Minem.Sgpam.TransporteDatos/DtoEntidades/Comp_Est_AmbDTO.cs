@@ -27,14 +27,14 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
         public string Des_Nom_Titular { get; set; }
         public string Ip_Modifica { get; set; }
         [Required]
-        [StringLength(300)] 
+        [StringLength(300)]
         public string Des_Nom_Proyecto { get; set; }
         [Required]
         [StringLength(300)]
         public string Des_Und_Ambiental { get; set; }
         public DateTime? Fec_Expediente { get; set; }
         [Required]
-        [StringLength(100)] 
+        [StringLength(100)]
         public string Des_Situacion { get; set; }
         public int Id_Componente { get; set; }
         public DateTime? Fec_Ingreso { get; set; }
@@ -43,7 +43,10 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
         public string Flg_Estado { get; set; }
         public string Ip_Ingreso { get; set; }
         public int Id_Comp_Est_Amb { get; set; }
-
+        public string Nombre_Documento { get; set; }
+        public string Ruta_Documento { get; set; }
+        public string Extension { get; set; }
+        public int? Tamano { get; set; }
         #endregion
     }
 }

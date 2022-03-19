@@ -129,6 +129,7 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                             Ip_Ingreso = item.IP_INGRESO,
                             Id_Tipo_Operacion = item.ID_TIPO_OPERACION,
                             Usu_Ingreso = item.USU_INGRESO,
+                            Tipo_Operacion = item.TIPO_OPERACION
                         };
                         vLista.Add(vEntidad);
                     }

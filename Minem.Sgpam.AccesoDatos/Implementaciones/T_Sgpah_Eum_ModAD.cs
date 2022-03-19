@@ -76,13 +76,13 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_EUM_MOD.USP_INS_EUM_MOD", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pID_EUM", vT_Sgpah_Eum_Mod.ID_EUM); 
-				    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpah_Eum_Mod.FEC_INGRESO); 
-				    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpah_Eum_Mod.USU_INGRESO); 
-				    vCmd.Parameters.Add("pCARGO", vT_Sgpah_Eum_Mod.CARGO); 
-				    //vCmd.Parameters.Add("pID_EUM_MOD", vT_Sgpah_Eum_Mod.ID_EUM_MOD); 
-				    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpah_Eum_Mod.FLG_ESTADO); 
-				    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpah_Eum_Mod.IP_INGRESO);
+                    //vCmd.Parameters.Add("pID_EUM_MOD", vT_Sgpah_Eum_Mod.ID_EUM_MOD); 
+                    vCmd.Parameters.Add("pID_EUM", vT_Sgpah_Eum_Mod.ID_EUM);
+                    vCmd.Parameters.Add("pCARGO", vT_Sgpah_Eum_Mod.CARGO);
+                    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpah_Eum_Mod.USU_INGRESO);
+                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpah_Eum_Mod.FEC_INGRESO);
+                    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpah_Eum_Mod.IP_INGRESO);
+                    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpah_Eum_Mod.FLG_ESTADO);
                     vCmd.Parameters.Add(":pID_EUM_MOD", OracleDbType.Int64).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
@@ -100,13 +100,12 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_EUM_MOD.USP_UPD_EUM_MOD", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pID_EUM", vT_Sgpah_Eum_Mod.ID_EUM); 
-				    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpah_Eum_Mod.FEC_INGRESO); 
-				    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpah_Eum_Mod.USU_INGRESO); 
-				    vCmd.Parameters.Add("pCARGO", vT_Sgpah_Eum_Mod.CARGO); 
-				    vCmd.Parameters.Add("pID_EUM_MOD", vT_Sgpah_Eum_Mod.ID_EUM_MOD); 
-				    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpah_Eum_Mod.FLG_ESTADO); 
-				    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpah_Eum_Mod.IP_INGRESO);
+                    vCmd.Parameters.Add("pID_EUM_MOD", vT_Sgpah_Eum_Mod.ID_EUM_MOD);
+                    vCmd.Parameters.Add("pCARGO", vT_Sgpah_Eum_Mod.CARGO);
+                    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpah_Eum_Mod.USU_INGRESO);
+                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpah_Eum_Mod.FEC_INGRESO);
+                    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpah_Eum_Mod.IP_INGRESO);
+                    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpah_Eum_Mod.FLG_ESTADO);
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
                     vCnn.Close();

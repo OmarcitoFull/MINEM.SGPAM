@@ -59,6 +59,7 @@ namespace Minem.Sgpam.Entidades
 			{
 				this.IP_INGRESO = Convert.ToString(vRdr["IP_INGRESO"]);  
 			}
+			this.NOMBRE_INSPECTOR = Convert.ToString(vRdr["NOMBRE_INSPECTOR"]);
 		}
     }
 }

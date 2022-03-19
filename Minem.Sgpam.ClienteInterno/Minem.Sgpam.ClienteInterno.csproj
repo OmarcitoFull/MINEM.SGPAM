@@ -658,4 +658,8 @@
     <TypeScriptCompile Include="wwwroot\lib\moment\moment.d.ts" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\RegistrarPAM\" />
+  </ItemGroup>
+
 </Project>

@@ -1,9 +1,8 @@
 ﻿@model Minem.Sgpam.TransporteDatos.DtoEntidades.Eum_Info_GraficaDTO
-
 <div class="rowGroup">
-    <h1 class="grupoT">Agregar información gráfica</h1>
+    <h1 class="grupoT">Información gráfica</h1>
 
-    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+    <div class="col-md-9 col-sm-9 col-xs-12 form-group">
         <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Fotografía</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
@@ -12,11 +11,20 @@
         </div>
     </div>
 
-    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+    <div class="col-md-9 col-sm-12 col-xs-9 form-group">
         <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
-                <input asp-for="Fec_Ingreso" type="date" class="form-control has-feedback-left" aria-describedby="inputSuccess2Status2">
+                <input asp-for="Fecha_Toma" type="date" class="form-control has-feedback-left" aria-describedby="inputSuccess2Status2">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Descripcion</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <textarea asp-for="Descripcion" class="form-controlArea  has-feedback-left" rows="3" placeholder=""></textarea>
             </div>
         </div>
     </div>

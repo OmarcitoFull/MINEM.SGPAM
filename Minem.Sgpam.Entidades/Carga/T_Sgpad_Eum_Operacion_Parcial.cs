@@ -55,8 +55,12 @@ namespace Minem.Sgpam.Entidades
 			{
 				this.IP_INGRESO = Convert.ToString(vRdr["IP_INGRESO"]);  
 			}
-		
+
+			if (!Convert.IsDBNull(vRdr["TIPO_OPERACION"]))
+			{
+				this.TIPO_OPERACION = Convert.ToString(vRdr["TIPO_OPERACION"]);
+			}
 
 		}
-    }
+	}
 }

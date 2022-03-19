@@ -308,7 +308,7 @@
 </div>
 <!-- fin modal-->
 <!-- Modal 18 Estudios Ambientales-->
-<div id="modal19" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div id="modal19" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form id="frmEstudioAmbientales" autocomplete="off" data-ajax="true" data-ajax-method="POST">
@@ -601,6 +601,8 @@
         }
 
         SaveMedicionCampo = function () {
+            console.log($("#frmMedicionesCampo").serialize());
+
             $.post("@Url.Action("GrabarMedicionesCampo", "RegistrarPAM")", $("#frmMedicionesCampo").serialize()).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
@@ -665,18 +667,40 @@
         }
 
         SaveEstudioAmbientales = function () {
-            $.post("@Url.Action("GrabarEstudioAmbientales", "RegistrarPAM")", $("#frmEstudioAmbientales").serialize()).done(function (x)
-            {
-                if (x.operation == "@Constantes.Ok") {
-                    Success("@Constantes.MsgOk");
-                    $("#modal19").modal("toggle");
-                    $("#DivEstudioAmbientales").load("@Url.Action("ListarEstudioAmbientales", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })");
-                } else {
-                    "@((int)TipoErr.MODEL)" == x.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr")
-                }
-            }).fail(function (a, b, c) {
-                Error("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
-            });
+            var e = new FormData, r = document.getElementById("vFile").files.length;
+            if (0 == r) {
+                Info("Seleccione el archivo");
+            }
+            else {
+                for (var a, o = 0; r > o; o++) {
+                    a = document.getElementById("vFile").files[o];
+                    e.append("vFile", a);
+                };
+                var vData = $("#frmEstudioAmbientales").serialize().replace(/[+]/g, " ").split("&");
+
+                vData.forEach(function (a) {
+                    a = a.split("=");
+                    e.append(a[0], a[1])
+                });
+                
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("GrabarEstudioAmbientales", "RegistrarPAM")",
+                    data: e,
+                    dataType: "json",
+                    contentType: !1,
+                    processData: !1,
+                    success: function (x) {
+                        if (x.operation == "@Constantes.Ok") {
+                            Success("@Constantes.MsgOk");
+                            $("#modal19").modal("toggle");
+                            $("#DivEstudioAmbientales").load("@Url.Action("ListarEstudioAmbientales", "RegistrarPAM", new { vIdComponente = Model.Componente.Id_Componente })", function () { fullLoadTable("#fulltbl13"); });
+                        } else {
+                            "@((int)TipoErr.MODEL)" == x.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr");
+                        }
+                    }
+                });
+            }
         }
 
         SaveEncargoRemediacion = function () {

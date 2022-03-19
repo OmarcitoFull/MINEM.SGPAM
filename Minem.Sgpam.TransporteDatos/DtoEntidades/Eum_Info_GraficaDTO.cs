@@ -10,8 +10,22 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
     /// </summary>
     public partial class Eum_Info_GraficaDTO : BaseOTD
     {
-        #region Propiedades
-        public string Ip_Modifica { get; set; }  		public int Id_Eum_Info_Grafica { get; set; }  		public string Ip_Ingreso { get; set; }  		public string Usu_Ingreso { get; set; }  		public string Ruta_Imagen { get; set; }  		public DateTime? Fec_Modifica { get; set; }  		public int Id_Eum { get; set; }  		public DateTime? Fec_Ingreso { get; set; }  		public string Usu_Modifica { get; set; }  		public string Extencion { get; set; }  		public string Nombre_Imagen { get; set; }  		public string Flg_Estado { get; set; }  		public int? Tamano { get; set; }  		
-        #endregion
-    }
+		#region Propiedades
+		public string Usu_Ingreso { get; set; }
+		public string Nombre_Imagen { get; set; }
+		public int Id_Eum { get; set; }
+		public string Flg_Estado { get; set; }
+		public string Extencion { get; set; }
+		public int Id_Eum_Info_Grafica { get; set; }
+		public DateTime? Fec_Modifica { get; set; }
+		public string Ip_Modifica { get; set; }
+		public string Ip_Ingreso { get; set; }
+		public DateTime? Fec_Ingreso { get; set; }
+		public int? Tamano { get; set; }
+		public string Usu_Modifica { get; set; }
+		public string Ruta_Imagen { get; set; }
+		public DateTime? Fecha_Toma { get; set; }
+		public string Descripcion { get; set; }
+		#endregion
+	}
 }

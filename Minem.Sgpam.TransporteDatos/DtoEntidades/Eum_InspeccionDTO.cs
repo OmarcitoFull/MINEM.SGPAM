@@ -30,6 +30,7 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
 
         public List<Tipo_ClimaDTO> CboTipoClima { get; set; }
         public string TipoClima { get; set; }
+        public string Nomnbre_Inspector { get; set; }
 
         #endregion
     }

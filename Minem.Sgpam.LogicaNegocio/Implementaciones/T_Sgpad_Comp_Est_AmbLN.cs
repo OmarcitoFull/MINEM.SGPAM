@@ -47,7 +47,11 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                                       Id_Comp_Est_Amb = vTmp.ID_COMP_EST_AMB,
                                       Nro_Expediente = vTmp.NRO_EXPEDIENTE,
                                       Res_Aprobacion = vTmp.RES_APROBACION,
-                                      Tipo_Estudio = vTmp.TIPO_ESTUDIO
+                                      Tipo_Estudio = vTmp.TIPO_ESTUDIO,
+                                      Extension = vTmp.EXTENCION,
+                                      Nombre_Documento = vTmp.NOMBRE_DOCUMENTO,
+                                      Ruta_Documento = vTmp.RUTA_DOCUMENTO,
+                                      Tamano = vTmp.TAMANO
                                   }).ToList();
                 return vResultado;
             }
@@ -84,7 +88,11 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         Id_Comp_Est_Amb = vRegistro.ID_COMP_EST_AMB,
                         Nro_Expediente = vRegistro.NRO_EXPEDIENTE,
                         Res_Aprobacion = vRegistro.RES_APROBACION,
-                        Tipo_Estudio = vRegistro.TIPO_ESTUDIO
+                        Tipo_Estudio = vRegistro.TIPO_ESTUDIO,
+                        Extension = vRegistro.EXTENCION,
+                        Nombre_Documento = vRegistro.NOMBRE_DOCUMENTO,
+                        Ruta_Documento = vRegistro.RUTA_DOCUMENTO,
+                        Tamano = vRegistro.TAMANO
                     };
                     return vResultado;
                 }
@@ -122,7 +130,11 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         ID_COMP_EST_AMB = vComp_Est_AmbDTO.Id_Comp_Est_Amb,
                         NRO_EXPEDIENTE = vComp_Est_AmbDTO.Nro_Expediente,
                         RES_APROBACION = vComp_Est_AmbDTO.Res_Aprobacion,
-                        TIPO_ESTUDIO = vComp_Est_AmbDTO.Tipo_Estudio
+                        TIPO_ESTUDIO = vComp_Est_AmbDTO.Tipo_Estudio,
+                        EXTENCION = vComp_Est_AmbDTO.Extension,
+                        TAMANO = vComp_Est_AmbDTO.Tamano,
+                        RUTA_DOCUMENTO = vComp_Est_AmbDTO.Ruta_Documento,
+                        NOMBRE_DOCUMENTO = vComp_Est_AmbDTO.Nombre_Documento
                     };
                     if (vComp_Est_AmbDTO.Id_Comp_Est_Amb == 0)
                     {
