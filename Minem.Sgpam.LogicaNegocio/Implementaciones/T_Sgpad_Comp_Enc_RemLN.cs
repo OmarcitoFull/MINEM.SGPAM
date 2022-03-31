@@ -19,7 +19,7 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         private readonly IT_Sgpad_Comp_Enc_RemAD Comp_Enc_RemAD;
         private readonly IT_Sgpal_Tipo_EncargoLN Tipo_EncargoLN;
         private readonly IT_Sgpal_Tipo_ResolucionLN Tipo_ResolucionLN;
-        
+
 
         public T_Sgpad_Comp_Enc_RemLN(IT_Sgpad_Comp_Enc_RemAD vT_Sgpad_Comp_Enc_RemAD, IT_Sgpal_Tipo_EncargoLN vIT_Sgpal_Tipo_EncargoLN, IT_Sgpal_Tipo_ResolucionLN vIT_Sgpal_Tipo_ResolucionLN)
         {
@@ -49,7 +49,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                                       Anio_Resolucion = vTmp.ANIO_RESOLUCION,
                                       Id_Tipo_Encargo = vTmp.ID_TIPO_ENCARGO,
                                       Id_Tipo_Resolucion = vTmp.ID_TIPO_RESOLUCION,
-                                      Responsable_Remediacion = vTmp.RESPONSABLE_REMEDIACION
+                                      Responsable_Remediacion = vTmp.RESPONSABLE_REMEDIACION,
+                                      Resolucion_Encargo = vTmp.RESOLUCION_ENGARGO
                                   }).ToList();
                 return vResultado;
             }

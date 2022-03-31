@@ -275,7 +275,21 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
 
                             var vResultado = ComponenteAD.ActualizarT_Sgpad_Componente(vRegistro);
 
-                            //
+                            if (vComponenteDTO.Id_Zona.GetValueOrDefault() > 0 && !string.IsNullOrEmpty(vComponenteDTO.Id_Datum) && vComponenteDTO.Este.GetValueOrDefault() != 0 && vComponenteDTO.Norte.GetValueOrDefault() != 0 && !string.IsNullOrEmpty(vComponenteDTO.Id_Distrito))
+                            {
+                                ExternosLN.Insertar_DerechosMineros(vComponenteDTO);
+
+                                ExternosLN.Insertar_TitularesReferenciales(vComponenteDTO);
+
+                            }
+                            //ListaDerechosMineros = ExternosLN.Listar_DerechosMineros(new ComponenteDTO
+                            //{
+                            //    Id_Zona = 18,
+                            //    Id_Datum = "2",
+                            //    Este = 800324,
+                            //    Norte = 8305104,
+                            //    Ubigeo = "041010"
+                            //})
 
                             var vHistoria = Componente_ModLN.GrabarComponente_ModDTO(new Componente_ModDTO
                             {
@@ -382,16 +396,21 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
 
                         ListaReinfoDerechosMineros = ExternosLN.Listar_ReinfoDerechosMineros(),
                         ListaSituacionPrincipalesProducto = ExternosLN.Listar_SituacionPrincipalesProductos(),
-                        ListaTitularesReferencialesDerechos = ExternosLN.Listar_TitularesReferencialesDerechos(),
-                        ListaDerechosMineros = ExternosLN.Listar_DerechosMineros(new ComponenteDTO
-                        {
-                            Id_Zona = 18,
-                            Id_Datum = "2",
-                            Este = 800324,
-                            Norte = 8305104,
-                            Ubigeo = "041010"
-                        })
+
+                        ListaTitularesReferencialesDerechos = ExternosLN.Listar_TitularesReferencialesDerechos(vId_Componente),
+                        ListaDerechosMineros = ExternosLN.Listar_DerechosMineros(vId_Componente),
+                        CboCuenca = ExternosLN.Listar_Cuenca(vId_Componente)
+
+                        //ListaDerechosMineros = ExternosLN.Listar_DerechosMineros(new ComponenteDTO
+                        //{
+                        //    Id_Zona = 18,
+                        //    Id_Datum = "2",
+                        //    Este = 800324,
+                        //    Norte = 8305104,
+                        //    Ubigeo = "041010"
+                        //})
                     };
+
                     return vResultado;
                 }
                 return null;

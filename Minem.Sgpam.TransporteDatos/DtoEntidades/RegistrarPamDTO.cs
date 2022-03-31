@@ -34,6 +34,7 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
 
 
 
+        public List<CuencaDTO> CboCuenca { get; set; }
         public List<Tipo_PamDTO> CboTipo { get; set; }
         public List<Sub_Tipo_PamDTO> CboSubTipo { get; set; }
         public List<Tipo_MineriaDTO> CboTipoMineria { get; set; }

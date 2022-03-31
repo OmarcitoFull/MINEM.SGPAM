@@ -56,6 +56,10 @@ namespace Minem.Sgpam.Entidades
             {
                 this.IP_MODIFICA = Convert.ToString(vRdr["IP_MODIFICA"]);
             }
+            if (!Convert.IsDBNull(vRdr["RESOLUCION_ENGARGO"]))
+            {
+                this.RESOLUCION_ENGARGO = Convert.ToString(vRdr["RESOLUCION_ENGARGO"]);
+            }
         }
     }
 }

@@ -3,19 +3,19 @@ using System.Data;
 
 namespace Minem.Sgpam.Entidades
 {
-    public class V_Sgpad_Comp_Reconocimiento: T_Sgpad_Comp_Reconocimiento
-    {
-        public V_Sgpad_Comp_Reconocimiento()
-        {
+	public class V_Sgpad_Comp_Reconocimiento : T_Sgpad_Comp_Reconocimiento
+	{
+		public V_Sgpad_Comp_Reconocimiento()
+		{
 
-        }
+		}
 
 		public V_Sgpad_Comp_Reconocimiento(IDataReader vRdr)
 		{
 
 			if (!Convert.IsDBNull(vRdr["ALTURA"]))
 			{
-				this.ALTURA = Convert.ToInt32(vRdr["ALTURA"]);
+				this.ALTURA = Convert.ToDecimal(vRdr["ALTURA"]);
 			}
 			this.ID_TIPO_RECONOCIMIENTO = Convert.ToInt32(vRdr["ID_TIPO_RECONOCIMIENTO"]);
 
@@ -74,7 +74,7 @@ namespace Minem.Sgpam.Entidades
 
 			if (!Convert.IsDBNull(vRdr["PROFUNDIDAD"]))
 			{
-				this.PROFUNDIDAD = Convert.ToInt32(vRdr["PROFUNDIDAD"]);
+				this.PROFUNDIDAD = Convert.ToDecimal(vRdr["PROFUNDIDAD"]);
 			}
 
 			if (!Convert.IsDBNull(vRdr["USU_MODIFICA"]))
@@ -89,7 +89,7 @@ namespace Minem.Sgpam.Entidades
 
 			if (!Convert.IsDBNull(vRdr["AREA"]))
 			{
-				this.AREA = Convert.ToInt32(vRdr["AREA"]);
+				this.AREA = Convert.ToDecimal(vRdr["AREA"]);
 			}
 
 			if (!Convert.IsDBNull(vRdr["DESCRIPCION"]))
@@ -100,5 +100,5 @@ namespace Minem.Sgpam.Entidades
 		}
 
 		public string DESCRIPCION { get; set; }
-    }
+	}
 }

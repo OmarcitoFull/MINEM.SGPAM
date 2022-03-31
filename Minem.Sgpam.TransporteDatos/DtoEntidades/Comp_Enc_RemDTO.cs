@@ -44,6 +44,7 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
         public string Ip_Modifica { get; set; }
 
 
+        public string Resolucion_Encargo { get; set; }
         public List<Tipo_EncargoDTO> CboTipoEncargo { get; set; }
         public List<Tipo_ResolucionDTO> CboTipoResolucion { get; set; }
         #endregion

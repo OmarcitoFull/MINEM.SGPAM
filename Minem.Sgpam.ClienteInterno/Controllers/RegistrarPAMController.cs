@@ -874,6 +874,11 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
                         return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Cobertura.ToString() };
                     });
 
+                    ViewBag.CboCuencaPrincipal = vRecord.CboCuenca.ConvertAll(x =>
+                    {
+                        return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Cuenca.ToString() };
+                    });
+
 
                     ViewBag.CboDatum = Enum.GetValues(typeof(Datum)).Cast<Datum>().ToList().ConvertAll(x =>
                     {
@@ -883,14 +888,14 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
                     {
                         return new SelectListItem() { Text = x.ToString(), Value = ((int)x).ToString() };
                     });
-                    ViewBag.CboCuencaPrincipal = Enum.GetValues(typeof(CuencaPrincipal)).Cast<CuencaPrincipal>().ToList().ConvertAll(x =>
-                    {
-                        return new SelectListItem() { Text = x.ToString(), Value = ((int)x).ToString() };
-                    });
-                    ViewBag.CboCuencaSecundario = Enum.GetValues(typeof(CuencaSecundario)).Cast<CuencaSecundario>().ToList().ConvertAll(x =>
-                    {
-                        return new SelectListItem() { Text = x.ToString(), Value = ((int)x).ToString() };
-                    });
+                    //ViewBag.CboCuencaPrincipal = Enum.GetValues(typeof(CuencaPrincipal)).Cast<CuencaPrincipal>().ToList().ConvertAll(x =>
+                    //{
+                    //    return new SelectListItem() { Text = x.ToString(), Value = ((int)x).ToString() };
+                    //});
+                    //ViewBag.CboCuencaSecundario = Enum.GetValues(typeof(CuencaSecundario)).Cast<CuencaSecundario>().ToList().ConvertAll(x =>
+                    //{
+                    //    return new SelectListItem() { Text = x.ToString(), Value = ((int)x).ToString() };
+                    //});
 
                     ViewBag.CboRegion = vRecord.CboUbigeo.Select(x => new { x.Id_Region, x.Region }).Distinct().ToList().ConvertAll(x =>
                     {

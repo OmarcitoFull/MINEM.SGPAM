@@ -70,7 +70,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             return vLista;
         }
 
-        public List<V_Ext_TitularesReferencialesDerechos> Listar_TitularesReferencialesDerechos()
+        public List<V_Ext_TitularesReferencialesDerechos> Listar_TitularesReferencialesDerechos(int vId_Componente)
         {
             List<V_Ext_TitularesReferencialesDerechos> vLista = new List<V_Ext_TitularesReferencialesDerechos>();
             V_Ext_TitularesReferencialesDerechos vEntidad;
@@ -80,6 +80,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_FULLEXTERNOS.USP_LIS_TITULARES_REFERENCIAL", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
+                    vCmd.Parameters.Add("pID_COMPONENTE", vId_Componente);
                     vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     OracleDataReader vRdr = vCmd.ExecuteReader();
@@ -94,7 +95,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             return vLista;
         }
 
-        public List<V_Ext_DerechosMineros> Listar_DerechosMineros(T_Sgpad_Componente vT_Sgpad_Componente)
+        public List<V_Ext_DerechosMineros> Listar_DerechosMineros(int vId_Componente)
         {
             List<V_Ext_DerechosMineros> vLista = new List<V_Ext_DerechosMineros>();
             V_Ext_DerechosMineros vEntidad;
@@ -104,11 +105,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_FULLEXTERNOS.USP_LIS_DERECHOS_MINEROS", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pID_ZONA", vT_Sgpad_Componente.ID_ZONA);
-                    vCmd.Parameters.Add("pID_DATUM", vT_Sgpad_Componente.ID_DATUM);
-                    vCmd.Parameters.Add("pESTE", vT_Sgpad_Componente.ESTE);
-                    vCmd.Parameters.Add("pNORTE", vT_Sgpad_Componente.NORTE);
-                    vCmd.Parameters.Add("pUBIGEO", vT_Sgpad_Componente.UBIGEO);
+                    vCmd.Parameters.Add("pID_COMPONENTE", vId_Componente);
                     vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     OracleDataReader vRdr = vCmd.ExecuteReader();
@@ -146,5 +143,75 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             }
             return vLista;
         }
+
+
+
+        public void Insertar_DerechosMineros(T_Sgpad_Componente vT_Sgpad_Componente)
+        {
+            using (OracleConnection vCnn = new OracleConnection(CnnString))
+            {
+                using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_FULLEXTERNOS.USP_INS_DERECHOS_MINEROS", vCnn))
+                {
+                    vCmd.CommandType = CommandType.StoredProcedure;
+                    vCmd.Parameters.Add("pID_COMPONENTE", vT_Sgpad_Componente.ID_COMPONENTE);
+                    vCmd.Parameters.Add("pID_ZONA", vT_Sgpad_Componente.ID_ZONA);
+                    vCmd.Parameters.Add("pID_DATUM", vT_Sgpad_Componente.ID_DATUM);
+                    vCmd.Parameters.Add("pESTE", vT_Sgpad_Componente.ESTE);
+                    vCmd.Parameters.Add("pNORTE", vT_Sgpad_Componente.NORTE);
+                    vCmd.Parameters.Add("pUBIGEO", vT_Sgpad_Componente.UBIGEO);
+                    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Componente.USU_INGRESO);
+                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Componente.FEC_INGRESO);
+                    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Componente.IP_INGRESO);
+                    vCnn.Open();
+                    vCmd.ExecuteNonQuery();
+                    vCnn.Close();
+                }
+            }
+        }
+
+
+        public void Insertar_TitularesReferenciales(T_Sgpad_Componente vT_Sgpad_Componente)
+        {
+            using (OracleConnection vCnn = new OracleConnection(CnnString))
+            {
+                using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_FULLEXTERNOS.USP_INS_TITULARES_REFERENCIAL", vCnn))
+                {
+                    vCmd.CommandType = CommandType.StoredProcedure;
+                    vCmd.Parameters.Add("pID_COMPONENTE", vT_Sgpad_Componente.ID_COMPONENTE);
+                    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Componente.USU_INGRESO);
+                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Componente.FEC_INGRESO);
+                    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Componente.IP_INGRESO);
+                    vCnn.Open();
+                    vCmd.ExecuteNonQuery();
+                    vCnn.Close();
+                }
+            }
+        }
+
+        public List<T_Sgpal_Cuenca> Listar_Cuenca(int vId_Componente)
+        {
+            List<T_Sgpal_Cuenca> vLista = new List<T_Sgpal_Cuenca>();
+            T_Sgpal_Cuenca vEntidad;
+
+            using (OracleConnection vCnn = new OracleConnection(CnnString))
+            {
+                using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_FULLEXTERNOS.USP_LIS_UBIGEO_CUENCA", vCnn))
+                {
+                    vCmd.CommandType = CommandType.StoredProcedure;
+                    vCmd.Parameters.Add("pID_COMPONENTE", vId_Componente);
+                    vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                    vCnn.Open();
+                    OracleDataReader vRdr = vCmd.ExecuteReader();
+                    while (vRdr.Read())
+                    {
+                        vEntidad = new T_Sgpal_Cuenca(vRdr);
+                        vLista.Add(vEntidad);
+                    }
+                }
+                vCnn.Close();
+            }
+            return vLista;
+        }
+
     }
 }

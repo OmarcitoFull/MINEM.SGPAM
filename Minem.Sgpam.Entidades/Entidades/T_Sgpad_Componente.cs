@@ -35,13 +35,13 @@ namespace Minem.Sgpam.Entidades
 		public int? ID_ZONA { get; set; }
 		public int? ID_TIPO_CONCESION { get; set; }
 		public int? ID_SUB_TIPO_PAM { get; set; }
-		public int? ESTE { get; set; }
+		public decimal? ESTE { get; set; }
 		public int? ID_CUENCA_HIDRO { get; set; }
 		public int? ID_CUENCA_SECUNDARIA { get; set; }
 		public string UBIGEO { get; set; }
 		public int ID_TIPO_PAM { get; set; }
 		public int? ID_COBERTURA { get; set; }
-		public int? NORTE { get; set; }
+		public decimal? NORTE { get; set; }
 		public string DESCRIPCION { get; set; }
 		public string RIESGO { get; set; }
 		#endregion

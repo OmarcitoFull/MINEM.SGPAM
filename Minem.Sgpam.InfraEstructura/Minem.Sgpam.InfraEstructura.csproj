@@ -4,4 +4,25 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <COMReference Include="LFSO80Lib">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>1</VersionMajor>
+      <Guid>dc37d6ad-1489-45b9-8f1e-162cf65e1fb2</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Laserfiche.DocumentServices">
+      <HintPath>Librerias\Laserfiche.DocumentServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Laserfiche.RepositoryAccess">
+      <HintPath>Librerias\Laserfiche.RepositoryAccess.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

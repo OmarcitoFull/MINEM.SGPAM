@@ -79,16 +79,16 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
-        public List<TitularesReferencialesDerechosDTO> Listar_TitularesReferencialesDerechos()
+        public List<TitularesReferencialesDerechosDTO> Listar_TitularesReferencialesDerechos(int vId_Componente)
         {
             try
             {
-                var vResultado = (from vTmp in ExternosAD.Listar_TitularesReferencialesDerechos()
+                var vResultado = (from vTmp in ExternosAD.Listar_TitularesReferencialesDerechos(vId_Componente)
                                   select new TitularesReferencialesDerechosDTO
                                   {
                                       Estado = vTmp.ESTADO,
-                                      Fecha_Final = vTmp.FECHA_FINAL,
-                                      Fecha_Inicio = vTmp.FECHA_INICIO,
+                                      Fecha_Final = vTmp.FECHA_FINAL.GetValueOrDefault().ToShortDateString(),
+                                      Fecha_Inicio = vTmp.FECHA_INICIO.ToShortDateString(),
                                       Titular_Referencial = vTmp.TITULAR_REFERENCIAL
                                   }).ToList();
                 return vResultado;
@@ -100,19 +100,11 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
-        public List<DerechosMinerosDTO> Listar_DerechosMineros(ComponenteDTO vComponenteDTO)
+        public List<DerechosMinerosDTO> Listar_DerechosMineros(int vId_Componente)
         {
             try
             {
-                var vParametros = new Entidades.T_Sgpad_Componente
-                {
-                    ID_ZONA = vComponenteDTO.Id_Zona,
-                    ID_DATUM = vComponenteDTO.Id_Datum,
-                    ESTE = vComponenteDTO.Este,
-                    NORTE = vComponenteDTO.Norte,
-                    UBIGEO = vComponenteDTO.Ubigeo
-                };
-                var vResultado = (from vTmp in ExternosAD.Listar_DerechosMineros(vParametros)
+                var vResultado = (from vTmp in ExternosAD.Listar_DerechosMineros(vId_Componente)
                                   select new DerechosMinerosDTO
                                   {
                                       Codigo = vTmp.CODIGO,
@@ -126,6 +118,74 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                                       Sustancia = vTmp.SUSTANCIA,
                                       Tipo = vTmp.TIPO,
                                       UEA = vTmp.UEA
+                                  }).ToList();
+                return vResultado;
+            }
+            catch (Exception ex)
+            {
+                //Log.Error(ex.Message, ex);
+                throw;
+            }
+        }
+
+
+        public void Insertar_DerechosMineros(ComponenteDTO vComponenteDTO)
+        {
+            try
+            {
+                var vParametros = new Entidades.T_Sgpad_Componente
+                {
+                    ID_COMPONENTE = vComponenteDTO.Id_Componente,
+                    ID_ZONA = vComponenteDTO.Id_Zona,
+                    ID_DATUM = vComponenteDTO.Id_Datum,
+                    ESTE = vComponenteDTO.Este,
+                    NORTE = vComponenteDTO.Norte,
+                    UBIGEO = vComponenteDTO.Ubigeo,
+                    USU_INGRESO = vComponenteDTO.Usu_Ingreso,
+                    FEC_INGRESO = vComponenteDTO.Fec_Ingreso,
+                    IP_INGRESO = vComponenteDTO.Ip_Ingreso
+                };
+
+                ExternosAD.Insertar_DerechosMineros(vParametros);
+            }
+            catch (Exception ex)
+            {
+                //Log.Error(ex.Message, ex);
+                throw;
+            }
+        }
+
+        public void Insertar_TitularesReferenciales(ComponenteDTO vComponenteDTO)
+        {
+            try
+            {
+                var vParametros = new Entidades.T_Sgpad_Componente
+                {
+                    ID_COMPONENTE = vComponenteDTO.Id_Componente,
+                    USU_INGRESO = vComponenteDTO.Usu_Ingreso,
+                    FEC_INGRESO = vComponenteDTO.Fec_Ingreso,
+                    IP_INGRESO = vComponenteDTO.Ip_Ingreso
+                };
+
+                ExternosAD.Insertar_TitularesReferenciales(vParametros);
+            }
+            catch (Exception ex)
+            {
+                //Log.Error(ex.Message, ex);
+                throw;
+            }
+        }
+
+
+        public List<CuencaDTO> Listar_Cuenca(int vId_Componente)
+        {
+            try
+            {
+                var vResultado = (from vTmp in ExternosAD.Listar_Cuenca(vId_Componente)
+                                  select new CuencaDTO
+                                  {
+                                      Id_Cuenca = vTmp.ID_CUENCA,
+                                      Descripcion = vTmp.DESCRIPCION
                                   }).ToList();
                 return vResultado;
             }

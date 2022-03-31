@@ -4,7 +4,7 @@
     <div class="form-group">
         <label class="control-label col-md-3 col-sm-3 col-xs-12">Este</label>
         <div class="col-md-9 col-sm-9 col-xs-12">
-            <input asp-for="Este" class="form-control" max="99999999" min="-99999999" maxlength = "8" oninput="fMaxLength(this)"/>
+            <input type="number" asp-for="Este" class="form-control" max="99999999.99" min="-99999999.99" maxlength="10" oninput="fMaxLength(this)" />
         </div>
     </div>
 </div>
@@ -12,7 +12,7 @@
     <div class="form-group">
         <label class="control-label col-md-3 col-sm-3 col-xs-12">Norte</label>
         <div class="col-md-9 col-sm-9 col-xs-12">
-            <input asp-for="Norte" class="form-control" max="99999999" min="-99999999" maxlength = "8" oninput="fMaxLength(this)"/>
+            <input type="number" asp-for="Norte" class="form-control" max="99999999.99" min="-99999999.99" maxlength="10" oninput="fMaxLength(this)" />
         </div>
     </div>
 </div>
@@ -21,7 +21,7 @@
         <label class="control-label col-md-3 col-sm-3 col-xs-12">Zona</label>
         <div class="col-md-9 col-sm-9 col-xs-12">
             <select id="vZona" class="select2_single form-control" asp-for="Id_Zona" asp-items="(List<SelectListItem>)ViewBag.CboZona">
-                <option value="">Seleccione</option>
+                <option value="">SELECCIONE</option>
             </select>
         </div>
     </div>
@@ -31,7 +31,7 @@
         <label class="control-label col-md-3 col-sm-3 col-xs-12">Datum</label>
         <div class="col-md-9 col-sm-9 col-xs-12">
             <select id="vDatum" class="select2_single form-control" asp-for="Id_Datum" asp-items="(List<SelectListItem>)ViewBag.CboDatum">
-                <option value="">Seleccione</option>
+                <option value="">SELECCIONE</option>
             </select>
         </div>
     </div>

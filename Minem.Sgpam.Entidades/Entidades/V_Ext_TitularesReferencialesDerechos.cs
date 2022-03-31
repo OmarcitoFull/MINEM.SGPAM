@@ -18,11 +18,11 @@ namespace Minem.Sgpam.Entidades
             }
             if (!Convert.IsDBNull(vRdr["FECHA_INICIO"]))
             {
-                this.FECHA_INICIO = Convert.ToString(vRdr["FECHA_INICIO"]);
+                this.FECHA_INICIO = Convert.ToDateTime(vRdr["FECHA_INICIO"]);
             }
             if (!Convert.IsDBNull(vRdr["FECHA_FINAL"]))
             {
-                this.FECHA_FINAL = Convert.ToString(vRdr["FECHA_FINAL"]);
+                this.FECHA_FINAL = Convert.ToDateTime(vRdr["FECHA_FINAL"]);
             }
             if (!Convert.IsDBNull(vRdr["ESTADO"]))
             {
@@ -31,8 +31,8 @@ namespace Minem.Sgpam.Entidades
         }
 
         public string TITULAR_REFERENCIAL { get; set; }
-        public string FECHA_INICIO { get; set; }
-        public string FECHA_FINAL { get; set; }
+        public DateTime FECHA_INICIO { get; set; }
+        public DateTime? FECHA_FINAL { get; set; }
         public string ESTADO { get; set; }
     }
 }
