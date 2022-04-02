@@ -22,7 +22,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             CnnString = vConfiguration.GetSection(Constantes.BD).Value;
         }
 
-        public List<V_Ext_ReinfoDerechosMineros> Listar_ReinfoDerechosMineros()
+        public List<V_Ext_ReinfoDerechosMineros> Listar_ReinfoDerechosMineros(int vId_Componente)
         {
             List<V_Ext_ReinfoDerechosMineros> vLista = new List<V_Ext_ReinfoDerechosMineros>();
             V_Ext_ReinfoDerechosMineros vEntidad;
@@ -32,6 +32,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_FULLEXTERNOS.USP_LIS_CONSULTA_REINFO", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
+                    vCmd.Parameters.Add("pID_COMPONENTE", vId_Componente);
                     vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     OracleDataReader vRdr = vCmd.ExecuteReader();
@@ -46,7 +47,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             return vLista;
         }
 
-        public List<V_Ext_SituacionPrincipalesProductos> Listar_SituacionPrincipalesProductos()
+        public List<V_Ext_SituacionPrincipalesProductos> Listar_SituacionPrincipalesProductos(int vId_Componente)
         {
             List<V_Ext_SituacionPrincipalesProductos> vLista = new List<V_Ext_SituacionPrincipalesProductos>();
             V_Ext_SituacionPrincipalesProductos vEntidad;
@@ -56,6 +57,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_FULLEXTERNOS.USP_LIS_CONSULTA_SITUACION", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
+                    vCmd.Parameters.Add("pID_COMPONENTE", vId_Componente);
                     vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     OracleDataReader vRdr = vCmd.ExecuteReader();

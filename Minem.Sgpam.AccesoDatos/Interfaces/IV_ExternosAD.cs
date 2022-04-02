@@ -10,8 +10,8 @@ namespace Minem.Sgpam.AccesoDatos.Interfaces
     /// </summary>
     public interface IV_ExternosAD
     {
-        List<V_Ext_ReinfoDerechosMineros> Listar_ReinfoDerechosMineros();
-        List<V_Ext_SituacionPrincipalesProductos> Listar_SituacionPrincipalesProductos();
+        List<V_Ext_ReinfoDerechosMineros> Listar_ReinfoDerechosMineros(int vId_Componente);
+        List<V_Ext_SituacionPrincipalesProductos> Listar_SituacionPrincipalesProductos(int vId_Componente);
         List<V_Ext_TitularesReferencialesDerechos> Listar_TitularesReferencialesDerechos(int vId_Componente);
         List<V_Ext_DerechosMineros> Listar_DerechosMineros(int vId_Componente);
 

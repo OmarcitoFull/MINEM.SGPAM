@@ -22,11 +22,11 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             ExternosAD = vIV_ExternosAD;
         }
 
-        public List<ReinfoDerechosMinerosDTO> Listar_ReinfoDerechosMineros()
+        public List<ReinfoDerechosMinerosDTO> Listar_ReinfoDerechosMineros(int vId_Componente)
         {
             try
             {
-                var vResultado = (from vTmp in ExternosAD.Listar_ReinfoDerechosMineros()
+                var vResultado = (from vTmp in ExternosAD.Listar_ReinfoDerechosMineros(vId_Componente)
                                   select new ReinfoDerechosMinerosDTO
                                   {
                                       Codigo = vTmp.CODIGO,
@@ -54,11 +54,11 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
-        public List<SituacionPrincipalesProductosDTO> Listar_SituacionPrincipalesProductos()
+        public List<SituacionPrincipalesProductosDTO> Listar_SituacionPrincipalesProductos(int vId_Componente)
         {
             try
             {
-                var vResultado = (from vTmp in ExternosAD.Listar_SituacionPrincipalesProductos()
+                var vResultado = (from vTmp in ExternosAD.Listar_SituacionPrincipalesProductos(vId_Componente)
                                   select new SituacionPrincipalesProductosDTO
                                   {
                                       Anopro = vTmp.ANOPRO,

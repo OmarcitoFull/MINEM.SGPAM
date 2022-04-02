@@ -394,11 +394,13 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         ListaResultados = ResultadoLN.ListarComp_ResultadoDTO(vId_Componente).ToList(),
                         ListaEstudioAmbientales = Comp_Est_AmbLN.ListarComp_Est_AmbDTO(vId_Componente).ToList(),
 
-                        ListaReinfoDerechosMineros = ExternosLN.Listar_ReinfoDerechosMineros(),
-                        ListaSituacionPrincipalesProducto = ExternosLN.Listar_SituacionPrincipalesProductos(),
-
+                        
+                        
                         ListaTitularesReferencialesDerechos = ExternosLN.Listar_TitularesReferencialesDerechos(vId_Componente),
                         ListaDerechosMineros = ExternosLN.Listar_DerechosMineros(vId_Componente),
+                        ListaSituacionPrincipalesProducto = ExternosLN.Listar_SituacionPrincipalesProductos(vId_Componente),
+                        ListaReinfoDerechosMineros = ExternosLN.Listar_ReinfoDerechosMineros(vId_Componente),
+
                         CboCuenca = ExternosLN.Listar_Cuenca(vId_Componente)
 
                         //ListaDerechosMineros = ExternosLN.Listar_DerechosMineros(new ComponenteDTO

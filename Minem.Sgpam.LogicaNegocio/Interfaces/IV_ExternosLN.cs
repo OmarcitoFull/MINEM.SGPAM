@@ -10,8 +10,8 @@ namespace Minem.Sgpam.LogicaNegocio.Interfaces
     /// </summary>
     public interface IV_ExternosLN
     {
-        List<ReinfoDerechosMinerosDTO> Listar_ReinfoDerechosMineros();
-        List<SituacionPrincipalesProductosDTO> Listar_SituacionPrincipalesProductos();
+        List<ReinfoDerechosMinerosDTO> Listar_ReinfoDerechosMineros(int vId_Componente);
+        List<SituacionPrincipalesProductosDTO> Listar_SituacionPrincipalesProductos(int vId_Componente);
         List<TitularesReferencialesDerechosDTO> Listar_TitularesReferencialesDerechos(int vId_Componente);
         List<DerechosMinerosDTO> Listar_DerechosMineros(int vId_Componente);
 
