@@ -50,7 +50,8 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
 		public string Id_Region { get; set; }
 		public string Id_Provincia { get; set; }
 		public string Id_Distrito { get; set; }
-		public List<Comp_ReconocimientoMinDTO> ListaReconocimientoMin { get; set; }
+        public int Id_DerechoMinero { get; set; }
+        public List<Comp_ReconocimientoMinDTO> ListaReconocimientoMin { get; set; }
 		#endregion
 	}
 }

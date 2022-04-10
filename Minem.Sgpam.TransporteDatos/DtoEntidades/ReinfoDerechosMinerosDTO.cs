@@ -13,12 +13,12 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
         #region Propiedades
         public string Ruc { get; set; }
         public string Minero { get; set; }
-        public string Codigo { get; set; }
-        public string Nombre { get; set; }
+        public string Codigo_Dm { get; set; }
+        public string Nombre_Dm { get; set; }
         public string Departamento { get; set; }
         public string Provincia { get; set; }
         public string Distrito { get; set; }
-        public string Estado_Vigencia { get; set; }
+        public string Estado { get; set; }
         public string Este_Psad56 { get; set; }
         public string Norte_Psad56 { get; set; }
         public string Este_Wgs84_1p { get; set; }

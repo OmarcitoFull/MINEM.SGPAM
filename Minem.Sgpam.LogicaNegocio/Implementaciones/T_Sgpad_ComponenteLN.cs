@@ -279,8 +279,17 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                             {
                                 ExternosLN.Insertar_DerechosMineros(vComponenteDTO);
 
-                                ExternosLN.Insertar_TitularesReferenciales(vComponenteDTO);
+                                var vListDerechosMineros = ExternosLN.Listar_DerechosMineros(vComponenteDTO.Id_Componente);
+                                foreach (var vDerechoMinero in vListDerechosMineros)
+                                {
+                                    vComponenteDTO.Id_DerechoMinero = vDerechoMinero.Id;
 
+                                    ExternosLN.Insertar_SituacionPrincipalesProductos(vComponenteDTO);
+
+                                    ExternosLN.Insertar_TitularesReferenciales(vComponenteDTO);
+
+                                    ExternosLN.Insertar_ReinfoDerechosMineros(vComponenteDTO);
+                                }
                             }
                             //ListaDerechosMineros = ExternosLN.Listar_DerechosMineros(new ComponenteDTO
                             //{
@@ -394,15 +403,14 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         ListaResultados = ResultadoLN.ListarComp_ResultadoDTO(vId_Componente).ToList(),
                         ListaEstudioAmbientales = Comp_Est_AmbLN.ListarComp_Est_AmbDTO(vId_Componente).ToList(),
 
-                        
-                        
-                        ListaTitularesReferencialesDerechos = ExternosLN.Listar_TitularesReferencialesDerechos(vId_Componente),
+
                         ListaDerechosMineros = ExternosLN.Listar_DerechosMineros(vId_Componente),
                         ListaSituacionPrincipalesProducto = ExternosLN.Listar_SituacionPrincipalesProductos(vId_Componente),
+                        ListaTitularesReferencialesDerechos = ExternosLN.Listar_TitularesReferencialesDerechos(vId_Componente),
                         ListaReinfoDerechosMineros = ExternosLN.Listar_ReinfoDerechosMineros(vId_Componente),
 
-                        CboCuenca = ExternosLN.Listar_Cuenca(vId_Componente)
 
+                        CboCuenca = ExternosLN.Listar_Cuenca(vId_Componente)
                         //ListaDerechosMineros = ExternosLN.Listar_DerechosMineros(new ComponenteDTO
                         //{
                         //    Id_Zona = 18,

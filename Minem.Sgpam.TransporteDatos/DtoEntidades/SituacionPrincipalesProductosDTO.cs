@@ -10,9 +10,9 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
     public partial class SituacionPrincipalesProductosDTO : BaseOTD
     {
         #region Propiedades
-        public string Anopro { get; set; }
+        public string Anio { get; set; }
         public string Id_Cliente { get; set; }
-        public string Nombre { get; set; }
+        public string Nombre_Cliente { get; set; }
         public string Id_Unidad { get; set; }
         public string Nombre_Unidad { get; set; }
         public string Situacion { get; set; }

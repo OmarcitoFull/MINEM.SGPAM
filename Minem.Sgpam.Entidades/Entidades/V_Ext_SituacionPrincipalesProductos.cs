@@ -12,17 +12,17 @@ namespace Minem.Sgpam.Entidades
 
         public V_Ext_SituacionPrincipalesProductos(IDataReader vRdr)
         {
-            if (!Convert.IsDBNull(vRdr["ANOPRO"]))
+            if (!Convert.IsDBNull(vRdr["ANIO"]))
             {
-                this.ANOPRO = Convert.ToString(vRdr["ANOPRO"]);
+                this.ANIO = Convert.ToString(vRdr["ANIO"]);
             }
             if (!Convert.IsDBNull(vRdr["ID_CLIENTE"]))
             {
                 this.ID_CLIENTE = Convert.ToString(vRdr["ID_CLIENTE"]);
             }
-            if (!Convert.IsDBNull(vRdr["NOMBRE"]))
+            if (!Convert.IsDBNull(vRdr["NOMBRE_CLIENTE"]))
             {
-                this.NOMBRE = Convert.ToString(vRdr["NOMBRE"]);
+                this.NOMBRE_CLIENTE = Convert.ToString(vRdr["NOMBRE_CLIENTE"]);
             }
             if (!Convert.IsDBNull(vRdr["ID_UNIDAD"]))
             {
@@ -46,9 +46,9 @@ namespace Minem.Sgpam.Entidades
             }
         }
 
-        public string ANOPRO { get; set; }
+        public string ANIO { get; set; }
         public string ID_CLIENTE { get; set; }
-        public string NOMBRE { get; set; }
+        public string NOMBRE_CLIENTE { get; set; }
         public string ID_UNIDAD { get; set; }
         public string NOMBRE_UNIDAD { get; set; }
         public string SITUACION { get; set; }

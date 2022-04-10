@@ -20,13 +20,13 @@ namespace Minem.Sgpam.Entidades
             {
                 this.MINERO = Convert.ToString(vRdr["MINERO"]);
             }
-            if (!Convert.IsDBNull(vRdr["CODIGO"]))
+            if (!Convert.IsDBNull(vRdr["CODIGO_DM"]))
             {
-                this.CODIGO = Convert.ToString(vRdr["CODIGO"]);
+                this.CODIGO_DM = Convert.ToString(vRdr["CODIGO_DM"]);
             }
-            if (!Convert.IsDBNull(vRdr["NOMBRE"]))
+            if (!Convert.IsDBNull(vRdr["NOMBRE_DM"]))
             {
-                this.NOMBRE = Convert.ToString(vRdr["NOMBRE"]);
+                this.NOMBRE_DM = Convert.ToString(vRdr["NOMBRE_DM"]);
             }
             if (!Convert.IsDBNull(vRdr["DEPARTAMENTO"]))
             {
@@ -40,9 +40,9 @@ namespace Minem.Sgpam.Entidades
             {
                 this.DISTRITO = Convert.ToString(vRdr["DISTRITO"]);
             }
-            if (!Convert.IsDBNull(vRdr["ESTADO_VIGENCIA"]))
+            if (!Convert.IsDBNull(vRdr["ESTADO"]))
             {
-                this.ESTADO_VIGENCIA = Convert.ToString(vRdr["ESTADO_VIGENCIA"]);
+                this.ESTADO = Convert.ToString(vRdr["ESTADO"]);
             }
             if (!Convert.IsDBNull(vRdr["ESTE_PSAD56"]))
             {
@@ -76,12 +76,12 @@ namespace Minem.Sgpam.Entidades
 
         public string RUC { get; set; }
         public string MINERO { get; set; }
-        public string CODIGO { get; set; }
-        public string NOMBRE { get; set; }
+        public string CODIGO_DM { get; set; }
+        public string NOMBRE_DM { get; set; }
         public string DEPARTAMENTO { get; set; }
         public string PROVINCIA { get; set; }
         public string DISTRITO { get; set; }
-        public string ESTADO_VIGENCIA { get; set; }
+        public string ESTADO { get; set; }
         public string ESTE_PSAD56 { get; set; }
         public string NORTE_PSAD56 { get; set; }
         public string ESTE_WGS84_1P { get; set; }

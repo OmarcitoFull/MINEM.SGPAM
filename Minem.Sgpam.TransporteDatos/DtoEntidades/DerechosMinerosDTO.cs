@@ -11,6 +11,7 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
     public partial class DerechosMinerosDTO : BaseOTD
     {
         #region Propiedades
+        public int Id { get; set; }
         public string Codigo { get; set; }
         public string Nombre { get; set; }
         public string UEA { get; set; }

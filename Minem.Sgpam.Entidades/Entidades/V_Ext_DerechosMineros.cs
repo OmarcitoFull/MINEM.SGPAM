@@ -12,6 +12,11 @@ namespace Minem.Sgpam.Entidades
 
         public V_Ext_DerechosMineros(IDataReader vRdr)
         {
+            if (!Convert.IsDBNull(vRdr["ID"]))
+            {
+                this.ID = Convert.ToInt32(vRdr["ID"]);
+            }
+
             if (!Convert.IsDBNull(vRdr["CODIGO"]))
             {
                 this.CODIGO = Convert.ToString(vRdr["CODIGO"]);
@@ -58,6 +63,7 @@ namespace Minem.Sgpam.Entidades
             }
         }
 
+        public int ID { get; set; }
         public string CODIGO { get; set; }
         public string NOMBRE { get; set; }
         public string UEA { get; set; }
