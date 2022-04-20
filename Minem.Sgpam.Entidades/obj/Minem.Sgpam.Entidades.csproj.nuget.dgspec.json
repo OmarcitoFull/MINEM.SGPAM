@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\A FULLSOFT\\2021\\MINEM\\Servidor\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\Minem.Sgpam.Entidades.csproj": {}
+    "D:\\A FULLSOFT\\2021\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\Minem.Sgpam.Entidades.csproj": {}
   },
   "projects": {
-    "D:\\A FULLSOFT\\2021\\MINEM\\Servidor\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\Minem.Sgpam.Entidades.csproj": {
+    "D:\\A FULLSOFT\\2021\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\Minem.Sgpam.Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\A FULLSOFT\\2021\\MINEM\\Servidor\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\Minem.Sgpam.Entidades.csproj",
+        "projectUniqueName": "D:\\A FULLSOFT\\2021\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\Minem.Sgpam.Entidades.csproj",
         "projectName": "Minem.Sgpam.Entidades",
-        "projectPath": "D:\\A FULLSOFT\\2021\\MINEM\\Servidor\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\Minem.Sgpam.Entidades.csproj",
+        "projectPath": "D:\\A FULLSOFT\\2021\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\Minem.Sgpam.Entidades.csproj",
         "packagesPath": "C:\\Users\\omar.rodriguez\\.nuget\\packages\\",
-        "outputPath": "D:\\A FULLSOFT\\2021\\MINEM\\Servidor\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\obj\\",
+        "outputPath": "D:\\A FULLSOFT\\2021\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
