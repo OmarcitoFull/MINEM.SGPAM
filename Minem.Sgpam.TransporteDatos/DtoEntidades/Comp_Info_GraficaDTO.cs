@@ -10,21 +10,22 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
     /// </summary>
     public partial class Comp_Info_GraficaDTO : BaseOTD
     {
-        #region Propiedades
-        public string Usu_Ingreso { get; set; }  
+		#region Propiedades
+		public int Id_Comp_Info_Grafica { get; set; }
+		public int Id_Componente { get; set; }
 		public string Nombre_Imagen { get; set; }  
-		public int Id_Componente { get; set; }  
-		public string Flg_Estado { get; set; }  
-		public string Extencion { get; set; }  
-		public int Id_Comp_Info_Grafica { get; set; }  
-		public DateTime? Fec_Modifica { get; set; }  
-		public string Ip_Modifica { get; set; }  
-		public string Ip_Ingreso { get; set; }  
-		public DateTime? Fec_Ingreso { get; set; }  
-		public int? Tamano { get; set; }  
-		public string Usu_Modifica { get; set; }  
 		public string Ruta_Imagen { get; set; }
+		public string Extencion { get; set; }
+		public int? Tamano { get; set; }
+		public string Usu_Ingreso { get; set; }
+		public DateTime? Fec_Ingreso { get; set; }  
+		public string Ip_Ingreso { get; set; }
+		public string Usu_Modifica { get; set; }
+		public DateTime? Fec_Modifica { get; set; }
+		public string Ip_Modifica { get; set; }
+		public string Flg_Estado { get; set; }
 		public DateTime? Fecha { get; set; }
+		public long? Id_LaserFiche { get; set; }
 		#endregion
 	}
 }

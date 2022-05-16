@@ -17,5 +17,7 @@ namespace Minem.Sgpam.LogicaNegocio.Interfaces
         LnrDTO ActualizarLnrDTO(LnrDTO vLnrDTO);
         int AnularLnrDTOPorCodigo(LnrDTO vLnrDTO);
         IEnumerable<LnrDTO> ListarPaginadoLnrDTO(string vFiltro, int vNumPag, int vCantRegxPag);
+        RegistrarLnrDTO RecuperarFullLnrDTOPorCodigo(int vId_Lnr);
+        IEnumerable<LnrDTO> ListarPorIdExpedienteLnrDTO(int vId_Expediente);
     }
 }

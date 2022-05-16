@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Minem.Sgpam.AccesoDatos.Base;
 using Minem.Sgpam.AccesoDatos.Interfaces;
 using Minem.Sgpam.Entidades;
+using Minem.Sgpam.InfraEstructura;
 using Oracle.ManagedDataAccess.Client;
 
 namespace Minem.Sgpam.AccesoDatos.Implementaciones
@@ -15,7 +16,12 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
     /// Fecha Creación:	27/10/2021
     /// </summary>
     public partial class T_Sgpad_Lnr_Info_DocumentoAD: BaseAD, IT_Sgpad_Lnr_Info_DocumentoAD
-    {   
+    {
+        public T_Sgpad_Lnr_Info_DocumentoAD(IConfiguration vConfiguration)
+        {
+            CnnString = vConfiguration.GetSection(Constantes.BD).Value;
+        }
+
         public IEnumerable<T_Sgpad_Lnr_Info_Documento> ListarT_Sgpad_Lnr_Info_Documento()
         {
            List<T_Sgpad_Lnr_Info_Documento> vLista = new List<T_Sgpad_Lnr_Info_Documento>();
@@ -70,9 +76,19 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_LNR_INFO_DOCUMENTO.USP_INS_LNR_INFO_DOCUMENTO", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Lnr_Info_Documento.FEC_INGRESO); 				vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Lnr_Info_Documento.IP_INGRESO); 				vCmd.Parameters.Add("pID_LNR", vT_Sgpad_Lnr_Info_Documento.ID_LNR); 				vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Lnr_Info_Documento.TAMANO); 				vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Lnr_Info_Documento.FLG_ESTADO); 				vCmd.Parameters.Add("pID_LNR_INFO_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.ID_LNR_INFO_DOCUMENTO); 				vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Lnr_Info_Documento.IP_MODIFICA); 				vCmd.Parameters.Add("pRUTA_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.RUTA_DOCUMENTO); 				vCmd.Parameters.Add("pNOMBRE_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.NOMBRE_DOCUMENTO); 				vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Lnr_Info_Documento.EXTENCION); 				vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Lnr_Info_Documento.FEC_MODIFICA); 				vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Lnr_Info_Documento.USU_MODIFICA); 				vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Lnr_Info_Documento.USU_INGRESO);
+                    //vCmd.Parameters.Add("pID_LNR_INFO_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.ID_LNR_INFO_DOCUMENTO);
+                    vCmd.Parameters.Add("pID_LNR", vT_Sgpad_Lnr_Info_Documento.ID_LNR);
+                    vCmd.Parameters.Add("pNOMBRE_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.NOMBRE_DOCUMENTO);
+                    vCmd.Parameters.Add("pRUTA_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.RUTA_DOCUMENTO);
+                    vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Lnr_Info_Documento.EXTENCION);
+                    vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Lnr_Info_Documento.TAMANO);                     vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Lnr_Info_Documento.USU_INGRESO);
+                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Lnr_Info_Documento.FEC_INGRESO);
+                    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Lnr_Info_Documento.IP_INGRESO);
+                    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Lnr_Info_Documento.FLG_ESTADO);
+                    vCmd.Parameters.Add(":pID_LNR_INFO_DOCUMENTO", OracleDbType.Int64).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
+                    vT_Sgpad_Lnr_Info_Documento.ID_LNR_INFO_DOCUMENTO = Convert.ToInt32(vCmd.Parameters[":pID_LNR_INFO_DOCUMENTO"].Value.ToString());
                     vCnn.Close();
                 }
             }
@@ -86,8 +102,15 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_LNR_INFO_DOCUMENTO.USP_UPD_LNR_INFO_DOCUMENTO", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Lnr_Info_Documento.FEC_INGRESO); 				vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Lnr_Info_Documento.IP_INGRESO); 				vCmd.Parameters.Add("pID_LNR", vT_Sgpad_Lnr_Info_Documento.ID_LNR); 				vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Lnr_Info_Documento.TAMANO); 				vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Lnr_Info_Documento.FLG_ESTADO); 				vCmd.Parameters.Add("pID_LNR_INFO_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.ID_LNR_INFO_DOCUMENTO); 				vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Lnr_Info_Documento.IP_MODIFICA); 				vCmd.Parameters.Add("pRUTA_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.RUTA_DOCUMENTO); 				vCmd.Parameters.Add("pNOMBRE_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.NOMBRE_DOCUMENTO); 				vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Lnr_Info_Documento.EXTENCION); 				vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Lnr_Info_Documento.FEC_MODIFICA); 				vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Lnr_Info_Documento.USU_MODIFICA); 				vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Lnr_Info_Documento.USU_INGRESO);
-                    vCnn.Open();
+                    vCmd.Parameters.Add("pID_LNR_INFO_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.ID_LNR_INFO_DOCUMENTO);
+                    vCmd.Parameters.Add("pNOMBRE_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.NOMBRE_DOCUMENTO);
+                    vCmd.Parameters.Add("pRUTA_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.RUTA_DOCUMENTO);
+                    vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Lnr_Info_Documento.EXTENCION);
+                    vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Lnr_Info_Documento.TAMANO);
+                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Lnr_Info_Documento.FEC_INGRESO);
+                    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Lnr_Info_Documento.USU_MODIFICA);
+                    vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Lnr_Info_Documento.FEC_MODIFICA);
+                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Lnr_Info_Documento.IP_MODIFICA);                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
                     vCnn.Close();
                 }
@@ -132,6 +155,32 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     {
                         vEntidad = new T_Sgpad_Lnr_Info_Documento(vRdr);
                         vEntidad.TotalVirtual = System.Convert.ToInt32(vRdr["TotalVirtual"]);
+                        vLista.Add(vEntidad);
+                    }
+                }
+                vCnn.Close();
+            }
+            return vLista;
+        }
+
+        public IEnumerable<T_Sgpad_Lnr_Info_Documento> ListarPorIdLnrT_Sgpad_Lnr_Info_Documento(int vId_Lnr)
+        {
+            List<T_Sgpad_Lnr_Info_Documento> vLista = new List<T_Sgpad_Lnr_Info_Documento>();
+            T_Sgpad_Lnr_Info_Documento vEntidad;
+
+            using (OracleConnection vCnn = new OracleConnection(CnnString))
+            {
+                using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_LNR_INFO_DOCUMENTO.USP_LIS_POR_IDLNR_LNR_INFO_DOCUMENTO", vCnn))
+                {
+                    vCmd.CommandType = CommandType.StoredProcedure;
+                    vCmd.Parameters.Add("pID_LNR", vId_Lnr);
+                    vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                    vCnn.Open();
+
+                    OracleDataReader vRdr = vCmd.ExecuteReader();
+                    while (vRdr.Read())
+                    {
+                        vEntidad = new T_Sgpad_Lnr_Info_Documento(vRdr);
                         vLista.Add(vEntidad);
                     }
                 }

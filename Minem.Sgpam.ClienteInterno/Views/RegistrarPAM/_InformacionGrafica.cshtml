@@ -19,23 +19,30 @@
     <table id="fulltbl7" class="table table-striped jambo_table bulk_action">
         <thead>
             <tr class="headings">
-                <th class="column-title">Nombre</th>
-                <th class="column-title">Fecha</th>
-                <th class="column-title">Usuario</th>
+                <th class="column-title col-8">Nombre</th>
+                <th class="column-title col-1">Fecha</th>
+                <th class="column-title col-2">Usuario</th>
+                <th class="column-title col-1">Acción</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
                 <tr class="odd pointer">
-                    <td class=" ">
+                    <td class=" col-lg-8">
                         @item.Nombre_Imagen
                     </td>
-                    <td class=" ">
+                    <td class=" col-lg-1">
                         @item.Fecha.GetValueOrDefault().ToShortDateString()
                     </td>
-                    <td class=" ">
+                    <td class=" col-lg-2">
                         @item.Usu_Ingreso
+                    </td>
+                    <td class=" col-lg-1" style="text-align:center">
+                        @if (item.Id_LaserFiche.GetValueOrDefault() > 0)
+                        {
+                            <button type="button" class="boton2" style="margin-right: 0px;" onclick="DescargarArchivo(@item.Id_LaserFiche.ToString(), '@item.Nombre_Imagen')"> <i class="fa fa-download" ></i></button>
+                        }
                     </td>
                 </tr>
             }

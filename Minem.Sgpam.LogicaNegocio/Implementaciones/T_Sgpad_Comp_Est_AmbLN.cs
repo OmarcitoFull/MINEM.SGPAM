@@ -51,7 +51,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                                       Extension = vTmp.EXTENCION,
                                       Nombre_Documento = vTmp.NOMBRE_DOCUMENTO,
                                       Ruta_Documento = vTmp.RUTA_DOCUMENTO,
-                                      Tamano = vTmp.TAMANO
+                                      Tamano = vTmp.TAMANO,
+                                      Id_LaserFiche = vTmp.ID_LASERFICHE
                                   }).ToList();
                 return vResultado;
             }
@@ -92,7 +93,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         Extension = vRegistro.EXTENCION,
                         Nombre_Documento = vRegistro.NOMBRE_DOCUMENTO,
                         Ruta_Documento = vRegistro.RUTA_DOCUMENTO,
-                        Tamano = vRegistro.TAMANO
+                        Tamano = vRegistro.TAMANO,
+                        Id_LaserFiche = vRegistro.ID_LASERFICHE
                     };
                     return vResultado;
                 }
@@ -134,7 +136,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         EXTENCION = vComp_Est_AmbDTO.Extension,
                         TAMANO = vComp_Est_AmbDTO.Tamano,
                         RUTA_DOCUMENTO = vComp_Est_AmbDTO.Ruta_Documento,
-                        NOMBRE_DOCUMENTO = vComp_Est_AmbDTO.Nombre_Documento
+                        NOMBRE_DOCUMENTO = vComp_Est_AmbDTO.Nombre_Documento,
+                        ID_LASERFICHE = vComp_Est_AmbDTO.Id_LaserFiche
                     };
                     if (vComp_Est_AmbDTO.Id_Comp_Est_Amb == 0)
                     {

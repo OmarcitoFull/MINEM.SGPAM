@@ -112,7 +112,33 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             try
             {
                 var  vResultado = Comp_Dm_TitularAD.ListarPorIdEumT_Sgpad_Comp_Dm_Titular(vId_Eum);
-                return new List<Comp_Dm_TitularDTO>();
+                if (vResultado != null)
+                {
+                    List<Comp_Dm_TitularDTO> vLista = new List<Comp_Dm_TitularDTO>();
+                    Comp_Dm_TitularDTO vEntidad;
+                    foreach (T_Sgpad_Comp_Dm_Titular item in vResultado)
+                    {
+                        vEntidad = new Comp_Dm_TitularDTO()
+                        {
+                            Fec_Ingreso = item.FEC_INGRESO,
+                            Flg_Estado = item.FLG_ESTADO,
+                            Fecha_Fin = item.FECHA_FIN,
+                            Fecha_Inicio = item.FECHA_INICIO,
+                            Id_Comp_Dm = item.ID_COMP_DM,
+                            Id_Comp_Dm_Titular = item.ID_COMP_DM_TITULAR,
+                            Id_Empresa = item.ID_EMPRESA,
+                            Id_Estado = item.ID_ESTADO,
+                            Ip_Ingreso = item.IP_INGRESO,
+                            Usu_Ingreso = item.USU_INGRESO,
+                            Nombre_Dm = item.NOMBRE_DM,
+                            Titular = item.NOMBRE
+                        };
+                        vLista.Add(vEntidad);
+                    }
+                    return vLista;
+                }
+                return null;
+
             }
             catch (Exception ex)
             {

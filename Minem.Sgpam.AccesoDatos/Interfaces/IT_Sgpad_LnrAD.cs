@@ -16,5 +16,7 @@ namespace Minem.Sgpam.AccesoDatos.Interfaces
         T_Sgpad_Lnr ActualizarT_Sgpad_Lnr(T_Sgpad_Lnr vT_Sgpad_Lnr);
         int AnularT_Sgpad_LnrPorCodigo(int vId_Lnr);
         IEnumerable<T_Sgpad_Lnr> ListarPaginadoT_Sgpad_Lnr(string vFiltro, int vNumPag, int vCantRegxPag);
+        IEnumerable<T_Sgpad_Lnr> ListarPorIdExpedienteT_Sgpad_Lnr(int vId_Expediente);
+
     }
 }

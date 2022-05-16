@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Minem.Sgpam.AccesoDatos.Base;
 using Minem.Sgpam.AccesoDatos.Interfaces;
 using Minem.Sgpam.Entidades;
+using Minem.Sgpam.InfraEstructura;
 using Oracle.ManagedDataAccess.Client;
 
 namespace Minem.Sgpam.AccesoDatos.Implementaciones
@@ -15,7 +16,12 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
     /// Fecha Creación:	27/10/2021
     /// </summary>
     public partial class T_Sgpad_Comp_Dm_SituacionAD: BaseAD, IT_Sgpad_Comp_Dm_SituacionAD
-    {   
+    {
+        public T_Sgpad_Comp_Dm_SituacionAD(IConfiguration vConfiguration)
+        {
+            CnnString = vConfiguration.GetSection(Constantes.BD).Value;
+        }
+
         public IEnumerable<T_Sgpad_Comp_Dm_Situacion> ListarT_Sgpad_Comp_Dm_Situacion()
         {
            List<T_Sgpad_Comp_Dm_Situacion> vLista = new List<T_Sgpad_Comp_Dm_Situacion>();
@@ -140,24 +146,23 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             return vLista;
         }
 
-        public IEnumerable<T_Sgpad_Comp_Dm_Situacion> ListarPorIdEumT_Sgpad_Comp_Dm_Situacion(int vId_Eum)
+        public IEnumerable<V_Sgpad_Comp_Dm_Situacion> ListarPorIdEumT_Sgpad_Comp_Dm_Situacion(int vId_Eum)
         {
-            List<T_Sgpad_Comp_Dm_Situacion> vLista = new List<T_Sgpad_Comp_Dm_Situacion>();
-            T_Sgpad_Comp_Dm_Situacion vEntidad;
+            List<V_Sgpad_Comp_Dm_Situacion> vLista = new List<V_Sgpad_Comp_Dm_Situacion>();
+            V_Sgpad_Comp_Dm_Situacion vEntidad;
 
             using (OracleConnection vCnn = new OracleConnection(CnnString))
             {
-                using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_COMP_DM_SITUACION.USP_PAG_COMP_DM_SITUACION", vCnn)) //falta modificar
+                using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_COMP_DM_SITUACION.USP_LIS_POR_IDEUM_COMP_DM_SITUACION", vCnn)) //falta modificar
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pId_Eum", vId_Eum);
+                    vCmd.Parameters.Add("pID_EUM", vId_Eum);
                     vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     OracleDataReader vRdr = vCmd.ExecuteReader();
                     while (vRdr.Read())
                     {
-                        vEntidad = new T_Sgpad_Comp_Dm_Situacion(vRdr);
-                        //vEntidad.TotalVirtual = System.Convert.ToInt32(vRdr["TotalVirtual"]);
+                        vEntidad = new V_Sgpad_Comp_Dm_Situacion(vRdr);
                         vLista.Add(vEntidad);
                     }
                 }

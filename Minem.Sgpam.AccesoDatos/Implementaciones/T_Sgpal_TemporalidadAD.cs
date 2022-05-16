@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Minem.Sgpam.AccesoDatos.Base;
 using Minem.Sgpam.AccesoDatos.Interfaces;
 using Minem.Sgpam.Entidades;
+using Minem.Sgpam.InfraEstructura;
 using Oracle.ManagedDataAccess.Client;
 
 namespace Minem.Sgpam.AccesoDatos.Implementaciones
@@ -15,7 +16,12 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
     /// Fecha Creación:	27/10/2021
     /// </summary>
     public partial class T_Sgpal_TemporalidadAD: BaseAD, IT_Sgpal_TemporalidadAD
-    {   
+    {
+        public T_Sgpal_TemporalidadAD(IConfiguration vConfiguration)
+        {
+            CnnString = vConfiguration.GetSection(Constantes.BD).Value;
+        }
+
         public IEnumerable<T_Sgpal_Temporalidad> ListarT_Sgpal_Temporalidad()
         {
            List<T_Sgpal_Temporalidad> vLista = new List<T_Sgpal_Temporalidad>();

@@ -26,8 +26,27 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         {
             try
             {
-                var vResultado = TemporalidadAD.ListarT_Sgpal_Temporalidad();
-                return new List<TemporalidadDTO>();
+                IEnumerable<T_Sgpal_Temporalidad> vResultado = TemporalidadAD.ListarT_Sgpal_Temporalidad();
+                if (vResultado != null)
+                {
+                    List<TemporalidadDTO> vLista = new List<TemporalidadDTO>();
+                    TemporalidadDTO vEntidad;
+                    foreach (T_Sgpal_Temporalidad item in vResultado)
+                    {
+                        vEntidad = new TemporalidadDTO()
+                        {
+                            Fec_Ingreso = item.FEC_INGRESO,
+                            Flg_Estado = item.FLG_ESTADO,
+                            Ip_Ingreso = item.IP_INGRESO,
+                            Usu_Ingreso = item.USU_INGRESO,
+                            Descripcion = item.DESCRIPCION,
+                            Id_Temporalidad = item.ID_TEMPORALIDAD
+                        };
+                        vLista.Add(vEntidad);
+                    }
+                    return vLista;
+                }
+                return null;
             }
             catch (Exception ex)
             {

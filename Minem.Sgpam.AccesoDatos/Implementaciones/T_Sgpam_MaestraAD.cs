@@ -171,7 +171,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             return vResultado;
         }
 
-        public IEnumerable<T_Sgpam_Maestra> ListarPaginadoT_Sgpam_Maestra(string vFiltro, int vNumPag, int vCantRegxPag)
+        public IEnumerable<T_Sgpam_Maestra> ListarPaginadoT_Sgpam_Maestra(string vFiltro, string vUbigeo, int vNumPag, int vCantRegxPag)
         {
            List<T_Sgpam_Maestra> vLista = new List<T_Sgpam_Maestra>();
            T_Sgpam_Maestra vEntidad;
@@ -182,6 +182,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
                     vCmd.Parameters.Add("pFiltro", vFiltro);
+                    //vCmd.Parameters.Add("pUbigeo", vUbigeo);
                     vCmd.Parameters.Add("pNumPag", vNumPag);
                     vCmd.Parameters.Add("pCantRegxPag", vCantRegxPag);
                     vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;

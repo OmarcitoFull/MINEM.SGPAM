@@ -97,5 +97,6 @@ namespace Minem.Sgpam.Entidades
 		public string IMAGEN { get; set; }
 		public string FLG_ESTADO { get; set; }
 		#endregion
+
 	}
 }

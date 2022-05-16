@@ -9,6 +9,7 @@
                 <th class="column-title">Fec. Inicio</th>
                 <th class="column-title">Fec. Fin</th>
                 <th class="column-title">Estado</th>
+                <th class="column-title">Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -26,6 +27,9 @@
                     </td>
                     <td class=" ">
                         @item.Estado
+                    </td>
+                    <td class=" " style="text-align:center">
+                        <button type="button" class="boton2" style="margin-right: 0px;" onclick="VerDetalleTM('@item.Codigo', '@item.Titular_Referencial')"> <i class="fa fa-search-plus"></i></button>
                     </td>
                 </tr>
             }

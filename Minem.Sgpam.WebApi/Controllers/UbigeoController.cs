@@ -15,13 +15,18 @@ namespace Minem.Sgpam.WebApi.Controllers
         public readonly IT_Sgpal_DistritoLN DistritoLN;
         public readonly IT_Sgpal_ProvinciaLN ProvinciaLN;
         public readonly IT_Sgpal_RegionLN RegionLN;
-        public UbigeoController(IT_Sgpal_DistritoLN vIT_Sgpal_DistritoLN,
+        public readonly IT_Genl_Ubigeo_IneiLN Ubigeo_IneiLN;
+        public UbigeoController(
+            IT_Sgpal_DistritoLN vIT_Sgpal_DistritoLN,
             IT_Sgpal_ProvinciaLN vIT_Sgpal_ProvinciaLN,
-            IT_Sgpal_RegionLN vIT_Sgpal_RegionLN)
+            IT_Sgpal_RegionLN vIT_Sgpal_RegionLN,
+            IT_Genl_Ubigeo_IneiLN vIT_Genl_Ubigeo_IneiLN
+            )
         {
             DistritoLN = vIT_Sgpal_DistritoLN;
             ProvinciaLN = vIT_Sgpal_ProvinciaLN;
             RegionLN = vIT_Sgpal_RegionLN;
+            Ubigeo_IneiLN = vIT_Genl_Ubigeo_IneiLN;
         }
 
         [HttpGet("List_Distrito")]
@@ -40,6 +45,12 @@ namespace Minem.Sgpam.WebApi.Controllers
         public IEnumerable<RegionDTO> List_Region()
         {
             return RegionLN.ListarRegionDTO();
+        }
+
+        [HttpGet("List_Ubigeo_Inei")]
+        public IEnumerable<Ubigeo_IneiDTO> List_Ubigeo_Inei()
+        {
+            return Ubigeo_IneiLN.ListarUbigeoDTO();
         }
     }
 }

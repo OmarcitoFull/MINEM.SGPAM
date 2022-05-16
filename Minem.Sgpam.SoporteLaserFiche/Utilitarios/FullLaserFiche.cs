@@ -42,9 +42,7 @@ namespace Minem.Sgpam.SoporteLaserFiche.Utilitarios
                 vSearchFolder.Command = "{LF:Name=\"" + vCarpeta + "\", Type=\"F\"} & {LF:LOOKIN=\"" + vSession.Repository.Name + "\\" + vRutaPadre + "\"}";
                 vSearchFolder.Run();
 
-                SearchListingSettings vSearchList = new SearchListingSettings();
-                vSearchList.Refresh = false;
-                vSearchList.SortDirection = SortDirection.Ascending;
+                SearchListingSettings vSearchList = new SearchListingSettings { Refresh = false, SortDirection = SortDirection.Ascending };
                 vResult = !(vSearchFolder.GetResultListing(vSearchList).RowCount <= 0);
                 vSearchFolder.Close();
             }
@@ -69,24 +67,22 @@ namespace Minem.Sgpam.SoporteLaserFiche.Utilitarios
 
         private static long ImportarArchivo(string vRutaRepositorio, string vUbicacionArchivo, string vNombreArchivo, Session vSession)
         {
-            string vVolumen = Constantes.Constantes.Volume;
+            string vVolume = Constantes.Constantes.Volume;
             DocumentImporter vImport = new DocumentImporter { Document = new DocumentInfo(vSession), OverwritePages = true, ExtractTextFromEdoc = true };
 
-            vImport.Document.Create(Folder.GetFolderInfo(vRutaRepositorio, vSession), vNombreArchivo, vVolumen, EntryNameOption.AutoRename);
-            //vImport.Document.Extension = vUbicacionArchivo.Substring(vUbicacionArchivo.LastIndexOf(".") + 1, vUbicacionArchivo.Length - (vUbicacionArchivo.LastIndexOf(@".") + 1));
+            vImport.Document.Create(Folder.GetFolderInfo(vRutaRepositorio, vSession), vNombreArchivo, vVolume, EntryNameOption.AutoRename);
             vImport.Document.Extension = Path.GetExtension(vUbicacionArchivo).ToLowerInvariant();
             vImport.GetType();
-            //vImport.ImportEdoc("application/vnd.ms-word", vUbicacionArchivo);
             vImport.ImportEdoc(ObtenerTipoArchivo(vImport.Document.Extension), vUbicacionArchivo);
             vImport.Document.Save();
 
             return vImport.Document.Id;
         }
 
-        private static string ObtenerTipoArchivo(string vExtension)
+        public static string ObtenerTipoArchivo(string vExtension)
         {
-            var vTipos = TiposArchivos();
-            return vTipos[vExtension];
+            var vType = TiposArchivos();
+            return vType[vExtension];
         }
 
         private static Dictionary<string, string> TiposArchivos()
@@ -173,15 +169,15 @@ namespace Minem.Sgpam.SoporteLaserFiche.Utilitarios
             Session vSession = IniciarSesion(vUsuario, vClave, vServidor, vNombreRepositorio);
             if (vSession != null)
             {
-                using (EntryInfo vObtenerArchivo = Entry.GetEntryInfo(vIdArchivo, vSession))
+                using (EntryInfo vGetFile = Entry.GetEntryInfo(vIdArchivo, vSession))
                 {
-                    if (vObtenerArchivo != null)
+                    if (vGetFile != null)
                     {
-                        vObtenerArchivo.Lock(LockType.Exclusive);
-                        vObtenerArchivo.Delete();
-                        vObtenerArchivo.Save();
-                        vObtenerArchivo.Unlock();
-                        vObtenerArchivo.Dispose();
+                        vGetFile.Lock(LockType.Exclusive);
+                        vGetFile.Delete();
+                        vGetFile.Save();
+                        vGetFile.Unlock();
+                        vGetFile.Dispose();
                         vSession.LogOut();
                         return true;
                     }
@@ -193,16 +189,16 @@ namespace Minem.Sgpam.SoporteLaserFiche.Utilitarios
 
         public static MemoryStream ExportarArchivo(int IdArchivo, string vUsuario, string vClave, string vServidor, string vNombreRepositorio)
         {
-            MemoryStream vArchivo = new MemoryStream();
+            MemoryStream vMemoryStream = new MemoryStream();
 
             try
             {
                 Session vSession = IniciarSesion(vUsuario, vClave, vServidor, vNombreRepositorio);
                 if (vSession != null)
                 {
-                    DocumentExporter vExportar = new DocumentExporter();
-                    DocumentInfo vInfoDocumento = Document.GetDocumentInfo(IdArchivo, vSession);
-                    vExportar.ExportElecDoc(vInfoDocumento, vArchivo);
+                    DocumentExporter vExporter = new DocumentExporter();
+                    DocumentInfo vInfoDocument = Document.GetDocumentInfo(IdArchivo, vSession);
+                    vExporter.ExportElecDoc(vInfoDocument, vMemoryStream);
                 }
             }
             catch (Exception)
@@ -210,7 +206,7 @@ namespace Minem.Sgpam.SoporteLaserFiche.Utilitarios
                 throw;
             }
 
-            return vArchivo;
+            return vMemoryStream;
         }
 
     }

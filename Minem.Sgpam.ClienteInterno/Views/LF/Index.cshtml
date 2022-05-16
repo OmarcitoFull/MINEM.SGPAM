@@ -5,6 +5,8 @@
 <input type="text" name="Carpeta" id="Carpeta" placeholder="Nombre de carpeta" value="MINERIA TRES OSITOS" class="form-control input-lg" />
 <br />
 <input type="text" name="Ruta" id="Ruta" placeholder="Ruta Archivo" class="form-control input-lg" value="D:\EXP-ORM-LOMAXIMO.txt" />
+<br />
+<input type="text" name="Key" id="Key" placeholder="Key" class="form-control input-lg" value="5408323" />
 
 <div class="text-center">
     <div class="x_title2">
@@ -49,7 +51,7 @@
         }
 
         EliminarArchivo = function () {
-            $.post("@Url.Action("EliminarArchivo", "LF")").done(function (x) {
+            $.post("@Url.Action("EliminarArchivo", "LF")", { vKey: $("#Key").val() } ).done(function (x) {
                 alert(x);
             }).fail(function (a, b, c) {
                 Error("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
@@ -57,13 +59,7 @@
         }
 
         DescargarArchivo = function () {
-            window.location = "http://localhost:4021/LF/DescargarArchivo";
-
-            @*$.post("@Url.Action("DescargarArchivo", "WLF")").done(function (x) {
-                alert(x);
-            }).fail(function (a, b, c) {
-                Error("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
-            });*@
+            window.location = "http://localhost:4021/LF/DescargarArchivo?vKey=" + $("#Key").val();
         }
     </script>
 }

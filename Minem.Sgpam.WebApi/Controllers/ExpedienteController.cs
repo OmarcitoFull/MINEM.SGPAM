@@ -25,6 +25,12 @@ namespace Minem.Sgpam.WebApi.Controllers
             return Expediente_LN.RecuperarExpedienteDTOPorCodigo(vId);
         }
 
+        [HttpPost("Save")]
+        public ExpedienteDTO Save([FromBody] ExpedienteDTO vExpedienteDTO)
+        {
+            return Expediente_LN.ActualizarExpedienteDTO(vExpedienteDTO);
+        }
+
         [HttpGet("GetFull")]
         public RegistrarExpedienteDTO GetFull(int vId)
         {

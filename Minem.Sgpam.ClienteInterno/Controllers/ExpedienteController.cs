@@ -43,21 +43,9 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             if (vId == 0)
                 vRecord.Expediente = new ExpedienteDTO();
 
-            //ViewBag.CboTipoPam = vRecord.CboTipoPam.ConvertAll(x =>
-            //{
-            //    return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Tipo_Pam.ToString() };
-            //});
             //ViewBag.CboTipoOperacion = vRecord.CboTipoOperacion.ConvertAll(x =>
             //{
             //    return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Tipo_Operacion.ToString() };
-            //});
-            //ViewBag.CboTipoSustancia = vRecord.CboTipoSustancia.ConvertAll(x =>
-            //{
-            //    return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Tipo_Sustancia.ToString() };
-            //});
-            //ViewBag.CboConflictoSocial = vRecord.CboConflictoSocial.ConvertAll(x =>
-            //{
-            //    return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Conflicto_Social.ToString() };
             //});
 
             return View(vRecord);

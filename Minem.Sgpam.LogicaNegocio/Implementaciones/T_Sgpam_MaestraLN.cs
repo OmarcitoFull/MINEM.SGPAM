@@ -44,7 +44,6 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             IT_Sgpal_Conflicto_SocialLN vIT_Sgpal_Conflicto_SocialLN,
             IT_Sgpah_Eum_ModLN vIT_Sgpah_Eum_ModLN,
             IT_Sgpad_Eum_InspeccionLN vIT_Sgpad_Eum_InspeccionLN,
-            //       IT_Sgpad_Eum_UbicacionLN vIT_Sgpad_Eum_UbicacionLN,
             IT_Sgpad_Eum_Info_DescargoLN vIT_Sgpad_Eum_Info_DescargoLN,
             IT_Sgpad_Eum_Info_GraficaLN vIT_Sgpad_Eum_Info_GraficaLN,
             IT_Sgpad_Eum_InformeLN vIT_Sgpad_Eum_InformeLN,
@@ -62,7 +61,6 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             Conflicto_SocialLN = vIT_Sgpal_Conflicto_SocialLN;
             Eum_ModLN = vIT_Sgpah_Eum_ModLN;
             Eum_InspeccionLN = vIT_Sgpad_Eum_InspeccionLN;
-            //     Eum_UbicacionLN = vIT_Sgpad_Eum_UbicacionLN;
             Eum_Info_DescargoLN = vIT_Sgpad_Eum_Info_DescargoLN;
             Eum_Info_GraficaLN = vIT_Sgpad_Eum_Info_GraficaLN;
             Eum_InformeLN = vIT_Sgpad_Eum_InformeLN;
@@ -224,19 +222,19 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
-        public IEnumerable<MaestraDTO> ListarPaginadoMaestraDTO(string vFiltro, int vNumPag, int vCantRegxPag)
+        public IEnumerable<MaestraDTO> ListarPaginadoMaestraDTO(string vFiltro, string vUbigeo, int vNumPag, int vCantRegxPag)
         {
             try
             {
                 if (vFiltro == null)
-                    vFiltro = "";
+                    vFiltro = "0";
                 else
                 {
                     if (vFiltro.Trim().Length == 0)
-                        vFiltro = "";
+                        vFiltro = "0";
                 }
 
-                IEnumerable<T_Sgpam_Maestra> vResultado = MaestraAD.ListarPaginadoT_Sgpam_Maestra(vFiltro, vNumPag, vCantRegxPag);
+                IEnumerable<T_Sgpam_Maestra> vResultado = MaestraAD.ListarPaginadoT_Sgpam_Maestra(vFiltro, vUbigeo, vNumPag, vCantRegxPag);
                 if (vResultado != null)
                 {
                     List<MaestraDTO> vLista = new List<MaestraDTO>();
@@ -303,15 +301,15 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                     CboTipoPam = (List<Tipo_PamDTO>)Tipo_PamLN.ListarTipo_PamDTO(),
                     ListaHistorial = (List<Eum_ModDTO>)Eum_ModLN.ListarPorIdEumEum_ModDTO(vId_Eum),
                     ListaInspeccion = (List<Eum_InspeccionDTO>)Eum_InspeccionLN.ListarPorIdEumEum_InspeccionDTO(vId_Eum),
-                    ListaUbicacion = new List<Eum_UbicacionDTO>(), // (List<Eum_UbicacionDTO>)Eum_UbicacionLN.ListarEum_UbicacionDTO(),
-                                                                   //ListaInfor = (List<Eum_InspeccionDTO>)Eum_InspeccionLN.ListarPorIdEumEum_InspeccionDTO(vId_Eum),
+                    ListaUbicacion = (List<ComponenteMinDTO>)ComponenteLN.ListarPorIdEum_ComponenteDTO(vId_Eum),
+
                     ListaInformacionDescargo = (List<Eum_Info_DescargoDTO>)Eum_Info_DescargoLN.ListarPorIdEumEum_Info_DescargoDTO(vId_Eum),
                     ListaInformacionGrafica = (List<Eum_Info_GraficaDTO>)Eum_Info_GraficaLN.ListarPorIdEumEum_Info_GraficaDTO(vId_Eum),
                     ListaInforme = (List<Eum_InformeDTO>)Eum_InformeLN.ListarPorIdEumEum_InformeDTO(vId_Eum),
                     ListaOperacion = (List<Eum_OperacionDTO>)Eum_OperacionLN.ListarPorIdEumEum_OperacionDTO(vId_Eum),
-                    //ListaDerechosMineros = (List<Comp_Dd_MineroDTO>)Comp_Dd_MineroLN.ListarPorIdEumComp_Dd_MineroDTO(vId_Eum),
-                    //ListaSituacionPrincipalesProducto = (List<Comp_Dm_SituacionDTO>)Comp_Dm_SituacionLN.ListarPorIdEumComp_Dm_Situacion(vId_Eum),
-                    //ListaTitularesReferencialesDerechos = (List<Comp_Dm_TitularDTO>)Comp_Dm_TitularLN.ListarPorIdEumComp_Dm_Titular(vId_Eum),
+                    ListaDerechosMineros = (List<Comp_Dd_MineroDTO>)Comp_Dd_MineroLN.ListarPorIdEumComp_Dd_MineroDTO(vId_Eum),
+                    ListaSituacionPrincipalesProducto = (List<Comp_Dm_SituacionDTO>)Comp_Dm_SituacionLN.ListarPorIdEumComp_Dm_Situacion(vId_Eum),
+                    ListaTitularesReferencialesDerechos = (List<Comp_Dm_TitularDTO>)Comp_Dm_TitularLN.ListarPorIdEumComp_Dm_Titular(vId_Eum),
 
                     ListaComponenteActivo = vListComponente.Where(x => x.Flg_Estado == Constantes.Activo).ToList(),
                     ListaComponenteInactivo = vListComponente.Where(x => x.Flg_Estado == Constantes.Inactivo).ToList()

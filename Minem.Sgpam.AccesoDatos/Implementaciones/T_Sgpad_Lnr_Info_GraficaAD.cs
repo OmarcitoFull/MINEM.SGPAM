@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Minem.Sgpam.AccesoDatos.Base;
 using Minem.Sgpam.AccesoDatos.Interfaces;
 using Minem.Sgpam.Entidades;
+using Minem.Sgpam.InfraEstructura;
 using Oracle.ManagedDataAccess.Client;
 
 namespace Minem.Sgpam.AccesoDatos.Implementaciones
@@ -15,7 +16,12 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
     /// Fecha Creación:	27/10/2021
     /// </summary>
     public partial class T_Sgpad_Lnr_Info_GraficaAD: BaseAD, IT_Sgpad_Lnr_Info_GraficaAD
-    {   
+    {
+        public T_Sgpad_Lnr_Info_GraficaAD(IConfiguration vConfiguration)
+        {
+            CnnString = vConfiguration.GetSection(Constantes.BD).Value;
+        }
+
         public IEnumerable<T_Sgpad_Lnr_Info_Grafica> ListarT_Sgpad_Lnr_Info_Grafica()
         {
            List<T_Sgpad_Lnr_Info_Grafica> vLista = new List<T_Sgpad_Lnr_Info_Grafica>();
@@ -70,9 +76,19 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_LNR_INFO_GRAFICA.USP_INS_LNR_INFO_GRAFICA", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Lnr_Info_Grafica.FEC_INGRESO); 				vCmd.Parameters.Add("pRUTA_IMAGEN", vT_Sgpad_Lnr_Info_Grafica.RUTA_IMAGEN); 				vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Lnr_Info_Grafica.FLG_ESTADO); 				vCmd.Parameters.Add("pID_LNR", vT_Sgpad_Lnr_Info_Grafica.ID_LNR); 				vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Lnr_Info_Grafica.IP_INGRESO); 				vCmd.Parameters.Add("pNOMBRE_IMAGEN", vT_Sgpad_Lnr_Info_Grafica.NOMBRE_IMAGEN); 				vCmd.Parameters.Add("pID_LNR_INFO_GRAFICA", vT_Sgpad_Lnr_Info_Grafica.ID_LNR_INFO_GRAFICA); 				vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Lnr_Info_Grafica.USU_MODIFICA); 				vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Lnr_Info_Grafica.USU_INGRESO); 				vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Lnr_Info_Grafica.IP_MODIFICA); 				vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Lnr_Info_Grafica.FEC_MODIFICA); 				vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Lnr_Info_Grafica.TAMANO); 				vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Lnr_Info_Grafica.EXTENCION);
+                    //vCmd.Parameters.Add("pID_LNR_INFO_GRAFICA", vT_Sgpad_Lnr_Info_Grafica.ID_LNR_INFO_GRAFICA);
+                    vCmd.Parameters.Add("pID_LNR", vT_Sgpad_Lnr_Info_Grafica.ID_LNR);
+                    vCmd.Parameters.Add("pNOMBRE_IMAGEN", vT_Sgpad_Lnr_Info_Grafica.NOMBRE_IMAGEN);
+                    vCmd.Parameters.Add("pRUTA_IMAGEN", vT_Sgpad_Lnr_Info_Grafica.RUTA_IMAGEN);
+                    vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Lnr_Info_Grafica.EXTENCION);
+                    vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Lnr_Info_Grafica.TAMANO);
+                    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Lnr_Info_Grafica.USU_INGRESO);
+                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Lnr_Info_Grafica.FEC_INGRESO); 				    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Lnr_Info_Grafica.IP_INGRESO);
+                    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Lnr_Info_Grafica.FLG_ESTADO);
+                    vCmd.Parameters.Add(":pID_LNR_INFO_GRAFICA", OracleDbType.Int64).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
+                    vT_Sgpad_Lnr_Info_Grafica.ID_LNR_INFO_GRAFICA = Convert.ToInt32(vCmd.Parameters[":pID_LNR_INFO_GRAFICA"].Value.ToString());
                     vCnn.Close();
                 }
             }
@@ -86,7 +102,14 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_LNR_INFO_GRAFICA.USP_UPD_LNR_INFO_GRAFICA", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Lnr_Info_Grafica.FEC_INGRESO); 				vCmd.Parameters.Add("pRUTA_IMAGEN", vT_Sgpad_Lnr_Info_Grafica.RUTA_IMAGEN); 				vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Lnr_Info_Grafica.FLG_ESTADO); 				vCmd.Parameters.Add("pID_LNR", vT_Sgpad_Lnr_Info_Grafica.ID_LNR); 				vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Lnr_Info_Grafica.IP_INGRESO); 				vCmd.Parameters.Add("pNOMBRE_IMAGEN", vT_Sgpad_Lnr_Info_Grafica.NOMBRE_IMAGEN); 				vCmd.Parameters.Add("pID_LNR_INFO_GRAFICA", vT_Sgpad_Lnr_Info_Grafica.ID_LNR_INFO_GRAFICA); 				vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Lnr_Info_Grafica.USU_MODIFICA); 				vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Lnr_Info_Grafica.USU_INGRESO); 				vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Lnr_Info_Grafica.IP_MODIFICA); 				vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Lnr_Info_Grafica.FEC_MODIFICA); 				vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Lnr_Info_Grafica.TAMANO); 				vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Lnr_Info_Grafica.EXTENCION);
+                    vCmd.Parameters.Add("pID_LNR_INFO_GRAFICA", vT_Sgpad_Lnr_Info_Grafica.ID_LNR_INFO_GRAFICA);
+                    vCmd.Parameters.Add("pNOMBRE_IMAGEN", vT_Sgpad_Lnr_Info_Grafica.NOMBRE_IMAGEN);
+                    vCmd.Parameters.Add("pRUTA_IMAGEN", vT_Sgpad_Lnr_Info_Grafica.RUTA_IMAGEN);
+                    vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Lnr_Info_Grafica.EXTENCION);
+                    vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Lnr_Info_Grafica.TAMANO);
+                    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Lnr_Info_Grafica.USU_MODIFICA);
+                    vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Lnr_Info_Grafica.FEC_MODIFICA);
+                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Lnr_Info_Grafica.IP_MODIFICA);
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
                     vCnn.Close();
@@ -132,6 +155,32 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     {
                         vEntidad = new T_Sgpad_Lnr_Info_Grafica(vRdr);
                         vEntidad.TotalVirtual = System.Convert.ToInt32(vRdr["TotalVirtual"]);
+                        vLista.Add(vEntidad);
+                    }
+                }
+                vCnn.Close();
+            }
+            return vLista;
+        }
+
+        public IEnumerable<T_Sgpad_Lnr_Info_Grafica> ListarPorIdLnrT_Sgpad_Lnr_Info_Grafica(int vId_Lnr)
+        {
+            List<T_Sgpad_Lnr_Info_Grafica> vLista = new List<T_Sgpad_Lnr_Info_Grafica>();
+            T_Sgpad_Lnr_Info_Grafica vEntidad;
+
+            using (OracleConnection vCnn = new OracleConnection(CnnString))
+            {
+                using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_LNR_INFO_GRAFICA.USP_LIS_POR_IDLNR_LNR_INFO_GRAFICA", vCnn))
+                {
+                    vCmd.CommandType = CommandType.StoredProcedure;
+                    vCmd.Parameters.Add("pID_LNR", vId_Lnr);
+                    vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                    vCnn.Open();
+
+                    OracleDataReader vRdr = vCmd.ExecuteReader();
+                    while (vRdr.Read())
+                    {
+                        vEntidad = new T_Sgpad_Lnr_Info_Grafica(vRdr);
                         vLista.Add(vEntidad);
                     }
                 }

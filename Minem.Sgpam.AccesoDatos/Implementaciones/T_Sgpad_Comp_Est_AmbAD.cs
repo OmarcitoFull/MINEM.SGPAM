@@ -98,6 +98,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     vCmd.Parameters.Add("pRUTA_DOCUMENTO", vT_Sgpad_Comp_Est_Amb.RUTA_DOCUMENTO);
                     vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Comp_Est_Amb.EXTENCION);
                     vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Comp_Est_Amb.TAMANO);
+                    vCmd.Parameters.Add("pID_LASERFICHE", vT_Sgpad_Comp_Est_Amb.ID_LASERFICHE);
                     vCmd.Parameters.Add(":pID_COMP_EST_AMB", OracleDbType.Int64).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
@@ -137,6 +138,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     vCmd.Parameters.Add("pRUTA_DOCUMENTO", vT_Sgpad_Comp_Est_Amb.RUTA_DOCUMENTO);
                     vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Comp_Est_Amb.EXTENCION);
                     vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Comp_Est_Amb.TAMANO);
+                    vCmd.Parameters.Add("pID_LASERFICHE", vT_Sgpad_Comp_Est_Amb.ID_LASERFICHE); 
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
                     vCnn.Close();

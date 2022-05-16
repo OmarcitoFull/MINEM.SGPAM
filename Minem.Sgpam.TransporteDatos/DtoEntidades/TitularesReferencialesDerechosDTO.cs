@@ -15,6 +15,7 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
         public string Fecha_Inicio { get; set; }
         public string Fecha_Final { get; set; }
         public string Estado { get; set; }
+        public string Codigo { get; set; }
         #endregion
     }
 }

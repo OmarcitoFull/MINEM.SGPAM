@@ -13,31 +13,24 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre EUM</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input type="text" class="form-control" name="vNombreEUM" maxlength="50">
+                    <input type="text" class="form-control text-uppercase" name="vNombreEUM" maxlength="50">
                 </div>
             </div>
         </div>
 
         <div class="col-md-2 col-sm-12 col-xs-12 form-group">
             <div class="boton">
-                @*<a href="#">Buscar <i class="fa fa-search"></i></a>*@
-                @*<a asp-action="Index">Buscar <i class="fa fa-search"></i></a>*@
-                <button type="submit" class="btn btn-agrosecondary mr-sm-1">Buscar <i class="fa fa-search"></i></button>
+                <button type="submit" class="bottom">Buscar  <i class="fa fa-search"></i></button>
+                @*<a asp-action="Index" asp-route-vNombreEUM="@vNombreEUM" asp-route-vUbigeo="@vUbigeo" > Buscar <i class="fa fa-search"></i></a>*@
             </div>
         </div>
 
         <div class="col-md-3 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Región:</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cboDepartamento">Región:</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <select class="select2_single form-control" tabindex="-1">
-                        <option></option>
-                        <option value="AK">Lima</option>
-                        <option value="HI">Tumbes</option>
-                        <option value="HI">Piura</option>
-                        <option value="HI">Lambayeque</option>
-                        <option value="HI">La Libertad</option>
-                        <option value="HI">Cajamarca</option>
+                    <select class="select2_single form-control" id="cboDepartamento" tabindex="-1">
+                        <option value="0" selected="selected">Seleccione</option>
                     </select>
                 </div>
             </div>
@@ -45,12 +38,10 @@
 
         <div class="col-md-3 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Provincia:</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cboProvincia">Provincia:</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <select class="select2_single form-control" tabindex="-1">
-                        <option></option>
-                        <option value="AK">Seleccione</option>
-                        <option value="HI">-</option>
+                    <select class="select2_single form-control" id="cboProvincia" tabindex="-1">
+                        <option value="0" selected="selected">Seleccione</option>
                     </select>
                 </div>
             </div>
@@ -58,12 +49,10 @@
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Distrito:</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cboDistrito">Distrito:</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <select class="select2_single form-control" tabindex="-1">
-                        <option></option>
-                        <option value="AK">Seleccione</option>
-                        <option value="HI">-</option>
+                    <select class="select2_single form-control" id="cboDistrito" tabindex="-1">
+                        <option value="0" selected="selected">Seleccione</option>
                     </select>
                 </div>
             </div>
@@ -82,7 +71,9 @@
                 </div>
             </li>
             <li>
-                <div class="boton"><a href="#">Exportar  <i class="fa fa-sign-out"></i></a> </div>
+                <div class="boton">
+                    <a asp-action="ExportarExcel">Exportar  <i class="fa fa-file-excel-o"></i></a>
+                </div>
             </li>
         </ul>
 
@@ -95,8 +86,8 @@
             <tr>
                 <th>Nombre EUM</th>
                 @*<th>Región</th>
-                <th>Provincia</th>
-                <th>Distrito</th>*@
+                    <th>Provincia</th>
+                    <th>Distrito</th>*@
                 <th>Responsable</th>
                 <th>Última visita</th>
                 <th>Fecha Informe</th>
@@ -128,41 +119,90 @@
                                         <a asp-action="AgregarEditar" asp-route-vId="@item.Id_Eum" title="Editar Registro"><i class="fas fa-edit"></i></a>
                                     </div>
                                     @*<div class="boton2">
-                                        <a href="#">                                                                        <i class="fa fa-edit"></i></a>
-                                    </div>*@
+                                            <a href="#">                                                                        <i class="fa fa-edit"></i></a>
+                                        </div>*@
                                 </li>
                                 @*<li>
-                                    <div class="boton2">
-                                        <a href="#"> <i class="fa fa-dedent "></i></a>
-                                    </div>
-                                </li>*@
+                                        <div class="boton2">
+                                            <a href="#"> <i class="fa fa-dedent "></i></a>
+                                        </div>
+                                    </li>*@
                             </ul>
                         </td>
                     </tr>
                 }
             }
             @*<tr>
-                  <td>$320,800</td>
-            <td><div class="boton2"><a href="#"> Generar <i class="fa fa-plus-square-o"></i></a></div></td>
-            <td><a href="#" class="enlace">inf 001</a></td>
-            <td>
-                <ul class="nav navbar-left panel_toolbox">
-                    <li>
-                        <div class="boton2">
-                            <a href="#"> <i class="fa fa-edit "></i></a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="boton2">
-                            <a href="#"> <i class="fa fa-external-link "></i></a>
-                        </div>
-                    </li>
-                </ul>
-            </td>
-        </tr>*@
+                          <td>$320,800</td>
+                    <td><div class="boton2"><a href="#"> Generar <i class="fa fa-plus-square-o"></i></a></div></td>
+                    <td><a href="#" class="enlace">inf 001</a></td>
+                    <td>
+                        <ul class="nav navbar-left panel_toolbox">
+                            <li>
+                                <div class="boton2">
+                                    <a href="#"> <i class="fa fa-edit "></i></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="boton2">
+                                    <a href="#"> <i class="fa fa-external-link "></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>*@
         </tbody>
     </table>
-   
-  
+
+    <input type="hidden" asp-for="Ubigeo" />
+    <input type="hidden" name="vUbigeo" id="vUbigeo" />
 
 </form>
+
+@section Scripts {
+    @*@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}*@
+
+    <script>
+        $(document).ready(function () {
+            var IdUbigeo = @Html.Raw(Json.Serialize(ViewBag.Ubigeo));
+            const dpto = [...new Map(IdUbigeo.map(function (a) { return { id_Departamento: a.id_Departamento, departamento: a.departamento } }).map(a => [a.id_Departamento, a])).values()];
+            dpto.forEach(function (o, t) { $("#cboDepartamento").append('<option value="' + o.id_Departamento + '">' + o.departamento + "</option>") });
+            $("#cboDepartamento").on("change", function () {
+                var data = IdUbigeo.filter(o => o.id_Departamento == $("#cboDepartamento").val());
+                const prov = [...new Map(data.map(function (o) { return { id_Provincia: o.id_Provincia, provincia: o.provincia } }).map(o => [o.id_Provincia, o])).values()];
+                $("#cboProvincia").empty();
+                $("#cboProvincia").append('<option value="0">Seleccione</option>');
+                prov.forEach(function (o, i) { $("#cboProvincia").append('<option value="' + o.id_Provincia + '">' + o.provincia + "</option>") })
+                //console.log($("#cboDepartamento").val());
+                $("#vUbigeo").val($("#cboDepartamento").val());
+            });
+
+            $('#cboProvincia').on('change', function () {
+                var data = IdUbigeo.filter(x => x.id_Provincia == $('#cboProvincia').val());
+                const dist = [...new Map(data.map(function (o) { return { id_Distrito: o.id_Distrito, distrito: o.distrito } }).map(o => [o.id_Distrito, o])).values()];
+                $('#cboDistrito').empty();
+                $('#cboDistrito').append('<option value="0">Seleccione</option>');
+                dist.forEach(function (o, i) { $('#cboDistrito').append('<option value="' + o.id_Distrito + '">' + o.distrito + '</option>') })
+                //console.log($("#cboProvincia").val());
+                if ($("#cboProvincia").val() === '0')
+                    $("#vUbigeo").val($("#cboDepartamento").val());
+                else
+                    $("#vUbigeo").val($("#cboProvincia").val());
+            });
+
+            $('#cboDistrito').on('change', function () {
+                var data = IdUbigeo.filter(x => x.id_Distrito == $('#cboDistrito').val());
+                //console.log($("#cboDistrito").val());
+                if ($("#cboDistrito").val() === '0') 
+                    $("#vUbigeo").val($("#cboProvincia").val());
+                else 
+                    $("#vUbigeo").val($("#cboDistrito").val());
+            });
+
+            //if ($("#IdAlmacen").val() > 0) {
+            //    var Registro = vUbigeo.filter(i => i.codigoUbigeo == $("#Ubigeo").val())[0];
+            //    $("#cboDepartamento").val(Registro.idDepartamento).change(), $("#cboProvincia").val(Registro.idProvincia).change(), $("#cboDistrito").val(Registro.idDistrito)
+            //}
+        });
+    </script>
+}

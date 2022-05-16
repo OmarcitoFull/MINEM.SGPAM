@@ -14,7 +14,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre EUM</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Eum.Eum_Descripcion" class="form-control" />
+                    <input asp-for="@Model.Eum.Eum_Descripcion" class="form-control" maxlength="100" />
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Acceso a EUM</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Eum.Acceso_Eum" class="form-control" />
+                    <input asp-for="@Model.Eum.Acceso_Eum" class="form-control" maxlength="300" />
                 </div>
             </div>
         </div>
@@ -125,8 +125,8 @@
                         <th class="column-title">Region </th>
                         <th class="column-title">Provincia </th>
                         <th class="column-title">Distrito</th>
+                        <th class="column-title">Uni. Hidrográfica</th>
                         <th class="column-title">Cuenca Principal</th>
-                        <th class="column-title">Paraje</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -141,11 +141,11 @@
                         foreach (var item in Model.ListaUbicacion)
                         {
                             <tr class="even pointer">
-                                <td class=" ">@item.Ubigeo</td>
-                                <td class=" ">@item.Ubigeo</td>
-                                <td class=" ">@item.Ubigeo</td>
-                                <td class=" ">@item.Id_Cuenca_Principal</td>
-                                <td class=" ">@item.Paraje</td>
+                                <td class=" ">@item.Departamento</td>
+                                <td class=" ">@item.Provincia</td>
+                                <td class=" ">@item.Distrito</td>
+                                <td class=" ">@item.Uni_Hidrografica</td>
+                                <td class=" ">@item.Cuenca_Principal</td>
                             </tr>
                         }
                     }
@@ -162,7 +162,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Historia EUM</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Eum.Historia_Eum" rows="3" class="form-controlArea" />
+                    <input asp-for="@Model.Eum.Historia_Eum" rows="3" class="form-controlArea" maxlength="400" />
                 </div>
             </div>
         </div>
@@ -170,7 +170,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Evidencia de actividades recientes</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Eum.Evidencia_Act_Rec" rows="3" class="form-controlArea" />
+                    <input asp-for="@Model.Eum.Evidencia_Act_Rec" rows="3" class="form-controlArea" maxlength="400" />
                 </div>
             </div>
         </div>
@@ -269,7 +269,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-4 col-sm-4 col-xs-12">Relieve:</label>
                     <div class="col-md-8 col-sm-8 col-xs-12">
-                        <input asp-for="@Model.Eum.Relieve" class="form-control" />
+                        <input asp-for="@Model.Eum.Relieve" class="form-control" maxlength="300" />
                     </div>
                 </div>
             </div>
@@ -277,7 +277,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-4 col-sm-4 col-xs-12">Cuerpos de agua:</label>
                     <div class="col-md-8 col-sm-8 col-xs-12">
-                        <input asp-for="@Model.Eum.Cuerpos_Agua" class="form-control" />
+                        <input asp-for="@Model.Eum.Cuerpos_Agua" class="form-control" maxlength="100" />
                     </div>
                 </div>
             </div>
@@ -297,7 +297,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-4 col-sm-4 col-xs-12">Flora Terr.:</label>
                     <div class="col-md-8 col-sm-8 col-xs-12">
-                        <input asp-for="@Model.Eum.Flora_Terrestre" class="form-control" />
+                        <input asp-for="@Model.Eum.Flora_Terrestre" class="form-control" maxlength="300" />
                     </div>
                 </div>
             </div>
@@ -305,7 +305,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-4 col-sm-4 col-xs-12">Fauna Terr.:</label>
                     <div class="col-md-8 col-sm-8 col-xs-12">
-                        <input asp-for="@Model.Eum.Fauna_Terreste" class="form-control" />
+                        <input asp-for="@Model.Eum.Fauna_Terreste" class="form-control" maxlength="300"/>
                     </div>
                 </div>
             </div>
@@ -313,7 +313,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-4 col-sm-4 col-xs-12">Flora y Fauna Acuat.:</label>
                     <div class="col-md-8 col-sm-8 col-xs-12">
-                        <input asp-for="@Model.Eum.Flora_Fauna_Acuatica" class="form-control" />
+                        <input asp-for="@Model.Eum.Flora_Fauna_Acuatica" class="form-control" maxlength="300"/>
                     </div>
                 </div>
             </div>
@@ -322,7 +322,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-4 col-sm-4 col-xs-12">Infraestructura urbana:</label>
                     <div class="col-md-8 col-sm-8 col-xs-12">
-                        <input asp-for="@Model.Eum.Infra_Urbana" class="form-control" />
+                        <input asp-for="@Model.Eum.Infra_Urbana" class="form-control" maxlength="300" />
                     </div>
                 </div>
             </div>
@@ -330,7 +330,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-4 col-sm-4 col-xs-12">Usos de Suelo:</label>
                     <div class="col-md-8 col-sm-8 col-xs-12">
-                        <input asp-for="@Model.Eum.Uso_Suelo" class="form-control" />
+                        <input asp-for="@Model.Eum.Uso_Suelo" class="form-control" maxlength="100" />
                     </div>
                 </div>
             </div>
@@ -338,7 +338,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-4 col-sm-4 col-xs-12">Usos de Agua:</label>
                     <div class="col-md-8 col-sm-8 col-xs-12">
-                        <input asp-for="@Model.Eum.Uso_Agua" class="form-control" />
+                        <input asp-for="@Model.Eum.Uso_Agua" class="form-control" maxlength="300" />
                     </div>
                 </div>
             </div>
@@ -347,7 +347,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Áreas de conservación:</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input asp-for="@Model.Eum.Area_Conservacion" class="form-control" />
+                        <input asp-for="@Model.Eum.Area_Conservacion" class="form-control" maxlength="300" />
                     </div>
                 </div>
             </div>
@@ -356,7 +356,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Sitios Arq. o Turist.:</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input asp-for="@Model.Eum.Sitio_Arque_Turistico" class="form-control" />
+                        <input asp-for="@Model.Eum.Sitio_Arque_Turistico" class="form-control" maxlength="300" />
                     </div>
                 </div>
             </div>
@@ -365,7 +365,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Conflicto Social:</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input asp-for="@Model.Eum.Conflicto_Social" class="form-control" />
+                        <input asp-for="@Model.Eum.Conflicto_Social" class="form-control" maxlength="300" />
                     </div>
                 </div>
             </div>
@@ -380,7 +380,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Descripción EUM</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input asp-for="@Model.Eum.Descripcion_Eum" class="form-control" />
+                        <input asp-for="@Model.Eum.Descripcion_Eum" class="form-control" maxlength="300" />
                     </div>
                 </div>
             </div>
@@ -388,7 +388,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Comentarios adicional</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <textarea asp-for="@Model.Eum.Comentario_Adi" class="form-controlArea  has-feedback-left" rows="3" placeholder="" maxlength="200"></textarea>
+                        <textarea asp-for="@Model.Eum.Comentario_Adi" class="form-controlArea  has-feedback-left" rows="3" placeholder="" maxlength="500"></textarea>
                     </div>
                 </div>
             </div>
@@ -487,20 +487,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="even pointer">
-                            <td class=" ">- </td>
-                            <td class=" ">-</td>
-                            <td class=" ">-</td>
-                            <td class=" ">-</td>
-                            <td class=" ">-</td>
-                            <td class=" ">-</td>
-                            <td class=" ">-</td>
-                            <td class=" ">-</td>
-                            <td class=" ">-</td>
-                            <td class=" ">-</td>
-                            <td class=" ">-</td>
-                        </tr>
-
+                        @if (!Model.ListaDerechosMineros.Any())
+                        {
+                            <tr class="even pointer">
+                                <td class=" " colspan="11">No existen registros</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            foreach (var item in Model.ListaDerechosMineros)
+                            {
+                                <tr class="even pointer">
+                                    <td class=" ">@item.Codigo_Dm</td>
+                                    <td class=" ">@item.Descripcion_Dm</td>
+                                    <td class=" ">@item.Uea</td>
+                                    <td class=" ">@item.Des_Tipo</td>
+                                    <td class=" ">@item.Des_Sustancia</td>
+                                    <td class=" ">@item.Des_Situacion</td>
+                                    <td class=" ">@item.Des_Estado</td>
+                                    <td class=" "></td>
+                                    <td class=" "></td>
+                                    <td class=" "></td>
+                                    <td class=" "></td>
+                                </tr>
+                            }
+                        }
                     </tbody>
                 </table>
             </div>
@@ -525,13 +536,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="even pointer">
-                            <td class=" ">- </td>
-                            <td class=" ">-</td>
-                            <td class=" ">-</td>
-                            <td class=" ">-</td>
-                            <td class=" ">-</td>
-                        </tr>
+                        @if (!Model.ListaSituacionPrincipalesProducto.Any())
+                        {
+                            <tr class="even pointer">
+                                <td class=" " colspan="5">No existen registros</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            foreach (var item in Model.ListaSituacionPrincipalesProducto)
+                            {
+                                <tr class="even pointer">
+                                    <td class=" ">@item.Anio</td>
+                                    <td class=" ">@item.Nombre_Dm</td>
+                                    <td class=" ">@item.Situacion_Up</td>
+                                    <td class=" ">@item.Tipo_Concentrado</td>
+                                    <td class=" ">@item.Cantidad</td>
+                                </tr>
+                            }
+                        }
                     </tbody>
                 </table>
             </div>
@@ -557,13 +580,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="even pointer">
-                            <td class=" ">- </td>
-                            <td class=" ">-</td>
-                            <td class=" ">-</td>
-                            <td class=" ">-</td>
-                            <td class=" ">-</td>
-                        </tr>
+                        @if (!Model.ListaTitularesReferencialesDerechos.Any())
+                        {
+                            <tr class="even pointer">
+                                <td class=" " colspan="5">No existen registros</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            foreach (var item in Model.ListaTitularesReferencialesDerechos)
+                            {
+                                <tr class="even pointer">
+                                    <td class=" ">@item.Titular</td>
+                                    <td class=" ">@item.Nombre_Dm</td>
+                                    <td class=" ">@item.Fecha_Inicio</td>
+                                    <td class=" ">@item.Fecha_Fin</td>
+                                    <td class=" ">@item.Id_Estado</td>
+                                </tr>
+                            }
+                        }
                     </tbody>
                 </table>
             </div>
@@ -928,7 +963,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Usuario</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
@@ -937,7 +972,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Cargo</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
@@ -945,6 +980,30 @@
                     </div>
                 </div>
             </div>
+
+            <ul class="nav navbar-right panel_toolbox">
+                @*<li>
+                    <div class="boton">
+                        <a asp-action="Generar"> Cancelar <i class="fa fa-archive"></i></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="boton">
+                        <a asp-action="Generar"> Cancelar <i class="fa fa-arrow-circle-down"></i></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="boton">
+                        <a asp-action="Generar"> Cancelar <i class="fa fa-file-archive-o"></i></a>
+                    </div>
+                </li>*@
+                <li>
+                    <div class="boton">
+                        <a asp-action="GenerarInformeEUM">Generar Informe<i class="fa fa-file-word-o"></i></a>
+                    </div>
+                </li>
+            </ul>
+
 
             <div class="clearfix"></div>
 
@@ -1062,20 +1121,27 @@
         $('#btnSubmit').click(function () {
 
             alert("grabar");
-            var vModel = $("#MyForm").serializeArray();
+            var vModel = $("#MyForm").serialize();
            //// vModel.push({ name: 'ListaReconocimientoMin', value: vList });
             console.log("model envio");
             console.log(vModel);
-            var vData = {};
-            $.map(vModel, function (n, i) { vData[n.name] = n.value; });
 
-            console.log("data envio");
-            console.log(vData);
+            console.log("vFull gordito envio");
+            //var formData = JSON.stringify(vModel);
+            //console.log(formData);
+
+            //var Data1 = { Eum.Eum_Descripcion: Fullshito, Eum.Acceso_Eum: Pechocho, Eum.Historia_Eum: Osito, Eum.Evidencia_Act_Rec: Omarcito };
+
+            //var vData = {};
+            //$.map(vModel, function (n, i) { vData[n.name] = n.value; });
+
+            //console.log("data envio");
+            //console.log(vData);
 
              $.ajax({
                 type: "POST",
-                url: $("#MyForm").attr("action"),
-                data: vData,
+                 url: $("#MyForm").attr("action"),
+                 data: vModel,
                 success: function (data) {
                     if (data.operation == "@Constantes.Ok") {
                         alert("Operación exitosa");

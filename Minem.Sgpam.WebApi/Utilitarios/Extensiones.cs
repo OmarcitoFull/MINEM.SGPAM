@@ -44,6 +44,30 @@ namespace Minem.Sgpam.WebApi
 
 
 
+            vServices.AddTransient<IT_Sgpad_LnrAD, T_Sgpad_LnrAD>();
+            vServices.AddTransient<IT_Sgpad_LnrLN, T_Sgpad_LnrLN>();
+
+            vServices.AddTransient<IT_Sgpad_Lnr_Info_GraficaAD, T_Sgpad_Lnr_Info_GraficaAD>();
+            vServices.AddTransient<IT_Sgpad_Lnr_Info_GraficaLN, T_Sgpad_Lnr_Info_GraficaLN>();
+
+            vServices.AddTransient<IT_Sgpad_Lnr_Info_DocumentoAD, T_Sgpad_Lnr_Info_DocumentoAD>();
+            vServices.AddTransient<IT_Sgpad_Lnr_Info_DocumentoLN, T_Sgpad_Lnr_Info_DocumentoLN>();
+
+            vServices.AddTransient<IT_Sgpal_Tipo_LnrAD, T_Sgpal_Tipo_LnrAD>();
+            vServices.AddTransient<IT_Sgpal_Tipo_LnrLN, T_Sgpal_Tipo_LnrLN>();
+
+            vServices.AddTransient<IT_Sgpal_Sub_Tipo_LnrAD, T_Sgpal_Sub_Tipo_LnrAD>();
+            vServices.AddTransient<IT_Sgpal_Sub_Tipo_LnrLN, T_Sgpal_Sub_Tipo_LnrLN>();
+
+            vServices.AddTransient<IT_Sgpal_TemporalidadAD, T_Sgpal_TemporalidadAD>();
+            vServices.AddTransient<IT_Sgpal_TemporalidadLN, T_Sgpal_TemporalidadLN>();
+
+            vServices.AddTransient<IT_Genl_Ubigeo_IneiAD, T_Genl_Ubigeo_IneiAD>();
+            vServices.AddTransient<IT_Genl_Ubigeo_IneiLN, T_Genl_Ubigeo_IneiLN>();
+            
+
+
+
             vServices.AddTransient<IT_Sgpad_Comp_Dd_MineroAD, T_Sgpad_Comp_Dd_MineroAD>();
             vServices.AddTransient<IT_Sgpad_Comp_Dd_MineroLN, T_Sgpad_Comp_Dd_MineroLN>();
 

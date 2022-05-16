@@ -11,11 +11,11 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
         public MaestraDTO Eum { get; set; }
         public List<Eum_ModDTO> ListaHistorial { get; set; }
         public List<Eum_InspeccionDTO> ListaInspeccion { get; set; }
-        public List<Eum_UbicacionDTO> ListaUbicacion { get; set; }
         public List<Eum_Info_GraficaDTO> ListaInformacionGrafica { get; set; }
         public List<Eum_Info_DescargoDTO> ListaInformacionDescargo { get; set; }
         public List<Eum_InformeDTO> ListaInforme { get; set; }
         public List<Eum_OperacionDTO> ListaOperacion { get; set; }
+        public List<ComponenteMinDTO> ListaUbicacion { get; set; }
 
         public List<ComponenteMinDTO> ListaComponenteActivo { get; set; }
         public List<ComponenteMinDTO> ListaComponenteInactivo { get; set; }

@@ -26,6 +26,15 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
 		public string Imagen { get; set; }
 		public string Flg_Estado { get; set; }
 
-        #endregion
-    }
+
+		public string Ubigeo { get; set; }
+		public string Departamento { get; set; }
+		public string Provincia { get; set; }
+		public string Distrito { get; set; }
+		public int Id_Cuenca_Hidro { get; set; }
+		public int Id_Cuenca { get; set; }
+		public string Uni_Hidrografica { get; set; }
+		public string Cuenca_Principal { get; set; }
+		#endregion
+	}
 }

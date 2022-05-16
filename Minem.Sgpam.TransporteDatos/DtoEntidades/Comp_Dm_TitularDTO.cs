@@ -11,7 +11,12 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
     public partial class Comp_Dm_TitularDTO : BaseOTD
     {
         #region Propiedades
-        public int? Id_Estado { get; set; }  		public string Usu_Modifica { get; set; }  		public string Flg_Estado { get; set; }  		public string Ip_Modifica { get; set; }  		public int Id_Comp_Dm_Titular { get; set; }  		public string Usu_Ingreso { get; set; }  		public int Id_Comp_Dm { get; set; }  		public DateTime? Fec_Modifica { get; set; }  		public int Id_Empresa { get; set; }  		public DateTime? Fec_Ingreso { get; set; }  		public DateTime Fecha_Inicio { get; set; }  		public string Ip_Ingreso { get; set; }  		public DateTime? Fecha_Fin { get; set; }  		
-        #endregion
-    }
+        public int? Id_Estado { get; set; }  		public string Usu_Modifica { get; set; }  		public string Flg_Estado { get; set; }  		public string Ip_Modifica { get; set; }  		public int Id_Comp_Dm_Titular { get; set; }  		public string Usu_Ingreso { get; set; }  		public int Id_Comp_Dm { get; set; }  		public DateTime? Fec_Modifica { get; set; }  		public int Id_Empresa { get; set; }  		public DateTime? Fec_Ingreso { get; set; }  		public DateTime Fecha_Inicio { get; set; }  		public string Ip_Ingreso { get; set; }  		public DateTime? Fecha_Fin { get; set; }
+
+
+		public string Titular { get; set; }
+		public string Nombre_Dm { get; set; }
+
+		#endregion
+	}
 }

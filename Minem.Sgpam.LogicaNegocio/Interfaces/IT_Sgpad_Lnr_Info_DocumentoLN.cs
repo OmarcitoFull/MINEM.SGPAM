@@ -17,5 +17,6 @@ namespace Minem.Sgpam.LogicaNegocio.Interfaces
         Lnr_Info_DocumentoDTO ActualizarLnr_Info_DocumentoDTO(Lnr_Info_DocumentoDTO vLnr_Info_DocumentoDTO);
         int AnularLnr_Info_DocumentoDTOPorCodigo(Lnr_Info_DocumentoDTO vLnr_Info_DocumentoDTO);
         IEnumerable<Lnr_Info_DocumentoDTO> ListarPaginadoLnr_Info_DocumentoDTO(string vFiltro, int vNumPag, int vCantRegxPag);
+        IEnumerable<Lnr_Info_DocumentoDTO> ListarPorIdLnrLnr_Info_DocumentoDTO(int vId_Lnr);
     }
 }

@@ -660,6 +660,9 @@
 
   <ItemGroup>
     <Folder Include="Views\RegistrarPAM\" />
+    <Folder Include="wwwroot\Pam\" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

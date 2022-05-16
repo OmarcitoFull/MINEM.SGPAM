@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -28,7 +29,6 @@ namespace Minem.Sgpam.WebApiLF.Controllers
             }
         }
 
-        //[HttpPost]
         public string SubirArchivo(string vCarpeta, string vRutaArchivo, string vNombreArchivo)
         {
             try
@@ -42,7 +42,6 @@ namespace Minem.Sgpam.WebApiLF.Controllers
             }
         }
 
-        //[HttpPost]
         public string EliminarArchivo(int vId)
         {
             try
@@ -56,16 +55,15 @@ namespace Minem.Sgpam.WebApiLF.Controllers
             }
         }
 
-        public HttpResponseMessage DescargarArchivo(int vKey)
+        public HttpResponseMessage DescargarArchivo(int vKey, string vFileName)
         {
             var vMemoryStream = FullLaserFiche.ExportarArchivo(vKey, Usuario, Contrasenia, Servidor, Repositorio);
             byte[] vBytesInStream = vMemoryStream.ToArray();
             vMemoryStream.Close();
 
             var vResult = new HttpResponseMessage(HttpStatusCode.OK) { Content = new ByteArrayContent(vBytesInStream) };
-            vResult.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment") { FileName = "WordSoft.docx" };
-            vResult.Content.Headers.ContentType = new MediaTypeHeaderValue("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
-
+            vResult.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment") { FileName = vFileName };
+            vResult.Content.Headers.ContentType = new MediaTypeHeaderValue(FullLaserFiche.ObtenerTipoArchivo(Path.GetExtension(vFileName).ToLowerInvariant()));
             return vResult;
         }
 

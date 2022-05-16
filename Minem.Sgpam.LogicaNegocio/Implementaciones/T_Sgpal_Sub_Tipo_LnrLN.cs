@@ -26,8 +26,29 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         {
             try
             {
-                var vResultado = Sub_Tipo_LnrAD.ListarT_Sgpal_Sub_Tipo_Lnr();
-                return new List<Sub_Tipo_LnrDTO>();
+                IEnumerable<T_Sgpal_Sub_Tipo_Lnr> vResultado = Sub_Tipo_LnrAD.ListarT_Sgpal_Sub_Tipo_Lnr();
+                if (vResultado != null)
+                {
+                    List<Sub_Tipo_LnrDTO> vLista = new List<Sub_Tipo_LnrDTO>();
+                    Sub_Tipo_LnrDTO vEntidad;
+                    foreach (T_Sgpal_Sub_Tipo_Lnr item in vResultado)
+                    {
+                        vEntidad = new Sub_Tipo_LnrDTO()
+                        {
+                            Fec_Ingreso = item.FEC_INGRESO,
+                            Flg_Estado = item.FLG_ESTADO,
+                            Ip_Ingreso = item.IP_INGRESO,
+                            Usu_Ingreso = item.USU_INGRESO,
+                            Descripcion = item.DESCRIPCION,
+                            Id_Tipo_Lnr = item.ID_TIPO_LNR,
+                            Id_Sub_Tipo_Lnr = item.ID_SUB_TIPO_LNR
+                        };
+                        vLista.Add(vEntidad);
+                    }
+                    return vLista;
+                }
+                return null;
+
             }
             catch (Exception ex)
             {

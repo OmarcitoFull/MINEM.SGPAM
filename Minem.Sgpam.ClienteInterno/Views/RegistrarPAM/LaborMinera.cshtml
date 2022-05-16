@@ -683,7 +683,7 @@
                     a = a.split("=");
                     e.append(a[0], a[1])
                 });
-                
+
                 $.ajax({
                     type: "POST",
                     url: "@Url.Action("GrabarEstudioAmbientales", "RegistrarPAM")",
@@ -802,6 +802,20 @@
             else {
                 MostrarReconocimiento(vIdTipoMineria);
             }
+        }
+
+        function DescargarArchivo(vKey, vName) {
+            window.location = "@Url.Action("DescargarArchivo", "RegistrarPAM")?vKey=" + vKey + "&vName=" + vName;
+        }
+
+        function VerDetalleDM(vKey, vName) {
+            vRuta = "http://172.25.0.183:8080/Plone/SIMEM/DGM/INGEMMET/DerechosMinerosUEAs/DatosINACC_html?&ID_UNIDAD=" + vKey + "&NOMBRE_DERECHO=" + vName;
+            window.open(vRuta, "Fullshito", "width=700, height=800")
+        }
+
+        function VerDetalleTM(vKey, vName) {
+            vRuta = "http://172.25.0.183:8080/Plone/SIMEM/DGM/SIMEM/general/Clientes/index_empresa?ID_CLIENTE=" + vKey + "&NOMBRE=" + vName;
+            window.open(vRuta, "Fullshito", "width=700, height=800")
         }
 
         function MostrarReconocimiento(vIdTipoMineria) {

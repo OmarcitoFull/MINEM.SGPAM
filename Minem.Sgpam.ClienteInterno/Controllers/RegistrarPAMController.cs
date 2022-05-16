@@ -44,7 +44,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         public async Task<IActionResult> Infraestructura(ComponenteDTO vModel)
         {
             vModel.Fec_Ingreso = vModel.Fec_Modifica = DateTime.Now;
-            vModel.Usu_Ingreso = vModel.Usu_Modifica = "ORODRIGUEZ";
+            vModel.Usu_Ingreso = vModel.Usu_Modifica = Constantes.GuestUser;
             vModel.Ip_Ingreso = vModel.Ip_Modifica = DnsFullNet.GetIp();
             if (ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         public async Task<IActionResult> LaborMinera(ComponenteDTO vModel)
         {
             vModel.Fec_Ingreso = vModel.Fec_Modifica = DateTime.Now;
-            vModel.Usu_Ingreso = vModel.Usu_Modifica = "ORODRIGUEZ";
+            vModel.Usu_Ingreso = vModel.Usu_Modifica = Constantes.GuestUser;
             vModel.Ip_Ingreso = vModel.Ip_Modifica = DnsFullNet.GetIp();
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         public async Task<IActionResult> ResiduoMinero(ComponenteDTO vModel)
         {
             vModel.Fec_Ingreso = vModel.Fec_Modifica = DateTime.Now;
-            vModel.Usu_Ingreso = vModel.Usu_Modifica = "ORODRIGUEZ";
+            vModel.Usu_Ingreso = vModel.Usu_Modifica = Constantes.GuestUser;
             vModel.Ip_Ingreso = vModel.Ip_Modifica = DnsFullNet.GetIp();
             if (ModelState.IsValid)
             {
@@ -113,7 +113,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         public async Task<IActionResult> SustanciasQuimicas(ComponenteDTO vModel)
         {
             vModel.Fec_Ingreso = vModel.Fec_Modifica = DateTime.Now;
-            vModel.Usu_Ingreso = vModel.Usu_Modifica = "ORODRIGUEZ";
+            vModel.Usu_Ingreso = vModel.Usu_Modifica = Constantes.GuestUser;
             vModel.Ip_Ingreso = vModel.Ip_Modifica = DnsFullNet.GetIp();
             if (ModelState.IsValid)
             {
@@ -136,7 +136,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         public async Task<IActionResult> OtrosResiduos(ComponenteDTO vModel)
         {
             vModel.Fec_Ingreso = vModel.Fec_Modifica = DateTime.Now;
-            vModel.Usu_Ingreso = vModel.Usu_Modifica = "ORODRIGUEZ";
+            vModel.Usu_Ingreso = vModel.Usu_Modifica = Constantes.GuestUser;
             vModel.Ip_Ingreso = vModel.Ip_Modifica = DnsFullNet.GetIp();
             if (ModelState.IsValid)
             {
@@ -168,7 +168,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vObservacion.Flg_Estado = Constantes.Activo;
             vObservacion.Fec_Ingreso = vObservacion.Fec_Modifica = DateTime.Now;
-            vObservacion.Usu_Ingreso = vObservacion.Usu_Modifica = "ORODRIGUEZ";
+            vObservacion.Usu_Ingreso = vObservacion.Usu_Modifica = Constantes.GuestUser;
             vObservacion.Ip_Ingreso = vObservacion.Ip_Modifica = DnsFullNet.GetIp();
             if (ModelState.IsValid)
             {
@@ -232,7 +232,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vRiesgo_Seg_Hum.Flg_Estado = Constantes.Activo;
             vRiesgo_Seg_Hum.Fec_Ingreso = vRiesgo_Seg_Hum.Fec_Modifica = DateTime.Now;
-            vRiesgo_Seg_Hum.Usu_Ingreso = vRiesgo_Seg_Hum.Usu_Modifica = "ORODRIGUEZ";
+            vRiesgo_Seg_Hum.Usu_Ingreso = vRiesgo_Seg_Hum.Usu_Modifica = Constantes.GuestUser;
             vRiesgo_Seg_Hum.Ip_Ingreso = vRiesgo_Seg_Hum.Ip_Modifica = DnsFullNet.GetIp();
             if (ModelState.IsValid)
             {
@@ -284,7 +284,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vRiesgo_Sal_Amb.Flg_Estado = Constantes.Activo;
             vRiesgo_Sal_Amb.Fec_Ingreso = vRiesgo_Sal_Amb.Fec_Modifica = DateTime.Now;
-            vRiesgo_Sal_Amb.Usu_Ingreso = vRiesgo_Sal_Amb.Usu_Modifica = "ORODRIGUEZ";
+            vRiesgo_Sal_Amb.Usu_Ingreso = vRiesgo_Sal_Amb.Usu_Modifica = Constantes.GuestUser;
             vRiesgo_Sal_Amb.Ip_Ingreso = vRiesgo_Sal_Amb.Ip_Modifica = DnsFullNet.GetIp();
             if (ModelState.IsValid)
             {
@@ -344,7 +344,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vRiesgo_Fau_Con.Flg_Estado = Constantes.Activo;
             vRiesgo_Fau_Con.Fec_Ingreso = vRiesgo_Fau_Con.Fec_Modifica = DateTime.Now;
-            vRiesgo_Fau_Con.Usu_Ingreso = vRiesgo_Fau_Con.Usu_Modifica = "ORODRIGUEZ";
+            vRiesgo_Fau_Con.Usu_Ingreso = vRiesgo_Fau_Con.Usu_Modifica = Constantes.GuestUser;
             vRiesgo_Fau_Con.Ip_Ingreso = vRiesgo_Fau_Con.Ip_Modifica = DnsFullNet.GetIp();
             if (ModelState.IsValid)
             {
@@ -378,7 +378,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vMedicion.Flg_Estado = Constantes.Activo;
             vMedicion.Fec_Ingreso = vMedicion.Fec_Modifica = DateTime.Now;
-            vMedicion.Usu_Ingreso = vMedicion.Usu_Modifica = "ORODRIGUEZ";
+            vMedicion.Usu_Ingreso = vMedicion.Usu_Modifica = Constantes.GuestUser;
             vMedicion.Ip_Ingreso = vMedicion.Ip_Modifica = DnsFullNet.GetIp();
             if (ModelState.IsValid)
             {
@@ -413,7 +413,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vInfo_Grafica.Flg_Estado = Constantes.Activo;
             vInfo_Grafica.Fec_Ingreso = vInfo_Grafica.Fec_Modifica = DateTime.Now;
-            vInfo_Grafica.Usu_Ingreso = vInfo_Grafica.Usu_Modifica = "ORODRIGUEZ";
+            vInfo_Grafica.Usu_Ingreso = vInfo_Grafica.Usu_Modifica = Constantes.GuestUser;
             vInfo_Grafica.Ip_Ingreso = vInfo_Grafica.Ip_Modifica = DnsFullNet.GetIp();
 
             if (vFile != null)
@@ -451,14 +451,23 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
 
                             if (ModelState.IsValid)
                             {
-                                vInfo_Grafica = await Services<Comp_Info_GraficaDTO>.Grabar("InformacionGrafica/Save", vInfo_Grafica);
-                                return Json(new ComponentResultModel { Operation = vInfo_Grafica.Id_Comp_Info_Grafica > 0 ? Constantes.Ok : Constantes.Error });
+                                var vCarpetaLF = Configuration.GetValue<string>("DirectoryLFPamIG");
+                                string vResult = await ServicesLF.ObtenerProceso("SubirArchivo?vCarpeta=" + vCarpetaLF + "&vRutaArchivo=" + vInfo_Grafica.Ruta_Imagen + "&vNombreArchivo=" + vInfo_Grafica.Nombre_Imagen);
+                                if (vResult != Constantes.Error)
+                                {
+                                    vInfo_Grafica.Id_LaserFiche = Convert.ToInt64(vResult.Replace("\"", ""));
+                                    vInfo_Grafica = await Services<Comp_Info_GraficaDTO>.Grabar("InformacionGrafica/Save", vInfo_Grafica);
+                                    return Json(new ComponentResultModel { Operation = vInfo_Grafica.Id_Comp_Info_Grafica > 0 ? Constantes.Ok : Constantes.Error });
+                                }
+                                else
+                                {
+                                    return Json(new ComponentResultModel() { Type = TipoErr.LASERFICHE });
+                                }
                             }
                             else
                             {
                                 return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
                             }
-
                         }
                         catch (Exception)
                         {
@@ -474,7 +483,6 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
                 {
                     return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
                 }
-
             }
             else
             {
@@ -503,7 +511,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vComentario.Flg_Estado = Constantes.Activo;
             vComentario.Fec_Ingreso = vComentario.Fec_Modifica = DateTime.Now;
-            vComentario.Usu_Ingreso = vComentario.Usu_Modifica = "ORODRIGUEZ";
+            vComentario.Usu_Ingreso = vComentario.Usu_Modifica = Constantes.GuestUser;
             vComentario.Ip_Ingreso = vComentario.Ip_Modifica = DnsFullNet.GetIp();
             if (ModelState.IsValid)
             {
@@ -543,7 +551,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vEst_Amb.Flg_Estado = Constantes.Activo;
             vEst_Amb.Fec_Ingreso = vEst_Amb.Fec_Modifica = DateTime.Now;
-            vEst_Amb.Usu_Ingreso = vEst_Amb.Usu_Modifica = "ORODRIGUEZ";
+            vEst_Amb.Usu_Ingreso = vEst_Amb.Usu_Modifica = Constantes.GuestUser;
             vEst_Amb.Ip_Ingreso = vEst_Amb.Ip_Modifica = DnsFullNet.GetIp();
 
             if (vFile != null)
@@ -581,14 +589,23 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
 
                             if (ModelState.IsValid)
                             {
-                                vEst_Amb = await Services<Comp_Est_AmbDTO>.Grabar("EstudioAmbiental/Save", vEst_Amb);
-                                return Json(new ComponentResultModel { Operation = vEst_Amb.Id_Comp_Est_Amb > 0 ? Constantes.Ok : Constantes.Error });
+                                var vCarpetaLF = Configuration.GetValue<string>("DirectoryLFPamEA");
+                                string vResult = await ServicesLF.ObtenerProceso("SubirArchivo?vCarpeta=" + vCarpetaLF + "&vRutaArchivo=" + vEst_Amb.Ruta_Documento + "&vNombreArchivo=" + vEst_Amb.Nombre_Documento);
+                                if (vResult != Constantes.Error)
+                                {
+                                    vEst_Amb.Id_LaserFiche = Convert.ToInt64(vResult.Replace("\"", ""));
+                                    vEst_Amb = await Services<Comp_Est_AmbDTO>.Grabar("EstudioAmbiental/Save", vEst_Amb);
+                                    return Json(new ComponentResultModel { Operation = vEst_Amb.Id_Comp_Est_Amb > 0 ? Constantes.Ok : Constantes.Error });
+                                }
+                                else
+                                {
+                                    return Json(new ComponentResultModel() { Type = TipoErr.LASERFICHE });
+                                }
                             }
                             else
                             {
                                 return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
                             }
-
                         }
                         catch (Exception)
                         {
@@ -604,7 +621,6 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
                 {
                     return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
                 }
-
             }
             else
             {
@@ -643,7 +659,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vEnc_Rem.Flg_Estado = Constantes.Activo;
             vEnc_Rem.Fec_Ingreso = vEnc_Rem.Fec_Modifica = DateTime.Now;
-            vEnc_Rem.Usu_Ingreso = vEnc_Rem.Usu_Modifica = "ORODRIGUEZ";
+            vEnc_Rem.Usu_Ingreso = vEnc_Rem.Usu_Modifica = Constantes.GuestUser;
             vEnc_Rem.Ip_Ingreso = vEnc_Rem.Ip_Modifica = DnsFullNet.GetIp();
             if (ModelState.IsValid)
             {
@@ -677,7 +693,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vReapro.Flg_Estado = Constantes.Activo;
             vReapro.Fec_Ingreso = vReapro.Fec_Modifica = DateTime.Now;
-            vReapro.Usu_Ingreso = vReapro.Usu_Modifica = "ORODRIGUEZ";
+            vReapro.Usu_Ingreso = vReapro.Usu_Modifica = Constantes.GuestUser;
             vReapro.Ip_Ingreso = vReapro.Ip_Modifica = DnsFullNet.GetIp();
             if (ModelState.IsValid)
             {
@@ -711,7 +727,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vInfo_Campo.Flg_Estado = Constantes.Activo;
             vInfo_Campo.Fec_Ingreso = vInfo_Campo.Fec_Modifica = DateTime.Now;
-            vInfo_Campo.Usu_Ingreso = vInfo_Campo.Usu_Modifica = "ORODRIGUEZ";
+            vInfo_Campo.Usu_Ingreso = vInfo_Campo.Usu_Modifica = Constantes.GuestUser;
             vInfo_Campo.Ip_Ingreso = vInfo_Campo.Ip_Modifica = DnsFullNet.GetIp();
             if (ModelState.IsValid)
             {
@@ -745,7 +761,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vResultado.Flg_Estado = Constantes.Activo;
             vResultado.Fec_Ingreso = vResultado.Fec_Modifica = DateTime.Now;
-            vResultado.Usu_Ingreso = vResultado.Usu_Modifica = "ORODRIGUEZ";
+            vResultado.Usu_Ingreso = vResultado.Usu_Modifica = Constantes.GuestUser;
             vResultado.Ip_Ingreso = vResultado.Ip_Modifica = DnsFullNet.GetIp();
             if (ModelState.IsValid)
             {
@@ -786,7 +802,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vEst_Gestion.Flg_Estado = Constantes.Activo;
             vEst_Gestion.Fec_Ingreso = vEst_Gestion.Fec_Modifica = DateTime.Now;
-            vEst_Gestion.Usu_Ingreso = vEst_Gestion.Usu_Modifica = "ORODRIGUEZ";
+            vEst_Gestion.Usu_Ingreso = vEst_Gestion.Usu_Modifica = Constantes.GuestUser;
             vEst_Gestion.Ip_Ingreso = vEst_Gestion.Ip_Modifica = DnsFullNet.GetIp();
             if (ModelState.IsValid)
             {
@@ -799,6 +815,24 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             }
         }
         #endregion
+
+        [HttpGet]
+        public async Task<IActionResult> DescargarArchivo(int vKey, string vName)
+        {
+            try
+            {
+                Byte[] vFileContent = await ServicesLF.ObtenerFlujo("DescargarArchivo?vKey=" + vKey + "&vFileName=" + vName);
+                if (vFileContent != null)
+                {
+                    return File(vFileContent, ContentFullType.ObtenerTipoArchivo(Path.GetExtension(vName).ToLowerInvariant()), vName);
+                }
+                return Json(Constantes.Error);
+            }
+            catch (Exception ex)
+            {
+                return Json(Constantes.Error);
+            }
+        }
 
 
 
@@ -818,10 +852,10 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
                 Id_Tipo_Mineria = vIdTipoMineria,
                 Id_Tipo_Pam = vIdTipoPam,
                 Flg_Estado = Constantes.Activo,
-                Usu_Ingreso = "ORODRIGUEZ",
+                Usu_Ingreso = Constantes.GuestUser,
                 Ip_Ingreso = DnsFullNet.GetIp(),
                 Fec_Ingreso = DateTime.Now,
-                Usu_Modifica = "ORODRIGUEZ",
+                Usu_Modifica = Constantes.GuestUser,
                 Ip_Modifica = DnsFullNet.GetIp(),
                 Fec_Modifica = DateTime.Now
             };
@@ -897,16 +931,17 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
                     //    return new SelectListItem() { Text = x.ToString(), Value = ((int)x).ToString() };
                     //});
 
-                    ViewBag.CboRegion = vRecord.CboUbigeo.Select(x => new { x.Id_Region, x.Region }).Distinct().ToList().ConvertAll(x =>
+                    ViewBag.CboRegion = vRecord.CboUbigeo.Select(x => new { x.Id_Departamento, x.Departamento }).Distinct().OrderBy(x => x.Departamento).ToList().ConvertAll(x =>
                     {
-                        return new SelectListItem() { Text = x.Region, Value = x.Id_Region.ToString() };
+                        return new SelectListItem() { Text = x.Departamento, Value = x.Id_Departamento.ToString() };
                     });
 
-                    ViewBag.CboProvincia = vRecord.CboUbigeo.Where(x => x.Id_Region == vRecord.Componente.Id_Region).Select(x => new { x.Id_Provincia, x.Provincia }).Distinct().ToList().ConvertAll(x =>
+                    ViewBag.CboProvincia = vRecord.CboUbigeo.Where(x => x.Id_Departamento == vRecord.Componente.Id_Region).Select(x => new { x.Id_Provincia, x.Provincia }).Distinct().OrderBy(x => x.Provincia).ToList().ConvertAll(x =>
                     {
                         return new SelectListItem() { Text = x.Provincia, Value = x.Id_Provincia.ToString() };
                     });
-                    ViewBag.CboDistrito = vRecord.CboUbigeo.Where(x => x.Id_Provincia == vRecord.Componente.Id_Provincia).Select(x => new { x.Id_Distrito, x.Distrito }).Distinct().ToList().ConvertAll(x =>
+
+                    ViewBag.CboDistrito = vRecord.CboUbigeo.Where(x => x.Id_Provincia == vRecord.Componente.Id_Provincia).Select(x => new { x.Id_Distrito, x.Distrito }).Distinct().OrderBy(x => x.Distrito).ToList().ConvertAll(x =>
                     {
                         return new SelectListItem() { Text = x.Distrito, Value = x.Id_Distrito.ToString() };
                     });

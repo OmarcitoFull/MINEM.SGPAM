@@ -17,5 +17,11 @@
         public const string MsgOk = "Operacion exitosa";
         public const string MsgErr = "Ocurrió un error al grabar en el servidor";
         public const string MsgModel = "Falta completar datos";
+
+        public const string GuestUser = "ORODRIGUEZ";
+
+        public const string ContentTypeDOC = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+        public const string ContentTypeJPG = "image/jpeg";
+
     }
 }

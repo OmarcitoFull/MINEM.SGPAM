@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Minem.Sgpam.AccesoDatos.Base;
 using Minem.Sgpam.AccesoDatos.Interfaces;
 using Minem.Sgpam.Entidades;
+using Minem.Sgpam.InfraEstructura;
 using Oracle.ManagedDataAccess.Client;
 
 namespace Minem.Sgpam.AccesoDatos.Implementaciones
@@ -15,7 +16,12 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
     /// Fecha Creación:	27/10/2021
     /// </summary>
     public partial class T_Sgpal_Sub_Tipo_LnrAD: BaseAD, IT_Sgpal_Sub_Tipo_LnrAD
-    {   
+    {
+        public T_Sgpal_Sub_Tipo_LnrAD(IConfiguration vConfiguration)
+        {
+            CnnString = vConfiguration.GetSection(Constantes.BD).Value;
+        }
+
         public IEnumerable<T_Sgpal_Sub_Tipo_Lnr> ListarT_Sgpal_Sub_Tipo_Lnr()
         {
            List<T_Sgpal_Sub_Tipo_Lnr> vLista = new List<T_Sgpal_Sub_Tipo_Lnr>();

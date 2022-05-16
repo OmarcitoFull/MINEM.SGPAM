@@ -50,6 +50,7 @@
     public enum TipoErr
     {
         SERVER = 1,
-        MODEL = 2
+        MODEL = 2,
+        LASERFICHE = 3
     }
 }

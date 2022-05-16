@@ -16,6 +16,6 @@ namespace Minem.Sgpam.AccesoDatos.Interfaces
         T_Sgpad_Comp_Dm_Situacion ActualizarT_Sgpad_Comp_Dm_Situacion(T_Sgpad_Comp_Dm_Situacion vT_Sgpad_Comp_Dm_Situacion);
         int AnularT_Sgpad_Comp_Dm_SituacionPorCodigo(int vId_Comp_Dm_Situacion);
         IEnumerable<T_Sgpad_Comp_Dm_Situacion> ListarPaginadoT_Sgpad_Comp_Dm_Situacion(string vFiltro, int vNumPag, int vCantRegxPag);
-        IEnumerable<T_Sgpad_Comp_Dm_Situacion> ListarPorIdEumT_Sgpad_Comp_Dm_Situacion(int vId_Eum);
+        IEnumerable<V_Sgpad_Comp_Dm_Situacion> ListarPorIdEumT_Sgpad_Comp_Dm_Situacion(int vId_Eum);
     }
 }

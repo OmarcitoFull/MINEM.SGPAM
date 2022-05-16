@@ -28,11 +28,16 @@ namespace Minem.Sgpam.Entidades
             {
                 this.ESTADO = Convert.ToString(vRdr["ESTADO"]);
             }
+            if (!Convert.IsDBNull(vRdr["CODIGO"]))
+            {
+                this.CODIGO = Convert.ToString(vRdr["CODIGO"]);
+            }
         }
 
         public string TITULAR_REFERENCIAL { get; set; }
         public DateTime FECHA_INICIO { get; set; }
         public DateTime? FECHA_FINAL { get; set; }
         public string ESTADO { get; set; }
+        public string CODIGO { get; set; }
     }
 }

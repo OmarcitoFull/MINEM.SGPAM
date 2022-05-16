@@ -42,7 +42,8 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
         public List<HumedadDTO> CboHumedad { get; set; }
         public List<Tipo_ConcesionDTO> CboConcesion { get; set; }
         public List<CoberturaDTO> CboCobertura { get; set; }
-        public List<UbigeoDTO> CboUbigeo { get; set; }
+        //public List<UbigeoDTO> CboUbigeo { get; set; }
+        public List<Ubigeo_IneiDTO> CboUbigeo { get; set; }
 
 
         //public List<Estado_GestionDTO> CboEstadoGestion { get; set; }

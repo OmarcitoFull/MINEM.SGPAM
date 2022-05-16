@@ -17,7 +17,7 @@ namespace Minem.Sgpam.Entidades
 
         public T_Sgpad_Lnr(IDataReader vRdr)
         {
-            			this.ID_ZONA = Convert.ToInt32(vRdr["ID_ZONA"]);  
+            this.ID_ZONA = Convert.ToInt32(vRdr["ID_ZONA"]);  
 			if (!Convert.IsDBNull(vRdr["SUB_TIPO_DECLARADO"]))  			{				this.SUB_TIPO_DECLARADO = Convert.ToString(vRdr["SUB_TIPO_DECLARADO"]);  			}			if (!Convert.IsDBNull(vRdr["PROFUNDIDAD"]))  			{				this.PROFUNDIDAD = Convert.ToInt32(vRdr["PROFUNDIDAD"]);  			}			if (!Convert.IsDBNull(vRdr["EVA_RESTOS"]))  			{				this.EVA_RESTOS = Convert.ToString(vRdr["EVA_RESTOS"]);  			}			if (!Convert.IsDBNull(vRdr["VOLUMEN_DESC"]))  			{				this.VOLUMEN_DESC = Convert.ToString(vRdr["VOLUMEN_DESC"]);  			}			this.ID_SUB_TIPO_LNR = Convert.ToInt32(vRdr["ID_SUB_TIPO_LNR"]);  
 			if (!Convert.IsDBNull(vRdr["ANCHO"]))  			{				this.ANCHO = Convert.ToInt32(vRdr["ANCHO"]);  			}			if (!Convert.IsDBNull(vRdr["EVA_MATERIAL"]))  			{				this.EVA_MATERIAL = Convert.ToString(vRdr["EVA_MATERIAL"]);  			}			this.NORTE = Convert.ToInt32(vRdr["NORTE"]);  
 			if (!Convert.IsDBNull(vRdr["IP_MODIFICA"]))  			{				this.IP_MODIFICA = Convert.ToString(vRdr["IP_MODIFICA"]);  			}			if (!Convert.IsDBNull(vRdr["AREA_DESC"]))  			{				this.AREA_DESC = Convert.ToString(vRdr["AREA_DESC"]);  			}			this.ID_LNR = Convert.ToInt32(vRdr["ID_LNR"]);  
@@ -29,7 +29,15 @@ namespace Minem.Sgpam.Entidades
 			if (!Convert.IsDBNull(vRdr["CODIGO_DECLARADO"]))  			{				this.CODIGO_DECLARADO = Convert.ToString(vRdr["CODIGO_DECLARADO"]);  			}			if (!Convert.IsDBNull(vRdr["AREA"]))  			{				this.AREA = Convert.ToInt32(vRdr["AREA"]);  			}			if (!Convert.IsDBNull(vRdr["ALTO"]))  			{				this.ALTO = Convert.ToInt32(vRdr["ALTO"]);  			}			if (!Convert.IsDBNull(vRdr["FEC_INGRESO"]))  			{				this.FEC_INGRESO = Convert.ToDateTime(vRdr["FEC_INGRESO"]);  			}			if (!Convert.IsDBNull(vRdr["EVA_LABOR"]))  			{				this.EVA_LABOR = Convert.ToString(vRdr["EVA_LABOR"]);  			}			this.ID_TEMPORALIDAD = Convert.ToInt32(vRdr["ID_TEMPORALIDAD"]);  
 			this.FEC_REGISTRO = Convert.ToDateTime(vRdr["FEC_REGISTRO"]);  
 			if (!Convert.IsDBNull(vRdr["USU_INGRESO"]))  			{				this.USU_INGRESO = Convert.ToString(vRdr["USU_INGRESO"]);  			}			if (!Convert.IsDBNull(vRdr["USU_MODIFICA"]))  			{				this.USU_MODIFICA = Convert.ToString(vRdr["USU_MODIFICA"]);  			}			this.FLG_ESTADO = Convert.ToString(vRdr["FLG_ESTADO"]);  
-			if (!Convert.IsDBNull(vRdr["VOLUMEN"]))  			{				this.VOLUMEN = Convert.ToInt32(vRdr["VOLUMEN"]);  			}
-        }
-    }
+			if (!Convert.IsDBNull(vRdr["VOLUMEN"]))  			{				this.VOLUMEN = Convert.ToInt32(vRdr["VOLUMEN"]);  			}
+
+
+
+			if (!Convert.IsDBNull(vRdr["DES_TIPO_LNR"]))
+			{				this.DES_TIPO_LNR = Convert.ToString(vRdr["DES_TIPO_LNR"]);
+			}
+
+
+		}
+	}
 }

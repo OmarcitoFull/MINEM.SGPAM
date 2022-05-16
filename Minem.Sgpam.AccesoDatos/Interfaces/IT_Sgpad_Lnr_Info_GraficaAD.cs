@@ -16,5 +16,6 @@ namespace Minem.Sgpam.AccesoDatos.Interfaces
         T_Sgpad_Lnr_Info_Grafica ActualizarT_Sgpad_Lnr_Info_Grafica(T_Sgpad_Lnr_Info_Grafica vT_Sgpad_Lnr_Info_Grafica);
         int AnularT_Sgpad_Lnr_Info_GraficaPorCodigo(int vId_Lnr_Info_Grafica);
         IEnumerable<T_Sgpad_Lnr_Info_Grafica> ListarPaginadoT_Sgpad_Lnr_Info_Grafica(string vFiltro, int vNumPag, int vCantRegxPag);
+        IEnumerable<T_Sgpad_Lnr_Info_Grafica> ListarPorIdLnrT_Sgpad_Lnr_Info_Grafica(int vId_Lnr);
     }
 }

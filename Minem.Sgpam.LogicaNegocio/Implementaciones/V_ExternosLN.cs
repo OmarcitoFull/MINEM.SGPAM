@@ -158,7 +158,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                                       Estado = vTmp.ESTADO,
                                       Fecha_Final = vTmp.FECHA_FINAL.GetValueOrDefault().ToShortDateString(),
                                       Fecha_Inicio = vTmp.FECHA_INICIO.ToShortDateString(),
-                                      Titular_Referencial = vTmp.TITULAR_REFERENCIAL
+                                      Titular_Referencial = vTmp.TITULAR_REFERENCIAL,
+                                      Codigo = vTmp.CODIGO
                                   }).ToList();
                 return vResultado;
             }

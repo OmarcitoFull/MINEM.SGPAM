@@ -1,16 +1,42 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
+using Minem.Sgpam.LogicaNegocio.Interfaces;
+using Minem.Sgpam.TransporteDatos.DtoEntidades;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Minem.Sgpam.WebApi.Controllers
 {
-    public class LnrController : Controller
+    public class LnrController : BaseController
     {
-        public IActionResult Index()
+        public readonly IT_Sgpad_LnrLN Lnr_LN;
+        public LnrController(IT_Sgpad_LnrLN vIT_Sgpad_LnrLN)
         {
-            return View();
+            Lnr_LN = vIT_Sgpad_LnrLN;
         }
+
+        [HttpGet("List")]
+        public IEnumerable<LnrDTO> List()
+        {
+            return Lnr_LN.ListarLnrDTO();
+        }
+
+        [HttpGet("Get")]
+        public LnrDTO Get(int vId)
+        {
+            return Lnr_LN.RecuperarLnrDTOPorCodigo(vId);
+        }
+
+        [HttpPost("Save")]
+        public LnrDTO Save([FromBody] LnrDTO vLnrDTO)
+        {
+            return Lnr_LN.ActualizarLnrDTO(vLnrDTO);
+        }
+
+        [HttpGet("GetFull")]
+        public RegistrarLnrDTO GetFull(int vId)
+        {
+            return Lnr_LN.RecuperarFullLnrDTOPorCodigo(vId);
+        }
+
+
     }
 }

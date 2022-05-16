@@ -106,5 +106,43 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                 throw;
             }
         }
+
+        public IEnumerable<Lnr_Info_GraficaDTO> ListarPorIdLnrLnr_Info_GraficaDTO(int vId_Lnr)
+        {
+            try
+            {
+                IEnumerable<T_Sgpad_Lnr_Info_Grafica> vResultado = Lnr_Info_GraficaAD.ListarPorIdLnrT_Sgpad_Lnr_Info_Grafica(vId_Lnr);
+                if (vResultado != null)
+                {
+                    List<Lnr_Info_GraficaDTO> vLista = new List<Lnr_Info_GraficaDTO>();
+                    Lnr_Info_GraficaDTO vEntidad;
+                    foreach (T_Sgpad_Lnr_Info_Grafica item in vResultado)
+                    {
+                        vEntidad = new Lnr_Info_GraficaDTO()
+                        {
+                            Fec_Ingreso = item.FEC_INGRESO,
+                            Flg_Estado = item.FLG_ESTADO,
+                            Id_Lnr = item.ID_LNR,
+                            Id_Lnr_Info_Grafica = item.ID_LNR_INFO_GRAFICA,
+                            Ip_Ingreso = item.IP_INGRESO,
+                            Usu_Ingreso = item.USU_INGRESO,
+                            Extencion = item.EXTENCION,
+                            Nombre_Imagen = item.NOMBRE_IMAGEN,
+                            Ruta_Imagen = item.RUTA_IMAGEN,
+                            Tamano = item.TAMANO//,
+                            //Fecha_Toma = item.FECHA_TOMA,
+                            //Descripcion = item.DESCRIPCION
+                        };
+                        vLista.Add(vEntidad);
+                    }
+                    return vLista;
+                }
+                return null;
+            }
+            catch (Exception)
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

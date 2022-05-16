@@ -9,6 +9,6 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
     public class RegistrarExpedienteDTO
     {
         public ExpedienteDTO Expediente { get; set; }
-        //public List<ExpedienteDTO> ListaHistorial { get; set; }
+        public List<LnrDTO> ListaLNR { get; set; }
     }
 }

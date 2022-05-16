@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Minem.Sgpam.AccesoDatos.Base;
 using Minem.Sgpam.AccesoDatos.Interfaces;
 using Minem.Sgpam.Entidades;
+using Minem.Sgpam.InfraEstructura;
 using Oracle.ManagedDataAccess.Client;
 
 namespace Minem.Sgpam.AccesoDatos.Implementaciones
@@ -15,7 +16,12 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
     /// Fecha Creación:	27/10/2021
     /// </summary>
     public partial class T_Sgpad_Comp_Dd_MineroAD: BaseAD, IT_Sgpad_Comp_Dd_MineroAD
-    {   
+    {
+        public T_Sgpad_Comp_Dd_MineroAD(IConfiguration vConfiguration)
+        {
+            CnnString = vConfiguration.GetSection(Constantes.BD).Value;
+        }
+
         public IEnumerable<T_Sgpad_Comp_Dd_Minero> ListarT_Sgpad_Comp_Dd_Minero()
         {
            List<T_Sgpad_Comp_Dd_Minero> vLista = new List<T_Sgpad_Comp_Dd_Minero>();
@@ -147,17 +153,16 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
 
             using (OracleConnection vCnn = new OracleConnection(CnnString))
             {
-                using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_COMP_DD_MINERO.USP_PAG_COMP_DD_MINERO", vCnn)) // falta modificar
+                using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_COMP_DD_MINERO.USP_LIS_POR_IDEUM_COMP_DD_MINERO", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pId_Eum", vId_Eum);
+                    vCmd.Parameters.Add("pID_EUM", vId_Eum);
                     vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     OracleDataReader vRdr = vCmd.ExecuteReader();
                     while (vRdr.Read())
                     {
                         vEntidad = new T_Sgpad_Comp_Dd_Minero(vRdr);
-                        //vEntidad.TotalVirtual = System.Convert.ToInt32(vRdr["TotalVirtual"]);
                         vLista.Add(vEntidad);
                     }
                 }

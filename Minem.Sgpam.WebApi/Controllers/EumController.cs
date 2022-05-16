@@ -42,9 +42,9 @@ namespace Minem.Sgpam.WebApi.Controllers
 
 
         [HttpGet("ListarPaginadoMaestraDTO")]
-        public IEnumerable<MaestraDTO> ListarPaginadoMaestraDTO(string vFiltro, int vNumPag, int vCantRegxPag)
+        public IEnumerable<MaestraDTO> ListarPaginadoMaestraDTO(string vFiltro, string vUbigeo, int vNumPag, int vCantRegxPag)
         {
-            return Eum_LN.ListarPaginadoMaestraDTO(vFiltro, vNumPag, vCantRegxPag);
+            return Eum_LN.ListarPaginadoMaestraDTO(vFiltro, vUbigeo, vNumPag, vCantRegxPag);
         }
 
 

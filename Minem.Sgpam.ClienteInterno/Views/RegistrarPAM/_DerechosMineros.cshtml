@@ -16,6 +16,7 @@
                 <th class="column-title">Fecha</th>
                 <th class="column-title">Resolución de Caducidad</th>
                 <th class="column-title">Fecha</th>
+                <th class="column-title">Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -54,6 +55,9 @@
                     </td>
                     <td class=" ">
                         @item.Fecha_Caducidad
+                    </td>
+                    <td class=" " style="text-align:center">
+                        <button type="button" class="boton2" style="margin-right: 0px;" onclick="VerDetalleDM('@item.Codigo', '@item.UEA')"> <i class="fa fa-search-plus"></i></button>
                     </td>
                 </tr>
             }

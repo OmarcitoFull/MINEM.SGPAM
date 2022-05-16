@@ -27,11 +27,12 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         }
 
 
-        public async Task<IActionResult> Index(string vNombreEUM = "")
+        public async Task<IActionResult> Index(string vNombreEUM = "", string vUbigeo= "0")
         {
             ListarEumDTO vRecord = new ListarEumDTO();
-            vRecord.ListaEum = await Services<MaestraDTO>.Listar("Eum/ListarPaginadoMaestraDTO?vFiltro=" + vNombreEUM + "&vNumPag=" + 5 + "&vCantRegxPag=" + 2);
-
+            vRecord.ListaEum = await Services<MaestraDTO>.Listar("Eum/ListarPaginadoMaestraDTO?vFiltro=" + vNombreEUM + "&vUbigeo=" + vUbigeo + "&vNumPag=" + 5 + "&vCantRegxPag=" + 10);
+            vRecord.ListaUbigeo = await Services<Ubigeo_IneiDTO>.Listar("Ubigeo/List_Ubigeo_Inei");
+            ViewBag.Ubigeo = vRecord.ListaUbigeo;
             return View(vRecord);
         }
 
@@ -60,10 +61,6 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             {
                 return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Conflicto_Social.ToString() };
             });
-            //ViewBag.CboCuencaPrincipal = Enum.GetValues(typeof(CuencaPrincipal)).Cast<CuencaPrincipal>().ToList().ConvertAll(x =>
-            //{
-            //    return new SelectListItem() { Text = x.ToString(), Value = ((int)x).ToString() };
-            //});
 
             return View(vRecord);
         }

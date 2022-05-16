@@ -233,5 +233,31 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             }
             return vList;
         }
+
+        public IEnumerable<V_Sgpad_ComponenteUbicacion> ListarPorIdEumT_Sgpad_Componente_Eum(int vId_Eum)
+        {
+            List<V_Sgpad_ComponenteUbicacion> vList = new List<V_Sgpad_ComponenteUbicacion>();
+            V_Sgpad_ComponenteUbicacion vEntidad;
+
+            using (OracleConnection vCnn = new OracleConnection(CnnString))
+            {
+                using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_COMPONENTE.USP_LIS_POR_IDEUM_COMPONENTE", vCnn))
+                {
+                    vCmd.CommandType = CommandType.StoredProcedure;
+                    vCmd.Parameters.Add("pID_EUM", vId_Eum);
+                    vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                    vCnn.Open();
+                    OracleDataReader vRdr = vCmd.ExecuteReader();
+                    while (vRdr.Read())
+                    {
+                        vEntidad = new V_Sgpad_ComponenteUbicacion(vRdr);
+                        vList.Add(vEntidad);
+                    }
+                }
+                vCnn.Close();
+            }
+            return vList;
+        }
+
     }
 }

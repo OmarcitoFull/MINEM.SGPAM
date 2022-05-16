@@ -17,5 +17,6 @@ namespace Minem.Sgpam.AccesoDatos.Interfaces
         int AnularT_Sgpad_ComponentePorCodigo(T_Sgpad_Componente vT_Sgpad_Componente);
         IEnumerable<T_Sgpad_Componente> ListarPaginadoT_Sgpad_Componente(string vFiltro, int vNumPag, int vCantRegxPag);
         IEnumerable<V_Sgpad_Componente> ListarT_Sgpad_Componente_Eum(int vId_Eum);
+        IEnumerable<V_Sgpad_ComponenteUbicacion> ListarPorIdEumT_Sgpad_Componente_Eum(int vId_Eum);
     }
 }

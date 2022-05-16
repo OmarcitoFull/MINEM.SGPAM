@@ -24,7 +24,9 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         private readonly IT_Sgpad_Comp_ObservacionLN ObservacionLN;
         //private readonly IT_Sgpal_RegionLN RegionLN;
         //private readonly IT_Sgpal_ProvinciaLN ProvinciaLN;
-        private readonly IT_Sgpal_DistritoLN DistritoLN;
+        //private readonly IT_Sgpal_DistritoLN DistritoLN;
+        private readonly IT_Genl_Ubigeo_IneiLN UbigeoLN; 
+
         private readonly IT_Sgpad_Comp_MedicionLN Comp_MedicionLN;
         private readonly IT_Sgpad_Comp_Info_GraficaLN Comp_Info_GraficaLN;
         private readonly IT_Sgpad_Comp_ComentarioLN Comp_ComentarioLN;
@@ -50,9 +52,10 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             IT_Sgpal_Sub_Tipo_PamLN vIT_Sgpal_Sub_Tipo_PamLN,
             IT_Sgpah_Componente_ModLN vIT_Sgpah_Componente_ModLN,
             IT_Sgpad_Comp_ObservacionLN vIT_Sgpad_Comp_ObservacionLN,
-            IT_Sgpal_RegionLN vIT_Sgpal_RegionLN,
-            IT_Sgpal_ProvinciaLN vIT_Sgpal_ProvinciaLN,
-            IT_Sgpal_DistritoLN vIT_Sgpal_DistritoLN,
+            //IT_Sgpal_RegionLN vIT_Sgpal_RegionLN,
+            //IT_Sgpal_ProvinciaLN vIT_Sgpal_ProvinciaLN,
+            //IT_Sgpal_DistritoLN vIT_Sgpal_DistritoLN,
+            IT_Genl_Ubigeo_IneiLN vIT_Genl_Ubigeo_IneiLN,
             IT_Sgpad_Comp_MedicionLN vIT_Sgpad_Comp_MedicionLN,
             IT_Sgpad_Comp_Info_GraficaLN vIT_Sgpad_Comp_Info_GraficaLN,
             IT_Sgpad_Comp_ComentarioLN vIT_Sgpad_Comp_ComentarioLN,
@@ -81,7 +84,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             ObservacionLN = vIT_Sgpad_Comp_ObservacionLN;
             //RegionLN = vIT_Sgpal_RegionLN;
             //ProvinciaLN = vIT_Sgpal_ProvinciaLN;
-            DistritoLN = vIT_Sgpal_DistritoLN;
+            UbigeoLN = vIT_Genl_Ubigeo_IneiLN;
+
             Comp_MedicionLN = vIT_Sgpad_Comp_MedicionLN;
             Comp_Info_GraficaLN = vIT_Sgpad_Comp_Info_GraficaLN;
             Comp_ComentarioLN = vIT_Sgpad_Comp_ComentarioLN;
@@ -378,7 +382,9 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         Componente = RecuperarComponenteDTOPorCodigo(vId_Componente),
                         CboTipo = Tipo_PamLN.ListarTipo_PamDTO().ToList(),
                         CboSubTipo = Sub_Tipo_PamLN.ListarSub_Tipo_PamDTO().ToList(),
-                        CboUbigeo = DistritoLN.ListarUbigeoDTO().ToList(),
+                        //CboUbigeo = DistritoLN.ListarUbigeoDTO().ToList(),
+                        CboUbigeo = UbigeoLN.ListarUbigeoDTO().ToList(),
+
                         CboParticula = Tamano_ParticulaLN.ListarTamano_ParticulaDTO().ToList(),
                         CboHumedad = HumedadLN.ListarHumedadDTO().ToList(),
                         CboConcesion = Tipo_ConcesionLN.ListarTipo_ConcesionDTO().ToList(),
@@ -403,14 +409,13 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         ListaResultados = ResultadoLN.ListarComp_ResultadoDTO(vId_Componente).ToList(),
                         ListaEstudioAmbientales = Comp_Est_AmbLN.ListarComp_Est_AmbDTO(vId_Componente).ToList(),
 
-
                         ListaDerechosMineros = ExternosLN.Listar_DerechosMineros(vId_Componente),
                         ListaSituacionPrincipalesProducto = ExternosLN.Listar_SituacionPrincipalesProductos(vId_Componente),
                         ListaTitularesReferencialesDerechos = ExternosLN.Listar_TitularesReferencialesDerechos(vId_Componente),
                         ListaReinfoDerechosMineros = ExternosLN.Listar_ReinfoDerechosMineros(vId_Componente),
 
-
                         CboCuenca = ExternosLN.Listar_Cuenca(vId_Componente)
+                        
                         //ListaDerechosMineros = ExternosLN.Listar_DerechosMineros(new ComponenteDTO
                         //{
                         //    Id_Zona = 18,
@@ -452,6 +457,34 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                                       SubTipo = vTmp.SUBTIPO,
                                       Tipo = vTmp.TIPO,
                                       Zona = vTmp.ZONA
+                                  }).ToList();
+                return vResultado;
+            }
+            catch (Exception ex)
+            {
+                //Log.Error(ex.Message, ex);
+                throw;
+            }
+        }
+
+        public IEnumerable<ComponenteMinDTO> ListarPorIdEum_ComponenteDTO(int vId_Eum)
+        {
+            try
+            {
+                var vResultado = (from vTmp in ComponenteAD.ListarPorIdEumT_Sgpad_Componente_Eum(vId_Eum)
+                                  select new ComponenteMinDTO
+                                  {
+                                      Id_Componente = vTmp.ID_COMPONENTE,
+                                      Ubigeo = vTmp.UBIGEO,
+                                      Departamento = vTmp.DEPARTAMENTO,
+                                      Provincia = vTmp.PROVINCIA,
+                                      Distrito = vTmp.DISTRITO,
+                                      Nombre = vTmp.NOMBRE,
+                                      Id_Cuenca = vTmp.ID_CUENCA,
+                                      Id_Cuenca_Hidro = vTmp.ID_CUENCA_HIDRO,
+                                      Cuenca_Principal = vTmp.CUENCA_PRINCIPAL,
+                                      Uni_Hidrografica = vTmp.UNI_HIDROGRAFICA,
+                                      Flg_Estado = vTmp.FLG_ESTADO
                                   }).ToList();
                 return vResultado;
             }

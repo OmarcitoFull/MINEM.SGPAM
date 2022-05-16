@@ -14,6 +14,8 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
         public List<RegionDTO> ListaRegion { get; set; }
         public List<ProvinciaDTO> ListaProvincia { get; set; }
         public List<DistritoDTO> ListaDistrito { get; set; }
+        public List<Ubigeo_IneiDTO> ListaUbigeo { get; set; }
+        public Ubigeo_IneiDTO Ubigeo { get; set; }
 
     }
 }
