@@ -227,11 +227,11 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             try
             {
                 if (vFiltro == null)
-                    vFiltro = "0";
+                    vFiltro = "";
                 else
                 {
                     if (vFiltro.Trim().Length == 0)
-                        vFiltro = "0";
+                        vFiltro = "";
                 }
 
                 IEnumerable<T_Sgpam_Maestra> vResultado = MaestraAD.ListarPaginadoT_Sgpam_Maestra(vFiltro, vUbigeo, vNumPag, vCantRegxPag);

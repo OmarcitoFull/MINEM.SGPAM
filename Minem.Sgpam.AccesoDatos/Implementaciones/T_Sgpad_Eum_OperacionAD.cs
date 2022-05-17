@@ -108,7 +108,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             return vT_Sgpad_Eum_Operacion;
         }
 
-        public int AnularT_Sgpad_Eum_OperacionPorCodigo(int vId_Eum_Operacion)
+        public int AnularT_Sgpad_Eum_OperacionPorCodigo(T_Sgpad_Eum_Operacion vT_Sgpad_Eum_Operacion)
         {
             int vResultado = 0;
             using (OracleConnection vCnn = new OracleConnection(CnnString))
@@ -116,10 +116,14 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_EUM_OPERACION.USP_DEL_EUM_OPERACION", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pID_EUM_OPERACION", vId_Eum_Operacion);
+                    vCmd.Parameters.Add("pID_EUM_OPERACION", vT_Sgpad_Eum_Operacion.ID_EUM_OPERACION);
+                    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Eum_Operacion.USU_MODIFICA);
+                    vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Eum_Operacion.FEC_MODIFICA);
+                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Eum_Operacion.IP_MODIFICA);
                     vCnn.Open();
                     vResultado = vCmd.ExecuteNonQuery();
                     vCnn.Close();
+                    vResultado = (vResultado == -1) ? vResultado * -1 : vResultado;
                 }
             }
             return vResultado;

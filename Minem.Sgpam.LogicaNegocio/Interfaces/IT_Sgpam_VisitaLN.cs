@@ -16,6 +16,7 @@ namespace Minem.Sgpam.LogicaNegocio.Interfaces
         VisitaDTO InsertarVisitaDTO(VisitaDTO vVisitaDTO);
         VisitaDTO ActualizarVisitaDTO(VisitaDTO vVisitaDTO);
         int AnularVisitaDTOPorCodigo(VisitaDTO vVisitaDTO);
-        IEnumerable<VisitaDTO> ListarPaginadoVisitaDTO(string vFiltro, int vNumPag, int vCantRegxPag);
+        IEnumerable<VisitaDTO> ListarPaginadoVisitaDTO(string vFiltro, string vNroExpediente, int vTipo, int vCantAnios, int vNumPag, int vCantRegxPag);
+        RegistrarVisitaDTO RecuperarFullVisitaDTOPorCodigo(int vId_Visita);
     }
 }

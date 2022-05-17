@@ -86,7 +86,29 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         {
             try
             {
-                return Eum_OperacionAD.AnularT_Sgpad_Eum_OperacionPorCodigo(0);
+                if (vEum_OperacionDTO != null)
+                {
+                    var vRegistro = new T_Sgpad_Eum_Operacion
+                    {
+                        FEC_MODIFICA = vEum_OperacionDTO.Fec_Modifica,
+                        FLG_ESTADO = vEum_OperacionDTO.Flg_Estado,
+                        ID_EUM_OPERACION = vEum_OperacionDTO.Id_Eum_Operacion,
+                        IP_MODIFICA = vEum_OperacionDTO.Ip_Modifica,
+                        USU_MODIFICA = vEum_OperacionDTO.Usu_Modifica
+                    };
+                    if (vEum_OperacionDTO.Id_Eum_Operacion == 0)
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        var vResultado = Eum_OperacionAD.AnularT_Sgpad_Eum_OperacionPorCodigo(vRegistro);
+                        return vResultado;
+                    }
+                }
+                return 0;
+
+
             }
             catch (Exception ex)
             {

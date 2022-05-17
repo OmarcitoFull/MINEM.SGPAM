@@ -15,6 +15,6 @@ namespace Minem.Sgpam.AccesoDatos.Interfaces
         T_Sgpam_Visita InsertarT_Sgpam_Visita(T_Sgpam_Visita vT_Sgpam_Visita);
         T_Sgpam_Visita ActualizarT_Sgpam_Visita(T_Sgpam_Visita vT_Sgpam_Visita);
         int AnularT_Sgpam_VisitaPorCodigo(int vId_Visita);
-        IEnumerable<T_Sgpam_Visita> ListarPaginadoT_Sgpam_Visita(string vFiltro, int vNumPag, int vCantRegxPag);
+        IEnumerable<T_Sgpam_Visita> ListarPaginadoT_Sgpam_Visita(string vFiltro, string vNroExpediente, int vTipo, int vCantAnios, int vNumPag, int vCantRegxPag);
     }
 }

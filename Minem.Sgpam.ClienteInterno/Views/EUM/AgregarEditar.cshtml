@@ -181,16 +181,16 @@
     <div class="rowGroup">
         <h1 class="grupoT">5. Tipo de operación y sustancia</h1>
         @*<div class="col-md-6 col-sm-12 col-xs-12 form-group">
-            <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo operación:</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                    <select id="vId_Tipo_Operacion" class="select2_single form-control" asp-for="@Model.Eum.Id_Tipo_Operacion" asp-items="(List<SelectListItem>)ViewBag.CboTipoOperacion">
-                        <option value="">Seleccione</option>
-                    </select>
-                    <input type="hidden" asp-for="@Model.Eum.Id_Tipo_Operacion" />
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo operación:</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <select id="vId_Tipo_Operacion" class="select2_single form-control" asp-for="@Model.Eum.Id_Tipo_Operacion" asp-items="(List<SelectListItem>)ViewBag.CboTipoOperacion">
+                            <option value="">Seleccione</option>
+                        </select>
+                        <input type="hidden" asp-for="@Model.Eum.Id_Tipo_Operacion" />
+                    </div>
                 </div>
-            </div>
-        </div>*@
+            </div>*@
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <table class="table table-striped jambo_table bulk_action">
                 <thead>
@@ -214,11 +214,11 @@
                             <tr class="even pointer">
                                 <td class=" ">@item.Id_Eum_Operacion</td>
                                 <td class=" ">@item.Tipo_Operacion</td>
-                                <td style="width:70px">
+                                <td style="width:60px">
                                     <ul class="nav navbar-center panel_toolbox">
                                         <li>
                                             <div class="boton2">
-                                                <a href="#"> <i class="fa fa-trash-o "></i></a>
+                                                <a asp-action="EliminarEumOperacion" asp-route-vId="@item.Id_Eum_Operacion" onClick="Confirm('Seguro de eliminar')" title="Eliminar Registro"><i class="fa fa-trash-o "></i></a>
                                             </div>
                                         </li>
                                     </ul>
@@ -239,7 +239,7 @@
                         @if (@Model.Eum.Id_Eum != 0)
                         {
                             <div class="boton">
-                                <a href="#" data-toggle="modal" data-target="#modal8" onclick="ShowModal('@Url.Action("CrearInfoGrafica", "Eum")', 'fullInfoGrafica')">Add. Tipo Operación  <i class="fa fa-plus"></i></a>
+                                <a href="#" data-toggle="modal" data-target="#modal5" onclick="ShowModal('@Url.Action("CrearTipoOperacion", "Eum")', 'fullTipoOperacion')">Add. Tipo Operación  <i class="fa fa-plus"></i></a>
                             </div>
                         }
                     </li>
@@ -263,726 +263,728 @@
     </div>
 
 
-        <div class="rowGroup">
-            <h1 class="grupoT">6. Ambiente Circulante</h1>
-            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                <div class="form-group">
-                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Relieve:</label>
-                    <div class="col-md-8 col-sm-8 col-xs-12">
-                        <input asp-for="@Model.Eum.Relieve" class="form-control" maxlength="300" />
-                    </div>
+    <div class="rowGroup">
+        <h1 class="grupoT">6. Ambiente Circulante</h1>
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Relieve:</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <input asp-for="@Model.Eum.Relieve" class="form-control" maxlength="300" />
                 </div>
             </div>
-            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                <div class="form-group">
-                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Cuerpos de agua:</label>
-                    <div class="col-md-8 col-sm-8 col-xs-12">
-                        <input asp-for="@Model.Eum.Cuerpos_Agua" class="form-control" maxlength="100" />
-                    </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Cuerpos de agua:</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <input asp-for="@Model.Eum.Cuerpos_Agua" class="form-control" maxlength="100" />
                 </div>
             </div>
-            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                <div class="form-group">
-                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Conflicto social:</label>
-                    <div class="col-md-8 col-sm-8 col-xs-12">
-                        <select id="vId_Conflicto_Social" class="select2_single form-control" asp-for="@Model.Eum.Id_Conflicto_Social" asp-items="(List<SelectListItem>)ViewBag.CboConflictoSocial">
-                            <option value="">Seleccione</option>
-                        </select>
-                        <input type="hidden" asp-for="@Model.Eum.Id_Conflicto_Social" />
-                    </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Conflicto social:</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <select id="vId_Conflicto_Social" class="select2_single form-control" asp-for="@Model.Eum.Id_Conflicto_Social" asp-items="(List<SelectListItem>)ViewBag.CboConflictoSocial">
+                        <option value="">Seleccione</option>
+                    </select>
+                    <input type="hidden" asp-for="@Model.Eum.Id_Conflicto_Social" />
                 </div>
             </div>
+        </div>
 
-            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                <div class="form-group">
-                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Flora Terr.:</label>
-                    <div class="col-md-8 col-sm-8 col-xs-12">
-                        <input asp-for="@Model.Eum.Flora_Terrestre" class="form-control" maxlength="300" />
-                    </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Flora Terr.:</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <input asp-for="@Model.Eum.Flora_Terrestre" class="form-control" maxlength="300" />
                 </div>
             </div>
-            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                <div class="form-group">
-                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Fauna Terr.:</label>
-                    <div class="col-md-8 col-sm-8 col-xs-12">
-                        <input asp-for="@Model.Eum.Fauna_Terreste" class="form-control" maxlength="300"/>
-                    </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Fauna Terr.:</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <input asp-for="@Model.Eum.Fauna_Terreste" class="form-control" maxlength="300" />
                 </div>
             </div>
-            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                <div class="form-group">
-                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Flora y Fauna Acuat.:</label>
-                    <div class="col-md-8 col-sm-8 col-xs-12">
-                        <input asp-for="@Model.Eum.Flora_Fauna_Acuatica" class="form-control" maxlength="300"/>
-                    </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Flora y Fauna Acuat.:</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <input asp-for="@Model.Eum.Flora_Fauna_Acuatica" class="form-control" maxlength="300" />
                 </div>
             </div>
+        </div>
 
-            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                <div class="form-group">
-                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Infraestructura urbana:</label>
-                    <div class="col-md-8 col-sm-8 col-xs-12">
-                        <input asp-for="@Model.Eum.Infra_Urbana" class="form-control" maxlength="300" />
-                    </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Infraestructura urbana:</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <input asp-for="@Model.Eum.Infra_Urbana" class="form-control" maxlength="300" />
                 </div>
             </div>
-            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                <div class="form-group">
-                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Usos de Suelo:</label>
-                    <div class="col-md-8 col-sm-8 col-xs-12">
-                        <input asp-for="@Model.Eum.Uso_Suelo" class="form-control" maxlength="100" />
-                    </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Usos de Suelo:</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <input asp-for="@Model.Eum.Uso_Suelo" class="form-control" maxlength="100" />
                 </div>
             </div>
-            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                <div class="form-group">
-                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Usos de Agua:</label>
-                    <div class="col-md-8 col-sm-8 col-xs-12">
-                        <input asp-for="@Model.Eum.Uso_Agua" class="form-control" maxlength="300" />
-                    </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Usos de Agua:</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <input asp-for="@Model.Eum.Uso_Agua" class="form-control" maxlength="300" />
                 </div>
             </div>
+        </div>
 
-            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Áreas de conservación:</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input asp-for="@Model.Eum.Area_Conservacion" class="form-control" maxlength="300" />
-                    </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Áreas de conservación:</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input asp-for="@Model.Eum.Area_Conservacion" class="form-control" maxlength="300" />
                 </div>
             </div>
+        </div>
 
-            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Sitios Arq. o Turist.:</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input asp-for="@Model.Eum.Sitio_Arque_Turistico" class="form-control" maxlength="300" />
-                    </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Sitios Arq. o Turist.:</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input asp-for="@Model.Eum.Sitio_Arque_Turistico" class="form-control" maxlength="300" />
                 </div>
             </div>
+        </div>
 
-            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Conflicto Social:</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input asp-for="@Model.Eum.Conflicto_Social" class="form-control" maxlength="300" />
-                    </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Conflicto Social:</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input asp-for="@Model.Eum.Conflicto_Social" class="form-control" maxlength="300" />
                 </div>
             </div>
+        </div>
 
+        <div class="clearfix"></div>
+    </div>
+
+
+    <div class="rowGroup">
+        <h1 class="grupoT">7. Comentarios adicional</h1>
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Descripción EUM</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input asp-for="@Model.Eum.Descripcion_Eum" class="form-control" maxlength="300" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Comentarios adicional</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <textarea asp-for="@Model.Eum.Comentario_Adi" class="form-controlArea  has-feedback-left" rows="3" placeholder="" maxlength="500"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+
+
+    <div class="rowGroup">
+        <h1 class="grupoT">8. Información Gráfica</h1>
+        <div class="x_titleGroup">
+
+            <div align="center" class="titulo-m">
+            </div>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    @if (@Model.Eum.Id_Eum != 0)
+                    {
+                        <div class="boton">
+                            <a href="#" data-toggle="modal" data-target="#modal8" onclick="ShowModal('@Url.Action("CrearInfoGrafica", "Eum")', 'fullInfoGrafica')">Agregar  <i class="fa fa-plus"></i></a>
+                        </div>
+                    }
+                </li>
+            </ul>
             <div class="clearfix"></div>
         </div>
 
-
-        <div class="rowGroup">
-            <h1 class="grupoT">7. Comentarios adicional</h1>
-            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Descripción EUM</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input asp-for="@Model.Eum.Descripcion_Eum" class="form-control" maxlength="300" />
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Comentarios adicional</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <textarea asp-for="@Model.Eum.Comentario_Adi" class="form-controlArea  has-feedback-left" rows="3" placeholder="" maxlength="500"></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <div class="clearfix"></div>
-        </div>
-
-
-        <div class="rowGroup">
-            <h1 class="grupoT">8. Información Gráfica</h1>
-            <div class="x_titleGroup">
-
-                <div align="center" class="titulo-m">
-                </div>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                        @if (@Model.Eum.Id_Eum != 0)
-                        {
-                            <div class="boton">
-                                <a href="#" data-toggle="modal" data-target="#modal8" onclick="ShowModal('@Url.Action("CrearInfoGrafica", "Eum")', 'fullInfoGrafica')">Agregar  <i class="fa fa-plus"></i></a>
-                            </div>
-                        }
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-
-            <div class="table-responsive">
-                <table class="table table-striped jambo_table bulk_action">
-                    <thead>
-                        <tr class="headings">
-                            <th class="column-title">Fotografia </th>
-                            <th class="column-title">Fecha Toma </th>
-                            <th class="column-title">Tamaño </th>
-                            <th class="column-title">Descripción </th>
-                            <th class="column-title no-link last"><span class="nobr">Opciones</span></th>
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Fotografia </th>
+                        <th class="column-title">Fecha Toma </th>
+                        <th class="column-title">Tamaño </th>
+                        <th class="column-title">Descripción </th>
+                        <th class="column-title no-link last"><span class="nobr">Opciones</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.ListaInformacionGrafica.Any())
+                    {
+                        <tr class="even pointer">
+                            <td class=" " colspan="5">No existen registros</td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @if (!Model.ListaInformacionGrafica.Any())
+                    }
+                    else
+                    {
+                        foreach (var item in Model.ListaInformacionGrafica)
                         {
                             <tr class="even pointer">
-                                <td class=" " colspan="5">No existen registros</td>
+                                <td class=" ">@item.Nombre_Imagen</td>
+                                <td class=" ">@item.Fecha_Toma</td>
+                                <td class=" ">@item.Tamano</td>
+                                <td class=" ">@item.Descripcion</td>
+                                <td class=" ">
+                                    <ul class="nav navbar-left panel_toolbox">
+                                        <li>
+                                            <div class="boton2">
+                                                <a href="#"> <i class="fa fa-arrow-down"></i></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="boton2">
+                                                <a href="#"> <i class="fa fa-trash-o "></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </td>
                             </tr>
                         }
-                        else
-                        {
-                            foreach (var item in Model.ListaInformacionGrafica)
-                            {
-                                <tr class="even pointer">
-                                    <td class=" ">@item.Nombre_Imagen</td>
-                                    <td class=" ">@item.Fecha_Toma</td>
-                                    <td class=" ">@item.Tamano</td>
-                                    <td class=" ">@item.Descripcion</td>
-                                    <td class=" ">
-                                        <ul class="nav navbar-left panel_toolbox">
-                                            <li>
-                                                <div class="boton2">
-                                                    <a href="#"> <i class="fa fa-arrow-down"></i></a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="boton2">
-                                                    <a href="#"> <i class="fa fa-trash-o "></i></a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                            }
-                        }
-                    </tbody>
-                </table>
-            </div>
-
+                    }
+                </tbody>
+            </table>
         </div>
 
+    </div>
 
-        <div class="rowGroup">
-            <h1 class="grupoT">9. Derechos Mineros</h1>
-            <div class="table-responsive">
-                <table class="table table-striped jambo_table bulk_action">
-                    <thead>
-                        <tr class="headings">
-                            <th class="column-title">Codigo </th>
-                            <th class="column-title">Nombre </th>
-                            <th class="column-title">UEA</th>
-                            <th class="column-title">Tipo</th>
-                            <th class="column-title">Sustancia</th>
-                            <th class="column-title">Situación</th>
-                            <th class="column-title">Estado</th>
-                            <th class="column-title">Resolución que otrorga</th>
+
+    <div class="rowGroup">
+        <h1 class="grupoT">9. Derechos Mineros</h1>
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                    <tr class="headings">
+                        @*<th class="column-title">Componente</th>*@
+                        <th class="column-title">Codigo </th>
+                        <th class="column-title">Nombre </th>
+                        <th class="column-title">UEA</th>
+                        <th class="column-title">Tipo</th>
+                        <th class="column-title">Sustancia</th>
+                        <th class="column-title">Situación</th>
+                        <th class="column-title">Estado</th>
+                        @*<th class="column-title">Resolución que otrorga</th>
                             <th class="column-title">Fecha RO</th>
                             <th class="column-title">Resolución de caducidad</th>
-                            <th class="column-title">Fecha RCv</th>
+                            <th class="column-title">Fecha RCv</th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.ListaDerechosMineros.Any())
+                    {
+                        <tr class="even pointer">
+                            <td class=" " colspan="7">No existen registros</td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @if (!Model.ListaDerechosMineros.Any())
+                    }
+                    else
+                    {
+                        foreach (var item in Model.ListaDerechosMineros)
                         {
                             <tr class="even pointer">
-                                <td class=" " colspan="11">No existen registros</td>
-                            </tr>
-                        }
-                        else
-                        {
-                            foreach (var item in Model.ListaDerechosMineros)
-                            {
-                                <tr class="even pointer">
-                                    <td class=" ">@item.Codigo_Dm</td>
-                                    <td class=" ">@item.Descripcion_Dm</td>
-                                    <td class=" ">@item.Uea</td>
-                                    <td class=" ">@item.Des_Tipo</td>
-                                    <td class=" ">@item.Des_Sustancia</td>
-                                    <td class=" ">@item.Des_Situacion</td>
-                                    <td class=" ">@item.Des_Estado</td>
+                                @*<td class=" ">@item.Nombre_Comp</td>*@
+                                <td class=" ">@item.Codigo_Dm</td>
+                                <td class=" ">@item.Descripcion_Dm</td>
+                                <td class=" ">@item.Uea</td>
+                                <td class=" ">@item.Des_Tipo</td>
+                                <td class=" ">@item.Des_Sustancia</td>
+                                <td class=" ">@item.Des_Situacion</td>
+                                <td class=" ">@item.Des_Estado</td>
+                                @*<td class=" "></td>
                                     <td class=" "></td>
                                     <td class=" "></td>
-                                    <td class=" "></td>
-                                    <td class=" "></td>
-                                </tr>
-                            }
-                        }
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <div class="clearfix"></div>
-        </div>
-
-
-        <div class="rowGroup">
-            <h1 class="grupoT">10. Situación y Principios Productos</h1>
-            <div class="table-responsive">
-                <table class="table table-striped jambo_table bulk_action">
-                    <thead>
-                        <tr class="headings">
-                            <th class="column-title">Año </th>
-                            <th class="column-title">Nombre Derecho Minero o UEA </th>
-                            <th class="column-title">Situación</th>
-                            <th class="column-title">Tipo Concentrado</th>
-                            <th class="column-title">Cantidad (TM)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (!Model.ListaSituacionPrincipalesProducto.Any())
-                        {
-                            <tr class="even pointer">
-                                <td class=" " colspan="5">No existen registros</td>
+                                    <td class=" "></td>*@
                             </tr>
                         }
-                        else
-                        {
-                            foreach (var item in Model.ListaSituacionPrincipalesProducto)
-                            {
-                                <tr class="even pointer">
-                                    <td class=" ">@item.Anio</td>
-                                    <td class=" ">@item.Nombre_Dm</td>
-                                    <td class=" ">@item.Situacion_Up</td>
-                                    <td class=" ">@item.Tipo_Concentrado</td>
-                                    <td class=" ">@item.Cantidad</td>
-                                </tr>
-                            }
-                        }
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <div class="clearfix"></div>
+                    }
+                </tbody>
+            </table>
         </div>
 
+        <div class="clearfix"></div>
 
-        <div class="rowGroup">
-            <h1 class="grupoT">11. Titulares Referenciales</h1>
-            <div class="table-responsive">
-                <table class="table table-striped jambo_table bulk_action">
-                    <thead>
-                        <tr class="headings">
-                            <th class="column-title">Titular </th>
-                            <th class="column-title">Nombre Derecho Minero </th>
-                            <th class="column-title">Fecha Inicio</th>
-                            <th class="column-title">Fecha Fin</th>
-                            <th class="column-title">Estado</th>
+        <div class="clearfix"></div>
+    </div>
 
+
+    <div class="rowGroup">
+        <h1 class="grupoT">10. Situación y Principios Productos</h1>
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Año </th>
+                        <th class="column-title">Nombre Derecho Minero o UEA </th>
+                        <th class="column-title">Situación</th>
+                        <th class="column-title">Tipo Concentrado</th>
+                        <th class="column-title">Cantidad (TM)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.ListaSituacionPrincipalesProducto.Any())
+                    {
+                        <tr class="even pointer">
+                            <td class=" " colspan="5">No existen registros</td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @if (!Model.ListaTitularesReferencialesDerechos.Any())
+                    }
+                    else
+                    {
+                        foreach (var item in Model.ListaSituacionPrincipalesProducto)
                         {
                             <tr class="even pointer">
-                                <td class=" " colspan="5">No existen registros</td>
+                                <td class=" ">@item.Anio</td>
+                                <td class=" ">@item.Nombre_Dm</td>
+                                <td class=" ">@item.Situacion_Up</td>
+                                <td class=" ">@item.Tipo_Concentrado</td>
+                                <td class=" ">@item.Cantidad</td>
                             </tr>
                         }
-                        else
-                        {
-                            foreach (var item in Model.ListaTitularesReferencialesDerechos)
-                            {
-                                <tr class="even pointer">
-                                    <td class=" ">@item.Titular</td>
-                                    <td class=" ">@item.Nombre_Dm</td>
-                                    <td class=" ">@item.Fecha_Inicio</td>
-                                    <td class=" ">@item.Fecha_Fin</td>
-                                    <td class=" ">@item.Id_Estado</td>
-                                </tr>
-                            }
-                        }
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <div class="clearfix"></div>
+                    }
+                </tbody>
+            </table>
         </div>
 
+        <div class="clearfix"></div>
 
-        <div class="rowGroup">
-            <h1 class="grupoT">12. Descargos de Responsabilidad</h1>
-            <div class="x_titleGroup">
+        <div class="clearfix"></div>
+    </div>
 
-                <div align="center" class="titulo-m">
-                </div>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                        @if (@Model.Eum.Id_Eum != 0)
-                        {
-                            <div class="boton">
-                                <a href="#" data-toggle="modal" data-target="#modal12" onclick="ShowModal('@Url.Action("CrearInfoDescargo", "Eum")', 'fullInfoDescargo')">Agregar  <i class="fa fa-plus"></i></a>
-                            </div>
-                        }
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
 
-            <div class="table-responsive">
-                <table class="table table-striped jambo_table bulk_action">
-                    <thead>
-                        <tr class="headings">
-                            <th class="column-title">Fecha </th>
-                            <th class="column-title">Titular </th>
-                            <th class="column-title">Declaración de Responsabilidad</th>
-                            <th class="column-title">Asunto</th>
-                            <th class="column-title">Archivo</th>
+    <div class="rowGroup">
+        <h1 class="grupoT">11. Titulares Referenciales</h1>
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Titular </th>
+                        <th class="column-title">Nombre Derecho Minero </th>
+                        <th class="column-title">Fecha Inicio</th>
+                        <th class="column-title">Fecha Fin</th>
+                        <th class="column-title">Estado</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.ListaTitularesReferencialesDerechos.Any())
+                    {
+                        <tr class="even pointer">
+                            <td class=" " colspan="5">No existen registros</td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @if (!Model.ListaInformacionDescargo.Any())
+                    }
+                    else
+                    {
+                        foreach (var item in Model.ListaTitularesReferencialesDerechos)
                         {
                             <tr class="even pointer">
-                                <td class=" " colspan="5">No existen registros</td>
+                                <td class=" ">@item.Titular</td>
+                                <td class=" ">@item.Nombre_Dm</td>
+                                <td class=" ">@item.Fecha_Inicio</td>
+                                <td class=" ">@item.Fecha_Fin</td>
+                                <td class=" ">@item.Estado</td>
                             </tr>
                         }
-                        else
-                        {
-                            foreach (var item in Model.ListaInformacionDescargo)
-                            {
-                                <tr class="even pointer">
-                                    <td class=" ">@item.Fecha_Descargo</td>
-                                    <td class=" ">@item.Titular</td>
-                                    <td class=" ">@item.Declaracion</td>
-                                    <td class=" ">@item.Asunto</td>
-                                    <td class=" ">
-                                        <ul class="nav navbar-left panel_toolbox">
-                                            <li>
-                                                <div class="boton2">
-                                                    <a href="#"> <i class="fa fa-arrow-down"></i></a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="boton2">
-                                                    <a href="#"> <i class="fa fa-trash-o "></i></a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                            }
-                        }
-                    </tbody>
-                    @*<td class=" "><a href="#" class="enlace">Dec_01.pdf</a></td>*@
-                </table>
-            </div>
-
-            <div class="clearfix"></div>
+                    }
+                </tbody>
+            </table>
         </div>
 
+        <div class="clearfix"></div>
 
-        <div class="rowGroup">
-            <h1 class="grupoT">13. Informes</h1>
-            <div class="table-responsive">
-                <table class="table table-striped jambo_table bulk_action">
-                    <thead>
-                        <tr class="headings">
-                            <th class="column-title">Nro de Informe</th>
-                            <th class="column-title">Descripción </th>
-                            <th class="column-title">Nro Expediente</th>
-                            <th class="column-title">Archivo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (!Model.ListaInforme.Any())
-                        {
-                            <tr class="even pointer">
-                                <td class=" " colspan="4">No existen registros</td>
-                            </tr>
-                        }
-                        else
-                        {
-                            foreach (var item in Model.ListaInforme)
-                            {
-                                <tr class="even pointer">
-                                    <td class=" ">@item.Nro_Informe</td>
-                                    <td class=" ">@item.Descripcion</td>
-                                    <td class=" ">@item.Nro_Expediente</td>
-                                    <td class=" ">
-                                        <ul class="nav navbar-left panel_toolbox">
-                                            <li>
-                                                <div class="boton2">
-                                                    <a href="#"> <i class="fa fa-arrow-down"></i></a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="boton2">
-                                                    <a href="#"> <i class="fa fa-trash-o "></i></a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                            }
-                        }
-                    </tbody>
-                    @*<td class=" "><a href="#" class="enlace">Dec_01.pdf</a></td>*@
-                </table>
+        <div class="clearfix"></div>
+    </div>
+
+
+    <div class="rowGroup">
+        <h1 class="grupoT">12. Descargos de Responsabilidad</h1>
+        <div class="x_titleGroup">
+
+            <div align="center" class="titulo-m">
             </div>
-
-            <div class="clearfix"></div>
-        </div>
-
-
-        <div class="rowGroup">
-            <h1 class="grupoT">13. Componentes Activos</h1>
-            <!-- titulo -->
-            <div class="x_titleGroup">
-                <div align="center" class="titulo-m">
-                </div>
-                <div class="col-md-8 col-sm-12 col-xs-12 form-group">
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de componente</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                            <select class="select2_single form-control" id="cboTipoComponente">
-                                <option></option>
-                                <option value="1" selected>LABOR MINERA</option>
-                                <option value="2">RESIDUO MINERO</option>
-                                <option value="3">OTRO RESIDUO</option>
-                                <option value="4">INFRAESTRUCTURA</option>
-                                <option value="5">SUSTANCIA QUIMICA</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                        @if (@Model.Eum.Id_Eum != 0)
-                        {
-                            <div class="boton">
-                                <a href="#" onclick="FullNewComponent()">Agregar  <i class="fa fa-plus"></i></a>
-                            </div>
-                        }
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <!-- fin titulo  -->
-            <div class="table-responsive">
-                <table class="table table-striped jambo_table bulk_action">
-                    <thead>
-                        <tr class="headings">
-                            <th class="column-title">ID Componente </th>
-                            <th class="column-title">Nombre Componente </th>
-                            <th class="column-title">Tipo</th>
-                            <th class="column-title">Sub Tipo</th>
-                            <th class="column-title">Este</th>
-                            <th class="column-title">Norte</th>
-                            <th class="column-title">Zona</th>
-                            <th class="column-title">Datum</th>
-                            <th class="column-title">Responsable</th>
-                            <th class="column-title">Riesgo</th>
-                            <th class="column-title">Puntaje</th>
-                            <th class="column-title">Opciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (!Model.ListaComponenteActivo.Any())
-                        {
-                            <tr class="even pointer">
-                                <td class=" " colspan="12">
-                                    No existe registros
-                                </td>
-                            </tr>
-                        }
-                        else
-                        {
-                            foreach (var item in Model.ListaComponenteActivo)
-                            {
-                                <tr class="odd pointer">
-                                    <td class=" ">
-                                        @item.Id_Componente.ToString("D9")
-                                    </td>
-                                    <td class=" ">
-                                        @item.Nombre
-                                    </td>
-                                    <td class=" ">
-                                        @item.Tipo
-                                    </td>
-                                    <td class=" ">
-                                        @item.SubTipo
-                                    </td>
-                                    <td class=" ">
-                                        @item.Este
-                                    </td>
-                                    <td class=" ">
-                                        @item.Norte
-                                    </td>
-                                    <td class=" ">
-                                        @item.Zona
-                                    </td>
-                                    <td class=" ">
-                                        @item.Datum
-                                    </td>
-                                    <td class=" ">
-                                        @item.Responsable
-                                    </td>
-                                    <td class=" ">
-                                        @item.Riesgo
-                                    </td>
-                                    <td class=" ">
-                                        @item.Puntaje
-                                    </td>
-                                    <td class=" ">
-                                        @switch (item.Tipo.ToUpper())
-                                        {
-                                            case "LABOR MINERA":
-                                                <div class="boton2"><a href="@Url.Action("LaborMinera", "RegistrarPAM", new { vId = item.Id_Componente })"> <i class="fa fa-edit "></i></a></div>
-                                                break;
-                                            case "RESIDUO MINERO":
-                                                <div class="boton2"><a href="@Url.Action("ResiduoMinero", "RegistrarPAM", new { vId = item.Id_Componente })"> <i class="fa fa-edit "></i></a></div>
-                                                break;
-                                            case "OTRO RESIDUO":
-                                                <div class="boton2"><a href="@Url.Action("OtrosResiduos", "RegistrarPAM", new { vId = item.Id_Componente })"> <i class="fa fa-edit "></i></a></div>
-                                                break;
-                                            case "INFRAESTRUCTURA":
-                                                <div class="boton2"><a href="@Url.Action("Infraestructura", "RegistrarPAM", new { vId = item.Id_Componente })"> <i class="fa fa-edit "></i></a></div>
-                                                break;
-                                            case "SUSTANCIA QUIMICA":
-                                                <div class="boton2"><a href="@Url.Action("SustanciasQuimicas", "RegistrarPAM", new { vId = item.Id_Componente })"> <i class="fa fa-edit "></i></a></div>
-                                                break;
-
-                                        }
-                                        <div class="boton2">
-                                            <a href="#" onclick="FullRemoveComponent(@item.Id_Componente)">
-                                                <i class="fa fa-trash-o "></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            }
-                        }
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="clearfix"></div>
-        </div>
-
-
-        <div class="rowGroup">
-            <h1 class="grupoT">14. Componentes Inactivos</h1>
-            <div class="table-responsive">
-                <table class="table table-striped jambo_table bulk_action">
-                    <thead>
-                        <tr class="headings">
-                            <th class="column-title">Id Componente </th>
-                            <th class="column-title">Nombre componente </th>
-                            <th class="column-title">Tipo</th>
-                            <th class="column-title">Sub tipo</th>
-                            <th class="column-title">Este</th>
-                            <th class="column-title">Norte</th>
-                            <th class="column-title">Zona</th>
-                            <th class="column-title">Datum</th>
-                            <th class="column-title">Responsable</th>
-                            <th class="column-title">Riesgo</th>
-                            <th class="column-title">Puntaje</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (!Model.ListaComponenteInactivo.Any())
-                        {
-                            <tr class="even pointer">
-                                <td class=" " colspan="11">
-                                    No existe registros
-                                </td>
-                            </tr>
-                        }
-                        else
-                        {
-                            foreach (var item in Model.ListaComponenteInactivo)
-                            {
-                                <tr class="odd pointer">
-                                    <td class=" ">
-                                        @item.Id_Componente.ToString("D9")
-                                    </td>
-                                    <td class=" ">
-                                        @item.Nombre
-                                    </td>
-                                    <td class=" ">
-                                        @item.Tipo
-                                    </td>
-                                    <td class=" ">
-                                        @item.SubTipo
-                                    </td>
-                                    <td class=" ">
-                                        @item.Este
-                                    </td>
-                                    <td class=" ">
-                                        @item.Norte
-                                    </td>
-                                    <td class=" ">
-                                        @item.Zona
-                                    </td>
-                                    <td class=" ">
-                                        @item.Datum
-                                    </td>
-                                    <td class=" ">
-                                        @item.Responsable
-                                    </td>
-                                    <td class=" ">
-                                        @item.Riesgo
-                                    </td>
-                                    <td class=" ">
-                                        @item.Puntaje
-                                    </td>
-                                </tr>
-                            }
-                        }
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <div class="clearfix"></div>
-        </div>
-
-
-        <div class="x_title">
-            <div class="clearfix"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Ult. Registro</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input asp-for="@Model.Eum.Fec_Ingreso" class="form-control" disabled="disabled" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Usuario</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input asp-for="@Model.Eum.Usu_Ingreso" class="form-control" disabled="disabled" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Cargo</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input asp-for="@Model.Eum.Usu_Modifica" class="form-control" disabled="disabled" />
-                    </div>
-                </div>
-            </div>
-
             <ul class="nav navbar-right panel_toolbox">
-                @*<li>
+                <li>
+                    @if (@Model.Eum.Id_Eum != 0)
+                    {
+                        <div class="boton">
+                            <a href="#" data-toggle="modal" data-target="#modal12" onclick="ShowModal('@Url.Action("CrearInfoDescargo", "Eum")', 'fullInfoDescargo')">Agregar  <i class="fa fa-plus"></i></a>
+                        </div>
+                    }
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Fecha </th>
+                        <th class="column-title">Titular </th>
+                        <th class="column-title">Declaración de Responsabilidad</th>
+                        <th class="column-title">Asunto</th>
+                        <th class="column-title">Archivo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.ListaInformacionDescargo.Any())
+                    {
+                        <tr class="even pointer">
+                            <td class=" " colspan="5">No existen registros</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var item in Model.ListaInformacionDescargo)
+                        {
+                            <tr class="even pointer">
+                                <td class=" ">@item.Fecha_Descargo</td>
+                                <td class=" ">@item.Titular</td>
+                                <td class=" ">@item.Declaracion</td>
+                                <td class=" ">@item.Asunto</td>
+                                <td class=" ">
+                                    <ul class="nav navbar-left panel_toolbox">
+                                        <li>
+                                            <div class="boton2">
+                                                <a href="#"> <i class="fa fa-arrow-down"></i></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="boton2">
+                                                <a href="#"> <i class="fa fa-trash-o "></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+                @*<td class=" "><a href="#" class="enlace">Dec_01.pdf</a></td>*@
+            </table>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+
+
+    <div class="rowGroup">
+        <h1 class="grupoT">13. Informes</h1>
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Nro de Informe</th>
+                        <th class="column-title">Descripción </th>
+                        <th class="column-title">Nro Expediente</th>
+                        <th class="column-title">Archivo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.ListaInforme.Any())
+                    {
+                        <tr class="even pointer">
+                            <td class=" " colspan="4">No existen registros</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var item in Model.ListaInforme)
+                        {
+                            <tr class="even pointer">
+                                <td class=" ">@item.Nro_Informe</td>
+                                <td class=" ">@item.Descripcion</td>
+                                <td class=" ">@item.Nro_Expediente</td>
+                                <td class=" ">
+                                    <ul class="nav navbar-left panel_toolbox">
+                                        <li>
+                                            <div class="boton2">
+                                                <a href="#"> <i class="fa fa-arrow-down"></i></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="boton2">
+                                                <a href="#"> <i class="fa fa-trash-o "></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+                @*<td class=" "><a href="#" class="enlace">Dec_01.pdf</a></td>*@
+            </table>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+
+
+    <div class="rowGroup">
+        <h1 class="grupoT">13. Componentes Activos</h1>
+        <!-- titulo -->
+        <div class="x_titleGroup">
+            <div align="center" class="titulo-m">
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-12 form-group">
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de componente</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <select class="select2_single form-control" id="cboTipoComponente">
+                            <option></option>
+                            <option value="1" selected>LABOR MINERA</option>
+                            <option value="2">RESIDUO MINERO</option>
+                            <option value="3">OTRO RESIDUO</option>
+                            <option value="4">INFRAESTRUCTURA</option>
+                            <option value="5">SUSTANCIA QUIMICA</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    @if (@Model.Eum.Id_Eum != 0)
+                    {
+                        <div class="boton">
+                            <a href="#" onclick="FullNewComponent()">Agregar  <i class="fa fa-plus"></i></a>
+                        </div>
+                    }
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <!-- fin titulo  -->
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">ID Componente </th>
+                        <th class="column-title">Nombre Componente </th>
+                        <th class="column-title">Tipo</th>
+                        <th class="column-title">Sub Tipo</th>
+                        <th class="column-title">Este</th>
+                        <th class="column-title">Norte</th>
+                        <th class="column-title">Zona</th>
+                        <th class="column-title">Datum</th>
+                        <th class="column-title">Responsable</th>
+                        <th class="column-title">Riesgo</th>
+                        <th class="column-title">Puntaje</th>
+                        <th class="column-title">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.ListaComponenteActivo.Any())
+                    {
+                        <tr class="even pointer">
+                            <td class=" " colspan="12">
+                                No existe registros
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var item in Model.ListaComponenteActivo)
+                        {
+                            <tr class="odd pointer">
+                                <td class=" ">
+                                    @item.Id_Componente.ToString("D9")
+                                </td>
+                                <td class=" ">
+                                    @item.Nombre
+                                </td>
+                                <td class=" ">
+                                    @item.Tipo
+                                </td>
+                                <td class=" ">
+                                    @item.SubTipo
+                                </td>
+                                <td class=" ">
+                                    @item.Este
+                                </td>
+                                <td class=" ">
+                                    @item.Norte
+                                </td>
+                                <td class=" ">
+                                    @item.Zona
+                                </td>
+                                <td class=" ">
+                                    @item.Datum
+                                </td>
+                                <td class=" ">
+                                    @item.Responsable
+                                </td>
+                                <td class=" ">
+                                    @item.Riesgo
+                                </td>
+                                <td class=" ">
+                                    @item.Puntaje
+                                </td>
+                                <td class=" ">
+                                    @switch (item.Tipo.ToUpper())
+                                    {
+                                        case "LABOR MINERA":
+                                            <div class="boton2"><a href="@Url.Action("LaborMinera", "RegistrarPAM", new { vId = item.Id_Componente })"> <i class="fa fa-edit "></i></a></div>
+                                            break;
+                                        case "RESIDUO MINERO":
+                                            <div class="boton2"><a href="@Url.Action("ResiduoMinero", "RegistrarPAM", new { vId = item.Id_Componente })"> <i class="fa fa-edit "></i></a></div>
+                                            break;
+                                        case "OTRO RESIDUO":
+                                            <div class="boton2"><a href="@Url.Action("OtrosResiduos", "RegistrarPAM", new { vId = item.Id_Componente })"> <i class="fa fa-edit "></i></a></div>
+                                            break;
+                                        case "INFRAESTRUCTURA":
+                                            <div class="boton2"><a href="@Url.Action("Infraestructura", "RegistrarPAM", new { vId = item.Id_Componente })"> <i class="fa fa-edit "></i></a></div>
+                                            break;
+                                        case "SUSTANCIA QUIMICA":
+                                            <div class="boton2"><a href="@Url.Action("SustanciasQuimicas", "RegistrarPAM", new { vId = item.Id_Componente })"> <i class="fa fa-edit "></i></a></div>
+                                            break;
+
+                                    }
+                                    <div class="boton2">
+                                        <a href="#" onclick="FullRemoveComponent(@item.Id_Componente)">
+                                            <i class="fa fa-trash-o "></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+
+
+    <div class="rowGroup">
+        <h1 class="grupoT">14. Componentes Inactivos</h1>
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Id Componente </th>
+                        <th class="column-title">Nombre componente </th>
+                        <th class="column-title">Tipo</th>
+                        <th class="column-title">Sub tipo</th>
+                        <th class="column-title">Este</th>
+                        <th class="column-title">Norte</th>
+                        <th class="column-title">Zona</th>
+                        <th class="column-title">Datum</th>
+                        <th class="column-title">Responsable</th>
+                        <th class="column-title">Riesgo</th>
+                        <th class="column-title">Puntaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.ListaComponenteInactivo.Any())
+                    {
+                        <tr class="even pointer">
+                            <td class=" " colspan="11">
+                                No existe registros
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var item in Model.ListaComponenteInactivo)
+                        {
+                            <tr class="odd pointer">
+                                <td class=" ">
+                                    @item.Id_Componente.ToString("D9")
+                                </td>
+                                <td class=" ">
+                                    @item.Nombre
+                                </td>
+                                <td class=" ">
+                                    @item.Tipo
+                                </td>
+                                <td class=" ">
+                                    @item.SubTipo
+                                </td>
+                                <td class=" ">
+                                    @item.Este
+                                </td>
+                                <td class=" ">
+                                    @item.Norte
+                                </td>
+                                <td class=" ">
+                                    @item.Zona
+                                </td>
+                                <td class=" ">
+                                    @item.Datum
+                                </td>
+                                <td class=" ">
+                                    @item.Responsable
+                                </td>
+                                <td class=" ">
+                                    @item.Riesgo
+                                </td>
+                                <td class=" ">
+                                    @item.Puntaje
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="clearfix"></div>
+    </div>
+
+
+    <div class="x_title">
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Ult. Registro</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input asp-for="@Model.Eum.Fec_Ingreso" class="form-control" disabled="disabled" />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Usuario</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input asp-for="@Model.Eum.Usu_Ingreso" class="form-control" disabled="disabled" />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Cargo</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input asp-for="@Model.Eum.Usu_Modifica" class="form-control" disabled="disabled" />
+                </div>
+            </div>
+        </div>
+
+        <ul class="nav navbar-right panel_toolbox">
+            @*<li>
                     <div class="boton">
                         <a asp-action="Generar"> Cancelar <i class="fa fa-archive"></i></a>
                     </div>
@@ -997,35 +999,35 @@
                         <a asp-action="Generar"> Cancelar <i class="fa fa-file-archive-o"></i></a>
                     </div>
                 </li>*@
+            <li>
+                <div class="boton">
+                    <a asp-action="GenerarInformeEUM">Generar Informe<i class="fa fa-file-word-o"></i></a>
+                </div>
+            </li>
+        </ul>
+
+
+        <div class="clearfix"></div>
+
+        <div class="x_title2">
+            <div align="center" class="titulo-m">
+            </div>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <button type="button" class="boton" id="btnSubmit">
+                        Guardar  <i class="fa fa-save"></i>
+                    </button>
+                </li>
                 <li>
                     <div class="boton">
-                        <a asp-action="GenerarInformeEUM">Generar Informe<i class="fa fa-file-word-o"></i></a>
+                        <a asp-action="Index"> Cancelar <i class="fa fa-ban"></i></a>
                     </div>
                 </li>
             </ul>
-
-
             <div class="clearfix"></div>
-
-            <div class="x_title2">
-                <div align="center" class="titulo-m">
-                </div>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                        <button type="button" class="boton" id="btnSubmit">
-                            Guardar  <i class="fa fa-save"></i>
-                        </button>
-                    </li>
-                    <li>
-                        <div class="boton">
-                            <a asp-action="Index"> Cancelar <i class="fa fa-ban"></i></a>
-                        </div>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-
         </div>
+
+    </div>
 
 </form>
 
@@ -1034,8 +1036,20 @@
 <div id="modal2" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="frmInspeccion" data-ajax-method="POST" asp-controller="GrabarInspeccion" asp-action="Eum" autocomplete="off" data-ajax="true" >
+            <form id="frmInspeccion" data-ajax-method="POST" asp-controller="GrabarInspeccion" asp-action="Eum" autocomplete="off" data-ajax="true">
                 <div class="rowGroup" id="fullInspeccion">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
+<!-- Modal 5 Tipo Operacion -->
+<div id="modal5" class="modal fade bd-example-modal-sm" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <form id="frmTipoOperacion" data-ajax-method="POST" asp-controller="GrabarTipoOperacion" asp-action="Eum" enctype="multipart/form-data" autocomplete="off" data-ajax="true">
+                <div class="rowGroup" id="fullTipoOperacion">
                 </div>
             </form>
         </div>
@@ -1177,6 +1191,22 @@
 
                 if (x.operation == "@Constantes.Ok") {
                     $("#modal2").modal("toggle");
+                    window.location.reload();
+                    Success("@Constantes.MsgOk");
+                } else {
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr")
+                }
+            }).fail(function (a, b, c) {
+                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+            });
+        }
+
+        SaveTipoOperacion = function () {
+            $.post("@Url.Action("GrabarTipoOperacion", "Eum")", $("#frmTipoOperacion").serializeArray()).done(function (x)
+            {
+
+                if (x.operation == "@Constantes.Ok") {
+                    $("#modal5").modal("toggle");
                     window.location.reload();
                     Success("@Constantes.MsgOk");
                 } else {

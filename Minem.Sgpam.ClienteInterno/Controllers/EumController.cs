@@ -30,7 +30,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         public async Task<IActionResult> Index(string vNombreEUM = "", string vUbigeo= "0")
         {
             ListarEumDTO vRecord = new ListarEumDTO();
-            vRecord.ListaEum = await Services<MaestraDTO>.Listar("Eum/ListarPaginadoMaestraDTO?vFiltro=" + vNombreEUM + "&vUbigeo=" + vUbigeo + "&vNumPag=" + 5 + "&vCantRegxPag=" + 10);
+            vRecord.ListaEum = await Services<MaestraDTO>.Listar("Eum/ListarPaginadoMaestraDTO?vFiltro=" + vNombreEUM.ToUpper() + "&vUbigeo=" + vUbigeo + "&vNumPag=" + 1 + "&vCantRegxPag=" + 10);
             vRecord.ListaUbigeo = await Services<Ubigeo_IneiDTO>.Listar("Ubigeo/List_Ubigeo_Inei");
             ViewBag.Ubigeo = vRecord.ListaUbigeo;
             return View(vRecord);
@@ -332,7 +332,6 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             }
         }
 
-
         #endregion
 
 
@@ -340,6 +339,67 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
 
         #endregion
 
+
+        #region EumOperacion
+        [HttpGet]
+        public async Task<IActionResult> CrearTipoOperacion(int vIdEum)
+        {
+            RegistrarTipoOperacionDTO vRegistro = new RegistrarTipoOperacionDTO();
+            vRegistro.ListaTipoOperacion = await Services<Tipo_OperacionDTO>.Listar("TipoOperacion/ListSinIdEum?vIdEum=" + vIdEum);
+            vRegistro.Id_Eum =  vIdEum;
+            return PartialView("_ModalTipoOperacion", vRegistro);
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> GrabarEumOperacion(List<Eum_OperacionDTO> vLista)
+        {
+            int res = 0;
+            if (ModelState.IsValid)
+            {
+                foreach (Eum_OperacionDTO item in vLista)
+                {
+                    item.Flg_Estado = Constantes.Activo;
+                    item.Fec_Ingreso = item.Fec_Modifica = DateTime.Now;
+                    item.Usu_Ingreso = item.Usu_Modifica = "MSALVADOR";
+                    item.Ip_Ingreso = item.Ip_Modifica = DnsFullNet.GetIp();
+                    await Services<Eum_OperacionDTO>.Grabar("EumOperacion/Save", item);
+                    res = 1; 
+                    //new ComponentResultModel { Operation = item.Id_Eum_Operacion > 0 ? Constantes.Ok : Constantes.Error };
+                }
+                return Json(new ComponentResultModel { Operation = res > 0 ? Constantes.Ok : Constantes.Error });
+            }
+            else
+            {
+                return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+            }
+
+        }
+
+
+        [HttpPost]
+        public async Task<JsonResult> EliminarEumOperacion(int vId)
+        {
+            Eum_OperacionDTO vRegistro = new Eum_OperacionDTO
+            {
+                Id_Eum_Operacion = vId,
+                Flg_Estado = Constantes.Inactivo,
+                Fec_Modifica = DateTime.Now,
+                Usu_Modifica = "MSALVADOR",
+                Ip_Modifica = DnsFullNet.GetIp()
+            };
+            if (ModelState.IsValid)
+            {
+                bool vResult;
+                vResult = await Services<Eum_OperacionDTO>.Eliminar("EumOperacion/Remove", vRegistro);
+                return Json(new ComponentResultModel { Operation = vResult ? Constantes.Ok : Constantes.Error });
+            }
+            else
+            {
+                return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+            }
+
+        }
+        #endregion
 
     }
 }

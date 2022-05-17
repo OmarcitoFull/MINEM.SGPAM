@@ -14,7 +14,7 @@ namespace Minem.Sgpam.AccesoDatos.Interfaces
         T_Sgpad_Eum_Operacion RecuperarT_Sgpad_Eum_OperacionPorCodigo(int vId_Eum_Operacion);
         T_Sgpad_Eum_Operacion InsertarT_Sgpad_Eum_Operacion(T_Sgpad_Eum_Operacion vT_Sgpad_Eum_Operacion);
         T_Sgpad_Eum_Operacion ActualizarT_Sgpad_Eum_Operacion(T_Sgpad_Eum_Operacion vT_Sgpad_Eum_Operacion);
-        int AnularT_Sgpad_Eum_OperacionPorCodigo(int vId_Eum_Operacion);
+        int AnularT_Sgpad_Eum_OperacionPorCodigo(T_Sgpad_Eum_Operacion vT_Sgpad_Eum_Operacion);
         IEnumerable<T_Sgpad_Eum_Operacion> ListarPaginadoT_Sgpad_Eum_Operacion(string vFiltro, int vNumPag, int vCantRegxPag);
         IEnumerable<T_Sgpad_Eum_Operacion> ListarPorIdEumT_Sgpad_Eum_Operacion(int vId_Eum);
     }

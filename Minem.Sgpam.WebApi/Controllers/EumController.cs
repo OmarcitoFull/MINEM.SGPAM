@@ -55,9 +55,5 @@ namespace Minem.Sgpam.WebApi.Controllers
         //}
 
 
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
     }
 }

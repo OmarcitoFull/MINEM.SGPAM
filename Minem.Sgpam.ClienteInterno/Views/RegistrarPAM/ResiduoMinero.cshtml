@@ -461,6 +461,25 @@
                 $("#vId_Sub_Tipo_Pam").append("<option value=''>SELECCIONE</option>");
                 o.forEach(function (o, i) { $("#vId_Sub_Tipo_Pam").append('<option value="' + o.Value + '">' + o.Text + "</option>") });
             });
+
+            var IdUbigeo = @Html.Raw(Json.Serialize(ViewBag.FullUbigeo));
+
+            $("#vId_Region").on("change", function () {
+                var data = IdUbigeo.filter(o => o.id_Departamento == $("#vId_Region").val());
+                const prov = [...new Map(data.map(function (o) { return { id_Provincia: o.id_Provincia, provincia: o.provincia } }).map(o => [o.id_Provincia, o])).values()];
+                $("#vId_Provincia,#vId_Distrito").empty().append('<option value="0">SELECCIONE</option>');
+                prov.forEach(function (o, i) { $("#vId_Provincia").append('<option value="' + o.id_Provincia + '">' + o.provincia + "</option>") })
+            });
+
+            $("#vId_Provincia").on("change", function () {
+                var data = IdUbigeo.filter(x => x.id_Provincia == $("#vId_Provincia").val());
+                const dist = [...new Map(data.map(function (o) { return { id_Distrito: o.id_Distrito, distrito: o.distrito } }).map(o => [o.id_Distrito, o])).values()];
+                $("#vId_Distrito").empty();
+                $("#vId_Distrito").append('<option value="0">SELECCIONE</option>');
+                dist.forEach(function (o, i) { $("#vId_Distrito").append('<option value="' + o.id_Distrito + '">' + o.distrito + '</option>') })
+            });
+
+            $("#vId_Distrito").on("change", function () { "0" === $("#vId_Distrito").val() ? $("#Ubigeo").val("") : $("#Ubigeo").val($("#vId_Distrito").val()) });
         });
 
 

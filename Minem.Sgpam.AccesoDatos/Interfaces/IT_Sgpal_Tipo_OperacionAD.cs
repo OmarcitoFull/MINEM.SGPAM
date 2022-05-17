@@ -16,5 +16,6 @@ namespace Minem.Sgpam.AccesoDatos.Interfaces
         T_Sgpal_Tipo_Operacion ActualizarT_Sgpal_Tipo_Operacion(T_Sgpal_Tipo_Operacion vT_Sgpal_Tipo_Operacion);
         int AnularT_Sgpal_Tipo_OperacionPorCodigo(T_Sgpal_Tipo_Operacion vT_Sgpal_Tipo_Operacion);
         IEnumerable<T_Sgpal_Tipo_Operacion> ListarPaginadoT_Sgpal_Tipo_Operacion(string vFiltro, int vNumPag, int vCantRegxPag);
+        IEnumerable<T_Sgpal_Tipo_Operacion> ListarSinIdEumT_Sgpal_Tipo_Operacion(int vIdEum);
     }
 }

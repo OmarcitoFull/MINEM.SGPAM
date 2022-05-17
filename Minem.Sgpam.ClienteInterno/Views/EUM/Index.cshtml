@@ -13,7 +13,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre EUM</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input type="text" class="form-control text-uppercase" name="vNombreEUM" maxlength="50">
+                    <input type="text" class="form-control text-uppercase" name=vNombreEUM maxlength="50">
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
         <div class="col-md-2 col-sm-12 col-xs-12 form-group">
             <div class="boton">
                 <button type="submit" class="bottom">Buscar  <i class="fa fa-search"></i></button>
-                @*<a asp-action="Index" asp-route-vNombreEUM="@vNombreEUM" asp-route-vUbigeo="@vUbigeo" > Buscar <i class="fa fa-search"></i></a>*@
+                @*<a asp-action="Index" asp-route-vNombreEUM="vNombreEUM" asp-route-vUbigeo="vUbigeo" > Buscar <i class="fa fa-search"></i></a>*@
             </div>
         </div>
 
@@ -67,7 +67,7 @@
         <ul class="nav navbar-right panel_toolbox">
             <li>
                 <div class="boton">
-                    <a asp-action="AgregarEditar"> Agregar <i class="fa fa-plus"></i></a>
+                    <a asp-action="AgregarEditar">Agregar <i class="fa fa-plus"></i></a>
                 </div>
             </li>
             <li>
@@ -81,13 +81,10 @@
     </div>
 
 
-    <table id="datatable" class="table table-striped table-bordered pam">
+    @*<table id="datatable1" class="table table-striped table-bordered pam">
         <thead>
             <tr>
                 <th>Nombre EUM</th>
-                @*<th>Región</th>
-                    <th>Provincia</th>
-                    <th>Distrito</th>*@
                 <th>Responsable</th>
                 <th>Última visita</th>
                 <th>Fecha Informe</th>
@@ -113,46 +110,25 @@
                         <td class=" "></td>
                         <td class=" "></td>
                         <td class=" ">
-                            <ul class="nav navbar-left panel_toolbox">
+                            <ul class="nav navbar-center panel_toolbox">
                                 <li>
                                     <div class="boton2">
                                         <a asp-action="AgregarEditar" asp-route-vId="@item.Id_Eum" title="Editar Registro"><i class="fas fa-edit"></i></a>
                                     </div>
-                                    @*<div class="boton2">
-                                            <a href="#">                                                                        <i class="fa fa-edit"></i></a>
-                                        </div>*@
                                 </li>
-                                @*<li>
-                                        <div class="boton2">
-                                            <a href="#"> <i class="fa fa-dedent "></i></a>
-                                        </div>
-                                    </li>*@
                             </ul>
                         </td>
                     </tr>
                 }
             }
-            @*<tr>
-                          <td>$320,800</td>
-                    <td><div class="boton2"><a href="#"> Generar <i class="fa fa-plus-square-o"></i></a></div></td>
-                    <td><a href="#" class="enlace">inf 001</a></td>
-                    <td>
-                        <ul class="nav navbar-left panel_toolbox">
-                            <li>
-                                <div class="boton2">
-                                    <a href="#"> <i class="fa fa-edit "></i></a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="boton2">
-                                    <a href="#"> <i class="fa fa-external-link "></i></a>
-                                </div>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>*@
         </tbody>
-    </table>
+    </table>*@
+
+    <div id="DivInformacionGrafica">
+        @Html.Partial("_PartialEum", Model.ListaEum)
+    </div>
+
+
 
     <input type="hidden" asp-for="Ubigeo" />
     <input type="hidden" name="vUbigeo" id="vUbigeo" />

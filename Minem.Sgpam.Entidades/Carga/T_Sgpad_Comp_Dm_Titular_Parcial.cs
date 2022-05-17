@@ -17,7 +17,13 @@ namespace Minem.Sgpam.Entidades
 
         public T_Sgpad_Comp_Dm_Titular(IDataReader vRdr)
         {
-            			//if (!Convert.IsDBNull(vRdr["ID_ESTADO"]))  			//{			//	this.ID_ESTADO = Convert.ToInt32(vRdr["ID_ESTADO"]);  			//}			if (!Convert.IsDBNull(vRdr["USU_MODIFICA"]))  			{				this.USU_MODIFICA = Convert.ToString(vRdr["USU_MODIFICA"]);  			}			this.FLG_ESTADO = Convert.ToString(vRdr["FLG_ESTADO"]);  
+
+			if (!Convert.IsDBNull(vRdr["ESTADO"]))  
+			{
+				this.ESTADO = Convert.ToString(vRdr["ESTADO"]);  
+			}
+
+			if (!Convert.IsDBNull(vRdr["USU_MODIFICA"]))  			{				this.USU_MODIFICA = Convert.ToString(vRdr["USU_MODIFICA"]);  			}			this.FLG_ESTADO = Convert.ToString(vRdr["FLG_ESTADO"]);  
 			if (!Convert.IsDBNull(vRdr["IP_MODIFICA"]))  			{				this.IP_MODIFICA = Convert.ToString(vRdr["IP_MODIFICA"]);  			}			this.ID_COMP_DM_TITULAR = Convert.ToInt32(vRdr["ID_COMP_DM_TITULAR"]);  
 			if (!Convert.IsDBNull(vRdr["USU_INGRESO"]))  			{				this.USU_INGRESO = Convert.ToString(vRdr["USU_INGRESO"]);  			}			this.ID_COMP_DM = Convert.ToInt32(vRdr["ID_COMP_DM"]);  
 			if (!Convert.IsDBNull(vRdr["FEC_MODIFICA"]))  			{				this.FEC_MODIFICA = Convert.ToDateTime(vRdr["FEC_MODIFICA"]);  			}			this.ID_EMPRESA = Convert.ToInt32(vRdr["ID_EMPRESA"]);  

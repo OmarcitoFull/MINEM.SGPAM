@@ -64,7 +64,9 @@ namespace Minem.Sgpam.WebApi
 
             vServices.AddTransient<IT_Genl_Ubigeo_IneiAD, T_Genl_Ubigeo_IneiAD>();
             vServices.AddTransient<IT_Genl_Ubigeo_IneiLN, T_Genl_Ubigeo_IneiLN>();
-            
+
+            vServices.AddTransient<IT_Sgpam_VisitaAD, T_Sgpam_VisitaAD>();
+            vServices.AddTransient<IT_Sgpam_VisitaLN, T_Sgpam_VisitaLN>();
 
 
 

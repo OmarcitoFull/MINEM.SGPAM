@@ -913,24 +913,16 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
                         return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Cuenca.ToString() };
                     });
 
-
                     ViewBag.CboDatum = Enum.GetValues(typeof(Datum)).Cast<Datum>().ToList().ConvertAll(x =>
                     {
                         return new SelectListItem() { Text = x.ToString(), Value = ((int)x).ToString() };
                     });
+                    
                     ViewBag.CboZona = Enum.GetValues(typeof(Zona)).Cast<Zona>().ToList().ConvertAll(x =>
                     {
                         return new SelectListItem() { Text = x.ToString(), Value = ((int)x).ToString() };
                     });
-                    //ViewBag.CboCuencaPrincipal = Enum.GetValues(typeof(CuencaPrincipal)).Cast<CuencaPrincipal>().ToList().ConvertAll(x =>
-                    //{
-                    //    return new SelectListItem() { Text = x.ToString(), Value = ((int)x).ToString() };
-                    //});
-                    //ViewBag.CboCuencaSecundario = Enum.GetValues(typeof(CuencaSecundario)).Cast<CuencaSecundario>().ToList().ConvertAll(x =>
-                    //{
-                    //    return new SelectListItem() { Text = x.ToString(), Value = ((int)x).ToString() };
-                    //});
-
+                    
                     ViewBag.CboRegion = vRecord.CboUbigeo.Select(x => new { x.Id_Departamento, x.Departamento }).Distinct().OrderBy(x => x.Departamento).ToList().ConvertAll(x =>
                     {
                         return new SelectListItem() { Text = x.Departamento, Value = x.Id_Departamento.ToString() };
@@ -945,6 +937,8 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
                     {
                         return new SelectListItem() { Text = x.Distrito, Value = x.Id_Distrito.ToString() };
                     });
+
+                    ViewBag.FullUbigeo = vRecord.CboUbigeo.Select(x => new { x.Id_Departamento, x.Departamento, x.Id_Provincia, x.Provincia, x.Id_Distrito, x.Distrito }).Distinct().OrderBy(x => x.Departamento).ThenBy(x => x.Provincia).ThenBy(x => x.Distrito).ToList();
 
                     return vRecord;
                 }

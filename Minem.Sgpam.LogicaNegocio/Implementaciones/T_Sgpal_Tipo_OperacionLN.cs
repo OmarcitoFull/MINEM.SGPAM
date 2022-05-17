@@ -168,5 +168,31 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                 throw;
             }
         }
+
+        public IEnumerable<Tipo_OperacionDTO> ListarSinIdEumTipo_OperacionDTO(int vIdEum)
+        {
+            try
+            {
+                var vResultado = (from vTmp in Tipo_OperacionAD.ListarSinIdEumT_Sgpal_Tipo_Operacion(vIdEum)
+                                  select new Tipo_OperacionDTO
+                                  {
+                                      Descripcion = vTmp.DESCRIPCION,
+                                      Fec_Ingreso = vTmp.FEC_INGRESO,
+                                      Fec_Modifica = vTmp.FEC_MODIFICA,
+                                      Flg_Estado = vTmp.FLG_ESTADO,
+                                      Id_Tipo_Operacion = vTmp.ID_TIPO_OPERACION,
+                                      Ip_Ingreso = vTmp.IP_INGRESO,
+                                      Ip_Modifica = vTmp.IP_MODIFICA,
+                                      Usu_Ingreso = vTmp.USU_INGRESO,
+                                      Usu_Modifica = vTmp.USU_MODIFICA
+                                  }).ToList();
+                return vResultado;
+            }
+            catch (Exception ex)
+            {
+                //Log.Error(ex.Message, ex);
+                throw;
+            }
+        }
     }
 }

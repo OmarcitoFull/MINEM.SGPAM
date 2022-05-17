@@ -127,7 +127,7 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                             Id_Comp_Dm = item.ID_COMP_DM,
                             Id_Comp_Dm_Titular = item.ID_COMP_DM_TITULAR,
                             Id_Empresa = item.ID_EMPRESA,
-                            Id_Estado = item.ID_ESTADO,
+                            Estado = item.ESTADO,
                             Ip_Ingreso = item.IP_INGRESO,
                             Usu_Ingreso = item.USU_INGRESO,
                             Nombre_Dm = item.NOMBRE_DM,

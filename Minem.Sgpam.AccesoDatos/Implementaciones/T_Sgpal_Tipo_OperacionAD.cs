@@ -163,5 +163,30 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             }
             return vLista;
         }
+
+        public IEnumerable<T_Sgpal_Tipo_Operacion> ListarSinIdEumT_Sgpal_Tipo_Operacion(int vIdEum)
+        {
+            List<T_Sgpal_Tipo_Operacion> vLista = new List<T_Sgpal_Tipo_Operacion>();
+            T_Sgpal_Tipo_Operacion vEntidad;
+
+            using (OracleConnection vCnn = new OracleConnection(CnnString))
+            {
+                using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_TIPO_OPERACION.USP_LIS_SIN_IDEUM_TIPO_OPERACION", vCnn))
+                {
+                    vCmd.CommandType = CommandType.StoredProcedure;
+                    vCmd.Parameters.Add("pID_EUM", vIdEum);
+                    vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                    vCnn.Open();
+                    OracleDataReader vRdr = vCmd.ExecuteReader();
+                    while (vRdr.Read())
+                    {
+                        vEntidad = new T_Sgpal_Tipo_Operacion(vRdr);
+                        vLista.Add(vEntidad);
+                    }
+                }
+                vCnn.Close();
+            }
+            return vLista;
+        }
     }
 }

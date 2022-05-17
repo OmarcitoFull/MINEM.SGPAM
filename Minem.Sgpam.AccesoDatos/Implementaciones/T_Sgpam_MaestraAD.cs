@@ -181,8 +181,8 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_MAESTRA.USP_LIS_PAG_MAESTRA", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pFiltro", vFiltro);
-                    //vCmd.Parameters.Add("pUbigeo", vUbigeo);
+                    vCmd.Parameters.Add("pFILTRO", vFiltro);
+                    vCmd.Parameters.Add("pUBIGEO", vUbigeo);
                     vCmd.Parameters.Add("pNumPag", vNumPag);
                     vCmd.Parameters.Add("pCantRegxPag", vCantRegxPag);
                     vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;

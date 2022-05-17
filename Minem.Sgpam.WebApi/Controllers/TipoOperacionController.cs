@@ -41,5 +41,13 @@ namespace Minem.Sgpam.WebApi.Controllers
         {
             return Tipo_OperacionLN.AnularTipo_OperacionDTOPorCodigo(vTipo_OperacionDTO);
         }
+
+        [HttpGet("ListSinIdEum")]
+        public IEnumerable<Tipo_OperacionDTO> List(int vIdEum)
+        {
+            return Tipo_OperacionLN.ListarSinIdEumTipo_OperacionDTO(vIdEum);
+        }
+
+
     }
 }

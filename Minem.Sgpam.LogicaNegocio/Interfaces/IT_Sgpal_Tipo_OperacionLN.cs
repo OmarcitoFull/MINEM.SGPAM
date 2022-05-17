@@ -16,5 +16,6 @@ namespace Minem.Sgpam.LogicaNegocio.Interfaces
         Tipo_OperacionDTO GrabarTipo_OperacionDTO(Tipo_OperacionDTO vTipo_OperacionDTO);
         int AnularTipo_OperacionDTOPorCodigo(Tipo_OperacionDTO vTipo_OperacionDTO);
         IEnumerable<Tipo_OperacionDTO> ListarPaginadoTipo_OperacionDTO(string vFiltro, int vNumPag, int vCantRegxPag);
+        IEnumerable<Tipo_OperacionDTO> ListarSinIdEumTipo_OperacionDTO(int vIdEum);
     }
 }
