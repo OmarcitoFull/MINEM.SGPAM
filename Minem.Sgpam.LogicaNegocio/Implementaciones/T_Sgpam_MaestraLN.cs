@@ -83,14 +83,12 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                 //Log.Error(ex.Message, ex);
                 throw;
             }
-
         }
 
         public MaestraDTO RecuperarMaestraDTOPorCodigo(int vId_Eum)
         {
             try
             {
-
                 var vRegistro = MaestraAD.RecuperarT_Sgpam_MaestraPorCodigo(vId_Eum);
                 if (vRegistro != null)
                 {
@@ -139,12 +137,59 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
+        public MaestraDTO GrabarMaestraDTO(MaestraDTO vMaestraDTO)
+        {
+            try
+            {
+                if (vMaestraDTO.Id_Eum == 0)
+                    return InsertarMaestraDTO(vMaestraDTO);
+                else
+                    return ActualizarMaestraDTO(vMaestraDTO);
+            }
+            catch (Exception ex)
+            {
+                //Log.Error(ex.Message, ex);
+                throw;
+            }
+        }
+
         public MaestraDTO InsertarMaestraDTO(MaestraDTO vMaestraDTO)
         {
             try
             {
-                var vRegistro = new T_Sgpam_Maestra();
+                var vRegistro = new T_Sgpam_Maestra
+                {
+                    ID_EUM = vMaestraDTO.Id_Eum,
+                    EUM_DESCRIPCION = vMaestraDTO.Eum_Descripcion.ToUpper(),
+                    ACCESO_EUM = vMaestraDTO.Acceso_Eum,
+                    HISTORIA_EUM = vMaestraDTO.Historia_Eum,
+                    EVIDENCIA_ACT_REC = vMaestraDTO.Evidencia_Act_Rec,
+                    ID_TIPO_OPERACION = 1,
+                    ID_TIPO_SUSTANCIA = vMaestraDTO.Id_Tipo_Sustancia,
+                    RELIEVE = vMaestraDTO.Relieve,
+                    CUERPOS_AGUA = vMaestraDTO.Cuerpos_Agua,
+                    FLORA_TERRESTRE = vMaestraDTO.Flora_Terrestre,
+                    FAUNA_TERRESTE = vMaestraDTO.Fauna_Terreste,
+                    FLORA_FAUNA_ACUATICA = vMaestraDTO.Flora_Fauna_Acuatica,
+                    INFRA_URBANA = vMaestraDTO.Infra_Urbana,
+                    USO_SUELO = vMaestraDTO.Uso_Suelo,
+                    USO_AGUA = vMaestraDTO.Uso_Agua,
+                    AREA_CONSERVACION = vMaestraDTO.Area_Conservacion,
+                    SITIO_ARQUE_TURISTICO = vMaestraDTO.Sitio_Arque_Turistico,
+                    ID_CONFLICTO_SOCIAL = vMaestraDTO.Id_Conflicto_Social,
+                    CONFLICTO_SOCIAL = vMaestraDTO.Conflicto_Social,
+                    DESCRIPCION_EUM = vMaestraDTO.Descripcion_Eum,
+                    COMENTARIO_ADI = vMaestraDTO.Comentario_Adi,
+                    NUM_EUM = vMaestraDTO.Num_Eum,
+                    ID_ESTADO_REGISTRO = vMaestraDTO.Id_Estado_Registro,
+                    USU_INGRESO = vMaestraDTO.Usu_Ingreso,
+                    FEC_INGRESO = vMaestraDTO.Fec_Ingreso,
+                    IP_INGRESO = vMaestraDTO.Ip_Ingreso,
+                    FLG_ESTADO = "1"
+                };
                 var vResultado = MaestraAD.InsertarT_Sgpam_Maestra(vRegistro);
+                vMaestraDTO = RecuperarMaestraDTOPorCodigo(vResultado.ID_EUM);
+
                 return vMaestraDTO;
             }
             catch (Exception ex)
@@ -160,43 +205,43 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             {
                 var vRegistro = new T_Sgpam_Maestra
                 {
-                    ACCESO_EUM = vMaestraDTO.Acceso_Eum,
-                    AREA_CONSERVACION = vMaestraDTO.Area_Conservacion,
-                    COMENTARIO_ADI = vMaestraDTO.Comentario_Adi,
-                    CONFLICTO_SOCIAL = vMaestraDTO.Conflicto_Social,
-                    CUERPOS_AGUA = vMaestraDTO.Cuerpos_Agua,
-                    DESCRIPCION_EUM = vMaestraDTO.Descripcion_Eum,
-                    EVIDENCIA_ACT_REC = vMaestraDTO.Evidencia_Act_Rec,
-                    EUM_DESCRIPCION = vMaestraDTO.Eum_Descripcion,
-                    FAUNA_TERRESTE = vMaestraDTO.Fauna_Terreste,
-                    FEC_MODIFICA = vMaestraDTO.Fec_Modifica,
-                    FLORA_FAUNA_ACUATICA = vMaestraDTO.Flora_Fauna_Acuatica,
-                    FLORA_TERRESTRE = vMaestraDTO.Flora_Terrestre,
-                    HISTORIA_EUM = vMaestraDTO.Historia_Eum,
-                    ID_CONFLICTO_SOCIAL = vMaestraDTO.Id_Conflicto_Social,
-                    ID_ESTADO_REGISTRO = vMaestraDTO.Id_Estado_Registro,
                     ID_EUM = vMaestraDTO.Id_Eum,
-                    ID_TIPO_OPERACION = vMaestraDTO.Id_Tipo_Operacion,
+                    EUM_DESCRIPCION = vMaestraDTO.Eum_Descripcion.ToUpper(),
+                    ACCESO_EUM = vMaestraDTO.Acceso_Eum,
+                    HISTORIA_EUM = vMaestraDTO.Historia_Eum,
+                    EVIDENCIA_ACT_REC = vMaestraDTO.Evidencia_Act_Rec,
+                    ID_TIPO_OPERACION = 1,
                     ID_TIPO_SUSTANCIA = vMaestraDTO.Id_Tipo_Sustancia,
+                    RELIEVE = vMaestraDTO.Relieve,
+                    CUERPOS_AGUA = vMaestraDTO.Cuerpos_Agua,
+                    FLORA_TERRESTRE = vMaestraDTO.Flora_Terrestre,
+                    FAUNA_TERRESTE = vMaestraDTO.Fauna_Terreste,
+                    FLORA_FAUNA_ACUATICA = vMaestraDTO.Flora_Fauna_Acuatica,
                     INFRA_URBANA = vMaestraDTO.Infra_Urbana,
-                    IP_MODIFICA = vMaestraDTO.Ip_Modifica,
-                    NUM_EUM = vMaestraDTO.Num_Eum,
-                    RELIEVE  = vMaestraDTO.Relieve,
-                    SITIO_ARQUE_TURISTICO = vMaestraDTO.Sitio_Arque_Turistico,
-                    USO_AGUA = vMaestraDTO.Uso_Agua,
                     USO_SUELO = vMaestraDTO.Uso_Suelo,
-                    USU_MODIFICA = vMaestraDTO.Usu_Modifica,
+                    USO_AGUA = vMaestraDTO.Uso_Agua,
+                    AREA_CONSERVACION = vMaestraDTO.Area_Conservacion,
+                    SITIO_ARQUE_TURISTICO = vMaestraDTO.Sitio_Arque_Turistico,
+                    ID_CONFLICTO_SOCIAL = vMaestraDTO.Id_Conflicto_Social,
+                    CONFLICTO_SOCIAL = vMaestraDTO.Conflicto_Social,
+                    DESCRIPCION_EUM = vMaestraDTO.Descripcion_Eum,
+                    COMENTARIO_ADI = vMaestraDTO.Comentario_Adi,
+                    NUM_EUM = vMaestraDTO.Num_Eum,
+                    ID_ESTADO_REGISTRO = vMaestraDTO.Id_Estado_Registro,
+                    FEC_MODIFICA = vMaestraDTO.Fec_Modifica,
+                    IP_MODIFICA = vMaestraDTO.Ip_Modifica,
+                    USU_MODIFICA = vMaestraDTO.Usu_Modifica
                 };
                 var vResultado = MaestraAD.ActualizarT_Sgpam_Maestra(vRegistro);
                 var vHistoria = Eum_ModLN.InsertarEum_ModDTO(new Eum_ModDTO
                 {
-                    Cargo = "SISTEMAS",
-                    Fec_Ingreso = DateTime.Now,
-                    Flg_Estado = "1",
-                    Id_Eum = vRegistro.ID_EUM,
                     Id_Eum_Mod = 0,
+                    Id_Eum = vRegistro.ID_EUM,
+                    Cargo = "SISTEMAS",
+                    Usu_Ingreso = vRegistro.USU_MODIFICA,
+                    Fec_Ingreso = DateTime.Now,
                     Ip_Ingreso = vRegistro.IP_MODIFICA,
-                    Usu_Ingreso = vRegistro.USU_MODIFICA
+                    Flg_Estado = "1",
                 });
                 vMaestraDTO = RecuperarMaestraDTOPorCodigo(vResultado.ID_EUM);
 
@@ -211,9 +256,21 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
 
         public int AnularMaestraDTOPorCodigo(MaestraDTO vMaestraDTO)
         {
+            int vResult = 0;
             try
             {
-                return MaestraAD.AnularT_Sgpam_MaestraPorCodigo(0);
+                if (vMaestraDTO != null)
+                {
+                    var vRegistro = new T_Sgpam_Maestra
+                    {
+                        ID_EUM = vMaestraDTO.Id_Eum,
+                        USU_MODIFICA = vMaestraDTO.Usu_Modifica,
+                        FEC_MODIFICA = vMaestraDTO.Fec_Modifica,
+                        IP_MODIFICA = vMaestraDTO.Ip_Modifica
+                    };
+                    vResult = MaestraAD.AnularT_Sgpam_MaestraPorCodigo(vRegistro); // != 0;
+                }
+                return vResult;
             }
             catch (Exception ex)
             {
@@ -226,13 +283,15 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         {
             try
             {
-                if (vFiltro == null)
+                if (vFiltro == null || vFiltro.Trim().Length == 0)
                     vFiltro = "";
                 else
-                {
-                    if (vFiltro.Trim().Length == 0)
-                        vFiltro = "";
-                }
+                    vFiltro = vFiltro.ToUpper();
+
+
+                if (vUbigeo == null || vUbigeo.Trim().Length == 0)
+                    vUbigeo = "0";
+
 
                 IEnumerable<T_Sgpam_Maestra> vResultado = MaestraAD.ListarPaginadoT_Sgpam_Maestra(vFiltro, vUbigeo, vNumPag, vCantRegxPag);
                 if (vResultado != null)
@@ -269,7 +328,11 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                             Fec_Ingreso = item.FEC_INGRESO,
                             Flg_Estado = item.FLG_ESTADO,
                             Ip_Ingreso = item.IP_INGRESO,
-                            Usu_Ingreso = item.USU_INGRESO
+                            Usu_Ingreso = item.USU_INGRESO,
+
+                            Ult_Visita = item.ULT_VISITA,
+                            Fecha_Informe = item.FECHA_INFORME,
+                            Nro_Informe = item.NRO_INFORME
                         };
                         vLista.Add(vEntidad);
                     }
@@ -289,8 +352,6 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         {
             try
             {
-                //if (vId_Eum > 0)
-                //{
                 var vListComponente = ComponenteLN.ListarComponenteEumDTO(vId_Eum);
                 RegistrarEumDTO vResultado = new RegistrarEumDTO
                 {
@@ -315,12 +376,10 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                     ListaComponenteInactivo = vListComponente.Where(x => x.Flg_Estado == Constantes.Inactivo).ToList()
                 };
                 return vResultado;
-                //}
-                //return null;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                //Log.Error(ex.Message, ex);
                 throw;
             }
 

@@ -14,7 +14,7 @@ namespace Minem.Sgpam.LogicaNegocio.Interfaces
         IEnumerable<Eum_Info_GraficaDTO> ListarEum_Info_GraficaDTO();
         Eum_Info_GraficaDTO RecuperarEum_Info_GraficaDTOPorCodigo(int vId_Eum_Info_Grafica);
         Eum_Info_GraficaDTO GrabarEum_Info_GraficaDTO(Eum_Info_GraficaDTO vEum_Info_GraficaDTO);
-        int AnularEum_Info_GraficaDTOPorCodigo(Eum_Info_GraficaDTO vEum_Info_GraficaDTO);
+        bool AnularEum_Info_GraficaDTOPorCodigo(Eum_Info_GraficaDTO vEum_Info_GraficaDTO);
         IEnumerable<Eum_Info_GraficaDTO> ListarPaginadoEum_Info_GraficaDTO(string vFiltro, int vNumPag, int vCantRegxPag);
         IEnumerable<Eum_Info_GraficaDTO> ListarPorIdEumEum_Info_GraficaDTO(int vId_Eum);
     }

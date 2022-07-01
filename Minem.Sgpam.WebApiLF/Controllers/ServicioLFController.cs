@@ -13,7 +13,7 @@ namespace Minem.Sgpam.WebApiLF.Controllers
     {
         public IEnumerable<string> Get()
         {
-            return new string[] { "Servicio LF", "Por: Omar Rodriguez Muñoz" };
+            return new string[] { "Servicio LF", "Por: ORodriguez " };
         }
 
         public string CrearCarpeta(string vNombre)

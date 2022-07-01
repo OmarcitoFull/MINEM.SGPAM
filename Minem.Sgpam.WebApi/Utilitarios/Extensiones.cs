@@ -68,6 +68,14 @@ namespace Minem.Sgpam.WebApi
             vServices.AddTransient<IT_Sgpam_VisitaAD, T_Sgpam_VisitaAD>();
             vServices.AddTransient<IT_Sgpam_VisitaLN, T_Sgpam_VisitaLN>();
 
+            vServices.AddTransient<IT_Sgpaj_Visita_DetAD, T_Sgpaj_Visita_DetAD>();
+            vServices.AddTransient<IT_Sgpaj_Visita_DetLN, T_Sgpaj_Visita_DetLN>();
+
+            vServices.AddTransient<IT_Sgpad_Visita_PersonaAD, T_Sgpad_Visita_PersonaAD>();
+            vServices.AddTransient<IT_Sgpad_Visita_PersonaLN, T_Sgpad_Visita_PersonaLN>();
+
+            vServices.AddTransient<IT_Sgpal_CargoAD, T_Sgpal_CargoAD>();
+            vServices.AddTransient<IT_Sgpal_CargoLN, T_Sgpal_CargoLN>();
 
 
             vServices.AddTransient<IT_Sgpad_Comp_Dd_MineroAD, T_Sgpad_Comp_Dd_MineroAD>();
@@ -186,6 +194,9 @@ namespace Minem.Sgpam.WebApi
 
             vServices.AddTransient<IV_ExternosAD, V_ExternosAD>();
             vServices.AddTransient<IV_ExternosLN, V_ExternosLN>();
+
+            vServices.AddTransient<IV_ReportesAD, V_ReportesAD>();
+            vServices.AddTransient<IV_ReportesLN, V_ReportesLN>();
 
             vServices.AddTransient<IT_Sgpad_Comp_ReconocimientoAD, T_Sgpad_Comp_ReconocimientoAD>();
             vServices.AddTransient<IT_Sgpad_Comp_ReconocimientoLN, T_Sgpad_Comp_ReconocimientoLN>();

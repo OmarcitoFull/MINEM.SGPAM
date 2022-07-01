@@ -451,7 +451,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
 
                             if (ModelState.IsValid)
                             {
-                                var vCarpetaLF = Configuration.GetValue<string>("DirectoryLFPamIG");
+                                var vCarpetaLF = Configuration.GetValue<string>("DirectoryLFEumIG");
                                 string vResult = await ServicesLF.ObtenerProceso("SubirArchivo?vCarpeta=" + vCarpetaLF + "&vRutaArchivo=" + vInfo_Grafica.Ruta_Imagen + "&vNombreArchivo=" + vInfo_Grafica.Nombre_Imagen);
                                 if (vResult != Constantes.Error)
                                 {

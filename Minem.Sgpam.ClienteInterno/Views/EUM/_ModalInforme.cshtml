@@ -1,5 +1,67 @@
 ﻿@model Minem.Sgpam.TransporteDatos.DtoEntidades.Eum_InformeDTO
 
 <div class="rowGroup">
+    <h1 class="grupoT">Agregar Informe</h1>
+
+    <div class="col-md-9 col-sm-9 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Informe</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="file" class="form-control-file" name="vFile" id="vFile">
+            </div>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">* doc, pdf, docx </label>
+        </div>
+    </div>
+
+    <div class="col-md-9 col-sm-9 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha:</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input asp-for="Fecha_Informe" type="date" class="form-control has-feedback-left" aria-describedby="inputSuccess2Status2">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9 col-sm-9 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Descripción</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <textarea asp-for="Descripcion" class="form-controlArea " rows="2" maxlength="100" placeholder=""></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9 col-sm-9 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre </label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <input asp-for="Nombre_Informe" type="text" class="form-control" maxlength="50" placeholder="">
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="x_title2">
+        <div align="center" class="titulo-m">
+            <input type="hidden" asp-for="Id_Eum" />
+            <input type="hidden" asp-for="Nombre_Informe" />
+            <input type="hidden" asp-for="Ruta_Informe" />
+            <input type="hidden" asp-for="Tamano" />
+        </div>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+                <button type="button" class="boton" style="margin-right: 0px;" onclick="SaveInforme()">Guardar  <i class="fa fa-save" style="margin-left: 10px;"></i></button>
+            </li>
+            <li>
+                <div class="boton" data-dismiss="modal">
+                    <a href="#">Cancelar  <i class="fa fa-ban"></i></a>
+                </div>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="clearfix"></div>
 
 </div>

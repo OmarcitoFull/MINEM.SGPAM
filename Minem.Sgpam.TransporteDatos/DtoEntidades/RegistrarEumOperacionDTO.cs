@@ -9,6 +9,7 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
     public class RegistrarEumOperacionDTO
     {
         public Eum_OperacionDTO Eum_Operacion { get; set; }
+        public List<Eum_OperacionDTO> ListaEumOperacion { get; set; }
         public List<Tipo_OperacionDTO> CboTipoOperacion { get; set; }
     }
 }

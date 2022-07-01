@@ -1,0 +1,17 @@
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Release\net5.0\Minem.Sgpam.AccesoDatos.deps.json
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Release\net5.0\Minem.Sgpam.AccesoDatos.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Release\net5.0\ref\Minem.Sgpam.AccesoDatos.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Release\net5.0\Minem.Sgpam.AccesoDatos.pdb
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Release\net5.0\Minem.Sgpam.Entidades.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Release\net5.0\Minem.Sgpam.InfraEstructura.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Release\net5.0\Minem.Sgpam.Entidades.pdb
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\bin\Release\net5.0\Minem.Sgpam.InfraEstructura.pdb
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Release\net5.0\Minem.Sgpam.AccesoDatos.csproj.AssemblyReference.cache
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Release\net5.0\Minem.Sgpam.AccesoDatos.GeneratedMSBuildEditorConfig.editorconfig
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Release\net5.0\Minem.Sgpam.AccesoDatos.AssemblyInfoInputs.cache
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Release\net5.0\Minem.Sgpam.AccesoDatos.AssemblyInfo.cs
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Release\net5.0\Minem.Sgpam.AccesoDatos.csproj.CoreCompileInputs.cache
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Release\net5.0\Minem.Sgpam.AccesoDatos.csproj.CopyComplete
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Release\net5.0\Minem.Sgpam.AccesoDatos.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Release\net5.0\ref\Minem.Sgpam.AccesoDatos.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.AccesoDatos\obj\Release\net5.0\Minem.Sgpam.AccesoDatos.pdb

@@ -51,36 +51,6 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
-        //public Eum_Info_GraficaDTO InsertarEum_Info_GraficaDTO(Eum_Info_GraficaDTO vEum_Info_GraficaDTO)
-        //{
-        //    try
-        //    {
-        //        var vRegistro = new T_Sgpad_Eum_Info_Grafica();
-        //        var vResultado = Eum_Info_GraficaAD.InsertarT_Sgpad_Eum_Info_Grafica(vRegistro);
-        //        return vEum_Info_GraficaDTO;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        //Log.Error(ex.Message, ex);
-        //        throw;
-        //    }
-        //}
-
-        //public Eum_Info_GraficaDTO ActualizarEum_Info_GraficaDTO(Eum_Info_GraficaDTO vEum_Info_GraficaDTO)
-        //{
-        //    try
-        //    {
-        //        var vRegistro = new T_Sgpad_Eum_Info_Grafica();
-        //        var vResultado = Eum_Info_GraficaAD.ActualizarT_Sgpad_Eum_Info_Grafica(vRegistro);
-        //        return vEum_Info_GraficaDTO;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        //Log.Error(ex.Message, ex);
-        //        throw;
-        //    }
-        //}
-
         public Eum_Info_GraficaDTO GrabarEum_Info_GraficaDTO(Eum_Info_GraficaDTO vEum_Info_GraficaDTO)
         {
             try
@@ -89,21 +59,22 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                 {
                     var vRegistro = new T_Sgpad_Eum_Info_Grafica
                     {
-                        FEC_INGRESO = vEum_Info_GraficaDTO.Fec_Ingreso,
-                        FEC_MODIFICA = vEum_Info_GraficaDTO.Fec_Modifica,
-                        FLG_ESTADO = vEum_Info_GraficaDTO.Flg_Estado,
-                        IP_INGRESO = vEum_Info_GraficaDTO.Ip_Ingreso,
-                        IP_MODIFICA = vEum_Info_GraficaDTO.Ip_Modifica,
-                        USU_INGRESO = vEum_Info_GraficaDTO.Usu_Ingreso,
-                        USU_MODIFICA = vEum_Info_GraficaDTO.Usu_Modifica,
-                        ID_EUM = vEum_Info_GraficaDTO.Id_Eum,
-                        EXTENCION = vEum_Info_GraficaDTO.Extencion,
                         ID_EUM_INFO_GRAFICA = vEum_Info_GraficaDTO.Id_Eum_Info_Grafica,
+                        ID_EUM = vEum_Info_GraficaDTO.Id_Eum,
+                        FECHA_TOMA = vEum_Info_GraficaDTO.Fecha_Toma,
+                        DESCRIPCION = vEum_Info_GraficaDTO.Descripcion,
                         NOMBRE_IMAGEN = vEum_Info_GraficaDTO.Nombre_Imagen,
                         RUTA_IMAGEN = vEum_Info_GraficaDTO.Ruta_Imagen,
+                        EXTENCION = vEum_Info_GraficaDTO.Extencion,
                         TAMANO = vEum_Info_GraficaDTO.Tamano,
-                        FECHA_TOMA = vEum_Info_GraficaDTO.Fecha_Toma,
-                        DESCRIPCION = vEum_Info_GraficaDTO.Descripcion
+                        ID_LASERFICHE = vEum_Info_GraficaDTO.Id_LaserFiche,
+                        USU_INGRESO = vEum_Info_GraficaDTO.Usu_Ingreso,
+                        FEC_INGRESO = vEum_Info_GraficaDTO.Fec_Ingreso,
+                        IP_INGRESO = vEum_Info_GraficaDTO.Ip_Ingreso,
+                        USU_MODIFICA = vEum_Info_GraficaDTO.Usu_Modifica,
+                        IP_MODIFICA = vEum_Info_GraficaDTO.Ip_Modifica,
+                        FEC_MODIFICA = vEum_Info_GraficaDTO.Fec_Modifica,
+                        FLG_ESTADO = vEum_Info_GraficaDTO.Flg_Estado
                     };
                     if (vEum_Info_GraficaDTO.Id_Eum_Info_Grafica == 0)
                     {
@@ -125,11 +96,23 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
-        public int AnularEum_Info_GraficaDTOPorCodigo(Eum_Info_GraficaDTO vEum_Info_GraficaDTO)
+        public bool AnularEum_Info_GraficaDTOPorCodigo(Eum_Info_GraficaDTO vEum_Info_GraficaDTO)
         {
+            bool vResult = false;
             try
             {
-                return Eum_Info_GraficaAD.AnularT_Sgpad_Eum_Info_GraficaPorCodigo(0);
+                if (vEum_Info_GraficaDTO != null)
+                {
+                    var vRegistro = new T_Sgpad_Eum_Info_Grafica
+                    {
+                        ID_EUM_INFO_GRAFICA = vEum_Info_GraficaDTO.Id_Eum_Info_Grafica,
+                        USU_MODIFICA = vEum_Info_GraficaDTO.Usu_Modifica,
+                        FEC_MODIFICA = vEum_Info_GraficaDTO.Fec_Modifica,
+                        IP_MODIFICA = vEum_Info_GraficaDTO.Ip_Modifica,
+                    };
+                    vResult = Eum_Info_GraficaAD.AnularT_Sgpad_Eum_Info_GraficaPorCodigo(vRegistro) != 0;
+                }
+                return vResult;
             }
             catch (Exception ex)
             {
@@ -156,37 +139,34 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         {
             try
             {
-                IEnumerable<T_Sgpad_Eum_Info_Grafica> vResultado = Eum_Info_GraficaAD.ListarPorIdEumT_Sgpad_Eum_Info_Grafica(vId_Eum);
-                if (vResultado != null)
-                {
-                    List<Eum_Info_GraficaDTO> vLista = new List<Eum_Info_GraficaDTO>();
-                    Eum_Info_GraficaDTO vEntidad;
-                    foreach (T_Sgpad_Eum_Info_Grafica item in vResultado)
-                    {
-                        vEntidad = new Eum_Info_GraficaDTO()
-                        {
-                            Fec_Ingreso = item.FEC_INGRESO,
-                            Flg_Estado = item.FLG_ESTADO,
-                            Id_Eum = item.ID_EUM,
-                            Id_Eum_Info_Grafica = item.ID_EUM_INFO_GRAFICA,
-                            Ip_Ingreso = item.IP_INGRESO,
-                            Usu_Ingreso = item.USU_INGRESO,
-                            Extencion = item.EXTENCION,
-                            Nombre_Imagen = item.NOMBRE_IMAGEN,
-                            Ruta_Imagen = item.RUTA_IMAGEN,
-                            Tamano = item.TAMANO,
-                            Fecha_Toma = item.FECHA_TOMA,
-                            Descripcion = item.DESCRIPCION
-                        };
-                        vLista.Add(vEntidad);
-                    }
-                    return vLista;
-                }
-                return null;
+                var vResultado = (from vTmp in Eum_Info_GraficaAD.ListarPorIdEumT_Sgpad_Eum_Info_Grafica(vId_Eum)
+                                  select new Eum_Info_GraficaDTO
+                                  {
+                                      Id_Eum_Info_Grafica = vTmp.ID_EUM_INFO_GRAFICA,
+                                      Id_Eum = vTmp.ID_EUM,
+                                      Descripcion = vTmp.DESCRIPCION,
+
+
+                                      Fecha_Toma = vTmp.FECHA_TOMA,
+                                      Nombre_Imagen = vTmp.NOMBRE_IMAGEN,
+                                      Ruta_Imagen = vTmp.RUTA_IMAGEN,
+                                      Extencion = vTmp.EXTENCION,
+                                      Tamano = vTmp.TAMANO,
+                                      Id_LaserFiche = vTmp.ID_LASERFICHE,
+                                      Usu_Ingreso = vTmp.USU_INGRESO,
+                                      Fec_Ingreso = vTmp.FEC_INGRESO,
+                                      Ip_Ingreso = vTmp.IP_INGRESO,
+                                      Usu_Modifica = vTmp.USU_MODIFICA,
+                                      Fec_Modifica = vTmp.FEC_MODIFICA,
+                                      Ip_Modifica = vTmp.IP_MODIFICA,
+                                      Flg_Estado = vTmp.FLG_ESTADO
+                                  }).ToList();
+                return vResultado;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new NotImplementedException();
+                //Log.Error(ex.Message, ex);
+                throw;
             }
         }
 

@@ -15,7 +15,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
     /// Creado Por:	Omar Rodriguez Muñoz
     /// Fecha Creación:	27/10/2021
     /// </summary>
-    public partial class T_Sgpad_Lnr_Info_DocumentoAD: BaseAD, IT_Sgpad_Lnr_Info_DocumentoAD
+    public partial class T_Sgpad_Lnr_Info_DocumentoAD : BaseAD, IT_Sgpad_Lnr_Info_DocumentoAD
     {
         public T_Sgpad_Lnr_Info_DocumentoAD(IConfiguration vConfiguration)
         {
@@ -24,8 +24,8 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
 
         public IEnumerable<T_Sgpad_Lnr_Info_Documento> ListarT_Sgpad_Lnr_Info_Documento()
         {
-           List<T_Sgpad_Lnr_Info_Documento> vLista = new List<T_Sgpad_Lnr_Info_Documento>();
-           T_Sgpad_Lnr_Info_Documento vEntidad;
+            List<T_Sgpad_Lnr_Info_Documento> vLista = new List<T_Sgpad_Lnr_Info_Documento>();
+            T_Sgpad_Lnr_Info_Documento vEntidad;
 
             using (OracleConnection vCnn = new OracleConnection(CnnString))
             {
@@ -48,7 +48,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
 
         public T_Sgpad_Lnr_Info_Documento RecuperarT_Sgpad_Lnr_Info_DocumentoPorCodigo(int vId_Lnr_Info_Documento)
         {
-           T_Sgpad_Lnr_Info_Documento vEntidad = null;
+            T_Sgpad_Lnr_Info_Documento vEntidad = null;
             using (OracleConnection vCnn = new OracleConnection(CnnString))
             {
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_LNR_INFO_DOCUMENTO.USP_SEL_LNR_INFO_DOCUMENTO", vCnn))
@@ -56,7 +56,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     vCmd.CommandType = CommandType.StoredProcedure;
                     vCmd.Parameters.Add("pID_LNR_INFO_DOCUMENTO", vId_Lnr_Info_Documento);
                     vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                    
+
                     vCnn.Open();
                     OracleDataReader vRdr = vCmd.ExecuteReader();
                     while (vRdr.Read())
@@ -78,13 +78,18 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     vCmd.CommandType = CommandType.StoredProcedure;
                     //vCmd.Parameters.Add("pID_LNR_INFO_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.ID_LNR_INFO_DOCUMENTO);
                     vCmd.Parameters.Add("pID_LNR", vT_Sgpad_Lnr_Info_Documento.ID_LNR);
+                    vCmd.Parameters.Add("pFECHA_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.FECHA_DOCUMENTO);
+                    vCmd.Parameters.Add("pNOMBRE_INFORME", vT_Sgpad_Lnr_Info_Documento.NOMBRE_INFORME);
+                    vCmd.Parameters.Add("pDESCRIPCION", vT_Sgpad_Lnr_Info_Documento.DESCRIPCION);
                     vCmd.Parameters.Add("pNOMBRE_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.NOMBRE_DOCUMENTO);
                     vCmd.Parameters.Add("pRUTA_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.RUTA_DOCUMENTO);
                     vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Lnr_Info_Documento.EXTENCION);
-                    vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Lnr_Info_Documento.TAMANO);                     vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Lnr_Info_Documento.USU_INGRESO);
+                    vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Lnr_Info_Documento.TAMANO);
+                    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Lnr_Info_Documento.USU_INGRESO);
                     vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Lnr_Info_Documento.FEC_INGRESO);
                     vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Lnr_Info_Documento.IP_INGRESO);
                     vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Lnr_Info_Documento.FLG_ESTADO);
+                    vCmd.Parameters.Add("pID_LASERFICHE", vT_Sgpad_Lnr_Info_Documento.ID_LASERFICHE);
                     vCmd.Parameters.Add(":pID_LNR_INFO_DOCUMENTO", OracleDbType.Int64).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
@@ -94,7 +99,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             }
             return vT_Sgpad_Lnr_Info_Documento;
         }
-        
+
         public T_Sgpad_Lnr_Info_Documento ActualizarT_Sgpad_Lnr_Info_Documento(T_Sgpad_Lnr_Info_Documento vT_Sgpad_Lnr_Info_Documento)
         {
             using (OracleConnection vCnn = new OracleConnection(CnnString))
@@ -103,14 +108,17 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
                     vCmd.Parameters.Add("pID_LNR_INFO_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.ID_LNR_INFO_DOCUMENTO);
+                    vCmd.Parameters.Add("pFECHA_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.FECHA_DOCUMENTO);
+                    vCmd.Parameters.Add("pNOMBRE_INFORME", vT_Sgpad_Lnr_Info_Documento.NOMBRE_INFORME);
+                    vCmd.Parameters.Add("pDESCRIPCION", vT_Sgpad_Lnr_Info_Documento.DESCRIPCION);
                     vCmd.Parameters.Add("pNOMBRE_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.NOMBRE_DOCUMENTO);
                     vCmd.Parameters.Add("pRUTA_DOCUMENTO", vT_Sgpad_Lnr_Info_Documento.RUTA_DOCUMENTO);
                     vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Lnr_Info_Documento.EXTENCION);
                     vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Lnr_Info_Documento.TAMANO);
-                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Lnr_Info_Documento.FEC_INGRESO);
                     vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Lnr_Info_Documento.USU_MODIFICA);
                     vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Lnr_Info_Documento.FEC_MODIFICA);
-                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Lnr_Info_Documento.IP_MODIFICA);                     vCnn.Open();
+                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Lnr_Info_Documento.IP_MODIFICA);
+                    vCnn.Open();
                     vCmd.ExecuteNonQuery();
                     vCnn.Close();
                 }
@@ -137,8 +145,8 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
 
         public IEnumerable<T_Sgpad_Lnr_Info_Documento> ListarPaginadoT_Sgpad_Lnr_Info_Documento(string vFiltro, int vNumPag, int vCantRegxPag)
         {
-           List<T_Sgpad_Lnr_Info_Documento> vLista = new List<T_Sgpad_Lnr_Info_Documento>();
-           T_Sgpad_Lnr_Info_Documento vEntidad;
+            List<T_Sgpad_Lnr_Info_Documento> vLista = new List<T_Sgpad_Lnr_Info_Documento>();
+            T_Sgpad_Lnr_Info_Documento vEntidad;
 
             using (OracleConnection vCnn = new OracleConnection(CnnString))
             {

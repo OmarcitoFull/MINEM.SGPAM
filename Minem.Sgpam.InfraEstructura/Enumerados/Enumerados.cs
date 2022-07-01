@@ -40,11 +40,10 @@
         Cuenca_3 = 3
     }
 
-    public enum CuencaSecundario
+    public enum Tipo
     {
-        Cuenca_A = 1,
-        Cuenca_B = 2,
-        Cuenca_C = 3
+        EUM = 1,
+        Expediente = 2,
     }
 
     public enum TipoErr
@@ -53,4 +52,6 @@
         MODEL = 2,
         LASERFICHE = 3
     }
+
+
 }

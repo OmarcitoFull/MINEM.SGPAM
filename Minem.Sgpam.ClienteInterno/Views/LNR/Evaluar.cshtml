@@ -1,0 +1,390 @@
+﻿@using Minem.Sgpam.InfraEstructura;
+@model Minem.Sgpam.TransporteDatos.DtoEntidades.RegistrarEvaluacionLnrDTO
+
+@{
+    ViewData["Title"] = "Evaluación de Labor No Rehabilitada";
+}
+
+<form id="MyForm" asp-controller="Lnr" asp-action="Evaluar" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+
+    <div class="row">
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Nro. Expediente</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <input asp-for="@Model.Lnr.Nro_Expediente" class="form-control" placeholder="253-2019" maxlength="15" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Zona /concesíón /Proyecto</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <input class="form-control" placeholder="Proyecto de inversion" maxlength="70">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Nombre de declarante</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <input class="form-control text-uppercase" placeholder="Empresa minera SA" maxlength="70">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rowGroup">
+        <h1 class="grupoT">Concesiones vigentes a la fecha</h1>
+
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Codigo </th>
+                        <th class="column-title">Tipo </th>
+                        <th class="column-title">Sub Tipo</th>
+                        <th class="column-title">Este</th>
+                        <th class="column-title">Norte</th>
+                        <th class="column-title">Con. Vig.</th>
+                        <th class="column-title">Resol. Con</th>
+                        <th class="column-title">Titular</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.listaConcesiones.Any())
+                    {
+                        <tr class="even pointer">
+                            <td class=" " colspan="8">No existen registros</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var item in Model.listaConcesiones)
+                        {
+                            <tr class="even pointer">
+                                <td class=" col-lg-1 ">@item.Usu_Ingreso</td>
+                                <td class=" col-lg-1 ">@item.Id_Expediente</td>
+                                <td class=" col-lg-1 ">@item.Id_Eum</td>
+                                <td class=" col-lg-1 ">@item.Motivo</td>
+                                <td class=" col-lg-1 ">@item.Observacion</td>
+                                <td class=" col-lg-1 ">@item.Id_Eum</td>
+                                <td class=" col-lg-2 ">@item.Motivo</td>
+                                <td class=" col-lg-2 ">@item.Motivo</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="rowGroup">
+        <h1 class="grupoT">Evaluación de Inventario</h1>
+
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Codigo </th>
+                        <th class="column-title">Tipo </th>
+                        <th class="column-title">Sub Tipo</th>
+                        <th class="column-title">Este</th>
+                        <th class="column-title">Norte</th>
+                        <th class="column-title">ID_PAM</th>
+                        <th class="column-title">EUM</th>
+                        <th class="column-title">Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.listaEvaluacionInventario.Any())
+                    {
+                        <tr class="even pointer">
+                            <td class=" " colspan="8">No existen registros</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var item in Model.listaEvaluacionInventario)
+                        {
+                            <tr class="even pointer">
+                                <td class=" col-lg-1 ">@item.Usu_Ingreso</td>
+                                <td class=" col-lg-1 ">@item.Id_Expediente</td>
+                                <td class=" col-lg-1 ">@item.Id_Eum</td>
+                                <td class=" col-lg-1 ">@item.Motivo</td>
+                                <td class=" col-lg-1 ">@item.Observacion</td>
+                                <td class=" col-lg-1 ">@item.Id_Eum</td>
+                                <td class=" col-lg-2 ">@item.Motivo</td>
+                                <td class=" col-lg-2 ">@item.Motivo</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="rowGroup">
+        <h1 class="grupoT">Evaluación PCPAM</h1>
+        <div class="x_titleGroup">
+
+            <div align="center" class="titulo-m">
+            </div>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    @if (@Model.Lnr.Id_Lnr != 0)
+                    {
+                        <div class="boton">
+                            <a href="#" data-toggle="modal" data-target="#modal3" onclick="ShowModal('@Url.Action("CrearEvaluacionPCPAM", "LNR")', 'fullEvaluacionPCPAM')">Agregar  <i class="fa fa-plus"></i></a>
+                        </div>
+                    }
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Tipo </th>
+                        <th class="column-title">Nombre </th>
+                        <th class="column-title">Unidad Ambiental</th>
+                        <th class="column-title">Nombre Proyecto</th>
+                        <th class="column-title">Reso.l Aprob.</th>
+                        <th class="column-title">Fec. Resol.</th>
+                        <th class="column-title">Nro Exp.</th>
+                        <th class="column-title">Fec. Exp.</th>
+                        <th class="column-title">Situación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.listaEvaluacionPCPAM.Any())
+                    {
+                        <tr class="even pointer">
+                            <td class=" " colspan="9">No existen registros</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var item in Model.listaEvaluacionPCPAM)
+                        {
+                            <tr class="even pointer">
+                                <td class=" col-lg-1 ">@item.Usu_Ingreso</td>
+                                <td class=" col-lg-1 ">@item.Id_Expediente</td>
+                                <td class=" col-lg-1 ">@item.Id_Eum</td>
+                                <td class=" col-lg-1 ">@item.Motivo</td>
+                                <td class=" col-lg-1 ">@item.Observacion</td>
+                                <td class=" col-lg-1 ">@item.Id_Eum</td>
+                                <td class=" col-lg-2 ">@item.Motivo</td>
+                                <td class=" col-lg-2 ">@item.Motivo</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="rowGroup">
+        <h1 class="grupoT">Reinfo de los Derechos Mineros</h1>
+
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title" colspan="2">Datos del Declarante</th>
+                        <th class="column-title" colspan="2">Derecho Minero</th>
+                        <th class="column-title">Ubicación Geográfica</th>
+                        <th class="column-title">Estado</th>
+                        <th class="column-title" colspan="6">Coordenadas de Ubicación</th>
+                        <th class="column-title">Tipo de Activida</th>
+                    </tr>
+                    <tr class="headings">
+                        <th class="column-title">RUC</th>
+                        <th class="column-title">Minero</th>
+                        <th class="column-title">Código Único</th>
+                        <th class="column-title">Nombre</th>
+                        <th class="column-title">Dpto | Provincia | Distro</th>
+                        <th class="column-title"></th>
+                        <th class="column-title">Este PSAD</th>
+                        <th class="column-title">Norte PSAD</th>
+                        <th class="column-title">Este WGS84</th>
+                        <th class="column-title">Norte WGS84</th>
+                        <th class="column-title">Este WGS84 (2)</th>
+                        <th class="column-title">Norte WGS (2)</th>
+                        <th class="column-title"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.ListaReinfoDerechosMineros.Any())
+                    {
+                        <tr class="even pointer">
+                            <td class=" " colspan="13">No existen registros</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var item in Model.ListaReinfoDerechosMineros)
+                        {
+                            <tr class="odd pointer">
+                                <td class=" ">
+                                    @item.Ruc
+                                </td>
+                                <td class=" ">
+                                    @item.Minero
+                                </td>
+                                <td class=" ">
+                                    @item.Codigo_Dm
+                                </td>
+                                <td class=" ">
+                                    @item.Nombre_Dm
+                                </td>
+                                <td class=" ">
+                                    @item.Departamento | @item.Provincia | @item.Distrito
+                                </td>
+                                <td class=" ">
+                                    @item.Estado
+                                </td>
+                                <td class=" ">
+                                    @item.Este_Psad56
+                                </td>
+                                <td class=" ">
+                                    @item.Norte_Psad56
+                                </td>
+                                <td class=" ">
+                                    @item.Este_Wgs84_1p
+                                </td>
+                                <td class=" ">
+                                    @item.Norte_Wgs84_1p
+                                </td>
+                                <td class=" ">
+                                    @item.Este_Wgs84_2p
+                                </td>
+                                <td class=" ">
+                                    @item.Norte_Wgs84_2p
+                                </td>
+                                <td class=" ">
+                                    @item.Tipo_Actividad
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="rowGroup">
+        <h1 class="grupoT">.</h1>
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-1 col-sm-1 col-xs-12">RES_IGAFOM: </label>
+                <div class="col-md-11 col-sm-11 col-xs-12">
+                    <input class="form-control" placeholder="Resolución de IGA" maxlength="100" />
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="x_title">
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Ult. Registro</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input asp-for="@Model.Lnr.Fec_Modifica" class="form-control" disabled="disabled" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Usuario</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input asp-for="@Model.Lnr.Usu_Modifica" class="form-control" disabled="disabled" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Cargo</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input asp-for="@Model.Lnr.Usu_Modifica" class="form-control" disabled="disabled" />
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="x_title2">
+            <div align="center" class="titulo-m">
+            </div>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <button type="button" class="boton" id="btnSubmit">
+                        Guardar  <i class="fa fa-save"></i>
+                    </button>
+                </li>
+                <li>
+                    <div class="boton">
+                        <a href="@Url.Action("AgregarEditar", "Expediente", new { vId = Model.Lnr.Id_Expediente })">Cancelar  <i class="fa fa-ban"></i></a>
+                    </div>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+
+    <input type="hidden" asp-for="Lnr.Id_Lnr" />
+    <input type="hidden" asp-for="Lnr.Id_Expediente" />
+
+
+</form>
+
+@section Scripts {
+    <script type="text/javascript">
+
+
+        $('#btnSubmit').click(function () {
+            var vModel = $("#MyForm").serializeArray();
+
+            var vData = {};
+            $.map(vModel, function (n, i) { vData[n.name.replace("Lnr.", "")] = n.value; });
+            console.log(vData);
+
+            $.ajax({
+                type: "POST",
+                url: $("#MyForm").attr("action"),
+                data: vData,
+                success: function (data) {
+                    if (data.operation == "@Constantes.Ok") {
+                        Success("@Constantes.MsgOk");
+                        window.location.reload();
+                    } else {
+                        Error("@Constantes.MsgErr");
+                    }
+                },
+                error: function (req, status, error) {
+                    //console.log(req)
+                    alert(req);
+                    alert(status);
+                    alert(error);
+                }
+            });
+
+
+        });
+
+
+    </script>
+}
+

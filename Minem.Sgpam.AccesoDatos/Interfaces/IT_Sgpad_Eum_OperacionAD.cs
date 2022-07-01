@@ -5,7 +5,7 @@ namespace Minem.Sgpam.AccesoDatos.Interfaces
 {
     /// <summary>
     /// Objetivo:	Interfaz que matricula las operaciones para la tabla T_SGPAD_EUM_OPERACION
-    /// Creado Por:Mateo Salvador Paucar
+    /// Creado Por: Mateo Salvador Paucar
     /// Fecha Creación:	08/02/2022
     /// </summary>
     public interface IT_Sgpad_Eum_OperacionAD

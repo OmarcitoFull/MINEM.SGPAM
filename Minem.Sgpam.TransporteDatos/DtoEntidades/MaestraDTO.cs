@@ -18,7 +18,6 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
 		public string Evidencia_Act_Rec { get; set; }
 		public int Id_Tipo_Operacion { get; set; }
 		public int Id_Tipo_Sustancia { get; set; }
-
 		public string Relieve { get; set; }
 		public string Cuerpos_Agua { get; set; }
 		public int Id_Conflicto_Social { get; set; }
@@ -31,7 +30,6 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
 		public string Area_Conservacion { get; set; }
 		public string Sitio_Arque_Turistico { get; set; }
 		public string Conflicto_Social { get; set; }
-
 		public string Descripcion_Eum { get; set; }
 		public string Comentario_Adi { get; set; }
 		public int? Num_Eum { get; set; }
@@ -43,7 +41,10 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
 		public string Ip_Ingreso { get; set; }
 		public string Ip_Modifica { get; set; }
 		public string Flg_Estado { get; set; }
-		
-        #endregion
-    }
+
+		public DateTime? Ult_Visita { get; set; }
+		public DateTime? Fecha_Informe { get; set; }
+		public string Nro_Informe { get; set; }
+		#endregion
+	}
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using Minem.Sgpam.AccesoDatos.Interfaces;
 using Minem.Sgpam.Entidades;
@@ -50,27 +51,44 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
-        public Eum_InformeDTO InsertarEum_InformeDTO(Eum_InformeDTO vEum_InformeDTO)
+        public Eum_InformeDTO GrabarEum_InformeDTO(Eum_InformeDTO vEum_InformeDTO)
         {
             try
             {
-                var vRegistro = new T_Sgpad_Eum_Informe();
-                var vResultado = Eum_InformeAD.InsertarT_Sgpad_Eum_Informe(vRegistro);
-                return vEum_InformeDTO;
-            }
-            catch (Exception ex)
-            {
-                //Log.Error(ex.Message, ex);
-                throw;
-            }
-        }
-
-        public Eum_InformeDTO ActualizarEum_InformeDTO(Eum_InformeDTO vEum_InformeDTO)
-        {
-            try
-            {
-                var vRegistro = new T_Sgpad_Eum_Informe();
-                var vResultado = Eum_InformeAD.ActualizarT_Sgpad_Eum_Informe(vRegistro);
+                if (vEum_InformeDTO != null)
+                {
+                    var vRegistro = new T_Sgpad_Eum_Informe
+                    {
+                        ID_EUM_INFORME = vEum_InformeDTO.Id_Eum_Informe,
+                        ID_EUM = vEum_InformeDTO.Id_Eum,
+                        NRO_EXPEDIENTE = vEum_InformeDTO.Nro_Expediente,
+                        NRO_INFORME = vEum_InformeDTO.Nro_Informe,
+                        FECHA_INFORME = vEum_InformeDTO.Fecha_Informe,
+                        DESCRIPCION = vEum_InformeDTO.Descripcion,
+                        NOMBRE_INFORME = vEum_InformeDTO.Nombre_Informe,
+                        RUTA_INFORME = vEum_InformeDTO.Ruta_Informe,
+                        EXTENCION = vEum_InformeDTO.Extencion,
+                        TAMANO = vEum_InformeDTO.Tamano,
+                        ID_LASERFICHE = vEum_InformeDTO.Id_LaserFiche,
+                        USU_INGRESO = vEum_InformeDTO.Usu_Ingreso,
+                        FEC_INGRESO = vEum_InformeDTO.Fec_Ingreso,
+                        IP_INGRESO = vEum_InformeDTO.Ip_Ingreso,
+                        USU_MODIFICA = vEum_InformeDTO.Usu_Modifica,
+                        FEC_MODIFICA = vEum_InformeDTO.Fec_Modifica,
+                        IP_MODIFICA = vEum_InformeDTO.Ip_Modifica,
+                        FLG_ESTADO = vEum_InformeDTO.Flg_Estado
+                    };
+                    if (vEum_InformeDTO.Id_Eum_Informe == 0)
+                    {
+                        var vResultado = Eum_InformeAD.InsertarT_Sgpad_Eum_Informe(vRegistro);
+                        vEum_InformeDTO.Id_Eum_Informe = vResultado.ID_EUM_INFORME;
+                    }
+                    else
+                    {
+                        var vResultado = Eum_InformeAD.ActualizarT_Sgpad_Eum_Informe(vRegistro);
+                        vEum_InformeDTO = RecuperarEum_InformeDTOPorCodigo(vResultado.ID_EUM_INFORME);
+                    }
+                }
                 return vEum_InformeDTO;
             }
             catch (Exception ex)
@@ -80,11 +98,23 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
         
-        public int AnularEum_InformeDTOPorCodigo(Eum_InformeDTO vEum_InformeDTO)
+        public bool AnularEum_InformeDTOPorCodigo(Eum_InformeDTO vEum_InformeDTO)
         {
+            bool vResult = false;
             try
             {
-                return Eum_InformeAD.AnularT_Sgpad_Eum_InformePorCodigo(0);
+                if (vEum_InformeDTO != null)
+                {
+                    var vRegistro = new T_Sgpad_Eum_Informe
+                    {
+                        FEC_MODIFICA = vEum_InformeDTO.Fec_Modifica,
+                        ID_EUM_INFORME = vEum_InformeDTO.Id_Eum_Informe,
+                        IP_MODIFICA = vEum_InformeDTO.Ip_Modifica,
+                        USU_MODIFICA = vEum_InformeDTO.Usu_Modifica
+                    };
+                    vResult = Eum_InformeAD.AnularT_Sgpad_Eum_InformePorCodigo(vRegistro) != 0;
+                }
+                return vResult;
             }
             catch (Exception ex)
             {
@@ -111,39 +141,36 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         {
             try
             {
-                IEnumerable<T_Sgpad_Eum_Informe> vResultado = Eum_InformeAD.ListarPorIdEumT_Sgpad_Eum_Informe(vId_Eum);
-                if (vResultado != null)
-                {
-                    List<Eum_InformeDTO> vLista = new List<Eum_InformeDTO>();
-                    Eum_InformeDTO vEntidad;
-                    foreach (T_Sgpad_Eum_Informe item in vResultado)
-                    {
-                        vEntidad = new Eum_InformeDTO()
-                        {
-                            Fec_Ingreso = item.FEC_INGRESO,
-                            Flg_Estado = item.FLG_ESTADO,
-                            Id_Eum = item.ID_EUM,
-                            Id_Eum_Informe = item.ID_EUM_INFORME,
-                            Ip_Ingreso = item.IP_INGRESO,
-                            Usu_Ingreso = item.USU_INGRESO,
-                            Nro_Expediente = item.NRO_EXPEDIENTE,
-                            Nombre_Informe = item.NOMBRE_INFORME,
-                            Nro_Informe = item.NRO_INFORME,
-                            Ruta_Informe = item.RUTA_INFORME,
-                            Tamano = item.TAMANO,
-                            Fecha_Informe = item.FECHA_INFORME,
-                            Descripcion = item.DESCRIPCION
-                        };
-                        vLista.Add(vEntidad);
-                    }
-                    return vLista;
-                }
-                return null;
+                var vResultado = (from vTmp in Eum_InformeAD.ListarPorIdEumT_Sgpad_Eum_Informe(vId_Eum)
+                                  select new Eum_InformeDTO
+                                  {
+                                      Id_Eum_Informe = vTmp.ID_EUM_INFORME,
+                                      Id_Eum = vTmp.ID_EUM,
+                                      Descripcion = vTmp.DESCRIPCION,
+                                      Nro_Expediente = vTmp.NRO_EXPEDIENTE,
+                                      Nro_Informe = vTmp.NRO_INFORME,
+                                      Fecha_Informe = vTmp.FECHA_INFORME,
+                                      Nombre_Informe = vTmp.NOMBRE_INFORME,
+                                      Ruta_Informe = vTmp.RUTA_INFORME,
+                                      Extencion = vTmp.EXTENCION,
+                                      Tamano = vTmp.TAMANO,
+                                      Id_LaserFiche = vTmp.ID_LASERFICHE,
+                                      Usu_Ingreso = vTmp.USU_INGRESO,
+                                      Fec_Ingreso = vTmp.FEC_INGRESO,
+                                      Ip_Ingreso = vTmp.IP_INGRESO,
+                                      Usu_Modifica = vTmp.USU_MODIFICA,
+                                      Fec_Modifica = vTmp.FEC_MODIFICA,
+                                      Ip_Modifica = vTmp.IP_MODIFICA,
+                                      Flg_Estado = vTmp.FLG_ESTADO
+                                  }).ToList();
+                return vResultado;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new NotImplementedException();
+                //Log.Error(ex.Message, ex);
+                throw;
             }
         }
+
     }
 }

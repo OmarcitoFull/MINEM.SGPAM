@@ -13,9 +13,10 @@ namespace Minem.Sgpam.LogicaNegocio.Interfaces
     {
         IEnumerable<Visita_DetDTO> ListarVisita_DetDTO();
         Visita_DetDTO RecuperarVisita_DetDTOPorCodigo(int vId_Visita_Det);
-        Visita_DetDTO InsertarVisita_DetDTO(Visita_DetDTO vVisita_DetDTO);
-        Visita_DetDTO ActualizarVisita_DetDTO(Visita_DetDTO vVisita_DetDTO);
-        int AnularVisita_DetDTOPorCodigo(Visita_DetDTO vVisita_DetDTO);
+        Visita_DetDTO GrabarVisita_DetDTO(Visita_DetDTO vVisita_DetDTO);
+        bool AnularVisita_DetDTOPorCodigo(Visita_DetDTO vVisita_DetDTO);
         IEnumerable<Visita_DetDTO> ListarPaginadoVisita_DetDTO(string vFiltro, int vNumPag, int vCantRegxPag);
+        IEnumerable<Visita_DetDTO> ListarPorIdVisitaVisita_DetDTO(int vId_Visita);
+        RegistrarVisitaDetDTO RecuperarFullVisita_DetDTOPorCodigo(int vId_Visita_Det);
     }
 }

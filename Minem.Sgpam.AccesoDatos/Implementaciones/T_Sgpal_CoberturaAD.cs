@@ -76,7 +76,15 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_COBERTURA.USP_INS_COBERTURA", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpal_Cobertura.IP_MODIFICA); 				vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpal_Cobertura.FLG_ESTADO); 				vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpal_Cobertura.USU_INGRESO); 				vCmd.Parameters.Add("pID_COBERTURA", vT_Sgpal_Cobertura.ID_COBERTURA); 				vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpal_Cobertura.FEC_MODIFICA); 				vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpal_Cobertura.IP_INGRESO); 				vCmd.Parameters.Add("pDESCRIPCION", vT_Sgpal_Cobertura.DESCRIPCION); 				vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpal_Cobertura.USU_MODIFICA); 				vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpal_Cobertura.FEC_INGRESO);
+                    vCmd.Parameters.Add("pDESCRIPCION", vT_Sgpal_Cobertura.DESCRIPCION);
+                    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpal_Cobertura.USU_INGRESO);
+                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpal_Cobertura.FEC_INGRESO);
+                    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpal_Cobertura.IP_INGRESO);
+                    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpal_Cobertura.USU_MODIFICA);
+                    vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpal_Cobertura.FEC_MODIFICA);
+                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpal_Cobertura.IP_MODIFICA);
+                    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpal_Cobertura.FLG_ESTADO);
+                    vCmd.Parameters.Add("pID_COBERTURA", vT_Sgpal_Cobertura.ID_COBERTURA);
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
                     vCnn.Close();
@@ -92,7 +100,15 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_COBERTURA.USP_UPD_COBERTURA", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpal_Cobertura.IP_MODIFICA); 				vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpal_Cobertura.FLG_ESTADO); 				vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpal_Cobertura.USU_INGRESO); 				vCmd.Parameters.Add("pID_COBERTURA", vT_Sgpal_Cobertura.ID_COBERTURA); 				vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpal_Cobertura.FEC_MODIFICA); 				vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpal_Cobertura.IP_INGRESO); 				vCmd.Parameters.Add("pDESCRIPCION", vT_Sgpal_Cobertura.DESCRIPCION); 				vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpal_Cobertura.USU_MODIFICA); 				vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpal_Cobertura.FEC_INGRESO);
+                    vCmd.Parameters.Add("pID_COBERTURA", vT_Sgpal_Cobertura.ID_COBERTURA);
+                    vCmd.Parameters.Add("pDESCRIPCION", vT_Sgpal_Cobertura.DESCRIPCION);
+                    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpal_Cobertura.USU_INGRESO);
+                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpal_Cobertura.FEC_INGRESO);
+                    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpal_Cobertura.IP_INGRESO);
+                    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpal_Cobertura.USU_MODIFICA);
+                    vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpal_Cobertura.FEC_MODIFICA);
+                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpal_Cobertura.IP_MODIFICA);
+                    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpal_Cobertura.FLG_ESTADO);
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
                     vCnn.Close();

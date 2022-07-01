@@ -1,0 +1,470 @@
+﻿@using Minem.Sgpam.InfraEstructura;
+@using Minem.Sgpam.InfraEstructura.Enumerados;
+@model Minem.Sgpam.TransporteDatos.DtoEntidades.RegistrarVisitaDTO
+
+@{
+    ViewData["Title"] = "Programacion de Visita";
+}
+
+<form id="MyForm" asp-controller="Visita" asp-action="AgregarEditar" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+
+    <div class="rowGroup">
+        <h1 class="grupoT">1. Datos Generales</h1>
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Región:</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <select id="vId_Region" class="select2_single form-control" asp-for="@Model.Visita.Id_Region" asp-items="(List<SelectListItem>)ViewBag.CboRegion">
+                        <option value="">SELECCIONE</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Provincia:</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <select id="vId_Provincia" class="select2_single form-control" asp-for="@Model.Visita.Id_Provincia" asp-items="(List<SelectListItem>)ViewBag.CboProvincia">
+                        <option value="">SELECCIONE</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Distrito:</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <select id="vId_Distrito" class="select2_single form-control" asp-for="@Model.Visita.Id_Distrito" asp-items="(List<SelectListItem>)ViewBag.CboDistrito">
+                        <option value="">SELECCIONE</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Fecha Salida</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <input asp-for="@Model.Visita.Fecha_Salida" class="form-control" maxlength="100" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Fecha Regreso</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <input asp-for="@Model.Visita.Fecha_Regreso" class="form-control" maxlength="300" />
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="rowGroup">
+        <h1 class="grupoT">2. Eum - Expediente</h1>
+        <div class="x_titleGroup">
+
+            <div align="center" class="titulo-m">
+            </div>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        @if (@Model.Visita.Id_Visita != 0)
+                        {
+                            <div class="boton">
+                                <a href="#" data-toggle="modal" data-target="#modal2" onclick="ShowModal('@Url.Action("CrearEumExpediente", "Visita")', 'fullEumExpediente')">Agregar  <i class="fa fa-plus"></i></a>
+                            </div>
+                        }
+                    </li>
+                </ul>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Tipo </th>
+                        <th class="column-title">Expediente </th>
+                        <th class="column-title">Nombre</th>
+                        <th class="column-title">Motivo</th>
+                        <th class="column-title">Observación</th>
+                        <th class="column-title no-link last" style="text-align:center"><span class="nobr">Opción</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.listaVisitaDet.Any())
+                    {
+                        <tr class="even pointer">
+                            <td class=" " colspan="6">No existen registros</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var item in Model.listaVisitaDet)
+                        {
+                        <tr class="even pointer">
+                            <td class=" col-lg-1 ">@item.Tipo_Registro</td>
+                            <td class=" col-lg-1 ">@item.Nro_Expediente</td>
+                            <td class=" col-lg-3 ">@item.Nombre_Eum</td>
+                            <td class=" col-lg-3 ">@item.Motivo</td>
+                            <td class=" col-lg-2 ">@item.Observacion</td>
+                            <td class=" col-lg-1" style="text-align:center">
+                                <ul class="nav navbar-center panel_toolbox">
+                                    <li>
+                                        <div class="boton2">
+                                            <a href="#" onclick="RemoveEumExpediente(@item.Id_Visita_Det)" title="Eliminar Registro"> <i class="fa fa-trash-o "></i></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Id Compo </th>
+                        <th class="column-title">Nombre </th>
+                        <th class="column-title">Tipo</th>
+                        <th class="column-title">Este</th>
+                        <th class="column-title">Norte</th>
+                        <th class="column-title">Zona</th>
+                        <th class="column-title">Datum</th>
+                        <th class="column-title">Responsable</th>
+                        <th class="column-title">Puntaje</th>
+                        <th class="column-title">Elegir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.listaVisitaDetComLnr.Any())
+                    {
+                        <tr class="even pointer">
+                            <td class=" " colspan="10">No existen registros</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var item in Model.listaVisitaDetComLnr)
+                        {
+                            <tr class="even pointer">
+                                <td class=" col-lg-1 ">@item.Id_Componente</td>
+                                <td class=" col-lg-2 ">@item.Id_Lnr</td>
+                                <td class=" col-lg-1 ">@item.Id_Visita_Det</td>
+                                <td class=" col-lg-1 ">@item.Id_Visita_Det_Com_Lnr</td>
+                                <td class=" col-lg-1 ">@item.Ip_Modifica</td>
+                                <td class=" col-lg-1 ">@item.Fec_Modifica</td>
+                                <td class=" col-lg-1 ">@item.Fec_Ingreso</td>
+                                @*<td class=" col-lg-2 ">@item.Nombre</td>
+                                <td class=" col-lg-1 ">@item.Id_Tipo_Pam</td>
+                                <td class=" col-lg-1 ">@item.Este</td>
+                                <td class=" col-lg-1 ">@item.Norte</td>
+                                <td class=" col-lg-1 ">@item.Id_Zona</td>
+                                <td class=" col-lg-1 ">@item.Id_Datum</td>*@
+                                <td class=" col-lg-2 ">@item.Ip_Ingreso </td>
+                                <td class=" col-lg-1 ">@item.Puntaje</td>
+                                <td class=" col-lg-1 ">
+                                    <ul class="nav navbar-center panel_toolbox">
+                                        <li>
+                                            <input type="checkbox" />
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+    <div class="rowGroup">
+        <h1 class="grupoT">3. Visitantes </h1>
+        <div class="x_titleGroup">
+
+            <div align="center" class="titulo-m">
+            </div>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        @if (@Model.Visita.Id_Visita != 0)
+                        {
+                            <div class="boton">
+                                <a href="#" data-toggle="modal" data-target="#modal3" onclick="ShowModal('@Url.Action("CrearVisitaPersona", "Visita")', 'fullVisitaPersona')">Agregar  <i class="fa fa-plus"></i></a>
+                            </div>
+                        }
+                    </li>
+                </ul>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Cargo</th>
+                        <th class="column-title">DNI </th>
+                        <th class="column-title">Nombre y Apellido</th>
+                        <th class="column-title">Correo Electronico</th>
+                        <th class="column-title">Contacto</th>
+                        @*<th class="column-title no-link last" style="text-align:center"><span class="nobr">Opciones</span></th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.ListaVisitaPersona.Any())
+                    {
+                        <tr class="even pointer">
+                            <td class=" " colspan="5">No existen registros</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var item in Model.ListaVisitaPersona)
+                        {
+                            <tr class="even pointer">
+                                <td class=" col-lg-2 ">@item.Cargo</td>
+                                <td class=" col-lg-1 ">@item.Dni</td>
+                                <td class=" col-lg-4 ">@item.Nombre_Completo</td>
+                                <td class=" col-lg-3 ">@item.Correo</td>
+                                <td class=" col-lg-2 ">@item.Contacto</td>
+                                <td class=" col-lg-1" style="text-align:center">
+                                    <ul class="nav navbar-center panel_toolbox">
+                                        <li>
+                                            <div class="boton2">
+                                                <a href="#" onclick="RemoveVisitaPersona(@item.Id_Visita_Persona)" title="Eliminar Registro"> <i class="fa fa-trash-o "></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="x_title">
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Ult. Registro</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input asp-for="@Model.Visita.Fec_Modifica" class="form-control" disabled="disabled" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Usuario</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input asp-for="@Model.Visita.Usu_Modifica" class="form-control" disabled="disabled" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Cargo</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input asp-for="@Model.Visita.Usu_Modifica" class="form-control" disabled="disabled" />
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="x_title2">
+            <div align="center" class="titulo-m">
+            </div>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <button type="button" class="boton" id="btnSubmit">
+                        Guardar  <i class="fa fa-save"></i>
+                    </button>
+                </li>
+                <li>
+                    <div class="boton">
+                        <a asp-action="Index"> Cancelar <i class="fa fa-ban"></i></a>
+                    </div>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+
+    <input type="hidden" asp-for="Visita.Id_Visita" />
+    <input type="hidden" asp-for="Visita.Fec_Ingreso" />
+    <input type="hidden" asp-for="Visita.Ubigeo" id="Ubigeo" />
+    <input type="hidden" asp-for="Visita.Flg_Estado" />
+
+</form>
+
+
+<!-- Modal 2 Eum - Expediente -->
+<div id="modal2" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmEumExpediente" data-ajax-method="POST" asp-controller="GrabarEumExpediente" asp-action="Visita" enctype="multipart/form-data" autocomplete="off" data-ajax="true">
+                <div class="rowGroup" id="fullEumExpediente">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
+<!-- Modal 3 Visita Persona -->
+<div id="modal3" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmVisitaPersona" data-ajax-method="POST" asp-controller="GrabarVisitaPersona" asp-action="Visita" enctype="multipart/form-data" autocomplete="off" data-ajax="true">
+                <div class="rowGroup" id="fullVisitaPersona">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
+
+
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+
+
+            var IdUbigeo = @Html.Raw(Json.Serialize(ViewBag.FullUbigeo));
+
+            $("#vId_Region").on("change", function () {
+                var data = IdUbigeo.filter(o => o.id_Departamento == $("#vId_Region").val());
+                const prov = [...new Map(data.map(function (o) { return { id_Provincia: o.id_Provincia, provincia: o.provincia } }).map(o => [o.id_Provincia, o])).values()];
+                $("#vId_Provincia,#vId_Distrito").empty().append('<option value="0">SELECCIONE</option>');
+                prov.forEach(function (o, i) { $("#vId_Provincia").append('<option value="' + o.id_Provincia + '">' + o.provincia + "</option>") })
+            });
+
+            $("#vId_Provincia").on("change", function () {
+                var data = IdUbigeo.filter(x => x.id_Provincia == $("#vId_Provincia").val());
+                const dist = [...new Map(data.map(function (o) { return { id_Distrito: o.id_Distrito, distrito: o.distrito } }).map(o => [o.id_Distrito, o])).values()];
+                $("#vId_Distrito").empty();
+                $("#vId_Distrito").append('<option value="0">SELECCIONE</option>');
+                dist.forEach(function (o, i) { $("#vId_Distrito").append('<option value="' + o.id_Distrito + '">' + o.distrito + '</option>') })
+            });
+
+            $("#vId_Distrito").on("change", function () { "0" === $("#vId_Distrito").val() ? $("#Ubigeo").val("") : $("#Ubigeo").val($("#vId_Distrito").val()) });
+        });
+
+
+        $("#btnSubmit").click(function () {
+            var vModel = $("#MyForm").serializeArray();
+
+            var vData = {};
+            $.map(vModel, function (n, i) { vData[n.name.replace("Visita.", "")] = n.value; });
+            console.log(vData);
+
+            $.ajax({
+                type: "POST",
+                url: $("#MyForm").attr("action"),
+                data: vData,
+                success: function (data) {
+                    if (data.operation == "@Constantes.Ok") {
+                        Success("@Constantes.MsgOk");
+                        window.location.reload();
+                    } else {
+                        Error("@Constantes.MsgErr");
+                    }
+                },
+                error: function (req, status, error) {
+                    alert(req);
+                    alert(status);
+                    alert(error);
+                }
+            });
+
+        });
+
+
+        ShowModal = function (vUrl, vBody) {
+        $.get(vUrl + "?vIdVisita=@Model.Visita.Id_Visita", function (data) { $('#'+vBody).html(data) });
+        }
+
+        SaveEumExpediente = function () {
+            $.post("@Url.Action("GrabarEumExpediente", "Visita")", $("#frmEumExpediente").serialize()).done(function (x)
+            {
+                if (x.operation == "@Constantes.Ok") {
+                    $("#modal2").modal("toggle");
+                    window.location.reload();
+                    Success("@Constantes.MsgOk");
+                } else {
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr")
+                }
+            }).fail(function (a, b, c) {
+                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+            });
+        }
+
+        SaveVisitaPersona = function () {
+            $.post("@Url.Action("GrabarVisitaPersona", "Visita")", $("#frmVisitaPersona").serialize()).done(function (x)
+            {
+                if (x.operation == "@Constantes.Ok") {
+                    $("#modal3").modal("toggle");
+                    window.location.reload();
+                    Success("@Constantes.MsgOk");
+                } else {
+                    "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr")
+                }
+            }).fail(function (a, b, c) {
+                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+            });
+        }
+
+
+        function RemoveEumExpediente(vId) {
+            Swal.fire({
+                title: '¿Está seguro?',
+                text: "¡No podrás revertir esto!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#23527c',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si , Borralo!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    $.post("@Url.Action("RemoveEumExpediente", "Visita")?vId=" + vId).done(function (x) {
+                        if (x.operation == "@Constantes.Ok") {
+                            Removed("@Constantes.MsgDelOk");
+                            window.location.reload();
+                        } else {
+                            Error("@Constantes.MsgDelKo");
+                        }
+                    }).fail(function (a, b, c) {
+                        alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+                    });
+
+                }
+            })
+
+        }
+
+
+
+        function DescargarArchivo(vKey, vName) {
+            window.location = "@Url.Action("DescargarArchivo", "RegistrarPAM")?vKey=" + vKey + "&vName=" + vName;
+        }
+
+
+    </script>
+}

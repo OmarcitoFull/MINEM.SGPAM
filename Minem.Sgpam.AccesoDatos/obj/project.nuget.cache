@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LfOd1E734Mrgcku+DJ3m2QlFOdyJDNRmCuUS41SV22ISYYheHp9vKZC1Yu+i5xQEvd3UeGIpJY0yFhYP6N0sNA==",
+  "dgSpecHash": "szNPsM4hhzLGaaJeyP3ab7uZv1vWAF+moUD6GHWCSrYkpXqSSPqWaMdjnjiOSEItFi6PmMsCO13Yrt76v7ts1A==",
   "success": true,
-  "projectFilePath": "D:\\A FULLSOFT\\2021\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.AccesoDatos\\Minem.Sgpam.AccesoDatos.csproj",
+  "projectFilePath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.AccesoDatos\\Minem.Sgpam.AccesoDatos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\omar.rodriguez\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\omar.rodriguez\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",

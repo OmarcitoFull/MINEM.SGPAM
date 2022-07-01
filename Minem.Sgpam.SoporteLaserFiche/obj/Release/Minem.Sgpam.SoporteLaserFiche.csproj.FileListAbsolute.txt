@@ -1,0 +1,14 @@
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\bin\Release\Minem.Sgpam.SoporteLaserFiche.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\bin\Release\Minem.Sgpam.SoporteLaserFiche.pdb
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\bin\Release\Laserfiche.DocumentServices.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\bin\Release\Laserfiche.RepositoryAccess.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\bin\Release\LaserficheImaging.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\bin\Release\stdole.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\bin\Release\Laserfiche.DocumentServices.xml
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\bin\Release\Laserfiche.RepositoryAccess.xml
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\bin\Release\LaserficheImaging.xml
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\obj\Release\Minem.Sgpam.SoporteLaserFiche.csproj.AssemblyReference.cache
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\obj\Release\Minem.Sgpam.SoporteLaserFiche.csproj.CoreCompileInputs.cache
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\obj\Release\Minem.Sgpam.SoporteLaserFiche.csproj.CopyComplete
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\obj\Release\Minem.Sgpam.SoporteLaserFiche.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\obj\Release\Minem.Sgpam.SoporteLaserFiche.pdb

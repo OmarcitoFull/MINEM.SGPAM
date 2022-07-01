@@ -12,9 +12,13 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
         public List<Lnr_Info_GraficaDTO> ListaInformacionGrafica { get; set; }
         public List<Lnr_Info_DocumentoDTO> ListaInformacionDocumento { get; set; }
 
-        public List<Tipo_LnrDTO> CboTipoLnr { get; set; }
-        public List<Sub_Tipo_LnrDTO> CboSubTipoLnr { get; set; }
+        public List<Tipo_PamDTO> CboTipo { get; set; }
+        public List<Sub_Tipo_PamDTO> CboSubTipo { get; set; }
+        //public List<Tipo_LnrDTO> CboTipoLnr { get; set; }
+        //public List<Sub_Tipo_LnrDTO> CboSubTipoLnr { get; set; }
         public List<TemporalidadDTO> CboTemporalidad { get; set; }
+        public List<Ubigeo_IneiDTO> CboUbigeo { get; set; }
+
 
     }
 }

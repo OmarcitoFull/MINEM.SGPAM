@@ -2456,6 +2456,9 @@ function init_morris_charts() {
     }
 };
 
+function Remove(t) { Swal.fire({ title: "¿Está seguro?", text: t, icon: "warning", showCancelButton: true, cancelButtonColor: "#d33" }) }
+function Removed(t) { Swal.fire({ title: "Eliminado!", text: t, icon: "success"  }) }
+
 function Success(t) { Swal.fire({ title: "Guardado!", text: t, icon: "success" }) }
 function Error(t) { Swal.fire({ title: "Error!", text: t, icon: "error" }) }
 function Info(t) { Swal.fire({ title: "Información!", text: t, icon: "info" }) }

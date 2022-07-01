@@ -7,8 +7,8 @@ namespace Minem.Sgpam.WebApi.Controllers
 {
     /// <summary>
     /// Objetivo:	Controlador que implementa los servicios
-    /// Creado Por:	Omar Rodriguez Muñoz
-    /// Fecha Creación:	31/10/2021
+    /// Creado Por:	Mateo Salvador Paucar
+    /// Fecha Creación:	31/03/2022
     /// </summary>
     public class TipoOperacionController : BaseController
     {

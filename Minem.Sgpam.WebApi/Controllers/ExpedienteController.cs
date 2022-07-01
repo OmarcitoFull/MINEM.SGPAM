@@ -28,7 +28,7 @@ namespace Minem.Sgpam.WebApi.Controllers
         [HttpPost("Save")]
         public ExpedienteDTO Save([FromBody] ExpedienteDTO vExpedienteDTO)
         {
-            return Expediente_LN.ActualizarExpedienteDTO(vExpedienteDTO);
+            return Expediente_LN.GrabarExpedienteDTO(vExpedienteDTO);
         }
 
         [HttpGet("GetFull")]
@@ -37,11 +37,10 @@ namespace Minem.Sgpam.WebApi.Controllers
             return Expediente_LN.RecuperarFullExpedienteDTOPorCodigo(vId);
         }
 
-
         [HttpGet("ListarPaginadoExpedienteDTO")]
-        public IEnumerable<ExpedienteDTO> ListarPaginadoExpedienteDTO(string vNroExp, string vFiltro, int vNumPag, int vCantRegxPag)
+        public IEnumerable<ExpedienteDTO> ListarPaginadoExpedienteDTO(string vNroExp, string vZona, string vUbigeo, int vNumPag, int vCantRegxPag)
         {
-            return Expediente_LN.ListarPaginadoExpedienteDTO(vNroExp, vFiltro, vNumPag, vCantRegxPag);
+            return Expediente_LN.ListarPaginadoExpedienteDTO(vNroExp, vZona, vUbigeo, vNumPag, vCantRegxPag);
         }
 
     }

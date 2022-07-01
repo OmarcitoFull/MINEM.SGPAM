@@ -6,7 +6,7 @@ namespace Minem.Sgpam.WebApiLF.Controllers
     {
         public ActionResult Index()
         {
-            return Json("WEB API - POR: OMAR RODRIGUEZ MUÑOZ", JsonRequestBehavior.AllowGet);
+            return Json("WEB API - SIGEPAM LF", JsonRequestBehavior.AllowGet);
         }
     }
 }

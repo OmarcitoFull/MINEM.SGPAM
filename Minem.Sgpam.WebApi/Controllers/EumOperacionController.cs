@@ -37,7 +37,7 @@ namespace Minem.Sgpam.WebApi.Controllers
         }
 
         [HttpPost("Remove")]
-        public int Remove([FromBody] Eum_OperacionDTO vEum_OperacionDTO)
+        public bool Remove([FromBody] Eum_OperacionDTO vEum_OperacionDTO)
         {
             return Eum_OperacionLN.AnularEum_OperacionDTOPorCodigo(vEum_OperacionDTO);
         }
@@ -47,6 +47,6 @@ namespace Minem.Sgpam.WebApi.Controllers
         {
             return Eum_OperacionLN.ListarPorIdEumEum_OperacionDTO(vId_Eum);
         }
-
     }
+
 }

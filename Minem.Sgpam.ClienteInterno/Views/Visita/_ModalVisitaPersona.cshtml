@@ -1,0 +1,75 @@
+﻿@model Minem.Sgpam.TransporteDatos.DtoEntidades.Visita_PersonaDTO
+
+<div class="rowGroup">
+    <h1 class="grupoT">Agregar Inspección</h1>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Cargo</label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <select id="vId_Cargo" class="select2_single form-control" asp-for="Id_Cargo" asp-items="(List<SelectListItem>)ViewBag.CboCargo">
+                    <option value="">SELECCIONE</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">DNI:</label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <input type="text" asp-for="Dni" class="form-control" maxlength="10" placeholder="">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre y apellido:</label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <input type="text" asp-for="Nombre_Completo" class="form-control" maxlength="100" placeholder="">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Correo electrónico:</label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <input type="text" asp-for="Correo" class="form-control" maxlength="100" placeholder="">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Contacto:</label>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <input type="text" asp-for="Contacto" class="form-control" maxlength="100" placeholder="">
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="x_title2">
+        <div align="center" class="titulo-m">
+            <input type="hidden" asp-for="Id_Visita" />
+        </div>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+                <button type="button" class="boton" style="margin-right: 0px;" onclick="SaveVisitaPersona()">Guardar  <i class="fa fa-save" style="margin-left: 10px;"></i></button>
+            </li>
+            <li>
+                <div class="boton" data-dismiss="modal">
+                    <a href="#">Cancelar  <i class="fa fa-ban"></i></a>
+                </div>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="clearfix"></div>
+
+</div>
+

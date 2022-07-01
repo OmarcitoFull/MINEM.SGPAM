@@ -20,26 +20,35 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         private readonly IT_Sgpad_LnrAD LnrAD;
         private readonly IT_Sgpad_Lnr_Info_DocumentoLN Lnr_Info_DocumentoLN;
         private readonly IT_Sgpad_Lnr_Info_GraficaLN Lnr_Info_GraficaLN;
-        private readonly IT_Sgpal_Tipo_LnrLN Tipo_LnrLN;
-        private readonly IT_Sgpal_Sub_Tipo_LnrLN Sub_Tipo_LnrLN;
+        private readonly IT_Sgpal_Tipo_PamLN Tipo_PamLN;
+        private readonly IT_Sgpal_Sub_Tipo_PamLN Sub_Tipo_PamLN;
+        //private readonly IT_Sgpal_Tipo_LnrLN Tipo_LnrLN;
+        //private readonly IT_Sgpal_Sub_Tipo_LnrLN Sub_Tipo_LnrLN;
         private readonly IT_Sgpal_TemporalidadLN TemporalidadLN;
+        private readonly IT_Genl_Ubigeo_IneiLN UbigeoLN;
 
         public T_Sgpad_LnrLN
         (
             IT_Sgpad_LnrAD vT_Sgpad_LnrAD,
             IT_Sgpad_Lnr_Info_DocumentoLN vIT_Sgpad_Lnr_Info_DocumentoLN,
             IT_Sgpad_Lnr_Info_GraficaLN vIT_Sgpad_Lnr_Info_GraficaLN,
-            IT_Sgpal_Tipo_LnrLN vIT_Sgpal_Tipo_LnrLN,
-            IT_Sgpal_Sub_Tipo_LnrLN vIT_Sgpal_Sub_Tipo_LnrLN,
-            IT_Sgpal_TemporalidadLN vIT_Sgpal_TemporalidadLN
+            IT_Sgpal_Tipo_PamLN vIT_Sgpal_Tipo_PamLN,
+            IT_Sgpal_Sub_Tipo_PamLN vIT_Sgpal_Sub_Tipo_PamLN,
+            //IT_Sgpal_Tipo_LnrLN vIT_Sgpal_Tipo_LnrLN,
+            //IT_Sgpal_Sub_Tipo_LnrLN vIT_Sgpal_Sub_Tipo_LnrLN,
+            IT_Sgpal_TemporalidadLN vIT_Sgpal_TemporalidadLN,
+            IT_Genl_Ubigeo_IneiLN vIT_Genl_Ubigeo_IneiLN
         )
         {
             LnrAD = vT_Sgpad_LnrAD;
             Lnr_Info_DocumentoLN = vIT_Sgpad_Lnr_Info_DocumentoLN;
             Lnr_Info_GraficaLN = vIT_Sgpad_Lnr_Info_GraficaLN;
-            Tipo_LnrLN = vIT_Sgpal_Tipo_LnrLN;
-            Sub_Tipo_LnrLN = vIT_Sgpal_Sub_Tipo_LnrLN;
+            Tipo_PamLN = vIT_Sgpal_Tipo_PamLN;
+            Sub_Tipo_PamLN = vIT_Sgpal_Sub_Tipo_PamLN;
+            //Tipo_LnrLN = vIT_Sgpal_Tipo_LnrLN;
+            //Sub_Tipo_LnrLN = vIT_Sgpal_Sub_Tipo_LnrLN;
             TemporalidadLN = vIT_Sgpal_TemporalidadLN;
+            UbigeoLN = vIT_Genl_Ubigeo_IneiLN;
         }
 
         public IEnumerable<LnrDTO> ListarLnrDTO()
@@ -60,7 +69,6 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         {
             try
             {
-
                 var vRegistro = LnrAD.RecuperarT_Sgpad_LnrPorCodigo(vId_Lnr);
                 if (vRegistro != null)
                 {
@@ -74,18 +82,18 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         Area_Desc = vRegistro.AREA_DESC,
                         Codigo_Declarado = vRegistro.CODIGO_DECLARADO,
                         Este = vRegistro.ESTE,
-                        Eva_Afectacion = vRegistro.EVA_AFECTACION,
-                        Eva_Caida = vRegistro.EVA_CAIDA,
-                        Eva_Drenajes = vRegistro.EVA_DRENAJES,
-                        Eva_Elemento = vRegistro.EVA_ELEMENTO,
-                        Eva_Elementos = vRegistro.EVA_ELEMENTOS,
-                        Eva_Evidencia = vRegistro.EVA_EVIDENCIA,
-                        Eva_Generador = vRegistro.EVA_GENERADOR,
-                        Eva_Labor = vRegistro.EVA_LABOR,
-                        Eva_Material = vRegistro.EVA_MATERIAL,
-                        Eva_Posibilidad = vRegistro.EVA_POSIBILIDAD,
-                        Eva_Potencial = vRegistro.EVA_POTENCIAL,
-                        Eva_Restos = vRegistro.EVA_RESTOS,
+                        Eva_Afectacion = vRegistro.EVA_AFECTACION == "1" ? true : false,
+                        Eva_Caida = vRegistro.EVA_CAIDA == "1" ? true : false,
+                        Eva_Drenajes = vRegistro.EVA_DRENAJES == "1" ? true : false,
+                        Eva_Elemento = vRegistro.EVA_ELEMENTO == "1" ? true : false,
+                        Eva_Elementos = vRegistro.EVA_ELEMENTOS == "1" ? true : false,
+                        Eva_Evidencia = vRegistro.EVA_EVIDENCIA == "1" ? true : false,
+                        Eva_Generador = vRegistro.EVA_GENERADOR == "1" ? true : false,
+                        Eva_Labor = vRegistro.EVA_LABOR == "1" ? true : false,
+                        Eva_Material = vRegistro.EVA_MATERIAL == "1" ? true : false,
+                        Eva_Posibilidad = vRegistro.EVA_POSIBILIDAD == "1" ? true : false,
+                        Eva_Potencial = vRegistro.EVA_POTENCIAL == "1" ? true : false,
+                        Eva_Restos = vRegistro.EVA_RESTOS == "1" ? true : false,
                         Fec_Registro = vRegistro.FEC_REGISTRO,
                         Id_Expediente = vRegistro.ID_EXPEDIENTE,
                         Id_Lnr = vRegistro.ID_LNR,
@@ -110,7 +118,11 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         Ip_Ingreso = vRegistro.IP_INGRESO,
                         Ip_Modifica = vRegistro.IP_MODIFICA,
                         Usu_Ingreso = vRegistro.USU_INGRESO,
-                        Usu_Modifica = vRegistro.USU_MODIFICA
+                        Usu_Modifica = vRegistro.USU_MODIFICA,
+
+                        Id_Distrito = vRegistro.UBIGEO,
+                        Id_Provincia = string.IsNullOrEmpty(vRegistro.UBIGEO) ? "" : vRegistro.UBIGEO.Substring(0, 4),
+                        Id_Region = string.IsNullOrEmpty(vRegistro.UBIGEO) ? "" : vRegistro.UBIGEO.Substring(0, 2)
                     };
                     return vResultado;
                 }
@@ -124,12 +136,73 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
+        public LnrDTO GrabarLnrDTO(LnrDTO vLnrDTO)
+        {
+            try
+            {
+                if (vLnrDTO.Id_Lnr == 0)
+                    return InsertarLnrDTO(vLnrDTO);
+                else
+                    return ActualizarLnrDTO(vLnrDTO);
+            }
+            catch (Exception ex)
+            {
+                //Log.Error(ex.Message, ex);
+                throw;
+            }
+        }
+
         public LnrDTO InsertarLnrDTO(LnrDTO vLnrDTO)
         {
             try
             {
-                var vRegistro = new T_Sgpad_Lnr();
+                var vRegistro = new T_Sgpad_Lnr {
+                    ID_LNR = vLnrDTO.Id_Lnr,
+                    ID_EXPEDIENTE = vLnrDTO.Id_Expediente,
+                    NRO_EXPEDIENTE = "102030",//vLnrDTO.Nro_Expediente,
+                    CODIGO_DECLARADO = vLnrDTO.Codigo_Declarado,
+                    ID_TIPO_LNR = vLnrDTO.Id_Tipo_Lnr,
+                    ID_SUB_TIPO_LNR = vLnrDTO.Id_Sub_Tipo_Lnr,
+                    SUB_TIPO_DECLARADO = vLnrDTO.Sub_Tipo_Declarado,
+                    UBIGEO = vLnrDTO.Ubigeo,
+                    ESTE = vLnrDTO.Este,
+                    NORTE = vLnrDTO.Norte,
+                    ID_ZONA = vLnrDTO.Id_Zona,
+                    ANCHO = vLnrDTO.Ancho,
+                    ANCHO_DESC = vLnrDTO.Ancho_Desc,
+                    LARGO = vLnrDTO.Largo,
+                    LARGO_DESC = vLnrDTO.Largo_Desc,
+                    ALTO = vLnrDTO.Alto,
+                    ALTO_DESC = vLnrDTO.Alto_Desc,
+                    PROFUNDIDAD = vLnrDTO.Profundidad,
+                    PROFUNDIDAD_DESC = vLnrDTO.Profundidad_Desc,
+                    AREA = vLnrDTO.Area,
+                    AREA_DESC = vLnrDTO.Area_Desc,
+                    VOLUMEN = vLnrDTO.Volumen,
+                    VOLUMEN_DESC = vLnrDTO.Volumen_Desc,
+                    ID_TEMPORALIDAD = vLnrDTO.Id_Temporalidad,
+                    EVA_AFECTACION = vLnrDTO.Eva_Afectacion == true ? "1" : "0",
+                    EVA_CAIDA = vLnrDTO.Eva_Caida == true ? "1" : "0",
+                    EVA_DRENAJES = vLnrDTO.Eva_Drenajes == true ? "1" : "0",
+                    EVA_ELEMENTO = vLnrDTO.Eva_Elemento == true ? "1" : "0",
+                    EVA_ELEMENTOS = vLnrDTO.Eva_Elementos == true ? "1" : "0",
+                    EVA_EVIDENCIA = vLnrDTO.Eva_Evidencia == true ? "1" : "0",
+                    EVA_GENERADOR = vLnrDTO.Eva_Generador == true ? "1" : "0",
+                    EVA_LABOR = vLnrDTO.Eva_Labor == true ? "1" : "0",
+                    EVA_MATERIAL = vLnrDTO.Eva_Material == true ? "1" : "0",
+                    EVA_POSIBILIDAD = vLnrDTO.Eva_Material == true ? "1" : "0",
+                    EVA_POTENCIAL = vLnrDTO.Eva_Posibilidad == true ? "1" : "0",
+                    EVA_RESTOS = vLnrDTO.Eva_Restos == true ? "1" : "0",
+                    FEC_REGISTRO = vLnrDTO.Fec_Registro,
+                    NOM_DECLARANTE = vLnrDTO.Nom_Declarante,
+                    USU_INGRESO = vLnrDTO.Usu_Ingreso,
+                    FEC_INGRESO = vLnrDTO.Fec_Ingreso,
+                    IP_INGRESO = vLnrDTO.Ip_Ingreso,
+                    FLG_ESTADO = "1"
+                };
                 var vResultado = LnrAD.InsertarT_Sgpad_Lnr(vRegistro);
+                vLnrDTO = RecuperarLnrDTOPorCodigo(vResultado.ID_LNR);
+
                 return vLnrDTO;
             }
             catch (Exception ex)
@@ -143,8 +216,52 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         {
             try
             {
-                var vRegistro = new T_Sgpad_Lnr();
+                var vRegistro = new T_Sgpad_Lnr {
+                    ID_LNR = vLnrDTO.Id_Lnr,
+                    ID_EXPEDIENTE = vLnrDTO.Id_Expediente,
+                    NRO_EXPEDIENTE = vLnrDTO.Nro_Expediente,
+                    CODIGO_DECLARADO = vLnrDTO.Codigo_Declarado,
+                    ID_TIPO_LNR = vLnrDTO.Id_Tipo_Lnr,
+                    ID_SUB_TIPO_LNR = vLnrDTO.Id_Sub_Tipo_Lnr,
+                    SUB_TIPO_DECLARADO = vLnrDTO.Sub_Tipo_Declarado,
+                    UBIGEO = vLnrDTO.Ubigeo,
+                    ESTE = vLnrDTO.Este,
+                    NORTE = vLnrDTO.Norte,
+                    ID_ZONA = vLnrDTO.Id_Zona,
+                    ANCHO = vLnrDTO.Ancho,
+                    ANCHO_DESC = vLnrDTO.Ancho_Desc,
+                    LARGO = vLnrDTO.Largo,
+                    LARGO_DESC = vLnrDTO.Largo_Desc,
+                    ALTO = vLnrDTO.Alto,
+                    ALTO_DESC = vLnrDTO.Alto_Desc,
+                    PROFUNDIDAD = vLnrDTO.Profundidad,
+                    PROFUNDIDAD_DESC = vLnrDTO.Profundidad_Desc,
+                    AREA = vLnrDTO.Area,
+                    AREA_DESC = vLnrDTO.Area_Desc,
+                    VOLUMEN = vLnrDTO.Volumen,
+                    VOLUMEN_DESC = vLnrDTO.Volumen_Desc,
+                    ID_TEMPORALIDAD = vLnrDTO.Id_Temporalidad,
+                    EVA_AFECTACION = vLnrDTO.Eva_Afectacion == true ? "1" : "0",
+                    EVA_CAIDA = vLnrDTO.Eva_Caida == true ? "1" : "0",
+                    EVA_DRENAJES = vLnrDTO.Eva_Drenajes == true ? "1" : "0",
+                    EVA_ELEMENTO = vLnrDTO.Eva_Elemento == true ? "1" : "0",
+                    EVA_ELEMENTOS = vLnrDTO.Eva_Elementos == true ? "1" : "0",
+                    EVA_EVIDENCIA = vLnrDTO.Eva_Evidencia == true ? "1" : "0",
+                    EVA_GENERADOR = vLnrDTO.Eva_Generador == true ? "1" : "0",
+                    EVA_LABOR = vLnrDTO.Eva_Labor == true ? "1" : "0",
+                    EVA_MATERIAL = vLnrDTO.Eva_Material == true ? "1" : "0",
+                    EVA_POSIBILIDAD = vLnrDTO.Eva_Material == true ? "1" : "0",
+                    EVA_POTENCIAL = vLnrDTO.Eva_Posibilidad == true ? "1" : "0",
+                    EVA_RESTOS = vLnrDTO.Eva_Restos == true ? "1" : "0",
+                    FEC_REGISTRO = vLnrDTO.Fec_Registro,
+                    NOM_DECLARANTE = vLnrDTO.Nom_Declarante,
+                    USU_MODIFICA = vLnrDTO.Usu_Modifica,
+                    FEC_MODIFICA = vLnrDTO.Fec_Modifica,
+                    IP_MODIFICA = vLnrDTO.Ip_Modifica
+                };
                 var vResultado = LnrAD.ActualizarT_Sgpad_Lnr(vRegistro);
+                vLnrDTO = RecuperarLnrDTOPorCodigo(vResultado.ID_LNR);
+
                 return vLnrDTO;
             }
             catch (Exception ex)
@@ -167,11 +284,11 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
-        public IEnumerable<LnrDTO> ListarPaginadoLnrDTO(string vFiltro, int vNumPag, int vCantRegxPag)
+        public IEnumerable<LnrDTO> ListarPaginadoLnrDTO(int vIdExpediente, int vNumPag, int vCantRegxPag)
         {
             try
             {
-                var vResultado = LnrAD.ListarPaginadoT_Sgpad_Lnr(vFiltro, vNumPag, vCantRegxPag);
+                var vResultado = LnrAD.ListarPaginadoT_Sgpad_Lnr(vIdExpediente, vNumPag, vCantRegxPag);
                 return new List<LnrDTO>();
             }
             catch (Exception ex)
@@ -185,25 +302,22 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         {
             try
             {
-                //if (vId_Eum > 0)
-                //{
                 RegistrarLnrDTO vResultado = new RegistrarLnrDTO
                 {
                     Lnr = RecuperarLnrDTOPorCodigo(vId_Lnr),
-                    CboTipoLnr = (List<Tipo_LnrDTO>)Tipo_LnrLN.ListarTipo_LnrDTO(),
-                    CboSubTipoLnr = (List<Sub_Tipo_LnrDTO>)Sub_Tipo_LnrLN.ListarSub_Tipo_LnrDTO(),
+                    CboTipo = (List<Tipo_PamDTO>)Tipo_PamLN.ListarTipo_PamDTO(),
+                    CboSubTipo = (List<Sub_Tipo_PamDTO>)Sub_Tipo_PamLN.ListarSub_Tipo_PamDTO(),
                     CboTemporalidad = (List<TemporalidadDTO>)TemporalidadLN.ListarTemporalidadDTO(),
+                    CboUbigeo = UbigeoLN.ListarUbigeoDTO().ToList(),
 
                     ListaInformacionDocumento = (List<Lnr_Info_DocumentoDTO>)Lnr_Info_DocumentoLN.ListarPorIdLnrLnr_Info_DocumentoDTO(vId_Lnr),
                     ListaInformacionGrafica = (List<Lnr_Info_GraficaDTO>)Lnr_Info_GraficaLN.ListarPorIdLnrLnr_Info_GraficaDTO(vId_Lnr)
                 };
                 return vResultado;
-                //}
-                //return null;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                //Log.Error(ex.Message, ex);
                 throw;
             }
         }
@@ -229,18 +343,18 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                             Area_Desc = item.AREA_DESC,
                             Codigo_Declarado = item.CODIGO_DECLARADO,
                             Este = item.ESTE,
-                            Eva_Afectacion = item.EVA_AFECTACION,
-                            Eva_Caida = item.EVA_AFECTACION,
-                            Eva_Drenajes = item.EVA_DRENAJES,
-                            Eva_Elemento = item.EVA_ELEMENTO,
-                            Eva_Elementos = item.EVA_ELEMENTOS,
-                            Eva_Evidencia = item.EVA_EVIDENCIA,
-                            Eva_Generador = item.EVA_GENERADOR,
-                            Eva_Labor = item.EVA_LABOR,
-                            Eva_Material = item.EVA_MATERIAL,
-                            Eva_Posibilidad = item.EVA_POSIBILIDAD,
-                            Eva_Potencial = item.EVA_POTENCIAL,
-                            Eva_Restos = item.EVA_RESTOS,
+                            Eva_Afectacion = item.EVA_AFECTACION == "1" ? false : true,
+                            Eva_Caida = item.EVA_CAIDA == "1" ? false : true,
+                            Eva_Drenajes = item.EVA_DRENAJES == "1" ? false : true,
+                            Eva_Elemento = item.EVA_ELEMENTO == "1" ? false : true,
+                            Eva_Elementos = item.EVA_ELEMENTOS == "1" ? false : true,
+                            Eva_Evidencia = item.EVA_EVIDENCIA == "1" ? false : true,
+                            Eva_Generador = item.EVA_GENERADOR == "1" ? false : true,
+                            Eva_Labor = item.EVA_LABOR == "1" ? false : true,
+                            Eva_Material = item.EVA_MATERIAL == "1" ? false : true,
+                            Eva_Posibilidad = item.EVA_POSIBILIDAD == "1" ? false : true,
+                            Eva_Potencial = item.EVA_POTENCIAL == "1" ? false : true,
+                            Eva_Restos = item.EVA_RESTOS == "1" ? false : true,
                             Fec_Registro = item.FEC_REGISTRO,
                             Id_Expediente = item.ID_EXPEDIENTE,
                             Id_Lnr = item.ID_LNR,
@@ -276,5 +390,29 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                 throw new NotImplementedException();
             }
         }
+
+        public RegistrarEvaluacionLnrDTO RecuperarFullEvaluarLnrDTOPorCodigo(int vId_Lnr)
+        {
+            try
+            {
+                RegistrarEvaluacionLnrDTO vResultado = new RegistrarEvaluacionLnrDTO
+                {
+                    Lnr = RecuperarLnrDTOPorCodigo(vId_Lnr),
+                    //CboUbigeo = UbigeoLN.ListarUbigeoDTO().ToList(),
+                    //ListaInformacionGrafica = (List<Lnr_Info_GraficaDTO>)Lnr_Info_GraficaLN.ListarPorIdLnrLnr_Info_GraficaDTO(vId_Lnr)
+                    listaConcesiones = new List<Visita_DetDTO>(),
+                    listaEvaluacionInventario = new List<Visita_DetDTO>(),
+                    listaEvaluacionPCPAM = new List<Visita_DetDTO>(),
+                    ListaReinfoDerechosMineros = new List<ReinfoDerechosMinerosDTO>()
+                };
+                return vResultado;
+            }
+            catch (Exception ex)
+            {
+                //Log.Error(ex.Message, ex);
+                throw;
+            }
+        }
+
     }
 }

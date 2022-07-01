@@ -18,13 +18,10 @@ namespace Minem.Sgpam.WebApi.Controllers
             InspeccionLN = vIT_Sgpad_Eum_InspeccionLN;
         }
 
-
-
-
-        [HttpPost("Save")]
-        public Eum_InspeccionDTO Save([FromBody] Eum_InspeccionDTO vEum_InspeccionDTO)
+        [HttpGet("List")]
+        public IEnumerable<Eum_InspeccionDTO> List()
         {
-            return InspeccionLN.GrabarEum_InspeccionDTO(vEum_InspeccionDTO);
+            return InspeccionLN.ListarEum_InspeccionDTO();
         }
 
         [HttpGet("Get")]
@@ -33,14 +30,29 @@ namespace Minem.Sgpam.WebApi.Controllers
             return InspeccionLN.RecuperarEum_InspeccionDTOPorCodigo(vId);
         }
 
+        [HttpPost("Save")]
+        public Eum_InspeccionDTO Save([FromBody] Eum_InspeccionDTO vEum_InspeccionDTO)
+        {
+            return InspeccionLN.GrabarEum_InspeccionDTO(vEum_InspeccionDTO);
+        }
+
+        [HttpPost("Remove")]
+        public bool Remove([FromBody] Eum_InspeccionDTO vEum_InspeccionDTO)
+        {
+            return InspeccionLN.AnularEum_InspeccionDTOPorCodigo(vEum_InspeccionDTO);
+        }
+
+        [HttpGet("ListPorIdEum")]
+        public IEnumerable<Eum_InspeccionDTO> ListPorIdEum(int vId_Eum)
+        {
+            return InspeccionLN.ListarPorIdEumEum_InspeccionDTO(vId_Eum);
+        }
+
         [HttpGet("GetFull")]
         public RegistrarEumInspeccionDTO GetFull(int vId)
         {
             return InspeccionLN.RecuperarFullEum_InspeccionDTOPorCodigo(vId);
         }
-
-
     }
-
 
 }

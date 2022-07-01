@@ -647,6 +647,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.7" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Open-XML-SDK" Version="2.9.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -659,7 +660,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Templates\" />
     <Folder Include="Views\RegistrarPAM\" />
+    <Folder Include="wwwroot\Reports\" />
     <Folder Include="wwwroot\Pam\" />
   </ItemGroup>
 

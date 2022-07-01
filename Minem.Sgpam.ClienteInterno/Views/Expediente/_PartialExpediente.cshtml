@@ -1,0 +1,73 @@
+﻿@using Minem.Sgpam.InfraEstructura;
+@model IEnumerable<Minem.Sgpam.TransporteDatos.DtoEntidades.ExpedienteDTO>
+
+<div class="table-responsive">
+
+
+    <table id="datatable" class="table table-striped table-bordered pam">
+        <thead>
+            <tr>
+                <th>Nro Exopediente</th>
+                <th>Zona-Concesion-Proyecto</th>
+                <th>Año</th>
+                @*<th>Región</th>
+                <th>Provincia</th>
+                <th>Distrito</th>*@
+                <th>Declarante</th>
+                <th>Total LNR</th>
+                <th>Informe</th>
+                <th style="text-align:center">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (!Model.Any())
+            {
+                <tr class="even pointer">
+                    <td class=" " colspan="7">No existen registros</td>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+                    <tr class="even pointer">
+                        <td class=" col-lg-1 ">@item.Nro_Expediente</td>
+                        <td class=" col-lg-2 ">@item.Zona</td>
+                        <td class=" col-lg-1 ">@item.Fec_Ingreso</td>
+                        <td class=" col-lg-2 ">@item.Declarante</td>
+                        <td class=" col-lg-1 ">@item.Total_Lnr</td>
+                        <td class=" col-lg-1 ">@item.Nro_Informe</td>
+                        <td class=" col-lg-1 " style="text-align:center">
+                            <ul class="nav navbar-left panel_toolbox">
+                                <li>
+                                    <div class="boton2">
+                                        <a asp-action="AgregarEditar" asp-route-vId="@item.Id_Expediente" title="Editar Registro"><i class="fas fa-edit"></i></a>
+                                    </div>
+                                </li>
+                                @*<li>
+                                    <div class="boton2">
+                                        <a asp-action="AgregarEliminar" asp-route-vId="@item.Id_Expediente" title="Eliminar Registro"><i class="fas fa-trash"></i></a>
+                                    </div>
+                                </li>*@
+                            </ul>
+                        </td>
+                    </tr>
+                    @*<tr>
+                        <td><div class="boton2"><a href="#"> Generar <i class="fa fa-plus-square-o"></i></a></div></td>
+                        <td><a href="#" class="enlace">inf 001</a></td>
+                        <td>
+                            <ul class="nav navbar-left panel_toolbox">
+                                <li>
+                                    <div class="boton2"><a href="#"> <i class="fa fa-edit "></i></a></div>
+                                </li>
+                                <li>
+                                    <div class="boton2"><a href="#"> <i class="fa fa-external-link "></i></a></div>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>*@
+                }
+            }
+        </tbody>
+    </table>
+</div>

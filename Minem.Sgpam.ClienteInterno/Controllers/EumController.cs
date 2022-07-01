@@ -30,7 +30,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         public async Task<IActionResult> Index(string vNombreEUM = "", string vUbigeo= "0")
         {
             ListarEumDTO vRecord = new ListarEumDTO();
-            vRecord.ListaEum = await Services<MaestraDTO>.Listar("Eum/ListarPaginadoMaestraDTO?vFiltro=" + vNombreEUM.ToUpper() + "&vUbigeo=" + vUbigeo + "&vNumPag=" + 1 + "&vCantRegxPag=" + 10);
+            vRecord.ListaEum = await Services<MaestraDTO>.Listar("Eum/ListarPaginadoMaestraDTO?vFiltro=" + vNombreEUM + "&vUbigeo=" + vUbigeo + "&vNumPag=" + 1 + "&vCantRegxPag=" + 10);
             vRecord.ListaUbigeo = await Services<Ubigeo_IneiDTO>.Listar("Ubigeo/List_Ubigeo_Inei");
             ViewBag.Ubigeo = vRecord.ListaUbigeo;
             return View(vRecord);
@@ -66,18 +66,17 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AgregarEditar(MaestraDTO vEum)
+        public async Task<IActionResult> AgregarEditar(MaestraDTO vModel)
         {
-            vEum.Fec_Ingreso = vEum.Fec_Modifica = DateTime.Now;
-            vEum.Usu_Ingreso = vEum.Usu_Modifica = "JPEREZ";
-            vEum.Ip_Ingreso = vEum.Ip_Modifica = DnsFullNet.GetIp();
+            vModel.Fec_Ingreso = vModel.Fec_Modifica = DateTime.Now;
+            vModel.Usu_Ingreso = vModel.Usu_Modifica = Constantes.GuestUser;
+            vModel.Ip_Ingreso = vModel.Ip_Modifica = DnsFullNet.GetIp();
             if (ModelState.IsValid)
             {
-                vEum = await Services<MaestraDTO>.Grabar("Eum/Save", vEum);
-                return RedirectToAction(nameof(Index));
-                //return Ok(new ComponentResultModel(vModel?.Id_Componente ?? 0));
+                vModel = await Services<MaestraDTO>.Grabar("Eum/Save", vModel);
+                return Ok(new ComponentResultModel(vModel?.Id_Eum ?? 0));
             }
-            return View(vEum);
+            return View(vModel);
         }
 
 
@@ -92,8 +91,8 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
                 Flg_Estado = Constantes.Activo,
                 Fec_Ingreso = DateTime.Now,
                 Fec_Modifica = DateTime.Now,
-                Usu_Ingreso = "ORODRIGUEZ",
-                Usu_Modifica = "ORODRIGUEZ",
+                Usu_Ingreso = Constantes.GuestUser,
+                Usu_Modifica = Constantes.GuestUser,
                 Ip_Ingreso = DnsFullNet.GetIp(),
                 Ip_Modifica = DnsFullNet.GetIp()
             };
@@ -111,8 +110,8 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
                 Flg_Estado = Constantes.Activo,
                 Fec_Ingreso = DateTime.Now,
                 Fec_Modifica = DateTime.Now,
-                Usu_Ingreso = "ORODRIGUEZ",
-                Usu_Modifica = "ORODRIGUEZ",
+                Usu_Ingreso = Constantes.GuestUser,
+                Usu_Modifica = Constantes.GuestUser,
                 Ip_Ingreso = DnsFullNet.GetIp(),
                 Ip_Modifica = DnsFullNet.GetIp()
             };
@@ -146,7 +145,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vEum_Inspeccion.Flg_Estado = Constantes.Activo;
             vEum_Inspeccion.Fec_Ingreso = vEum_Inspeccion.Fec_Modifica = DateTime.Now;
-            vEum_Inspeccion.Usu_Ingreso = vEum_Inspeccion.Usu_Modifica = "MSALVADOR";
+            vEum_Inspeccion.Usu_Ingreso = vEum_Inspeccion.Usu_Modifica = Constantes.GuestUser;
             vEum_Inspeccion.Ip_Ingreso = vEum_Inspeccion.Ip_Modifica = DnsFullNet.GetIp();
             if (ModelState.IsValid)
             {
@@ -159,6 +158,97 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             }
         }
         #endregion
+
+
+
+        #region EumOperacion
+        [HttpGet]
+        public async Task<IActionResult> CrearTipoOperacion(int vIdEum)
+        {
+            RegistrarTipoOperacionDTO vRegistro1 = new RegistrarTipoOperacionDTO();
+            vRegistro1.ListaTipoOperacion = await Services<Tipo_OperacionDTO>.Listar("TipoOperacion/ListSinIdEum?vIdEum=" + vIdEum);
+            //vRegistro.Id_Eum =  vIdEum;
+            RegistrarEumOperacionDTO vRegistro = new RegistrarEumOperacionDTO();
+            List<Eum_OperacionDTO> vLista = new List<Eum_OperacionDTO>();
+            Eum_OperacionDTO vEum_Operacion;
+            foreach (var item in vRegistro1.ListaTipoOperacion)
+            {
+                vEum_Operacion = new Eum_OperacionDTO();
+                vEum_Operacion.Id_Eum_Operacion = 0;
+                vEum_Operacion.Id_Eum = vIdEum;
+                vEum_Operacion.Id_Tipo_Operacion = item.Id_Tipo_Operacion;
+                vEum_Operacion.Tipo_Operacion = item.Descripcion;
+                vLista.Add(vEum_Operacion);
+            }
+            vRegistro.ListaEumOperacion = vLista;
+            return PartialView("_ModalTipoOperacion", vRegistro);
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> GrabarTipoOperacion(List<Eum_OperacionDTO> vLista)
+        {
+            //int res = 0;
+            if (ModelState.IsValid)
+            {
+                Eum_OperacionDTO vEum_Operacion = new Eum_OperacionDTO();
+                //foreach (Tipo_OperacionDTO item in vLista)
+                //{
+                //    vEum_Operacion = new Eum_OperacionDTO();
+                //    vEum_Operacion.Id_Eum_Operacion = 0;
+                //    vEum_Operacion.Id_Eum = 10;
+                //    vEum_Operacion.Id_Tipo_Operacion = item.Id_Tipo_Operacion;
+                //    vEum_Operacion.Flg_Estado = Constantes.Activo;
+                //    vEum_Operacion.Fec_Ingreso = vEum_Operacion.Fec_Modifica = DateTime.Now;
+                //    vEum_Operacion.Usu_Ingreso = vEum_Operacion.Usu_Modifica = "MSALVADOR";
+                //    vEum_Operacion.Ip_Ingreso = vEum_Operacion.Ip_Modifica = DnsFullNet.GetIp();
+                //    vEum_Operacion = await Services<Eum_OperacionDTO>.Grabar("EumOperacion/Save", vEum_Operacion);
+                //}
+                return Json(new ComponentResultModel { Operation = vEum_Operacion.Id_Eum_Operacion > 0 ? Constantes.Ok : Constantes.Error });
+
+                //foreach (Eum_OperacionDTO item in vLista)
+                //{
+                //    item.Flg_Estado = Constantes.Activo;
+                //    item.Fec_Ingreso = item.Fec_Modifica = DateTime.Now;
+                //    item.Usu_Ingreso = item.Usu_Modifica = "MSALVADOR";
+                //    item.Ip_Ingreso = item.Ip_Modifica = DnsFullNet.GetIp();
+                //    await Services<Eum_OperacionDTO>.Grabar("EumOperacion/Save", item);
+                //    res = 1; 
+                //    //new ComponentResultModel { Operation = item.Id_Eum_Operacion > 0 ? Constantes.Ok : Constantes.Error };
+                //}
+                //return Json(new ComponentResultModel { Operation = res > 0 ? Constantes.Ok : Constantes.Error });
+            }
+            else
+            {
+                return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+            }
+
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> RemoveEumOperacion(int vId)
+        {
+            Eum_OperacionDTO vRegistro = new Eum_OperacionDTO
+            {
+                Id_Eum_Operacion = vId,
+                Flg_Estado = Constantes.Inactivo,
+                Fec_Modifica = DateTime.Now,
+                Usu_Modifica = Constantes.GuestUser,
+                Ip_Modifica = DnsFullNet.GetIp()
+            };
+            if (ModelState.IsValid)
+            {
+                bool vResult;
+                vResult = await Services<Eum_OperacionDTO>.Eliminar("EumOperacion/Remove", vRegistro);
+                return Json(new ComponentResultModel { Operation = vResult ? Constantes.Ok : Constantes.Error });
+            }
+            else
+            {
+                return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+            }
+
+        }
+        #endregion
+
 
 
         #region InfoGrafica
@@ -177,7 +267,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vInfo_Grafica.Flg_Estado = Constantes.Activo;
             vInfo_Grafica.Fec_Ingreso = vInfo_Grafica.Fec_Modifica = DateTime.Now;
-            vInfo_Grafica.Usu_Ingreso = vInfo_Grafica.Usu_Modifica = "MSALVADOR";
+            vInfo_Grafica.Usu_Ingreso = vInfo_Grafica.Usu_Modifica = Constantes.GuestUser; 
             vInfo_Grafica.Ip_Ingreso = vInfo_Grafica.Ip_Modifica = DnsFullNet.GetIp();
 
             if (vFile != null)
@@ -215,8 +305,20 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
 
                             if (ModelState.IsValid)
                             {
-                                vInfo_Grafica = await Services<Eum_Info_GraficaDTO>.Grabar("InfoGrafica/Save", vInfo_Grafica);
-                                return Json(new ComponentResultModel { Operation = vInfo_Grafica.Id_Eum_Info_Grafica > 0 ? Constantes.Ok : Constantes.Error });
+                                var vCarpetaLF = Configuration.GetValue<string>("DirectoryLFEumIG");
+                                string vResult = await ServicesLF.ObtenerProceso("SubirArchivo?vCarpeta=" + vCarpetaLF + "&vRutaArchivo=" + vInfo_Grafica.Ruta_Imagen + "&vNombreArchivo=" + vInfo_Grafica.Nombre_Imagen);
+                                if (vResult != Constantes.Error)
+                                {
+                                    vInfo_Grafica.Id_LaserFiche = Convert.ToInt64(vResult.Replace("\"", ""));
+                                    vInfo_Grafica = await Services<Eum_Info_GraficaDTO>.Grabar("InfoGrafica/Save", vInfo_Grafica); 
+                                    return Json(new ComponentResultModel { Operation = vInfo_Grafica.Id_Eum_Info_Grafica > 0 ? Constantes.Ok : Constantes.Error });
+                                }
+                                else
+                                {
+                                    return Json(new ComponentResultModel() { Type = TipoErr.LASERFICHE });
+                                }
+                                //vInfo_Grafica = await Services<Eum_Info_GraficaDTO>.Grabar("InfoGrafica/Save", vInfo_Grafica);
+                                //return Json(new ComponentResultModel { Operation = vInfo_Grafica.Id_Eum_Info_Grafica > 0 ? Constantes.Ok : Constantes.Error });
                             }
                             else
                             {
@@ -249,6 +351,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         #endregion
 
 
+
         #region InfoDescargo
         [HttpGet]
         public IActionResult CrearInfoDescargo(int vIdEum)
@@ -263,7 +366,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vInfo_Descargo.Flg_Estado = Constantes.Activo;
             vInfo_Descargo.Fec_Ingreso = vInfo_Descargo.Fec_Modifica = DateTime.Now;
-            vInfo_Descargo.Usu_Ingreso = vInfo_Descargo.Usu_Modifica = "MSALVADOR";
+            vInfo_Descargo.Usu_Ingreso = vInfo_Descargo.Usu_Modifica = Constantes.GuestUser;
             vInfo_Descargo.Ip_Ingreso = vInfo_Descargo.Ip_Modifica = DnsFullNet.GetIp();
 
             if (vFile != null)
@@ -301,8 +404,20 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
 
                             if (ModelState.IsValid)
                             {
-                                vInfo_Descargo = await Services<Eum_Info_DescargoDTO>.Grabar("InfoDescargo/Save", vInfo_Descargo);
-                                return Json(new ComponentResultModel { Operation = vInfo_Descargo.Id_Eum_Info_Descargo > 0 ? Constantes.Ok : Constantes.Error });
+                                var vCarpetaLF = Configuration.GetValue<string>("DirectoryLFEumID");
+                                string vResult = await ServicesLF.ObtenerProceso("SubirArchivo?vCarpeta=" + vCarpetaLF + "&vRutaArchivo=" + vInfo_Descargo.Ruta_Documento + "&vNombreArchivo=" + vInfo_Descargo.Nombre_Documento);
+                                if (vResult != Constantes.Error)
+                                {
+                                    vInfo_Descargo.Id_LaserFiche = Convert.ToInt64(vResult.Replace("\"", ""));
+                                    vInfo_Descargo = await Services<Eum_Info_DescargoDTO>.Grabar("InfoDescargo/Save", vInfo_Descargo);
+                                    return Json(new ComponentResultModel { Operation = vInfo_Descargo.Id_Eum_Info_Descargo > 0 ? Constantes.Ok : Constantes.Error });
+                                }
+                                else
+                                {
+                                    return Json(new ComponentResultModel() { Type = TipoErr.LASERFICHE });
+                                }
+                                //vInfo_Descargo = await Services<Eum_Info_DescargoDTO>.Grabar("InfoDescargo/Save", vInfo_Descargo);
+                                //return Json(new ComponentResultModel { Operation = vInfo_Descargo.Id_Eum_Info_Descargo > 0 ? Constantes.Ok : Constantes.Error });
                             }
                             else
                             {
@@ -332,65 +447,22 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             }
         }
 
-        #endregion
-
-
-        #region Informe
-
-        #endregion
-
-
-        #region EumOperacion
-        [HttpGet]
-        public async Task<IActionResult> CrearTipoOperacion(int vIdEum)
-        {
-            RegistrarTipoOperacionDTO vRegistro = new RegistrarTipoOperacionDTO();
-            vRegistro.ListaTipoOperacion = await Services<Tipo_OperacionDTO>.Listar("TipoOperacion/ListSinIdEum?vIdEum=" + vIdEum);
-            vRegistro.Id_Eum =  vIdEum;
-            return PartialView("_ModalTipoOperacion", vRegistro);
-        }
 
         [HttpPost]
-        public async Task<JsonResult> GrabarEumOperacion(List<Eum_OperacionDTO> vLista)
+        public async Task<JsonResult> RemoveEumDescargo(int vId)
         {
-            int res = 0;
-            if (ModelState.IsValid)
+            Eum_Info_DescargoDTO vRegistro = new Eum_Info_DescargoDTO
             {
-                foreach (Eum_OperacionDTO item in vLista)
-                {
-                    item.Flg_Estado = Constantes.Activo;
-                    item.Fec_Ingreso = item.Fec_Modifica = DateTime.Now;
-                    item.Usu_Ingreso = item.Usu_Modifica = "MSALVADOR";
-                    item.Ip_Ingreso = item.Ip_Modifica = DnsFullNet.GetIp();
-                    await Services<Eum_OperacionDTO>.Grabar("EumOperacion/Save", item);
-                    res = 1; 
-                    //new ComponentResultModel { Operation = item.Id_Eum_Operacion > 0 ? Constantes.Ok : Constantes.Error };
-                }
-                return Json(new ComponentResultModel { Operation = res > 0 ? Constantes.Ok : Constantes.Error });
-            }
-            else
-            {
-                return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
-            }
-
-        }
-
-
-        [HttpPost]
-        public async Task<JsonResult> EliminarEumOperacion(int vId)
-        {
-            Eum_OperacionDTO vRegistro = new Eum_OperacionDTO
-            {
-                Id_Eum_Operacion = vId,
+                Id_Eum_Info_Descargo = vId,
                 Flg_Estado = Constantes.Inactivo,
                 Fec_Modifica = DateTime.Now,
-                Usu_Modifica = "MSALVADOR",
+                Usu_Modifica = Constantes.GuestUser,
                 Ip_Modifica = DnsFullNet.GetIp()
             };
             if (ModelState.IsValid)
             {
                 bool vResult;
-                vResult = await Services<Eum_OperacionDTO>.Eliminar("EumOperacion/Remove", vRegistro);
+                vResult = await Services<Eum_Info_DescargoDTO>.Eliminar("InfoDescargo/Remove", vRegistro);
                 return Json(new ComponentResultModel { Operation = vResult ? Constantes.Ok : Constantes.Error });
             }
             else
@@ -399,7 +471,49 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             }
 
         }
+
         #endregion
+
+
+
+        #region Informe
+        [HttpGet]
+        public IActionResult CrearInforme(int vIdEum)
+        {
+            //Eum_Info_GraficaDTO vRegistro = await Services<Eum_Info_GraficaDTO>.Obtener("InfoGrafica/Get?vId=" + vIdEum);
+            //if (vIdEum == 0)
+            Eum_InformeDTO vRegistro = new Eum_InformeDTO { Fec_Ingreso = DateTime.Now, Id_Eum = vIdEum };
+            return PartialView("_ModalInforme", vRegistro);
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> DescargarInformePam(int vKey)
+        {
+            try
+            {
+                var vLista = await Services<ReportePamDTO>.Obtener("Reportes/GetReportPam?vId=" + vKey);
+
+
+                string vRouteTemplate = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, Configuration.GetSection("Reports:DirectorySource").Value));
+                string vRouteDestination = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, Configuration.GetSection("Reports:DirectoryDestination").Value));
+                string vTemplateFile = vRouteTemplate + Configuration.GetSection("Reports:TemplatePam").Value;
+                string vReportName = Configuration.GetSection("Reports:ReportName").Value + DateTime.Now.ToString("yyyyMMddHHmmssff") + ".docx";
+                string vReportFile = vRouteDestination + @"\" + vReportName;
+
+                System.IO.File.Copy(vTemplateFile, vReportFile);
+                Reports.ReplaceLabels(vReportFile, vLista);
+
+                var fileStream = System.IO.File.OpenRead(vReportFile);
+                return File(fileStream, "application/vnd.ms-word", vReportName);
+            }
+            catch (Exception ex)
+            {
+                return Json("ERROR");
+            }
+        }
+        #endregion
+
 
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using Minem.Sgpam.AccesoDatos.Interfaces;
 using Minem.Sgpam.Entidades;
@@ -50,27 +51,43 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
-        public Lnr_Info_DocumentoDTO InsertarLnr_Info_DocumentoDTO(Lnr_Info_DocumentoDTO vLnr_Info_DocumentoDTO)
+        public Lnr_Info_DocumentoDTO GrabarLnr_Info_DocumentoDTO(Lnr_Info_DocumentoDTO vLnr_Info_DocumentoDTO)
         {
             try
             {
-                var vRegistro = new T_Sgpad_Lnr_Info_Documento();
-                var vResultado = Lnr_Info_DocumentoAD.InsertarT_Sgpad_Lnr_Info_Documento(vRegistro);
-                return vLnr_Info_DocumentoDTO;
-            }
-            catch (Exception ex)
-            {
-                //Log.Error(ex.Message, ex);
-                throw;
-            }
-        }
-
-        public Lnr_Info_DocumentoDTO ActualizarLnr_Info_DocumentoDTO(Lnr_Info_DocumentoDTO vLnr_Info_DocumentoDTO)
-        {
-            try
-            {
-                var vRegistro = new T_Sgpad_Lnr_Info_Documento();
-                var vResultado = Lnr_Info_DocumentoAD.ActualizarT_Sgpad_Lnr_Info_Documento(vRegistro);
+                if (vLnr_Info_DocumentoDTO != null)
+                {
+                    var vRegistro = new T_Sgpad_Lnr_Info_Documento
+                    {
+                        ID_LNR_INFO_DOCUMENTO = vLnr_Info_DocumentoDTO.Id_Lnr_Info_Documento,
+                        ID_LNR = vLnr_Info_DocumentoDTO.Id_Lnr,
+                        FECHA_DOCUMENTO = vLnr_Info_DocumentoDTO.Fecha_Documento,
+                        NOMBRE_INFORME = vLnr_Info_DocumentoDTO.Nombre_Informe,
+                        DESCRIPCION = vLnr_Info_DocumentoDTO.Descripcion,
+                        NOMBRE_DOCUMENTO = vLnr_Info_DocumentoDTO.Nombre_Documento,
+                        RUTA_DOCUMENTO = vLnr_Info_DocumentoDTO.Ruta_Documento,
+                        EXTENCION = vLnr_Info_DocumentoDTO.Extencion,
+                        TAMANO = vLnr_Info_DocumentoDTO.Tamano,
+                        ID_LASERFICHE = vLnr_Info_DocumentoDTO.Id_LaserFiche,
+                        USU_INGRESO = vLnr_Info_DocumentoDTO.Usu_Ingreso,
+                        FEC_INGRESO = vLnr_Info_DocumentoDTO.Fec_Ingreso,
+                        IP_INGRESO = vLnr_Info_DocumentoDTO.Ip_Ingreso,
+                        USU_MODIFICA = vLnr_Info_DocumentoDTO.Usu_Modifica,
+                        FEC_MODIFICA = vLnr_Info_DocumentoDTO.Fec_Modifica,
+                        IP_MODIFICA = vLnr_Info_DocumentoDTO.Ip_Modifica,
+                        FLG_ESTADO = vLnr_Info_DocumentoDTO.Flg_Estado
+                    };
+                    if (vLnr_Info_DocumentoDTO.Id_Lnr_Info_Documento == 0)
+                    {
+                        var vResultado = Lnr_Info_DocumentoAD.InsertarT_Sgpad_Lnr_Info_Documento(vRegistro);
+                        vLnr_Info_DocumentoDTO.Id_Lnr_Info_Documento = vResultado.ID_LNR_INFO_DOCUMENTO;
+                    }
+                    else
+                    {
+                        var vResultado = Lnr_Info_DocumentoAD.ActualizarT_Sgpad_Lnr_Info_Documento(vRegistro);
+                        vLnr_Info_DocumentoDTO = RecuperarLnr_Info_DocumentoDTOPorCodigo(vResultado.ID_LNR_INFO_DOCUMENTO);
+                    }
+                }
                 return vLnr_Info_DocumentoDTO;
             }
             catch (Exception ex)
@@ -111,35 +128,28 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         {
             try
             {
-                IEnumerable<T_Sgpad_Lnr_Info_Documento> vResultado = Lnr_Info_DocumentoAD.ListarPorIdLnrT_Sgpad_Lnr_Info_Documento(vId_Lnr);
-                if (vResultado != null)
-                {
-                    List<Lnr_Info_DocumentoDTO> vLista = new List<Lnr_Info_DocumentoDTO>();
-                    Lnr_Info_DocumentoDTO vEntidad;
-                    foreach (T_Sgpad_Lnr_Info_Documento item in vResultado)
-                    {
-                        vEntidad = new Lnr_Info_DocumentoDTO()
-                        {
-                            Fec_Ingreso = item.FEC_INGRESO,
-                            Flg_Estado = item.FLG_ESTADO,
-                            Id_Lnr = item.ID_LNR,
-                            Id_Lnr_Info_Documento = item.ID_LNR_INFO_DOCUMENTO,
-                            Ip_Ingreso = item.IP_INGRESO,
-                            Usu_Ingreso = item.USU_INGRESO,
-                            //Asunto = item.ASUNTO,
-                            //Declaracion = item.DECLARACION,
-                            Extencion = item.EXTENCION,
-                            //Fecha_Descargo = item.FECHA_DESCARGO,
-                            Nombre_Documento = item.NOMBRE_DOCUMENTO,
-                            Ruta_Documento = item.RUTA_DOCUMENTO,
-                            Tamano = item.TAMANO//,
-                            //Titular = item.TITULAR
-                        };
-                        vLista.Add(vEntidad);
-                    }
-                    return vLista;
-                }
-                return null;
+                var vResultado = (from vTmp in Lnr_Info_DocumentoAD.ListarPorIdLnrT_Sgpad_Lnr_Info_Documento(vId_Lnr)
+                                  select new Lnr_Info_DocumentoDTO
+                                  {
+                                      Id_Lnr_Info_Documento = vTmp.ID_LNR_INFO_DOCUMENTO,
+                                      Id_Lnr = vTmp.ID_LNR,
+                                      Fecha_Documento = vTmp.FECHA_DOCUMENTO,
+                                      Nombre_Informe = vTmp.NOMBRE_INFORME,
+                                      Descripcion = vTmp.DESCRIPCION,
+                                      Nombre_Documento = vTmp.NOMBRE_DOCUMENTO,
+                                      Ruta_Documento = vTmp.RUTA_DOCUMENTO,
+                                      Extencion = vTmp.EXTENCION,
+                                      Tamano = vTmp.TAMANO,
+                                      Id_LaserFiche = vTmp.ID_LASERFICHE,
+                                      Usu_Ingreso = vTmp.USU_INGRESO,
+                                      Fec_Ingreso = vTmp.FEC_INGRESO,
+                                      Ip_Ingreso = vTmp.IP_INGRESO,
+                                      Usu_Modifica = vTmp.USU_MODIFICA,
+                                      Fec_Modifica = vTmp.FEC_MODIFICA,
+                                      Ip_Modifica = vTmp.IP_MODIFICA,
+                                      Flg_Estado = vTmp.FLG_ESTADO
+                                  }).ToList();
+                return vResultado;
             }
             catch (Exception)
             {

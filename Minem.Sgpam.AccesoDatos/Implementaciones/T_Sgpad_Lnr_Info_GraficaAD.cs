@@ -15,7 +15,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
     /// Creado Por:	Omar Rodriguez Muñoz
     /// Fecha Creación:	27/10/2021
     /// </summary>
-    public partial class T_Sgpad_Lnr_Info_GraficaAD: BaseAD, IT_Sgpad_Lnr_Info_GraficaAD
+    public partial class T_Sgpad_Lnr_Info_GraficaAD : BaseAD, IT_Sgpad_Lnr_Info_GraficaAD
     {
         public T_Sgpad_Lnr_Info_GraficaAD(IConfiguration vConfiguration)
         {
@@ -24,8 +24,8 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
 
         public IEnumerable<T_Sgpad_Lnr_Info_Grafica> ListarT_Sgpad_Lnr_Info_Grafica()
         {
-           List<T_Sgpad_Lnr_Info_Grafica> vLista = new List<T_Sgpad_Lnr_Info_Grafica>();
-           T_Sgpad_Lnr_Info_Grafica vEntidad;
+            List<T_Sgpad_Lnr_Info_Grafica> vLista = new List<T_Sgpad_Lnr_Info_Grafica>();
+            T_Sgpad_Lnr_Info_Grafica vEntidad;
 
             using (OracleConnection vCnn = new OracleConnection(CnnString))
             {
@@ -48,7 +48,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
 
         public T_Sgpad_Lnr_Info_Grafica RecuperarT_Sgpad_Lnr_Info_GraficaPorCodigo(int vId_Lnr_Info_Grafica)
         {
-           T_Sgpad_Lnr_Info_Grafica vEntidad = null;
+            T_Sgpad_Lnr_Info_Grafica vEntidad = null;
             using (OracleConnection vCnn = new OracleConnection(CnnString))
             {
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_LNR_INFO_GRAFICA.USP_SEL_LNR_INFO_GRAFICA", vCnn))
@@ -56,7 +56,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     vCmd.CommandType = CommandType.StoredProcedure;
                     vCmd.Parameters.Add("pID_LNR_INFO_GRAFICA", vId_Lnr_Info_Grafica);
                     vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                    
+
                     vCnn.Open();
                     OracleDataReader vRdr = vCmd.ExecuteReader();
                     while (vRdr.Read())
@@ -78,13 +78,17 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     vCmd.CommandType = CommandType.StoredProcedure;
                     //vCmd.Parameters.Add("pID_LNR_INFO_GRAFICA", vT_Sgpad_Lnr_Info_Grafica.ID_LNR_INFO_GRAFICA);
                     vCmd.Parameters.Add("pID_LNR", vT_Sgpad_Lnr_Info_Grafica.ID_LNR);
+                    vCmd.Parameters.Add("pFECHA_TOMA", vT_Sgpad_Lnr_Info_Grafica.FECHA_TOMA);
+                    vCmd.Parameters.Add("pDESCRIPCION", vT_Sgpad_Lnr_Info_Grafica.DESCRIPCION);
                     vCmd.Parameters.Add("pNOMBRE_IMAGEN", vT_Sgpad_Lnr_Info_Grafica.NOMBRE_IMAGEN);
                     vCmd.Parameters.Add("pRUTA_IMAGEN", vT_Sgpad_Lnr_Info_Grafica.RUTA_IMAGEN);
                     vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Lnr_Info_Grafica.EXTENCION);
                     vCmd.Parameters.Add("pTAMANO", vT_Sgpad_Lnr_Info_Grafica.TAMANO);
                     vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Lnr_Info_Grafica.USU_INGRESO);
-                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Lnr_Info_Grafica.FEC_INGRESO); 				    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Lnr_Info_Grafica.IP_INGRESO);
+                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Lnr_Info_Grafica.FEC_INGRESO);
+                    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Lnr_Info_Grafica.IP_INGRESO);
                     vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Lnr_Info_Grafica.FLG_ESTADO);
+                    vCmd.Parameters.Add("pID_LASERFICHE", vT_Sgpad_Lnr_Info_Grafica.ID_LASERFICHE);
                     vCmd.Parameters.Add(":pID_LNR_INFO_GRAFICA", OracleDbType.Int64).Direction = ParameterDirection.Output;
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
@@ -94,7 +98,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             }
             return vT_Sgpad_Lnr_Info_Grafica;
         }
-        
+
         public T_Sgpad_Lnr_Info_Grafica ActualizarT_Sgpad_Lnr_Info_Grafica(T_Sgpad_Lnr_Info_Grafica vT_Sgpad_Lnr_Info_Grafica)
         {
             using (OracleConnection vCnn = new OracleConnection(CnnString))
@@ -103,6 +107,8 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
                     vCmd.Parameters.Add("pID_LNR_INFO_GRAFICA", vT_Sgpad_Lnr_Info_Grafica.ID_LNR_INFO_GRAFICA);
+                    vCmd.Parameters.Add("pFECHA_TOMA", vT_Sgpad_Lnr_Info_Grafica.FECHA_TOMA);
+                    vCmd.Parameters.Add("pDESCRIPCION", vT_Sgpad_Lnr_Info_Grafica.DESCRIPCION);
                     vCmd.Parameters.Add("pNOMBRE_IMAGEN", vT_Sgpad_Lnr_Info_Grafica.NOMBRE_IMAGEN);
                     vCmd.Parameters.Add("pRUTA_IMAGEN", vT_Sgpad_Lnr_Info_Grafica.RUTA_IMAGEN);
                     vCmd.Parameters.Add("pEXTENCION", vT_Sgpad_Lnr_Info_Grafica.EXTENCION);
@@ -137,8 +143,8 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
 
         public IEnumerable<T_Sgpad_Lnr_Info_Grafica> ListarPaginadoT_Sgpad_Lnr_Info_Grafica(string vFiltro, int vNumPag, int vCantRegxPag)
         {
-           List<T_Sgpad_Lnr_Info_Grafica> vLista = new List<T_Sgpad_Lnr_Info_Grafica>();
-           T_Sgpad_Lnr_Info_Grafica vEntidad;
+            List<T_Sgpad_Lnr_Info_Grafica> vLista = new List<T_Sgpad_Lnr_Info_Grafica>();
+            T_Sgpad_Lnr_Info_Grafica vEntidad;
 
             using (OracleConnection vCnn = new OracleConnection(CnnString))
             {

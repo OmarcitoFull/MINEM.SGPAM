@@ -11,7 +11,20 @@ namespace Minem.Sgpam.Entidades
     public partial class T_Sgpam_Expediente : BEPaginacion
     {
         #region Propiedades
-        public string IP_MODIFICA { get; set; }  		public string FLG_ESTADO { get; set; }  		public string USU_MODIFICA { get; set; }  		public string USU_INGRESO { get; set; }  		public string DECLARANTE { get; set; }  		public DateTime? FEC_INGRESO { get; set; }  		public int ID_EXPEDIENTE { get; set; }  		public string NRO_EXPEDIENTE { get; set; }  		public string IP_INGRESO { get; set; }  		public DateTime? FEC_MODIFICA { get; set; }  		public string ZONA { get; set; }  		
+        public int ID_EXPEDIENTE { get; set; }
+		public string NRO_EXPEDIENTE { get; set; }  		public string ZONA { get; set; }
+        public string DECLARANTE { get; set; }
+        public string USU_INGRESO { get; set; }
+        public DateTime? FEC_INGRESO { get; set; }
+        public string IP_INGRESO { get; set; }
+        public string USU_MODIFICA { get; set; }
+        public DateTime? FEC_MODIFICA { get; set; }
+        public string IP_MODIFICA { get; set; }
+        public string FLG_ESTADO { get; set; }
+
+        public int TOTAL_LNR { get; set; }
+        public string NRO_INFORME { get; set; }
+
         #endregion
     }
 }

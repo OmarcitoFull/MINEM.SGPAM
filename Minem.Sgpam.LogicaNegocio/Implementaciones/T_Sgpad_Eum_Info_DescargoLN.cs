@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using Minem.Sgpam.AccesoDatos.Interfaces;
 using Minem.Sgpam.Entidades;
@@ -50,36 +51,6 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
-        //public Eum_Info_DescargoDTO InsertarEum_Info_DescargoDTO(Eum_Info_DescargoDTO vEum_Info_DescargoDTO)
-        //{
-        //    try
-        //    {
-        //        var vRegistro = new T_Sgpad_Eum_Info_Descargo();
-        //        var vResultado = Eum_Info_DescargoAD.InsertarT_Sgpad_Eum_Info_Descargo(vRegistro);
-        //        return vEum_Info_DescargoDTO;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        //Log.Error(ex.Message, ex);
-        //        throw;
-        //    }
-        //}
-
-        //public Eum_Info_DescargoDTO ActualizarEum_Info_DescargoDTO(Eum_Info_DescargoDTO vEum_Info_DescargoDTO)
-        //{
-        //    try
-        //    {
-        //        var vRegistro = new T_Sgpad_Eum_Info_Descargo();
-        //        var vResultado = Eum_Info_DescargoAD.ActualizarT_Sgpad_Eum_Info_Descargo(vRegistro);
-        //        return vEum_Info_DescargoDTO;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        //Log.Error(ex.Message, ex);
-        //        throw;
-        //    }
-        //}
-
         public Eum_Info_DescargoDTO GrabarEum_Info_DescargoDTO(Eum_Info_DescargoDTO vEum_Info_DescargoDTO)
         {
             try
@@ -88,23 +59,24 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                 {
                     var vRegistro = new T_Sgpad_Eum_Info_Descargo
                     {
-                        FEC_INGRESO = vEum_Info_DescargoDTO.Fec_Ingreso,
-                        FEC_MODIFICA = vEum_Info_DescargoDTO.Fec_Modifica,
-                        FLG_ESTADO = vEum_Info_DescargoDTO.Flg_Estado,
-                        IP_INGRESO = vEum_Info_DescargoDTO.Ip_Ingreso,
-                        IP_MODIFICA = vEum_Info_DescargoDTO.Ip_Modifica,
-                        USU_INGRESO = vEum_Info_DescargoDTO.Usu_Ingreso,
-                        USU_MODIFICA = vEum_Info_DescargoDTO.Usu_Modifica,
-                        ID_EUM = vEum_Info_DescargoDTO.Id_Eum,
-                        EXTENCION = vEum_Info_DescargoDTO.Extencion,
                         ID_EUM_INFO_DESCARGO = vEum_Info_DescargoDTO.Id_Eum_Info_Descargo,
-                        ASUNTO = vEum_Info_DescargoDTO.Asunto,
-                        DECLARACION = vEum_Info_DescargoDTO.Declaracion,
-                        TAMANO = vEum_Info_DescargoDTO.Tamano,
+                        ID_EUM = vEum_Info_DescargoDTO.Id_Eum,
                         FECHA_DESCARGO = vEum_Info_DescargoDTO.Fecha_Descargo,
+                        TITULAR = vEum_Info_DescargoDTO.Titular,
+                        DECLARACION = vEum_Info_DescargoDTO.Declaracion,
+                        ASUNTO = vEum_Info_DescargoDTO.Asunto,
                         NOMBRE_DOCUMENTO = vEum_Info_DescargoDTO.Nombre_Documento,
                         RUTA_DOCUMENTO = vEum_Info_DescargoDTO.Ruta_Documento,
-                        TITULAR = vEum_Info_DescargoDTO.Titular
+                        EXTENCION = vEum_Info_DescargoDTO.Extencion,
+                        TAMANO = vEum_Info_DescargoDTO.Tamano,
+                        ID_LASERFICHE = vEum_Info_DescargoDTO.Id_LaserFiche,
+                        USU_INGRESO = vEum_Info_DescargoDTO.Usu_Ingreso,
+                        FEC_INGRESO = vEum_Info_DescargoDTO.Fec_Ingreso,
+                        IP_INGRESO = vEum_Info_DescargoDTO.Ip_Ingreso,
+                        USU_MODIFICA = vEum_Info_DescargoDTO.Usu_Modifica,
+                        FEC_MODIFICA = vEum_Info_DescargoDTO.Fec_Modifica,
+                        IP_MODIFICA = vEum_Info_DescargoDTO.Ip_Modifica,
+                        FLG_ESTADO = vEum_Info_DescargoDTO.Flg_Estado
                     };
                     if (vEum_Info_DescargoDTO.Id_Eum_Info_Descargo == 0)
                     {
@@ -126,11 +98,23 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
-        public int AnularEum_Info_DescargoDTOPorCodigo(Eum_Info_DescargoDTO vEum_Info_DescargoDTO)
+        public bool AnularEum_Info_DescargoDTOPorCodigo(Eum_Info_DescargoDTO vEum_Info_DescargoDTO)
         {
+            bool vResult = false;
             try
             {
-                return Eum_Info_DescargoAD.AnularT_Sgpad_Eum_Info_DescargoPorCodigo(0);
+                if (vEum_Info_DescargoDTO != null)
+                {
+                    var vRegistro = new T_Sgpad_Eum_Info_Descargo
+                    {
+                        FEC_MODIFICA = vEum_Info_DescargoDTO.Fec_Modifica,
+                        ID_EUM_INFO_DESCARGO = vEum_Info_DescargoDTO.Id_Eum_Info_Descargo,
+                        IP_MODIFICA = vEum_Info_DescargoDTO.Ip_Modifica,
+                        USU_MODIFICA = vEum_Info_DescargoDTO.Usu_Modifica
+                    };
+                    vResult = Eum_Info_DescargoAD.AnularT_Sgpad_Eum_Info_DescargoPorCodigo(vRegistro) != 0;
+                }
+                return vResult;
             }
             catch (Exception ex)
             {
@@ -157,39 +141,34 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         {
             try
             {
-                IEnumerable<T_Sgpad_Eum_Info_Descargo> vResultado = Eum_Info_DescargoAD.ListarPorIdEumT_Sgpad_Eum_Info_Descargo(vId_Eum);
-                if (vResultado != null)
-                {
-                    List<Eum_Info_DescargoDTO> vLista = new List<Eum_Info_DescargoDTO>();
-                    Eum_Info_DescargoDTO vEntidad;
-                    foreach (T_Sgpad_Eum_Info_Descargo item in vResultado)
-                    {
-                        vEntidad = new Eum_Info_DescargoDTO()
-                        {
-                            Fec_Ingreso = item.FEC_INGRESO,
-                            Flg_Estado = item.FLG_ESTADO,
-                            Id_Eum = item.ID_EUM,
-                            Id_Eum_Info_Descargo = item.ID_EUM_INFO_DESCARGO,
-                            Ip_Ingreso = item.IP_INGRESO,
-                            Usu_Ingreso = item.USU_INGRESO,
-                            Asunto = item.ASUNTO,
-                            Declaracion = item.DECLARACION,
-                            Extencion = item.EXTENCION,
-                            Fecha_Descargo = item.FECHA_DESCARGO,
-                            Nombre_Documento = item.NOMBRE_DOCUMENTO,
-                            Ruta_Documento = item.RUTA_DOCUMENTO,
-                            Tamano = item.TAMANO,
-                            Titular = item.TITULAR
-                        };
-                        vLista.Add(vEntidad);
-                    }
-                    return vLista;
-                }
-                return null;
+                var vResultado = (from vTmp in Eum_Info_DescargoAD.ListarPorIdEumT_Sgpad_Eum_Info_Descargo(vId_Eum)
+                                  select new Eum_Info_DescargoDTO
+                                  {
+                                      Id_Eum_Info_Descargo = vTmp.ID_EUM_INFO_DESCARGO,
+                                      Id_Eum = vTmp.ID_EUM,
+                                      Titular = vTmp.TITULAR,
+                                      Declaracion = vTmp.DECLARACION,
+                                      Asunto = vTmp.ASUNTO,
+                                      Fecha_Descargo = vTmp.FECHA_DESCARGO,
+                                      Nombre_Documento = vTmp.NOMBRE_DOCUMENTO,
+                                      Ruta_Documento = vTmp.RUTA_DOCUMENTO,
+                                      Extencion = vTmp.EXTENCION,
+                                      Tamano = vTmp.TAMANO,
+                                      Id_LaserFiche = vTmp.ID_LASERFICHE,
+                                      Usu_Ingreso = vTmp.USU_INGRESO,
+                                      Fec_Ingreso = vTmp.FEC_INGRESO,
+                                      Ip_Ingreso = vTmp.IP_INGRESO,
+                                      Usu_Modifica = vTmp.USU_MODIFICA,
+                                      Fec_Modifica = vTmp.FEC_MODIFICA,
+                                      Ip_Modifica = vTmp.IP_MODIFICA,
+                                      Flg_Estado = vTmp.FLG_ESTADO
+                                  }).ToList();
+                return vResultado;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new NotImplementedException();
+                //Log.Error(ex.Message, ex);
+                throw;
             }
         }
 

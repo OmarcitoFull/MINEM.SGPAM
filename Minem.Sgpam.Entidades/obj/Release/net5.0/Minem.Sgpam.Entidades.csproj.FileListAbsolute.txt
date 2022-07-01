@@ -1,0 +1,12 @@
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Release\net5.0\Minem.Sgpam.Entidades.deps.json
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Release\net5.0\Minem.Sgpam.Entidades.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Release\net5.0\ref\Minem.Sgpam.Entidades.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.Entidades\bin\Release\net5.0\Minem.Sgpam.Entidades.pdb
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Release\net5.0\Minem.Sgpam.Entidades.csproj.AssemblyReference.cache
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Release\net5.0\Minem.Sgpam.Entidades.GeneratedMSBuildEditorConfig.editorconfig
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Release\net5.0\Minem.Sgpam.Entidades.AssemblyInfoInputs.cache
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Release\net5.0\Minem.Sgpam.Entidades.AssemblyInfo.cs
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Release\net5.0\Minem.Sgpam.Entidades.csproj.CoreCompileInputs.cache
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Release\net5.0\Minem.Sgpam.Entidades.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Release\net5.0\ref\Minem.Sgpam.Entidades.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.Entidades\obj\Release\net5.0\Minem.Sgpam.Entidades.pdb

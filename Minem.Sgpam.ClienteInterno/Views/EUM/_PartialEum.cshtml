@@ -12,7 +12,7 @@
                 <th>Última visita</th>
                 <th>Fecha Informe</th>
                 <th>Informe</th>
-                <th>Opciones</th>
+                <th style="text-align:center">Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -27,23 +27,22 @@
                 foreach (var item in Model)
                 {
                     <tr class="even pointer">
-                        <td class=" ">@item.Eum_Descripcion</td>
-                        <td class=" ">@item.Descripcion_Eum</td>
-                        <td class=" ">@item.Fec_Ingreso</td>
-                        <td class=" "></td>
-                        <td class=" "></td>
-                        <td class=" ">
+                        <td class=" col-lg-3 ">@item.Eum_Descripcion</td>
+                        <td class=" col-lg-3 ">@item.Descripcion_Eum</td>
+                        <td class=" col-lg-1 ">@item.Ult_Visita</td>
+                        <td class=" col-lg-1 ">@item.Fecha_Informe</td>
+                        <td class=" col-lg-1 ">@item.Nro_Informe</td>
+                        <td class=" col-lg-1 " style="text-align:center">
                             <ul class="nav navbar-center panel_toolbox">
                                 <li>
                                     <div class="boton2">
                                         <a asp-action="AgregarEditar" asp-route-vId="@item.Id_Eum" title="Editar Registro"><i class="fas fa-edit"></i></a>
                                     </div>
                                 </li>
-                                @*<li>
-                                <div class="boton2">
-                                    <a href="#" asp-route-vId="@item.Id_Eum" title="Eliminar Registro"> <i class="fa fa-dedent "></i></a>
-                                </div>
-                            </li>*@
+                                @*<div class="boton2">
+            <a href="#" asp-route-vId="@item.Id_Eum" title="Eliminar Registro"> <i class="fa fa-dedent "></i></a>
+        </div>
+                                *@
                             </ul>
                         </td>
                     </tr>

@@ -13,10 +13,9 @@ namespace Minem.Sgpam.LogicaNegocio.Interfaces
     {
         IEnumerable<ExpedienteDTO> ListarExpedienteDTO();
         ExpedienteDTO RecuperarExpedienteDTOPorCodigo(int vId_Expediente);
-        ExpedienteDTO InsertarExpedienteDTO(ExpedienteDTO vExpedienteDTO);
-        ExpedienteDTO ActualizarExpedienteDTO(ExpedienteDTO vExpedienteDTO);
+        ExpedienteDTO GrabarExpedienteDTO(ExpedienteDTO vExpedienteDTO);
         int AnularExpedienteDTOPorCodigo(ExpedienteDTO vExpedienteDTO);
-        IEnumerable<ExpedienteDTO> ListarPaginadoExpedienteDTO(string vNroExp, string vFiltro, int vNumPag, int vCantRegxPag);
+        IEnumerable<ExpedienteDTO> ListarPaginadoExpedienteDTO(string vNroExp, string vZona, string vUbigeo, int vNumPag, int vCantRegxPag);
         RegistrarExpedienteDTO RecuperarFullExpedienteDTOPorCodigo(int vId_Expediente);
 
     }

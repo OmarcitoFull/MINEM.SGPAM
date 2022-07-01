@@ -8,53 +8,58 @@
 <form id="MyForm" asp-controller="Expediente" asp-action="AgregarEditar" autocomplete="off" data-ajax="true" data-ajax-method="POST">
 
     <div class="row">
-        <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Expediente</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Expediente.Nro_Expediente" class="form-control" placeholder="253-2019" maxlength="10" />
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Nro. Expediente</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <input asp-for="@Model.Expediente.Nro_Expediente" class="form-control" placeholder="253-2019" maxlength="15" />
                 </div>
             </div>
         </div>
         <div class="col-md-6 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre de declarante</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Expediente.Declarante" class="form-control" placeholder="" maxlength="50">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Nombre de declarante</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <input asp-for="@Model.Expediente.Declarante" class="form-control text-uppercase" placeholder="Empresa minera SA" maxlength="70">
                 </div>
             </div>
         </div>
-        <div class="col-md-3 col-sm-12 col-xs-12 form-group">
-            <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Expediente.Fec_Ingreso" class="form-control" placeholder="2022" maxlength="10" />
-                </div>
-            </div>
-        </div>
+
     </div>
 
 
     <div class="row">
-        <div class="col-md-9 col-sm-12 col-xs-12 form-group">
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Zona /concesíón /Proyecto</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Expediente.Zona" class="form-control" placeholder="Empresa minera SA" maxlength="50">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Fecha Expediente</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <input asp-for="@Model.Expediente.Fec_Ingreso" class="form-control" placeholder="01/01/2022" maxlength="10" />
                 </div>
             </div>
         </div>
+        <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Zona /concesíón /Proyecto</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <input asp-for="@Model.Expediente.Zona" class="form-control" placeholder="Proyecto de inversion" maxlength="70">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        @if (@Model.Expediente.Id_Expediente != 0)
+                        {
+                            <div class="boton">
+                                <a asp-controller="Lnr" asp-action="GenerarInfoExp"> Generar Informe <i class="fa fa-eject"></i></a>
+                            </div>
+                        }
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-        <ul class="nav navbar-right panel_toolbox">
-            <li>
-                @if (@Model.Expediente.Id_Expediente != 0)
-                {
-                    <div class="boton">
-                        <a asp-controller="Lnr" asp-action="GenerarInfoExp"> Generar Informe <i class="fa fa-eject"></i></a>
-                    </div>
-                }
-            </li>
-        </ul>
         <div class="clearfix"></div>
     </div>
 
@@ -64,13 +69,12 @@
             <h3>Labores no Rehabilitados</h3>
         </div>
 
-
         <ul class="nav navbar-right panel_toolbox">
             <li>
                 @if (@Model.Expediente.Id_Expediente != 0)
                 {
                     <div class="boton">
-                        <a asp-controller="Lnr" asp-action="AgregarEditar"> Agregar <i class="fa fa-plus"></i></a>
+                        <a asp-controller="Lnr" asp-action="AgregarEditar" asp-route-vIdExpediente="@Model.Expediente.Id_Expediente"> Agregar <i class="fa fa-plus"></i></a>
                     </div>
                 }
             </li>
@@ -105,55 +109,31 @@
                 foreach (var item in Model.ListaLNR)
                 {
                     <tr class="odd pointer">
-                        <td class=" ">
-                            @item.Id_Lnr.ToString("D9")
-                        </td>
-                        <td class=" ">
-                            @item.Nom_Declarante
-                        </td>
-                        <td class=" ">
-                            @item.Des_Tipo_Lnr
-                        </td>
-                        <td class=" ">
-                            @item.Codigo_Declarado
-                        </td>
-                        <td class=" ">
-                            @item.Este
-                        </td>
-                        <td class=" ">
-                            @item.Norte
-                        </td>
-                        <td class=" ">
-                            <div class="boton2">
-
-                                <a asp-action="AgregarEditar" asp-controller="Lnr" asp-route-vId="@item.Id_Lnr" title="Editar Registro">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-
-                                @*<a href="@Url.Action("AgregarEditar", "Lnr", new { vId = item.Id_Lnr })">
-                                        <i class="fa fa-edit "></i>
-                                    </a>*@
-
-                            </div>
-                            <div class="boton2">
-                                <a href="#" onclick="FullRemoveComponent(@item.Id_Lnr)">
-                                    <i class="fa fa-trash-o "></i>
-                                </a>
-                            </div>
+                        <td class=" col-lg-1 ">@item.Id_Lnr.ToString("D9")</td>
+                        <td class=" col-lg-3 ">@item.Nom_Declarante</td>
+                        <td class=" col-lg-2 ">@item.Des_Tipo_Lnr</td>
+                        <td class=" col-lg-1 ">@item.Codigo_Declarado</td>
+                        <td class=" col-lg-1 ">@item.Este</td>
+                        <td class=" col-lg-1 ">@item.Norte</td>
+                        <td class=" col-lg-1 " style="text-align:center">
+                            <ul class="nav navbar-left panel_toolbox">
+                                <li>
+                                    <div class="boton2">
+                                        <a asp-action="AgregarEditar" asp-controller="Lnr" asp-route-vId="@item.Id_Lnr" title="Editar Registro"><i class="fas fa-edit"></i></a>
+                                        @*<a href="@Url.Action("AgregarEditar", "Lnr", new { vId = item.Id_Lnr })"> m<i class="fa fa-edit "></i> </a>*@
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="boton2">
+                                        <a asp-action="Evaluar" asp-controller="Lnr" asp-route-vId="@item.Id_Lnr" title="Ver Evaluacion"><i class="fas fa-euro"></i></a>
+                                    </div>
+                                </li>
+                            </ul>
                         </td>
                     </tr>
                 }
             }
         </tbody>
-        @*<tbody>
-                <tr>
-                    <td>
-                        <div class="boton2">
-                            <a href="#"> Generar <i class="fa fa-plus-square-o"></i></a>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>*@
     </table>
 
     <div class="x_title">
@@ -165,7 +145,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Ult. Registro</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Expediente.Fec_Ingreso" class="form-control" disabled="disabled" />
+                    <input asp-for="@Model.Expediente.Fec_Modifica" class="form-control" disabled="disabled" />
                 </div>
             </div>
         </div>
@@ -174,7 +154,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Usuario</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Expediente.Usu_Ingreso" class="form-control" disabled="disabled" />
+                    <input asp-for="@Model.Expediente.Usu_Modifica" class="form-control" disabled="disabled" />
                 </div>
             </div>
         </div>
@@ -192,7 +172,6 @@
 
         <div class="x_title2">
             <div align="center" class="titulo-m">
-
             </div>
             <ul class="nav navbar-right panel_toolbox">
                 <li>
@@ -205,11 +184,57 @@
                         <a asp-action="Index"> Cancelar <i class="fa fa-ban"></i></a>
                     </div>
                 </li>
-
             </ul>
             <div class="clearfix"></div>
         </div>
+
     </div>
+
+    <input type="hidden" asp-for="Expediente.Id_Expediente" />
 
 
 </form>
+
+@section Scripts {
+    <script type="text/javascript">
+
+
+        $('#btnSubmit').click(function () {
+            var vModel = $("#MyForm").serializeArray();
+
+            var vData = {};
+            $.map(vModel, function (n, i) { vData[n.name.replace("Expediente.", "")] = n.value; });
+            console.log(vData);
+
+            $.ajax({
+                type: "POST",
+                url: $("#MyForm").attr("action"),
+                data: vData,
+                success: function (data) {
+                    if (data.operation == "@Constantes.Ok") {
+                        Success("@Constantes.MsgOk");
+                        window.location.reload();
+                    } else {
+                        Error("@Constantes.MsgErr");
+                    }
+                },
+                error: function (req, status, error) {
+                    //console.log(req)
+                    alert(req);
+                    alert(status);
+                    alert(error);
+                }
+            });
+
+
+        });
+
+
+
+        function DescargarArchivo(vKey, vName) {
+            window.location = "@Url.Action("DescargarArchivo", "RegistrarPAM")?vKey=" + vKey + "&vName=" + vName;
+        }
+
+
+    </script>
+}

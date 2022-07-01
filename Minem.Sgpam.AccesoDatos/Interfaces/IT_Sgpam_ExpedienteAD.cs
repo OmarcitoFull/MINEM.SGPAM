@@ -14,7 +14,7 @@ namespace Minem.Sgpam.AccesoDatos.Interfaces
         T_Sgpam_Expediente RecuperarT_Sgpam_ExpedientePorCodigo(int vId_Expediente);
         T_Sgpam_Expediente InsertarT_Sgpam_Expediente(T_Sgpam_Expediente vT_Sgpam_Expediente);
         T_Sgpam_Expediente ActualizarT_Sgpam_Expediente(T_Sgpam_Expediente vT_Sgpam_Expediente);
-        int AnularT_Sgpam_ExpedientePorCodigo(int vId_Expediente);
-        IEnumerable<T_Sgpam_Expediente> ListarPaginadoT_Sgpam_Expediente(string vNroExp, string vFiltro, int vNumPag, int vCantRegxPag);
+        int AnularT_Sgpam_ExpedientePorCodigo(T_Sgpam_Expediente vT_Sgpam_Expediente);
+        IEnumerable<T_Sgpam_Expediente> ListarPaginadoT_Sgpam_Expediente(string vNroExp, string vZona, string vUbigeo, int vNumPag, int vCantRegxPag);
     }
 }

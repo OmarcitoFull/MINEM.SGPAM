@@ -13,11 +13,11 @@ namespace Minem.Sgpam.LogicaNegocio.Interfaces
     {
         IEnumerable<LnrDTO> ListarLnrDTO();
         LnrDTO RecuperarLnrDTOPorCodigo(int vId_Lnr);
-        LnrDTO InsertarLnrDTO(LnrDTO vLnrDTO);
-        LnrDTO ActualizarLnrDTO(LnrDTO vLnrDTO);
+        LnrDTO GrabarLnrDTO(LnrDTO vLnrDTO);
         int AnularLnrDTOPorCodigo(LnrDTO vLnrDTO);
-        IEnumerable<LnrDTO> ListarPaginadoLnrDTO(string vFiltro, int vNumPag, int vCantRegxPag);
+        IEnumerable<LnrDTO> ListarPaginadoLnrDTO(int vIdExpediente, int vNumPag, int vCantRegxPag);
         RegistrarLnrDTO RecuperarFullLnrDTOPorCodigo(int vId_Lnr);
         IEnumerable<LnrDTO> ListarPorIdExpedienteLnrDTO(int vId_Expediente);
+        RegistrarEvaluacionLnrDTO RecuperarFullEvaluarLnrDTOPorCodigo(int vId_Lnr);
     }
 }

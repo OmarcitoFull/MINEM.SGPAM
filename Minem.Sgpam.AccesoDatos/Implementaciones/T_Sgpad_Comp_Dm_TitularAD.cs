@@ -15,7 +15,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
     /// Creado Por:	Omar Rodriguez Muñoz
     /// Fecha Creación:	27/10/2021
     /// </summary>
-    public partial class T_Sgpad_Comp_Dm_TitularAD: BaseAD, IT_Sgpad_Comp_Dm_TitularAD
+    public partial class T_Sgpad_Comp_Dm_TitularAD : BaseAD, IT_Sgpad_Comp_Dm_TitularAD
     {
         public T_Sgpad_Comp_Dm_TitularAD(IConfiguration vConfiguration)
         {
@@ -24,8 +24,8 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
 
         public IEnumerable<T_Sgpad_Comp_Dm_Titular> ListarT_Sgpad_Comp_Dm_Titular()
         {
-           List<T_Sgpad_Comp_Dm_Titular> vLista = new List<T_Sgpad_Comp_Dm_Titular>();
-           T_Sgpad_Comp_Dm_Titular vEntidad;
+            List<T_Sgpad_Comp_Dm_Titular> vLista = new List<T_Sgpad_Comp_Dm_Titular>();
+            T_Sgpad_Comp_Dm_Titular vEntidad;
 
             using (OracleConnection vCnn = new OracleConnection(CnnString))
             {
@@ -48,7 +48,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
 
         public T_Sgpad_Comp_Dm_Titular RecuperarT_Sgpad_Comp_Dm_TitularPorCodigo(int vId_Comp_Dm_Titular)
         {
-           T_Sgpad_Comp_Dm_Titular vEntidad = null;
+            T_Sgpad_Comp_Dm_Titular vEntidad = null;
             using (OracleConnection vCnn = new OracleConnection(CnnString))
             {
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_COMP_DM_TITULAR.USP_SEL_COMP_DM_TITULAR", vCnn))
@@ -56,7 +56,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     vCmd.CommandType = CommandType.StoredProcedure;
                     vCmd.Parameters.Add("pID_COMP_DM_TITULAR", vId_Comp_Dm_Titular);
                     vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                    
+
                     vCnn.Open();
                     OracleDataReader vRdr = vCmd.ExecuteReader();
                     while (vRdr.Read())
@@ -76,7 +76,19 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_COMP_DM_TITULAR.USP_INS_COMP_DM_TITULAR", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    //vCmd.Parameters.Add("pID_ESTADO", vT_Sgpad_Comp_Dm_Titular.ID_ESTADO); 				vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Comp_Dm_Titular.USU_MODIFICA); 				vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Comp_Dm_Titular.FLG_ESTADO); 				vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Comp_Dm_Titular.IP_MODIFICA); 				vCmd.Parameters.Add("pID_COMP_DM_TITULAR", vT_Sgpad_Comp_Dm_Titular.ID_COMP_DM_TITULAR); 				vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Comp_Dm_Titular.USU_INGRESO); 				vCmd.Parameters.Add("pID_COMP_DM", vT_Sgpad_Comp_Dm_Titular.ID_COMP_DM); 				vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Comp_Dm_Titular.FEC_MODIFICA); 				vCmd.Parameters.Add("pID_EMPRESA", vT_Sgpad_Comp_Dm_Titular.ID_EMPRESA); 				vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Comp_Dm_Titular.FEC_INGRESO); 				vCmd.Parameters.Add("pFECHA_INICIO", vT_Sgpad_Comp_Dm_Titular.FECHA_INICIO); 				vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Comp_Dm_Titular.IP_INGRESO); 				vCmd.Parameters.Add("pFECHA_FIN", vT_Sgpad_Comp_Dm_Titular.FECHA_FIN);
+                    //vCmd.Parameters.Add("pID_ESTADO", vT_Sgpad_Comp_Dm_Titular.ID_ESTADO); 
+                    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Comp_Dm_Titular.USU_MODIFICA);
+                    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Comp_Dm_Titular.FLG_ESTADO);
+                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Comp_Dm_Titular.IP_MODIFICA);
+                    vCmd.Parameters.Add("pID_COMP_DM_TITULAR", vT_Sgpad_Comp_Dm_Titular.ID_COMP_DM_TITULAR);
+                    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Comp_Dm_Titular.USU_INGRESO);
+                    vCmd.Parameters.Add("pID_COMP_DM", vT_Sgpad_Comp_Dm_Titular.ID_COMP_DM);
+                    vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Comp_Dm_Titular.FEC_MODIFICA);
+                    vCmd.Parameters.Add("pID_EMPRESA", vT_Sgpad_Comp_Dm_Titular.ID_EMPRESA);
+                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Comp_Dm_Titular.FEC_INGRESO);
+                    vCmd.Parameters.Add("pFECHA_INICIO", vT_Sgpad_Comp_Dm_Titular.FECHA_INICIO);
+                    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Comp_Dm_Titular.IP_INGRESO);
+                    vCmd.Parameters.Add("pFECHA_FIN", vT_Sgpad_Comp_Dm_Titular.FECHA_FIN);
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
                     vCnn.Close();
@@ -84,7 +96,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             }
             return vT_Sgpad_Comp_Dm_Titular;
         }
-        
+
         public T_Sgpad_Comp_Dm_Titular ActualizarT_Sgpad_Comp_Dm_Titular(T_Sgpad_Comp_Dm_Titular vT_Sgpad_Comp_Dm_Titular)
         {
             using (OracleConnection vCnn = new OracleConnection(CnnString))
@@ -92,7 +104,19 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_COMP_DM_TITULAR.USP_UPD_COMP_DM_TITULAR", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    //vCmd.Parameters.Add("pID_ESTADO", vT_Sgpad_Comp_Dm_Titular.ID_ESTADO); 				vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Comp_Dm_Titular.USU_MODIFICA); 				vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Comp_Dm_Titular.FLG_ESTADO); 				vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Comp_Dm_Titular.IP_MODIFICA); 				vCmd.Parameters.Add("pID_COMP_DM_TITULAR", vT_Sgpad_Comp_Dm_Titular.ID_COMP_DM_TITULAR); 				vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Comp_Dm_Titular.USU_INGRESO); 				vCmd.Parameters.Add("pID_COMP_DM", vT_Sgpad_Comp_Dm_Titular.ID_COMP_DM); 				vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Comp_Dm_Titular.FEC_MODIFICA); 				vCmd.Parameters.Add("pID_EMPRESA", vT_Sgpad_Comp_Dm_Titular.ID_EMPRESA); 				vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Comp_Dm_Titular.FEC_INGRESO); 				vCmd.Parameters.Add("pFECHA_INICIO", vT_Sgpad_Comp_Dm_Titular.FECHA_INICIO); 				vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Comp_Dm_Titular.IP_INGRESO); 				vCmd.Parameters.Add("pFECHA_FIN", vT_Sgpad_Comp_Dm_Titular.FECHA_FIN);
+                    //vCmd.Parameters.Add("pID_ESTADO", vT_Sgpad_Comp_Dm_Titular.ID_ESTADO); 
+                    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpad_Comp_Dm_Titular.USU_MODIFICA);
+                    vCmd.Parameters.Add("pFLG_ESTADO", vT_Sgpad_Comp_Dm_Titular.FLG_ESTADO);
+                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpad_Comp_Dm_Titular.IP_MODIFICA);
+                    vCmd.Parameters.Add("pID_COMP_DM_TITULAR", vT_Sgpad_Comp_Dm_Titular.ID_COMP_DM_TITULAR);
+                    vCmd.Parameters.Add("pUSU_INGRESO", vT_Sgpad_Comp_Dm_Titular.USU_INGRESO);
+                    vCmd.Parameters.Add("pID_COMP_DM", vT_Sgpad_Comp_Dm_Titular.ID_COMP_DM);
+                    vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpad_Comp_Dm_Titular.FEC_MODIFICA);
+                    vCmd.Parameters.Add("pID_EMPRESA", vT_Sgpad_Comp_Dm_Titular.ID_EMPRESA);
+                    vCmd.Parameters.Add("pFEC_INGRESO", vT_Sgpad_Comp_Dm_Titular.FEC_INGRESO);
+                    vCmd.Parameters.Add("pFECHA_INICIO", vT_Sgpad_Comp_Dm_Titular.FECHA_INICIO);
+                    vCmd.Parameters.Add("pIP_INGRESO", vT_Sgpad_Comp_Dm_Titular.IP_INGRESO);
+                    vCmd.Parameters.Add("pFECHA_FIN", vT_Sgpad_Comp_Dm_Titular.FECHA_FIN);
                     vCnn.Open();
                     vCmd.ExecuteNonQuery();
                     vCnn.Close();
@@ -120,8 +144,8 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
 
         public IEnumerable<T_Sgpad_Comp_Dm_Titular> ListarPaginadoT_Sgpad_Comp_Dm_Titular(string vFiltro, int vNumPag, int vCantRegxPag)
         {
-           List<T_Sgpad_Comp_Dm_Titular> vLista = new List<T_Sgpad_Comp_Dm_Titular>();
-           T_Sgpad_Comp_Dm_Titular vEntidad;
+            List<T_Sgpad_Comp_Dm_Titular> vLista = new List<T_Sgpad_Comp_Dm_Titular>();
+            T_Sgpad_Comp_Dm_Titular vEntidad;
 
             using (OracleConnection vCnn = new OracleConnection(CnnString))
             {
@@ -153,7 +177,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
 
             using (OracleConnection vCnn = new OracleConnection(CnnString))
             {
-                using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_COMP_DM_TITULAR.USP_LIS_POR_IDEUM_COMP_DM_TITULAR", vCnn)) 
+                using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_COMP_DM_TITULAR.USP_LIS_POR_IDEUM_COMP_DM_TITULAR", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
                     vCmd.Parameters.Add("pID_EUM", vId_Eum);

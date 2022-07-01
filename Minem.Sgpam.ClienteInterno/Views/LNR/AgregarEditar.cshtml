@@ -1,4 +1,5 @@
 ﻿@using Minem.Sgpam.InfraEstructura;
+@using Minem.Sgpam.InfraEstructura.Enumerados;
 @model Minem.Sgpam.TransporteDatos.DtoEntidades.RegistrarLnrDTO
 
 @{
@@ -13,8 +14,9 @@
             <div class="form-group">
                 <label class="control-label col-md-4 col-sm-4 col-xs-12">Cod. LNR:</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <input asp-for="@Model.Lnr.Id_Lnr" class="form-control" />
+                    <input asp-for="@Model.Lnr.Id_Lnr" class="form-control" readonly="readonly" />
                 </div>
+                <input type="hidden" asp-for="@Model.Lnr.Id_Expediente" />
             </div>
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
@@ -22,9 +24,8 @@
                 <label class="control-label col-md-4 col-sm-4 col-xs-12">Tipo de LNR:</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <select id="vId_Tipo_Lnr" class="select2_single form-control" asp-for="@Model.Lnr.Id_Tipo_Lnr" asp-items="(List<SelectListItem>)ViewBag.CboTipoLnr">
-                        <option value="">Seleccione</option>
+                        <option value="">SELECCIONE</option>
                     </select>
-                    <input type="hidden" asp-for="@Model.Lnr.Id_Tipo_Lnr" />
                 </div>
             </div>
         </div>
@@ -33,9 +34,8 @@
                 <label class="control-label col-md-4 col-sm-4 col-xs-12">Subtipo de LNR:</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <select id="vId_Sub_Tipo_Lnr" class="select2_single form-control" asp-for="@Model.Lnr.Id_Sub_Tipo_Lnr" asp-items="(List<SelectListItem>)ViewBag.CboSubTipoLnr">
-                        <option value="">Seleccione</option>
+                        <option value="">SELECCIONE</option>
                     </select>
-                    <input type="hidden" asp-for="@Model.Lnr.Id_Sub_Tipo_Lnr" />
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
             <div class="form-group">
                 <label class="control-label col-md-4 col-sm-4 col-xs-12">Cod Declarado:</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <input asp-for="@Model.Lnr.Codigo_Declarado" class="form-control" maxlength="10" />
+                    <input asp-for="@Model.Lnr.Codigo_Declarado" class="form-control" maxlength="30" />
                 </div>
             </div>
         </div>
@@ -52,23 +52,22 @@
             <div class="form-group">
                 <label class="control-label col-md-2 col-sm-3 col-xs-12">Subtipo declarado:</label>
                 <div class="col-md-10 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Lnr.Sub_Tipo_Declarado" class="form-control" maxlength="50" />
+                    <input asp-for="@Model.Lnr.Sub_Tipo_Declarado" class="form-control" maxlength="90" />
                 </div>
             </div>
         </div>
 
         <div class="clearfix"></div>
     </div>
+
     <div class="rowGroup">
         <h1 class="grupoT">2. Ubicación</h1>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
                 <label class="control-label col-md-4 col-sm-4 col-xs-12">Región:</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <select class="select2_single form-control" tabindex="-1">
-                        <option></option>
-                        <option value="AK">Opcion 1</option>
-                        <option value="HI">Opcion 2</option>
+                    <select id="vId_Region" class="select2_single form-control" asp-for="@Model.Lnr.Id_Region" asp-items="(List<SelectListItem>)ViewBag.CboRegion">
+                        <option value="">SELECCIONE</option>
                     </select>
                 </div>
             </div>
@@ -77,22 +76,18 @@
             <div class="form-group">
                 <label class="control-label col-md-4 col-sm-4 col-xs-12">Provincia:</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <select class="select2_single form-control" tabindex="-1">
-                        <option></option>
-                        <option value="AK">Opcion 1</option>
-                        <option value="HI">Opcion 2</option>
+                    <select id="vId_Provincia" class="select2_single form-control" asp-for="@Model.Lnr.Id_Provincia" asp-items="(List<SelectListItem>)ViewBag.CboProvincia">
+                        <option value="">SELECCIONE</option>
                     </select>
                 </div>
             </div>
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Distrito:</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                    <select class="select2_single form-control" tabindex="-1">
-                        <option></option>
-                        <option value="AK">Opcion 1</option>
-                        <option value="HI">Opcion 2</option>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Distrito:</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <select id="vId_Distrito" class="select2_single form-control" asp-for="@Model.Lnr.Id_Distrito" asp-items="(List<SelectListItem>)ViewBag.CboDistrito">
+                        <option value="">SELECCIONE</option>
                     </select>
                 </div>
             </div>
@@ -102,7 +97,7 @@
             <div class="form-group">
                 <label class="control-label col-md-4 col-sm-4 col-xs-12">Coordenada Este:</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <input asp-for="@Model.Lnr.Este" class="form-control" maxlength="10" />
+                    <input type="number" asp-for="@Model.Lnr.Este" class="form-control" max="99999999.99" min="-99999999.99" maxlength="10" oninput="fMaxLength(this)" />
                 </div>
             </div>
         </div>
@@ -110,18 +105,16 @@
             <div class="form-group">
                 <label class="control-label col-md-4 col-sm-4 col-xs-12">Coordenada Norte:</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <input asp-for="@Model.Lnr.Norte" class="form-control" maxlength="10" />
+                    <input type="number" asp-for="@Model.Lnr.Norte" class="form-control" max="99999999.99" min="-99999999.99" maxlength="10" oninput="fMaxLength(this)" />
                 </div>
             </div>
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Zona</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                    <select class="select2_single form-control" tabindex="-1">
-                        <option></option>
-                        <option value="AK">Opcion 1</option>
-                        <option value="HI">Opcion 2</option>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Zona</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <select id="vZona" class="select2_single form-control" asp-for="@Model.Lnr.Id_Zona" asp-items="(List<SelectListItem>)ViewBag.CboZona">
+                        <option value="">SELECCIONE</option>
                     </select>
                 </div>
             </div>
@@ -129,6 +122,7 @@
 
         <div class="clearfix"></div>
     </div>
+
     <div class="rowGroup">
         <h1 class="grupoT">3. Reconocimiento visual</h1>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
@@ -143,7 +137,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Descripción Ancho:</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Lnr.Ancho_Desc" class="form-control" maxlength="100" />
+                    <input asp-for="@Model.Lnr.Ancho_Desc" class="form-control" maxlength="200" />
                 </div>
             </div>
         </div>
@@ -160,7 +154,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Descripción Largo:</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Lnr.Largo_Desc" class="form-control" maxlength="100" />
+                    <input asp-for="@Model.Lnr.Largo_Desc" class="form-control" maxlength="200" />
                 </div>
             </div>
         </div>
@@ -177,7 +171,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Descripción Alto:</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Lnr.Alto_Desc" class="form-control" maxlength="100" />
+                    <input asp-for="@Model.Lnr.Alto_Desc" class="form-control" maxlength="200" />
                 </div>
             </div>
         </div>
@@ -194,7 +188,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Descripción Profu:</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Lnr.Profundidad_Desc" class="form-control" maxlength="100" />
+                    <input asp-for="@Model.Lnr.Profundidad_Desc" class="form-control" maxlength="200" />
                 </div>
             </div>
         </div>
@@ -211,7 +205,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Descripción Área</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Lnr.Area_Desc" class="form-control" maxlength="100" />
+                    <input asp-for="@Model.Lnr.Area_Desc" class="form-control" maxlength="200" />
                 </div>
             </div>
         </div>
@@ -228,7 +222,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Descripción Volumen:</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Lnr.Volumen_Desc" class="form-control" maxlength="100" />
+                    <input asp-for="@Model.Lnr.Volumen_Desc" class="form-control" maxlength="200" />
                 </div>
             </div>
         </div>
@@ -259,11 +253,11 @@
             <table class="table table-striped jambo_table bulk_action">
                 <thead>
                     <tr class="headings">
-                        <th class="column-title">Fotografia </th>
-                        @*<th class="column-title">Fecha Toma </th>*@
+                        <th class="column-title">Nombre de fotografía </th>
+                        <th class="column-title">Fecha de toma </th>
                         <th class="column-title">Tamaño </th>
-                        @*<th class="column-title">Descripción </th>*@
-                        <th class="column-title no-link last"><span class="nobr">Opciones</span></th>
+                        <th class="column-title">Descripción </th>
+                        <th class="column-title no-link last" style="text-align:center"><span class="nobr">Opciones</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -278,24 +272,25 @@
                         foreach (var item in Model.ListaInformacionGrafica)
                         {
                             <tr class="even pointer">
-                                <td class=" ">@item.Nombre_Imagen</td>
-                                @*<td class=" ">@item.Fecha_Toma</td>*@
-                                <td class=" ">@item.Tamano</td>
-                                @*<td class=" ">@item.Descripcion</td>*@
-                                <td class=" ">
-                                    <ul class="nav navbar-left panel_toolbox">
-                                        <li>
-                                            <div class="boton2">
-                                                <a href="#"> <i class="fa fa-arrow-down"></i></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="boton2">
-                                                <a href="#"> <i class="fa fa-trash-o "></i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                <td class=" col-lg-2 ">@item.Nombre_Imagen</td>
+                                <td class=" col-lg-1 ">@item.Fecha_Toma</td>
+                                <td class=" col-lg-1 ">@item.Tamano</td>
+                                <td class=" col-lg-4 ">@item.Descripcion</td>
+                                <td class=" col-lg-1" style="text-align:center">
+                                    @if (item.Id_LaserFiche.GetValueOrDefault() > 0)
+                                    {
+                                        <button type="button" class="boton2" style="margin-right: 0px;" onclick="DescargarArchivo(@item.Id_LaserFiche.ToString(), '@item.Nombre_Imagen')"> <i class="fa fa-download"></i></button>
+                                    }
                                 </td>
+                                @*<td class=" ">
+                                        <ul class="nav navbar-left panel_toolbox">
+                                            <li>
+                                                <div class="boton2">
+                                                    <a href="#"> <i class="fa fa-trash-o "></i></a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </td>*@
                             </tr>
                         }
                     }
@@ -303,6 +298,7 @@
             </table>
         </div>
     </div>
+
     <div class="rowGroup">
         <h1 class="grupoT">5. Información Adicional</h1>
         <div class="x_titleGroup">
@@ -327,10 +323,10 @@
                 <thead>
                     <tr class="headings">
                         <th class="column-title">Nombre de informe </th>
-                        @*<th class="column-title">Fecha Informe </th>*@
+                        <th class="column-title">Fecha de informe </th>
                         <th class="column-title">Tamaño </th>
-                        @*<th class="column-title">Descripción </th>*@
-                        <th class="column-title no-link last"><span class="nobr">Opciones</span></th>
+                        <th class="column-title">Descripción </th>
+                        <th class="column-title no-link last" style="text-align:center"><span class="nobr">Opciones</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -345,24 +341,25 @@
                         foreach (var item in Model.ListaInformacionDocumento)
                         {
                             <tr class="even pointer">
-                                <td class=" ">@item.Nombre_Documento</td>
-                                @*<td class=" ">@item.Fecha_Informe</td>*@
-                                <td class=" ">@item.Tamano</td>
-                                @*<td class=" ">@item.Descripcion</td>*@
-                                <td class=" ">
-                                    <ul class="nav navbar-left panel_toolbox">
-                                        <li>
-                                            <div class="boton2">
-                                                <a href="#"> <i class="fa fa-arrow-down"></i></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="boton2">
-                                                <a href="#"> <i class="fa fa-trash-o "></i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                <td class=" col-lg-2 ">@item.Nombre_Documento</td>
+                                <td class=" col-lg-1 ">@item.Fecha_Documento</td>
+                                <td class=" col-lg-1 ">@item.Tamano</td>
+                                <td class=" col-lg-4 ">@item.Descripcion</td>
+                                <td class=" col-lg-1" style="text-align:center">
+                                    @if (item.Id_LaserFiche.GetValueOrDefault() > 0)
+                                    {
+                                        <button type="button" class="boton2" style="margin-right: 0px;" onclick="DescargarArchivo(@item.Id_LaserFiche.ToString(), '@item.Nombre_Documento')"> <i class="fa fa-download"></i></button>
+                                    }
                                 </td>
+                                @*<td class=" ">
+                                        <ul class="nav navbar-left panel_toolbox">
+                                            <li>
+                                                <div class="boton2">
+                                                    <a href="#"> <i class="fa fa-trash-o "></i></a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </td>*@
                             </tr>
                         }
                     }
@@ -374,20 +371,23 @@
     <div class="rowGroup">
         <h1 class="grupoT">6. Temporalidad</h1>
         <div class="col-md-8 col-sm-12 col-xs-12 form-group">
-            <div class="checkbox">
-                <div class="icheckbox_flat-green checked" style="position: relative;">
-                    <input type="checkbox" class="flat">
-                </div> Generado Previo al 2014
+            <div class="form-group">
+                <div class="checkbox">
+                    <label class="">
+                        <div class="icheckbox_flat-green checked" style="position: relative;">
+                            <input type="checkbox" class="flat">
+                        </div> Generado Previo al 2014
+                    </label>
+                </div>
             </div>
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Temporalidad:</label>
-                <div   class="col-md-9 col-sm-9 col-xs-12">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Temporalidad:</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
                     <select id="vId_Temporalidad" class="select2_single form-control" asp-for="@Model.Lnr.Id_Temporalidad" asp-items="(List<SelectListItem>)ViewBag.CboTemporalidad">
                         <option value="">Seleccione</option>
                     </select>
-                    <input type="hidden" asp-for="@Model.Lnr.Id_Temporalidad" />
                 </div>
             </div>
         </div>
@@ -395,85 +395,84 @@
         <div class="clearfix"></div>
     </div>
 
-
     <div class="rowGroup">
         <h1 class="grupoT">7. Evaluación de Riesgos</h1>
-        <div class="col-md-9 col-sm-12 col-xs-12 form-group">
-            <div class="checkbox">
-                <div class="icheckbox_flat-green checked" style="position: relative;">
-                    <input type="checkbox" class="flat">
-                </div> Labor en superficie que pueda ocasionar caídasa desnivel de personas y animales
+        <div class="col-md-11 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <div class="checkbox">
+                    <label class="">
+                        @Html.CheckBox("Lnr.Eva_Labor", @Model.Lnr.Eva_Labor)
+                        &nbsp;Labor en superficie que pueda ocasionar caídas a desnivel de personas y animales
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        @Html.CheckBox("Lnr.Eva_Evidencia", @Model.Lnr.Eva_Evidencia)
+                        &nbsp;Evidencia de falta de oxigeno o presencia de gases tóxicos
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        @Html.CheckBox("Lnr.Eva_Caida", @Model.Lnr.Eva_Caida)
+                        &nbsp;Caída de elementos remanentes (rocas, estructuras, equipos,etc)
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        @Html.CheckBoxFor(x => x.Lnr.Eva_Elementos)
+                        &nbsp;Elementos inseguros remanentes que puedan causar lesiones punzo cortantes
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        @Html.CheckBoxFor(x => x.Lnr.Eva_Drenajes)
+                        &nbsp;Drenajes, infiltraciones, lixiviados, agua acumulada, sedimentos.
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        @Html.CheckBoxFor(x => x.Lnr.Eva_Material)
+                        &nbsp;Material generador de drenaje ácido, lixiviados y sedimentos.
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        @Html.CheckBoxFor(x => x.Lnr.Eva_Afectacion)
+                        &nbsp;Afectación de la cobertura vegetal fuera de la periferia de la LNR.
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        @Html.CheckBoxFor(x => x.Lnr.Eva_Generador)
+                        &nbsp;Generador de material particulado.
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        @Html.CheckBoxFor(x => x.Lnr.Eva_Restos)
+                        &nbsp;Restos de residuos químicos (sustancias tóxicas) expuestos.
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="flat">
+                        @Html.CheckBoxFor(x => x.Lnr.Eva_Posibilidad)
+                        &nbsp;Posibilidad de movimiento de masas por deslizamiento.
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="flat">
+                        @Html.CheckBoxFor(x => x.Lnr.Eva_Potencial)
+                        &nbsp;Potencial de colapso y/o subsidencia de labores mineras subterráneas que afecten a la propiedad.
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="">
+                        @Html.CheckBoxFor(x => x.Lnr.Eva_Elemento)
+                        &nbsp;Elemento de la propiedad afectado.
+                    </label>
+                </div>
             </div>
-
-            <div class="checkbox">
-                <div class="icheckbox_flat-green checked" style="position: relative;">
-                    <input type="checkbox" class="flat">
-                </div> Evidencia de falta de oxigeno o presencia de gases tóxicos
-            </div>
-
-            <div class="checkbox">
-                <div class="icheckbox_flat-green checked" style="position: relative;">
-                    @*<input asp-for="@Model.Lnr.Eva_Caida" type="checkbox" class="flat">*@
-                </div> Caída de elementos remanentes (rocas, estructuras, equipos,etc)
-            </div>
-
-            <div class="checkbox">
-                <div class="icheckbox_flat-green checked" style="position: relative;">
-                    @*<input asp-for="@Model.Lnr.Eva_Caida" type="checkbox" class="flat">*@
-                </div> Elementos inseguros remanentes que puedan causar lesiones punzo cortantes
-            </div>
-
-            <div class="checkbox">
-                <div class="icheckbox_flat-green checked" style="position: relative;">
-                    @*<input asp-for="@Model.Lnr.Eva_Caida" type="checkbox" class="flat">*@
-                </div> Drenajes, infiltraciones, lixiviados, agua acumulada, sedimentos.
-            </div>
-
-            <div class="checkbox">
-                <div class="icheckbox_flat-green checked" style="position: relative;">
-                    @*<input asp-for="@Model.Lnr.Eva_Caida" type="checkbox" class="flat">*@
-                </div> Material generador de drenaje ácido, lixiviados y sedimentos.
-            </div>
-
-            <div class="checkbox">
-                <div class="icheckbox_flat-green checked" style="position: relative;">
-                    @*<input asp-for="@Model.Lnr.Eva_Caida" type="checkbox" class="flat">*@
-                </div> Afectación de la cobertura vegetal fuera de la periferia de la LNR.
-            </div>
-
-            <div class="checkbox">
-                <div class="icheckbox_flat-green checked" style="position: relative;">
-                    @*<input asp-for="@Model.Lnr.Eva_Caida" type="checkbox" class="flat">*@
-                </div> Generador de material particulado.
-            </div>
-
-            <div class="checkbox">
-                <div class="icheckbox_flat-green checked" style="position: relative;">
-                    @*<input asp-for="@Model.Lnr.Eva_Caida" type="checkbox" class="flat">*@
-                </div> Restos de residuos químicos (sustancias tóxicas) expuestos.
-            </div>
-
-            <div class="checkbox">
-                <div class="icheckbox_flat-green checked" style="position: relative;">
-                    @*<input asp-for="@Model.Lnr.Eva_Caida" type="checkbox" class="flat">*@
-                </div> Posibilidad de movimiento de masas por deslizamiento.
-            </div>
-
-            <div class="checkbox">
-                <div class="icheckbox_flat-green checked" style="position: relative;">
-                    @*<input asp-for="@Model.Lnr.Eva_Caida" type="checkbox" class="flat">*@
-                </div> Potencial de colapso y/o subsidencia de labores mineras subterráneas que afecten a la propiedad.
-            </div>
-
-            <div class="checkbox">
-                <div class="icheckbox_flat-green checked" style="position: relative;">
-                    @*<input asp-for="@Model.Lnr.Eva_Caida" type="checkbox" class="flat">*@
-                </div> Elemento de la propiedad afectado.
-            </div>
-
         </div>
-
-        <div class="clearfix"></div>
 
         <div class="clearfix"></div>
     </div>
@@ -487,20 +486,18 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Ult. Registro</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Lnr.Fec_Ingreso" class="form-control" disabled="disabled" />
+                    <input asp-for="@Model.Lnr.Fec_Modifica" class="form-control" disabled="disabled" />
                 </div>
             </div>
         </div>
-
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Usuario</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Lnr.Usu_Ingreso" class="form-control" disabled="disabled" />
+                    <input asp-for="@Model.Lnr.Usu_Modifica" class="form-control" disabled="disabled" />
                 </div>
             </div>
         </div>
-
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Cargo</label>
@@ -523,7 +520,7 @@
                 </li>
                 <li>
                     <div class="boton">
-                        <a asp-action="Index"> Cancelar <i class="fa fa-ban"></i></a>
+                        <a href="@Url.Action("AgregarEditar", "Expediente", new { vId = Model.Lnr.Id_Expediente })">Cancelar  <i class="fa fa-ban"></i></a>
                     </div>
                 </li>
             </ul>
@@ -532,4 +529,202 @@
 
     </div>
 
+    <input type="hidden" asp-for="Lnr.Id_Expediente" />
+    <input type="hidden" asp-for="Lnr.Nro_Expediente" />
+    <input type="hidden" asp-for="Lnr.Ubigeo" id="Ubigeo" />
+    <input type="hidden" asp-for="Lnr.Flg_Estado" />
+
 </form>
+
+
+<!-- Modal 4 Info Grafica -->
+<div id="modal4" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmInfoGrafica" data-ajax-method="POST" asp-controller="GrabarInfoGrafica" asp-action="Lnr" enctype="multipart/form-data" autocomplete="off" data-ajax="true">
+                <div class="rowGroup" id="fullInfoGrafica">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
+<!-- Modal 5 Info Documento -->
+<div id="modal5" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="frmInfoDocumento" data-ajax-method="POST" asp-controller="GrabarInfoDocumento" asp-action="Lnr" enctype="multipart/form-data" autocomplete="off" data-ajax="true">
+                <div class="rowGroup" id="fullInfoDocumento">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- fin modal-->
+
+
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            const vSubTipo = @Html.Raw(Json.Serialize(Model.CboSubTipo));
+
+            $("#vId_Tipo_Lnr").on("change", function () {
+                const o = vSubTipo.filter(o => o.id_Tipo_Pam == $("#vId_Tipo_Lnr").val()).map(function (o) { return { Value: o.id_Sub_Tipo_Pam, Text: o.descripcion }});
+                $("#vId_Sub_Tipo_Lnr").empty();
+                $("#vId_Sub_Tipo_Lnr").append("<option value=''>SELECCIONE</option>");
+                o.forEach(function (o, i) { $("#vId_Sub_Tipo_Lnr").append('<option value="' + o.Value + '">' + o.Text + "</option>") });
+            });
+
+
+            var IdUbigeo = @Html.Raw(Json.Serialize(ViewBag.FullUbigeo));
+
+            $("#vId_Region").on("change", function () {
+                var data = IdUbigeo.filter(o => o.id_Departamento == $("#vId_Region").val());
+                const prov = [...new Map(data.map(function (o) { return { id_Provincia: o.id_Provincia, provincia: o.provincia } }).map(o => [o.id_Provincia, o])).values()];
+                $("#vId_Provincia,#vId_Distrito").empty().append('<option value="0">SELECCIONE</option>');
+                prov.forEach(function (o, i) { $("#vId_Provincia").append('<option value="' + o.id_Provincia + '">' + o.provincia + "</option>") })
+            });
+
+            $("#vId_Provincia").on("change", function () {
+                var data = IdUbigeo.filter(x => x.id_Provincia == $("#vId_Provincia").val());
+                const dist = [...new Map(data.map(function (o) { return { id_Distrito: o.id_Distrito, distrito: o.distrito } }).map(o => [o.id_Distrito, o])).values()];
+                $("#vId_Distrito").empty();
+                $("#vId_Distrito").append('<option value="0">SELECCIONE</option>');
+                dist.forEach(function (o, i) { $("#vId_Distrito").append('<option value="' + o.id_Distrito + '">' + o.distrito + '</option>') })
+            });
+
+            $("#vId_Distrito").on("change", function () { "0" === $("#vId_Distrito").val() ? $("#Ubigeo").val("") : $("#Ubigeo").val($("#vId_Distrito").val()) });
+        });
+
+
+        $("#btnSubmit").click(function () {
+            var vModel = $("#MyForm").serializeArray();
+
+            var vData = {};
+            $.map(vModel, function (n, i) { vData[n.name.replace("Lnr.", "")] = n.value; });
+            vData.Eva_Labor = $("input[name='Lnr.Eva_Labor']").is(":checked");
+            vData.Eva_Evidencia = $("input[name='Lnr.Eva_Evidencia']").is(":checked");
+            vData.Eva_Caida = $("input[name='Lnr.Eva_Caida']").is(":checked");
+            vData.Eva_Elementos = $("input[name='Lnr.Eva_Elementos']").is(":checked");
+            vData.Eva_Drenajes = $("input[name='Lnr.Eva_Drenajes']").is(":checked");
+            vData.Eva_Material = $("input[name='Lnr.Eva_Material']").is(":checked");
+            vData.Eva_Afectacion = $("input[name='Lnr.Eva_Afectacion']").is(":checked");
+            vData.Eva_Generador = $("input[name='Lnr.Eva_Generador']").is(":checked");
+            vData.Eva_Restos = $("input[name='Lnr.Eva_Restos']").is(":checked");
+            vData.Eva_Posibilidad = $("input[name='Eva_Posibilidad']").is(":checked");
+            vData.Eva_Potencial = $("input[name='Lnr.Eva_Potencial']").is(":checked");
+            vData.Eva_Elemento = $("input[name='Lnr.Eva_Elemento']").is(":checked");
+            console.log(vData);
+
+            $.ajax({
+                type: "POST",
+                url: $("#MyForm").attr("action"),
+                data: vData,
+                success: function (data) {
+                    if (data.operation == "@Constantes.Ok") {
+                        Success("@Constantes.MsgOk");
+                        window.location.reload();
+                    } else {
+                        Error("@Constantes.MsgErr");
+                    }
+                },
+                error: function (req, status, error) {
+                    alert(req);
+                    alert(status);
+                    alert(error);
+                }
+            });
+
+        });
+
+
+
+        ShowModal = function (vUrl, vBody) {
+            $.get(vUrl + "?vIdLnr=@Model.Lnr.Id_Lnr", function (data) { $('#'+vBody).html(data) });
+        }
+
+
+        SaveInfoGrafica = function () {
+            var e = new FormData, r = document.getElementById("vFile").files.length;
+            if (0 == r) {
+                Info("Seleccione el archivo");
+            }
+            else {
+                for (var a, o = 0; r > o; o++) {
+                    a = document.getElementById("vFile").files[o];
+                    e.append("vFile", a);
+                };
+
+                var vData = $("#frmInfoGrafica").serialize().replace(/[+]/g, " ").split("&");
+                vData.forEach(function (a) { a = a.split("="); e.append(a[0], a[1]) });
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("GrabarInfoGrafica", "Lnr")",
+                    data: e,
+                    dataType: "json",
+                    contentType: !1,
+                    processData: !1,
+                    success: function (x) {
+                        if (x.operation == "@Constantes.Ok") {
+                            $("#modal4").modal("toggle");
+                            window.location.reload();
+                            Success("@Constantes.MsgOk");
+                            //$("#DivInformacionGrafica").load("@Url.Action("ListarInfoGrafica", "Lnr", new { vIdEum = Model.Lnr.Id_Lnr })", function () { fullLoadTable("#fulltbl7"); });
+                        } else {
+                            "@((int)TipoErr.MODEL)" == x.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr");
+                        }
+                    }
+                });
+            }
+        }
+
+
+        SaveInfoDocumento= function () {
+            var e = new FormData, r = document.getElementById("vFile").files.length;
+            if (0 == r) {
+                Info("Seleccione el documento");
+            }
+            else {
+                for (var a, o = 0; r > o; o++) {
+                    a = document.getElementById("vFile").files[o];
+                    e.append("vFile", a);
+                };
+
+                var vData = $("#frmInfoDocumento").serialize().replace(/[+]/g, " ").split("&");
+                vData.forEach(function (a) { a = a.split("="); e.append(a[0], a[1]) });
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("GrabarInfoDocumento", "Lnr")",
+                    data: e,
+                    dataType: "json",
+                    contentType: !1,
+                    processData: !1,
+                    success: function (x) {
+                        if (x.operation == "@Constantes.Ok") {
+                            $("#modal5").modal("toggle");
+                            window.location.reload();
+                            Success("@Constantes.MsgOk");
+                            //$("#DivInformacionGrafica").load("@Url.Action("ListarInfoDocumento", "Lnr", new { vIdEum = Model.Lnr.Id_Lnr })", function () { fullLoadTable("#fulltbl7"); });
+                        } else {
+                            "@((int)TipoErr.MODEL)" == x.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr");
+                        }
+                    }
+                });
+            }
+        }
+
+
+        function fMaxLength(e) { e.value.length > e.maxLength && (e.value = e.value.slice(0, e.maxLength)) }
+
+
+        function DescargarArchivo(vKey, vName) {
+            window.location = "@Url.Action("DescargarArchivo", "RegistrarPAM")?vKey=" + vKey + "&vName=" + vName;
+        }
+
+
+    </script>
+}

@@ -14,7 +14,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre EUM</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Eum.Eum_Descripcion" class="form-control" maxlength="100" />
+                    <input asp-for="@Model.Eum.Eum_Descripcion" class="form-control text-uppercase" maxlength="100" />
                 </div>
             </div>
         </div>
@@ -101,17 +101,16 @@
                         foreach (var item in Model.ListaInspeccion)
                         {
                             <tr class="even pointer">
-                                <td class=" ">@item.Nomnbre_Inspector </td>
-                                <td class=" ">@item.Fecha_Inspeccion</td>
-                                <td class=" ">@item.Fecha_Inspeccion</td>
-                                <td class=" ">@item.Descripcion_Clima</td>
+                                <td class=" col-lg-3 ">@item.Nomnbre_Inspector </td>
+                                <td class=" col-lg-1 ">@item.Fecha_Inspeccion.ToShortDateString()</td>
+                                <td class=" col-lg-1 ">@item.Fecha_Inspeccion.ToShortTimeString()</td>
+                                <td class=" col-lg-4 ">@item.Descripcion_Clima</td>
                             </tr>
                         }
                     }
                 </tbody>
             </table>
         </div>
-
         <div class="clearfix"></div>
     </div>
 
@@ -162,7 +161,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Historia EUM</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Eum.Historia_Eum" rows="3" class="form-controlArea" maxlength="400" />
+                    <textarea asp-for="@Model.Eum.Historia_Eum" rows="3" class="form-controlArea" maxlength="400"></textarea>
                 </div>
             </div>
         </div>
@@ -170,7 +169,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Evidencia de actividades recientes</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Eum.Evidencia_Act_Rec" rows="3" class="form-controlArea" maxlength="400" />
+                    <textarea asp-for="@Model.Eum.Evidencia_Act_Rec" rows="3" class="form-controlArea  has-feedback-left" maxlength="400"></textarea>
                 </div>
             </div>
         </div>
@@ -191,7 +190,7 @@
                     </div>
                 </div>
             </div>*@
-        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+        <div class="col-md-5 col-sm-12 col-xs-12 form-group">
             <table class="table table-striped jambo_table bulk_action">
                 <thead>
                     <tr class="headings">
@@ -218,7 +217,8 @@
                                     <ul class="nav navbar-center panel_toolbox">
                                         <li>
                                             <div class="boton2">
-                                                <a asp-action="EliminarEumOperacion" asp-route-vId="@item.Id_Eum_Operacion" onClick="Confirm('Seguro de eliminar')" title="Eliminar Registro"><i class="fa fa-trash-o "></i></a>
+                                                @*<a asp-action="EliminarEumOperacion" asp-route-vId="@item.Id_Eum_Operacion" onClick="Confirm('Seguro de eliminar')" title="Eliminar Registro"><i class="fa fa-trash-o "></i></a>*@
+                                                <a href="#" onclick="RemoveEumOperacion(@item.Id_Eum_Operacion)" title="Eliminar Registro"> <i class="fa fa-trash-o "></i></a>
                                             </div>
                                         </li>
                                     </ul>
@@ -229,7 +229,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+        <div class="col-md-3 col-sm-12 col-xs-12 form-group">
             <div class="x_titleGroup">
 
                 <div align="center" class="titulo-m">
@@ -244,21 +244,28 @@
                         }
                     </li>
                 </ul>
-                <div class="clearfix"></div>
             </div>
         </div>
 
-        <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo sustancia:</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Tipo sustancia:</label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
                     <select id="vId_Tipo_Sustancia" class="select2_single form-control" asp-for="@Model.Eum.Id_Tipo_Sustancia" asp-items="(List<SelectListItem>)ViewBag.CboTipoSustancia">
                         <option value="">Seleccione</option>
                     </select>
-                    <input type="hidden" asp-for="@Model.Eum.Id_Tipo_Sustancia" />
                 </div>
             </div>
         </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group" style="visibility:hidden">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">ID EUM:</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input asp-for="@Model.Eum.Id_Eum" class="form-control" readonly="readonly" />
+                </div>
+            </div>
+        </div>
+
         <div class="clearfix"></div>
     </div>
 
@@ -288,7 +295,6 @@
                     <select id="vId_Conflicto_Social" class="select2_single form-control" asp-for="@Model.Eum.Id_Conflicto_Social" asp-items="(List<SelectListItem>)ViewBag.CboConflictoSocial">
                         <option value="">Seleccione</option>
                     </select>
-                    <input type="hidden" asp-for="@Model.Eum.Id_Conflicto_Social" />
                 </div>
             </div>
         </div>
@@ -369,7 +375,6 @@
                 </div>
             </div>
         </div>
-
         <div class="clearfix"></div>
     </div>
 
@@ -380,7 +385,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Descripción EUM</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Eum.Descripcion_Eum" class="form-control" maxlength="300" />
+                    <textarea asp-for="@Model.Eum.Descripcion_Eum" class="form-controlArea  has-feedback-left" rows="2" maxlength="400"></textarea>
                 </div>
             </div>
         </div>
@@ -388,11 +393,10 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Comentarios adicional</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <textarea asp-for="@Model.Eum.Comentario_Adi" class="form-controlArea  has-feedback-left" rows="3" placeholder="" maxlength="500"></textarea>
+                    <textarea asp-for="@Model.Eum.Comentario_Adi" class="form-controlArea  has-feedback-left" rows="4" placeholder="" maxlength="450"></textarea>
                 </div>
             </div>
         </div>
-
         <div class="clearfix"></div>
     </div>
 
@@ -420,11 +424,11 @@
             <table class="table table-striped jambo_table bulk_action">
                 <thead>
                     <tr class="headings">
-                        <th class="column-title">Fotografia </th>
-                        <th class="column-title">Fecha Toma </th>
+                        <th class="column-title">Nombre de fotografia </th>
+                        <th class="column-title">Fecha de toma </th>
                         <th class="column-title">Tamaño </th>
                         <th class="column-title">Descripción </th>
-                        <th class="column-title no-link last"><span class="nobr">Opciones</span></th>
+                        <th class="column-title no-link last" style="text-align:center"><span class="nobr">Opciones</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -439,23 +443,15 @@
                         foreach (var item in Model.ListaInformacionGrafica)
                         {
                             <tr class="even pointer">
-                                <td class=" ">@item.Nombre_Imagen</td>
-                                <td class=" ">@item.Fecha_Toma</td>
-                                <td class=" ">@item.Tamano</td>
-                                <td class=" ">@item.Descripcion</td>
-                                <td class=" ">
-                                    <ul class="nav navbar-left panel_toolbox">
-                                        <li>
-                                            <div class="boton2">
-                                                <a href="#"> <i class="fa fa-arrow-down"></i></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="boton2">
-                                                <a href="#"> <i class="fa fa-trash-o "></i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                <td class=" col-lg-2 ">@item.Nombre_Imagen</td>
+                                <td class=" col-lg-1 ">@item.Fecha_Toma</td>
+                                <td class=" col-lg-1 ">@item.Tamano</td>
+                                <td class=" col-lg-4 ">@item.Descripcion</td>
+                                <td class=" col-lg-1" style="text-align:center">
+                                    @if (item.Id_LaserFiche.GetValueOrDefault() > 0)
+                                    {
+                                        <button type="button" class="boton2" style="margin-right: 0px;" onclick="DescargarArchivo(@item.Id_LaserFiche.ToString(), '@item.Nombre_Imagen')"> <i class="fa fa-download"></i></button>
+                                    }
                                 </td>
                             </tr>
                         }
@@ -519,7 +515,6 @@
         </div>
 
         <div class="clearfix"></div>
-
         <div class="clearfix"></div>
     </div>
 
@@ -549,11 +544,11 @@
                         foreach (var item in Model.ListaSituacionPrincipalesProducto)
                         {
                             <tr class="even pointer">
-                                <td class=" ">@item.Anio</td>
-                                <td class=" ">@item.Nombre_Dm</td>
-                                <td class=" ">@item.Situacion_Up</td>
-                                <td class=" ">@item.Tipo_Concentrado</td>
-                                <td class=" ">@item.Cantidad</td>
+                                <td class=" col-lg-1 ">@item.Anio</td>
+                                <td class=" col-lg-5 ">@item.Nombre_Dm</td>
+                                <td class=" col-lg-3 ">@item.Situacion_Up</td>
+                                <td class=" col-lg-2 ">@item.Tipo_Concentrado</td>
+                                <td class=" col-lg-1 ">@item.Cantidad</td>
                             </tr>
                         }
                     }
@@ -562,7 +557,6 @@
         </div>
 
         <div class="clearfix"></div>
-
         <div class="clearfix"></div>
     </div>
 
@@ -593,11 +587,11 @@
                         foreach (var item in Model.ListaTitularesReferencialesDerechos)
                         {
                             <tr class="even pointer">
-                                <td class=" ">@item.Titular</td>
-                                <td class=" ">@item.Nombre_Dm</td>
-                                <td class=" ">@item.Fecha_Inicio</td>
-                                <td class=" ">@item.Fecha_Fin</td>
-                                <td class=" ">@item.Estado</td>
+                                <td class=" col-lg-4 ">@item.Titular</td>
+                                <td class=" col-lg-3 ">@item.Nombre_Dm</td>
+                                <td class=" col-lg-1 ">@item.Fecha_Inicio.ToShortDateString()</td>
+                                <td class=" col-lg-1 ">@item.Fecha_Fin</td>
+                                <td class=" col-lg-2 ">@item.Estado</td>
                             </tr>
                         }
                     }
@@ -606,7 +600,6 @@
         </div>
 
         <div class="clearfix"></div>
-
         <div class="clearfix"></div>
     </div>
 
@@ -634,11 +627,11 @@
             <table class="table table-striped jambo_table bulk_action">
                 <thead>
                     <tr class="headings">
-                        <th class="column-title">Fecha </th>
-                        <th class="column-title">Titular </th>
-                        <th class="column-title">Declaración de Responsabilidad</th>
+                        <th class="column-title">Fecha de descargo </th>
+                        <th class="column-title">Nombre de titular </th>
+                        <th class="column-title">Declaración de responsabilidad</th>
                         <th class="column-title">Asunto</th>
-                        <th class="column-title">Archivo</th>
+                        <th class="column-title" style="text-align:center">Archivo</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -653,20 +646,21 @@
                         foreach (var item in Model.ListaInformacionDescargo)
                         {
                             <tr class="even pointer">
-                                <td class=" ">@item.Fecha_Descargo</td>
-                                <td class=" ">@item.Titular</td>
-                                <td class=" ">@item.Declaracion</td>
-                                <td class=" ">@item.Asunto</td>
-                                <td class=" ">
-                                    <ul class="nav navbar-left panel_toolbox">
+                                <td class=" col-lg-1 ">@item.Fecha_Descargo.ToShortDateString()</td>
+                                <td class=" col-lg-2 ">@item.Titular</td>
+                                <td class=" col-lg-2 ">@item.Declaracion</td>
+                                <td class=" col-lg-3 ">@item.Asunto</td>
+                                <td class=" col-lg-1" style="text-align:center">
+                                    <ul class="nav navbar-center panel_toolbox">
                                         <li>
-                                            <div class="boton2">
-                                                <a href="#"> <i class="fa fa-arrow-down"></i></a>
-                                            </div>
+                                            @if (item.Id_LaserFiche.GetValueOrDefault() > 0)
+                                            {
+                                                <button type="button" class="boton2" style="margin-right: 0px;" onclick="DescargarArchivo(@item.Id_LaserFiche.ToString(), '@item.Nombre_Documento')"> <i class="fa fa-download"></i></button>
+                                            }
                                         </li>
                                         <li>
                                             <div class="boton2">
-                                                <a href="#"> <i class="fa fa-trash-o "></i></a>
+                                                <a href="#" onclick="RemoveEumDescargo(@item.Id_Eum_Info_Descargo)" title="Eliminar Registro"> <i class="fa fa-trash-o "></i></a>
                                             </div>
                                         </li>
                                     </ul>
@@ -675,10 +669,8 @@
                         }
                     }
                 </tbody>
-                @*<td class=" "><a href="#" class="enlace">Dec_01.pdf</a></td>*@
             </table>
         </div>
-
         <div class="clearfix"></div>
     </div>
 
@@ -692,7 +684,7 @@
                         <th class="column-title">Nro de Informe</th>
                         <th class="column-title">Descripción </th>
                         <th class="column-title">Nro Expediente</th>
-                        <th class="column-title">Archivo</th>
+                        <th class="column-title" style="text-align:center">Archivo</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -707,31 +699,21 @@
                         foreach (var item in Model.ListaInforme)
                         {
                             <tr class="even pointer">
-                                <td class=" ">@item.Nro_Informe</td>
-                                <td class=" ">@item.Descripcion</td>
-                                <td class=" ">@item.Nro_Expediente</td>
-                                <td class=" ">
-                                    <ul class="nav navbar-left panel_toolbox">
-                                        <li>
-                                            <div class="boton2">
-                                                <a href="#"> <i class="fa fa-arrow-down"></i></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="boton2">
-                                                <a href="#"> <i class="fa fa-trash-o "></i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                <td class=" col-lg-1">@item.Nro_Informe</td>
+                                <td class=" col-lg-4">@item.Descripcion</td>
+                                <td class=" col-lg-1">@item.Nro_Expediente</td>
+                                <td class=" col-lg-1" style="text-align:center">
+                                    @*@if (item.Id_LaserFiche.GetValueOrDefault() > 0)
+                                        {
+                                            <button type="button" class="boton2" style="margin-right: 0px;" onclick="DescargarArchivo(@item.Id_LaserFiche.ToString(), '@item.Nombre_Documento')"> <i class="fa fa-download"></i></button>
+                                        }*@
                                 </td>
                             </tr>
                         }
                     }
                 </tbody>
-                @*<td class=" "><a href="#" class="enlace">Dec_01.pdf</a></td>*@
             </table>
         </div>
-
         <div class="clearfix"></div>
     </div>
 
@@ -867,7 +849,6 @@
                 </tbody>
             </table>
         </div>
-
         <div class="clearfix"></div>
     </div>
 
@@ -946,7 +927,6 @@
         </div>
 
         <div class="clearfix"></div>
-
         <div class="clearfix"></div>
     </div>
 
@@ -955,12 +935,13 @@
         <div class="clearfix"></div>
     </div>
 
+
     <div class="row">
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Ult. Registro</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Eum.Fec_Ingreso" class="form-control" disabled="disabled" />
+                    <input asp-for="@Model.Eum.Fec_Modifica" class="form-control" disabled="disabled" />
                 </div>
             </div>
         </div>
@@ -969,7 +950,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Usuario</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Eum.Usu_Ingreso" class="form-control" disabled="disabled" />
+                    <input asp-for="@Model.Eum.Usu_Modifica" class="form-control" disabled="disabled" />
                 </div>
             </div>
         </div>
@@ -1000,12 +981,8 @@
                     </div>
                 </li>*@
             <li>
-                <div class="boton">
-                    <a asp-action="GenerarInformeEUM">Generar Informe<i class="fa fa-file-word-o"></i></a>
-                </div>
             </li>
         </ul>
-
 
         <div class="clearfix"></div>
 
@@ -1013,6 +990,14 @@
             <div align="center" class="titulo-m">
             </div>
             <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    @if (@Model.Eum.Id_Eum != 0)
+                    {
+                        <button type="button" class="boton" id="btnReporte">
+                            Generar Informe <i class="fa fa-file-word-o"></i>
+                        </button>
+                    }
+                </li>
                 <li>
                     <button type="button" class="boton" id="btnSubmit">
                         Guardar  <i class="fa fa-save"></i>
@@ -1048,7 +1033,7 @@
 <div id="modal5" class="modal fade bd-example-modal-sm" data-backdrop="static" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
-            <form id="frmTipoOperacion" data-ajax-method="POST" asp-controller="GrabarTipoOperacion" asp-action="Eum" enctype="multipart/form-data" autocomplete="off" data-ajax="true">
+            <form id="frmTipoOperacion" data-ajax-method="POST" asp-controller="GrabarTipoOperacion" asp-action="Eum" autocomplete="off" data-ajax="true">
                 <div class="rowGroup" id="fullTipoOperacion">
                 </div>
             </form>
@@ -1072,7 +1057,7 @@
 <div id="modal12" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="frmInfoDescargo" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+            <form id="frmInfoDescargo" data-ajax-method="POST" asp-controller="GrabarInfoDescargo" asp-action="Eum" enctype="multipart/form-data" autocomplete="off" data-ajax="true">
                 <div class="rowGroup" id="fullInfoDescargo">
                 </div>
             </form>
@@ -1090,7 +1075,6 @@
             $.post("@Url.Action("CreateComponent", "Eum")?vIdEum=" + @Model.Eum.Id_Eum + "&vIdTipo=" + $("#cboTipoComponente").val()).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
-                    alert("Fullshito dice: Operación exitosa");
                     alert(x.key);
                     switch ($("#cboTipoComponente").val()) {
                         case "@((int)TipoPam.LABOR_MINERA)":
@@ -1111,7 +1095,7 @@
                     }
                     //window.location.reload();
                 } else {
-                    alert("Fullshito dice: Ocurrió un error al grabar en el servidor")
+                    alert("Sistema : Ocurrió un error al grabar en el servidor")
                 }
             }).fail(function (a, b, c) {
                 alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
@@ -1122,10 +1106,10 @@
             $.post("@Url.Action("RemoveComponent", "Eum")?vId=" + vId).done(function (x)
             {
                 if (x.operation == "@Constantes.Ok") {
-                    alert("Fullshito dice: Operación exitosa");
+                    Success("@Constantes.MsgOk");
                     window.location.reload();
                 } else {
-                    alert("Fullshito dice: Ocurrió un error al grabar en el servidor")
+                    Error("@Constantes.MsgErr");
                 }
             }).fail(function (a, b, c) {
                 alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
@@ -1133,35 +1117,23 @@
         }
 
         $('#btnSubmit').click(function () {
-
-            alert("grabar");
-            var vModel = $("#MyForm").serialize();
-           //// vModel.push({ name: 'ListaReconocimientoMin', value: vList });
-            console.log("model envio");
+            var vModel = $("#MyForm").serializeArray();
             console.log(vModel);
 
-            console.log("vFull gordito envio");
-            //var formData = JSON.stringify(vModel);
-            //console.log(formData);
+            var vData = {};
+            $.map(vModel, function (n, i) { vData[n.name.replace("Eum.", "")] = n.value; });
+            console.log(vData);
 
-            //var Data1 = { Eum.Eum_Descripcion: Fullshito, Eum.Acceso_Eum: Pechocho, Eum.Historia_Eum: Osito, Eum.Evidencia_Act_Rec: Omarcito };
-
-            //var vData = {};
-            //$.map(vModel, function (n, i) { vData[n.name] = n.value; });
-
-            //console.log("data envio");
-            //console.log(vData);
-
-             $.ajax({
+            $.ajax({
                 type: "POST",
-                 url: $("#MyForm").attr("action"),
-                 data: vModel,
+                url: $("#MyForm").attr("action"),
+                data: vData,
                 success: function (data) {
                     if (data.operation == "@Constantes.Ok") {
-                        alert("Operación exitosa");
+                        Success("@Constantes.MsgOk");
                         window.location.reload();
                     } else {
-                        alert("Ocurrió un error al grabar en el servidor");
+                        Error("@Constantes.MsgErr");
                     }
                 },
                 error: function (req, status, error) {
@@ -1175,10 +1147,10 @@
 
         });
 
-
-
-
-
+        
+        $("#btnReporte").click(function () {
+            window.location = "@Url.Action("DescargarInformePam", "Eum")?vKey=1";
+        });
 
 
         ShowModal = function (vUrl, vBody) {
@@ -1186,9 +1158,8 @@
         }
 
         SaveInspeccion = function () {
-            $.post("@Url.Action("GrabarInspeccion", "Eum")", $("#frmInspeccion").serializeArray()).done(function (x)
+            $.post("@Url.Action("GrabarInspeccion", "Eum")", $("#frmInspeccion").serialize()).done(function (x)
             {
-
                 if (x.operation == "@Constantes.Ok") {
                     $("#modal2").modal("toggle");
                     window.location.reload();
@@ -1201,10 +1172,27 @@
             });
         }
 
+
         SaveTipoOperacion = function () {
+            var valores = "";
+            $(".numero").parent("tr").find("td").each(function () {
+                if ($(this).html() != "coger valores de la fila") {
+                    valores += $(this).html() + " ";
+                }
+            });
+            valores = valores + "\n";
+            alert(valores);
+
+            var vModel = $("#frmTipoOperacion").serializeArray();
+            console.log(vModel);
+
+            var vData = {};
+            $.map(vModel, function (n, i) { vData[n.name] = n.value; });
+            console.log("ultimo");
+            console.log(vData);
+
             $.post("@Url.Action("GrabarTipoOperacion", "Eum")", $("#frmTipoOperacion").serializeArray()).done(function (x)
             {
-
                 if (x.operation == "@Constantes.Ok") {
                     $("#modal5").modal("toggle");
                     window.location.reload();
@@ -1217,20 +1205,6 @@
             });
         }
 
-        @*SaveInfoGrafica = function () {
-            $.post("@Url.Action("GrabarInfoGrafica", "Eum")", $("#frmInfoGrafica").serialize()).done(function (x)
-            {
-                if (x.operation == "@Constantes.Ok") {
-                    $("#modal8").modal("toggle");
-                    window.location.reload();
-                    Success("@Constantes.MsgOk");
-                } else {
-                    "@((int)TipoErr.MODEL)" == x.type ? alert("@Constantes.MsgModel") : alert("@Constantes.MsgErr")
-                }
-            }).fail(function (a, b, c) {
-                alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
-            });
-        }*@
 
         SaveInfoGrafica = function () {
             var e = new FormData, r = document.getElementById("vFile").files.length;
@@ -1243,7 +1217,7 @@
                     e.append("vFile", a);
                 };
 
-                var vData = $("#frmInfoGrafica").serialize().split("&");
+                var vData = $("#frmInfoGrafica").serialize().replace(/[+]/g, " ").split("&");
                 vData.forEach(function (a) { a = a.split("="); e.append(a[0], a[1]) });
 
                 $.ajax({
@@ -1255,8 +1229,9 @@
                     processData: !1,
                     success: function (x) {
                         if (x.operation == "@Constantes.Ok") {
-                            Success("@Constantes.MsgOk");
                             $("#modal8").modal("toggle");
+                            window.location.reload();
+                            Success("@Constantes.MsgOk");
                             //$("#DivInformacionGrafica").load("@Url.Action("ListarInformacionGrafica", "Eum", new { vIdEum = Model.Eum.Id_Eum })", function () { fullLoadTable("#fulltbl7"); });
                         } else {
                             "@((int)TipoErr.MODEL)" == x.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr");
@@ -1278,7 +1253,7 @@
                     e.append("vFile", a);
                 };
 
-                var vData = $("#frmInfoDescargo").serialize().split("&");
+                var vData = $("#frmInfoDescargo").serialize().replace(/[+]/g, " ").split("&");
                 vData.forEach(function (a) { a = a.split("="); e.append(a[0], a[1]) });
 
                 $.ajax({
@@ -1290,8 +1265,9 @@
                     processData: !1,
                     success: function (x) {
                         if (x.operation == "@Constantes.Ok") {
-                            Success("@Constantes.MsgOk");
                             $("#modal12").modal("toggle");
+                            window.location.reload();
+                            Success("@Constantes.MsgOk");
                             //$("#DivInformacionGrafica").load("@Url.Action("ListarInformacionGrafica", "Eum", new { vIdEum = Model.Eum.Id_Eum })", function () { fullLoadTable("#fulltbl7"); });
                         } else {
                             "@((int)TipoErr.MODEL)" == x.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr");
@@ -1300,6 +1276,87 @@
                 });
             }
         }
+
+
+
+        function RemoveEumOperacion(vId) {
+            @*if (!confirm("ALERTA!! va a eliminar este registro, de click en ACEPTAR\n o click en CANCELAR.")) {
+            }
+            else {
+                $.post("@Url.Action("RemoveEumOperacion", "Eum")?vId=" + vId).done(function (x) {
+                    if (x.operation == "@Constantes.Ok") {
+                        Removed("@Constantes.MsgDelOk");
+                        window.location.reload();
+                    } else {
+                        Error("@Constantes.MsgErr");
+                    }
+                }).fail(function (a, b, c) {
+                    alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+                });
+            }*@
+
+            Swal.fire({
+                title: '¿Está seguro?',
+                text: "¡No podrás revertir esto!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#23527c',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si , Borralo!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    $.post("@Url.Action("RemoveEumOperacion", "Eum")?vId=" + vId).done(function (x) {
+                        if (x.operation == "@Constantes.Ok") {
+                            Removed("@Constantes.MsgDelOk");
+                            window.location.reload();
+                        } else {
+                            Error("@Constantes.MsgDelKo");
+                        }
+                    }).fail(function (a, b, c) {
+                        alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+                    });
+
+                }
+            })
+
+        }
+
+
+        function RemoveEumDescargo(vId) {
+            Swal.fire({
+                title: '¿Está seguro?',
+                text: "¡No podrás revertir esto!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#23527c',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si , Borralo!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    $.post("@Url.Action("RemoveEumDescargo", "Eum")?vId=" + vId).done(function (x) {
+                        if (x.operation == "@Constantes.Ok") {
+                            Removed("@Constantes.MsgDelOk");
+                            window.location.reload();
+                        } else {
+                            Error("@Constantes.MsgDelKo");
+                        }
+                    }).fail(function (a, b, c) {
+                        alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+                    });
+
+                }
+            })
+
+        }
+
+
+        function DescargarArchivo(vKey, vName) {
+            window.location = "@Url.Action("DescargarArchivo", "RegistrarPAM")?vKey=" + vKey + "&vName=" + vName;
+        }
+
+
 
     </script>
 }

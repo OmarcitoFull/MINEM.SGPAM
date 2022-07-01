@@ -31,7 +31,7 @@ namespace Minem.Sgpam.WebApi.Controllers
         [HttpPost("Save")]
         public MaestraDTO Save([FromBody] MaestraDTO vMaestraDTO)
         {
-            return Eum_LN.ActualizarMaestraDTO(vMaestraDTO);
+            return Eum_LN.GrabarMaestraDTO(vMaestraDTO);
         }
 
         [HttpGet("GetFull")]
@@ -46,14 +46,6 @@ namespace Minem.Sgpam.WebApi.Controllers
         {
             return Eum_LN.ListarPaginadoMaestraDTO(vFiltro, vUbigeo, vNumPag, vCantRegxPag);
         }
-
-
-        //[HttpGet("ListMod")]
-        //public IEnumerable<Eum_ModDTO> ListMod()
-        //{
-        //    return Eum_ModLN.ListarEum_ModDTO();
-        //}
-
 
     }
 }

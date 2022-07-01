@@ -13,8 +13,7 @@ namespace Minem.Sgpam.LogicaNegocio.Interfaces
     {
         IEnumerable<MaestraDTO> ListarMaestraDTO();
         MaestraDTO RecuperarMaestraDTOPorCodigo(int vId_Eum);
-        MaestraDTO InsertarMaestraDTO(MaestraDTO vMaestraDTO);
-        MaestraDTO ActualizarMaestraDTO(MaestraDTO vMaestraDTO);
+        MaestraDTO GrabarMaestraDTO(MaestraDTO vMaestraDTO);
         int AnularMaestraDTOPorCodigo(MaestraDTO vMaestraDTO);
         IEnumerable<MaestraDTO> ListarPaginadoMaestraDTO(string vFiltro, string vUbigeo, int vNumPag, int vCantRegxPag);
         RegistrarEumDTO RecuperarFullMaestraDTOPorCodigo(int vId_Eum);

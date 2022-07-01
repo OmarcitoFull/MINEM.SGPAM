@@ -51,15 +51,14 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                         Id_Expediente = vRegistro.ID_EXPEDIENTE,
                         Nro_Expediente = vRegistro.NRO_EXPEDIENTE,
                         Zona = vRegistro.ZONA,
-                        
                         //anio = vRegistro.
-                        Fec_Ingreso = vRegistro.FEC_INGRESO,
-                        Fec_Modifica = vRegistro.FEC_MODIFICA,
-                        Flg_Estado = vRegistro.FLG_ESTADO,
-                        Ip_Ingreso = vRegistro.IP_INGRESO,
-                        Ip_Modifica = vRegistro.IP_MODIFICA,
                         Usu_Ingreso = vRegistro.USU_INGRESO,
-                        Usu_Modifica = vRegistro.USU_MODIFICA
+                        Fec_Ingreso = vRegistro.FEC_INGRESO,
+                        Ip_Ingreso = vRegistro.IP_INGRESO,
+                        Usu_Modifica = vRegistro.USU_MODIFICA,
+                        Fec_Modifica = vRegistro.FEC_MODIFICA,
+                        Ip_Modifica = vRegistro.IP_MODIFICA,
+                        Flg_Estado = vRegistro.FLG_ESTADO
                     };
                     return vResultado;
                 }
@@ -73,12 +72,40 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
+        public ExpedienteDTO GrabarExpedienteDTO(ExpedienteDTO vExpedienteDTO)
+        {
+            try
+            {
+                if (vExpedienteDTO.Id_Expediente == 0)
+                    return InsertarExpedienteDTO(vExpedienteDTO);
+                else
+                    return ActualizarExpedienteDTO(vExpedienteDTO);
+            }
+            catch (Exception ex)
+            {
+                //Log.Error(ex.Message, ex);
+                throw;
+            }
+        }
+
         public ExpedienteDTO InsertarExpedienteDTO(ExpedienteDTO vExpedienteDTO)
         {
             try
             {
-                var vRegistro = new T_Sgpam_Expediente();
+                var vRegistro = new T_Sgpam_Expediente 
+                {
+                    ID_EXPEDIENTE = vExpedienteDTO.Id_Expediente,
+                    NRO_EXPEDIENTE = vExpedienteDTO.Nro_Expediente,
+                    ZONA = vExpedienteDTO.Zona,
+                    DECLARANTE = vExpedienteDTO.Declarante.ToUpper(),
+                    USU_INGRESO = vExpedienteDTO.Usu_Ingreso,
+                    FEC_INGRESO = vExpedienteDTO.Fec_Ingreso,
+                    IP_INGRESO = vExpedienteDTO.Ip_Ingreso,
+                    FLG_ESTADO = "1"
+                };
                 var vResultado = ExpedienteAD.InsertarT_Sgpam_Expediente(vRegistro);
+                vExpedienteDTO = RecuperarExpedienteDTOPorCodigo(vResultado.ID_EXPEDIENTE);
+
                 return vExpedienteDTO;
             }
             catch (Exception ex)
@@ -92,8 +119,18 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         {
             try
             {
-                var vRegistro = new T_Sgpam_Expediente();
+                var vRegistro = new T_Sgpam_Expediente {
+                    ID_EXPEDIENTE = vExpedienteDTO.Id_Expediente,
+                    NRO_EXPEDIENTE = vExpedienteDTO.Nro_Expediente,
+                    ZONA = vExpedienteDTO.Zona,
+                    DECLARANTE = vExpedienteDTO.Declarante.ToUpper(),
+                    USU_MODIFICA = vExpedienteDTO.Usu_Modifica,
+                    FEC_MODIFICA = vExpedienteDTO.Fec_Modifica,
+                    IP_MODIFICA = vExpedienteDTO.Ip_Modifica
+                };
                 var vResultado = ExpedienteAD.ActualizarT_Sgpam_Expediente(vRegistro);
+                vExpedienteDTO = RecuperarExpedienteDTOPorCodigo(vResultado.ID_EXPEDIENTE);
+
                 return vExpedienteDTO;
             }
             catch (Exception ex)
@@ -105,9 +142,21 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         
         public int AnularExpedienteDTOPorCodigo(ExpedienteDTO vExpedienteDTO)
         {
+            int vResult = 0;
             try
             {
-                return ExpedienteAD.AnularT_Sgpam_ExpedientePorCodigo(0);
+                if (vExpedienteDTO != null)
+                {
+                    var vRegistro = new T_Sgpam_Expediente
+                    {
+                        ID_EXPEDIENTE = vExpedienteDTO.Id_Expediente,
+                        USU_MODIFICA = vExpedienteDTO.Usu_Modifica,
+                        FEC_MODIFICA = vExpedienteDTO.Fec_Modifica,
+                        IP_MODIFICA = vExpedienteDTO.Ip_Modifica
+                    };
+                    vResult = ExpedienteAD.AnularT_Sgpam_ExpedientePorCodigo(vRegistro); // != 0;
+                }
+                return vResult;
             }
             catch (Exception ex)
             {
@@ -116,11 +165,24 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
         }
 
-        public IEnumerable<ExpedienteDTO> ListarPaginadoExpedienteDTO(string vNroExp, string vFiltro, int vNumPag, int vCantRegxPag)
+        public IEnumerable<ExpedienteDTO> ListarPaginadoExpedienteDTO(string vNroExp, string vZona, string vUbigeo, int vNumPag, int vCantRegxPag)
         {
             try
             {
-                IEnumerable<T_Sgpam_Expediente> vResultado = ExpedienteAD.ListarPaginadoT_Sgpam_Expediente(vNroExp, vFiltro, vNumPag, vCantRegxPag);
+                if (vNroExp == null || vNroExp.Trim().Length == 0)
+                    vNroExp = "";
+                else
+                    vNroExp = vNroExp.ToUpper();
+
+                if (vZona == null || vZona.Trim().Length == 0)
+                    vZona = "";
+                else
+                    vZona = vZona.ToUpper();
+
+                if (vUbigeo == null || vUbigeo.Trim().Length == 0)
+                    vUbigeo = "0";
+
+                IEnumerable<T_Sgpam_Expediente> vResultado = ExpedienteAD.ListarPaginadoT_Sgpam_Expediente(vNroExp, vZona, vUbigeo, vNumPag, vCantRegxPag);
                 if (vResultado != null)
                 {
                     List<ExpedienteDTO> vLista = new List<ExpedienteDTO>();
@@ -137,7 +199,10 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                             Flg_Estado = item.FLG_ESTADO,
                             Ip_Ingreso = item.IP_INGRESO,
                             Usu_Ingreso = item.USU_INGRESO,
-                            anio = 2022
+                            anio = 2022,
+
+                            Total_Lnr = item.TOTAL_LNR,
+                            Nro_Informe = item.NRO_INFORME
                         };
                         vLista.Add(vEntidad);
                     }
@@ -156,24 +221,22 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         {
             try
             {
-                //if (vId_Eum > 0)
-                //{
                 RegistrarExpedienteDTO vResultado = new RegistrarExpedienteDTO()
                 {
                     Expediente = RecuperarExpedienteDTOPorCodigo(vId_Expediente),
                     //CboTipoOperacion = (List<Tipo_OperacionDTO>)Tipo_OperacionLN.ListarTipo_OperacionDTO(),
                     ListaLNR = (List<LnrDTO>)LnrLN.ListarPorIdExpedienteLnrDTO(vId_Expediente)
-                    //ListaInspeccion = (List<Eum_InspeccionDTO>)Eum_InspeccionLN.ListarPorIdEumEum_InspeccionDTO(vId_Eum),
                 };
                 return vResultado;
-                //}
-                //return null;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                //Log.Error(ex.Message, ex);
                 throw;
             }
+
         }
     }
+
+
 }

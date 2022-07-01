@@ -26,11 +26,13 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             Configuration = vIConfiguration;
         }
 
-        public async Task<IActionResult> Index()
+
+        public async Task<IActionResult> Index(string vNroExp = "", string vZona = "", string vUbigeo = "0")
         {
-            //List<MaestraDTO> vMasters = await Services<MaestraDTO>.Listar("Eum/Listar");
             ListarExpedienteDTO vRecord = new ListarExpedienteDTO();
-            vRecord.ListaExpediente = await Services<ExpedienteDTO>.Listar("Expediente/ListarPaginadoExpedienteDTO?vvNroExp=0&vFiltro=''&vNumPag=1&vCantRegxPag=1");
+            vRecord.ListaExpediente = await Services<ExpedienteDTO>.Listar("Expediente/ListarPaginadoExpedienteDTO?vNroExp=" + vNroExp + "&vZona=" + vZona + "&vUbigeo=" + vUbigeo + "&vNumPag=" + 1 + "&vCantRegxPag=" + 10);
+            vRecord.ListaUbigeo = await Services<Ubigeo_IneiDTO>.Listar("Ubigeo/List_Ubigeo_Inei");
+            ViewBag.Ubigeo = vRecord.ListaUbigeo;
             return View(vRecord);
         }
 
@@ -50,6 +52,22 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
 
             return View(vRecord);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AgregarEditar(ExpedienteDTO vModel)
+        {
+            vModel.Fec_Ingreso = vModel.Fec_Modifica = DateTime.Now;
+            vModel.Usu_Ingreso = vModel.Usu_Modifica = Constantes.GuestUser;
+            vModel.Ip_Ingreso = vModel.Ip_Modifica = DnsFullNet.GetIp();
+            if (ModelState.IsValid)
+            {
+                vModel = await Services<ExpedienteDTO>.Grabar("Expediente/Save", vModel);
+                return Ok(new ComponentResultModel(vModel?.Id_Expediente ?? 0));
+            }
+            return View(vModel);
+        }
+
+
 
     }
 }

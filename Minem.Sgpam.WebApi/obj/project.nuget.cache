@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0JWOYkF91DR0RI9zUaTLxmcRjC3LzUcc//dFBqM2DETAETRknBHNX7i/tHD3p9V2PjcB9C9ZyTcyvCZHHn3q2A==",
+  "dgSpecHash": "1TAjaGOc1EfYe0/8S2TtUpkITdnn9qalxhB7GLWx+gO9+cBDxYqdCHXTnQe6ZWAYOcZ/zNqF9TvPD21t95AT9Q==",
   "success": true,
-  "projectFilePath": "D:\\A FULLSOFT\\2021\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.WebApi\\Minem.Sgpam.WebApi.csproj",
+  "projectFilePath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.WebApi\\Minem.Sgpam.WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\omar.rodriguez\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\omar.rodriguez\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",

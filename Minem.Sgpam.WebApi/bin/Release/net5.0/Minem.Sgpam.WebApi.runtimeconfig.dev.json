@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\externo_SIGEPAM\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\externo_SIGEPAM\\.nuget\\packages"
+    ]
+  }
+}

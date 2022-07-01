@@ -14,7 +14,7 @@ namespace Minem.Sgpam.AccesoDatos.Interfaces
         T_Sgpad_Eum_Inspeccion RecuperarT_Sgpad_Eum_InspeccionPorCodigo(int vId_Eum_Inspeccion);
         T_Sgpad_Eum_Inspeccion InsertarT_Sgpad_Eum_Inspeccion(T_Sgpad_Eum_Inspeccion vT_Sgpad_Eum_Inspeccion);
         T_Sgpad_Eum_Inspeccion ActualizarT_Sgpad_Eum_Inspeccion(T_Sgpad_Eum_Inspeccion vT_Sgpad_Eum_Inspeccion);
-        int AnularT_Sgpad_Eum_InspeccionPorCodigo(int vId_Eum_Inspeccion);
+        int AnularT_Sgpad_Eum_InspeccionPorCodigo(T_Sgpad_Eum_Inspeccion vT_Sgpad_Eum_Inspeccion);
         IEnumerable<T_Sgpad_Eum_Inspeccion> ListarPaginadoT_Sgpad_Eum_Inspeccion(string vFiltro, int vNumPag, int vCantRegxPag);
         IEnumerable<T_Sgpad_Eum_Inspeccion> ListarPorIdEumT_Sgpad_Eum_Inspeccion(int vId_Eum);
     }

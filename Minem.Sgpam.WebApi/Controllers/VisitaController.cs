@@ -30,7 +30,7 @@ namespace Minem.Sgpam.WebApi.Controllers
         [HttpPost("Save")]
         public VisitaDTO Save([FromBody] VisitaDTO vVisitaDTO)
         {
-            return Visita_LN.ActualizarVisitaDTO(vVisitaDTO);
+            return Visita_LN.GrabarVisitaDTO(vVisitaDTO);
         }
 
         [HttpGet("GetFull")]
@@ -38,7 +38,6 @@ namespace Minem.Sgpam.WebApi.Controllers
         {
             return Visita_LN.RecuperarFullVisitaDTOPorCodigo(vId);
         }
-
 
         [HttpGet("ListarPaginadoVisitaDTO")]
         public IEnumerable<VisitaDTO> ListarPaginadoVisitaDTO(string vFiltro, string vNroExpediente, int vTipo, int vCantAnios, int vNumPag, int vCantRegxPag)

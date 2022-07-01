@@ -10,8 +10,22 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
     /// </summary>
     public partial class VisitaDTO : BaseOTD
     {
-        #region Propiedades
-        public string Ip_Modifica { get; set; }  		public DateTime? Fec_Modifica { get; set; }  		public DateTime Fecha_Salida { get; set; }  		public string Ip_Ingreso { get; set; }  		public string Usu_Ingreso { get; set; }  		public string Ubigeo { get; set; }  		public int Id_Visita { get; set; }  		public DateTime? Fec_Ingreso { get; set; }  		public string Usu_Modifica { get; set; }  		public string Flg_Estado { get; set; }  		public DateTime? Fecha_Regreso { get; set; }  		
-        #endregion
-    }
+		#region Propiedades
+		public int Id_Visita { get; set; }
+		public string Ubigeo { get; set; }
+		public DateTime Fecha_Salida { get; set; }
+		public DateTime? Fecha_Regreso { get; set; }
+		public string Usu_Ingreso { get; set; }
+		public DateTime? Fec_Ingreso { get; set; }
+		public string Ip_Ingreso { get; set; }
+		public string Usu_Modifica { get; set; }
+		public DateTime? Fec_Modifica { get; set; }
+		public string Ip_Modifica { get; set; }
+		public string Flg_Estado { get; set; }  
+		public string Id_Region { get; set; }
+		public string Id_Provincia { get; set; }
+		public string Id_Distrito { get; set; }
+
+		#endregion
+	}
 }

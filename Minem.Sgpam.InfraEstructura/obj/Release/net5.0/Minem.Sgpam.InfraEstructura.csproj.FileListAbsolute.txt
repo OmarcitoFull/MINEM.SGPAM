@@ -1,0 +1,14 @@
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\bin\Release\net5.0\Minem.Sgpam.InfraEstructura.deps.json
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\bin\Release\net5.0\Minem.Sgpam.InfraEstructura.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\bin\Release\net5.0\ref\Minem.Sgpam.InfraEstructura.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\bin\Release\net5.0\Minem.Sgpam.InfraEstructura.pdb
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Release\net5.0\Minem.Sgpam.InfraEstructura.csproj.AssemblyReference.cache
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Release\net5.0\Interop.LFSO80Lib.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Release\net5.0\Minem.Sgpam.InfraEstructura.csproj.ResolveComReference.cache
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Release\net5.0\Minem.Sgpam.InfraEstructura.GeneratedMSBuildEditorConfig.editorconfig
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Release\net5.0\Minem.Sgpam.InfraEstructura.AssemblyInfoInputs.cache
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Release\net5.0\Minem.Sgpam.InfraEstructura.AssemblyInfo.cs
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Release\net5.0\Minem.Sgpam.InfraEstructura.csproj.CoreCompileInputs.cache
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Release\net5.0\Minem.Sgpam.InfraEstructura.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Release\net5.0\ref\Minem.Sgpam.InfraEstructura.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.InfraEstructura\obj\Release\net5.0\Minem.Sgpam.InfraEstructura.pdb

@@ -15,7 +15,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
     /// Creado Por:	Omar Rodriguez Muñoz
     /// Fecha Creación:	27/10/2021
     /// </summary>
-    public partial class T_Sgpam_MaestraAD: BaseAD, IT_Sgpam_MaestraAD
+    public partial class T_Sgpam_MaestraAD : BaseAD, IT_Sgpam_MaestraAD
     {
         public T_Sgpam_MaestraAD(IConfiguration vConfiguration)
         {
@@ -24,8 +24,8 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
 
         public IEnumerable<T_Sgpam_Maestra> ListarT_Sgpam_Maestra()
         {
-           List<T_Sgpam_Maestra> vLista = new List<T_Sgpam_Maestra>();
-           T_Sgpam_Maestra vEntidad;
+            List<T_Sgpam_Maestra> vLista = new List<T_Sgpam_Maestra>();
+            T_Sgpam_Maestra vEntidad;
 
             using (OracleConnection vCnn = new OracleConnection(CnnString))
             {
@@ -48,7 +48,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
 
         public T_Sgpam_Maestra RecuperarT_Sgpam_MaestraPorCodigo(int vId_Eum)
         {
-           T_Sgpam_Maestra vEntidad = null;
+            T_Sgpam_Maestra vEntidad = null;
             using (OracleConnection vCnn = new OracleConnection(CnnString))
             {
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_MAESTRA.USP_SEL_MAESTRA", vCnn))
@@ -56,7 +56,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     vCmd.CommandType = CommandType.StoredProcedure;
                     vCmd.Parameters.Add("pID_EUM", vId_Eum);
                     vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                    
+
                     vCnn.Open();
                     OracleDataReader vRdr = vCmd.ExecuteReader();
                     while (vRdr.Read())
@@ -76,7 +76,6 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_MAESTRA.USP_INS_MAESTRA", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    //vCmd.Parameters.Add("pID_EUM", vT_Sgpam_Maestra.ID_EUM);
                     vCmd.Parameters.Add("pDESCRIPCION_EUM", vT_Sgpam_Maestra.DESCRIPCION_EUM);
                     vCmd.Parameters.Add("pACCESO_EUM", vT_Sgpam_Maestra.ACCESO_EUM);
                     vCmd.Parameters.Add("pHISTORIA_EUM", vT_Sgpam_Maestra.HISTORIA_EUM);
@@ -112,7 +111,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             }
             return vT_Sgpam_Maestra;
         }
-        
+
         public T_Sgpam_Maestra ActualizarT_Sgpam_Maestra(T_Sgpam_Maestra vT_Sgpam_Maestra)
         {
             using (OracleConnection vCnn = new OracleConnection(CnnString))
@@ -154,7 +153,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             return vT_Sgpam_Maestra;
         }
 
-        public int AnularT_Sgpam_MaestraPorCodigo(int vId_Eum)
+        public int AnularT_Sgpam_MaestraPorCodigo(T_Sgpam_Maestra vT_Sgpam_Maestra)
         {
             int vResultado = 0;
             using (OracleConnection vCnn = new OracleConnection(CnnString))
@@ -162,10 +161,14 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                 using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_MAESTRA.USP_DEL_MAESTRA", vCnn))
                 {
                     vCmd.CommandType = CommandType.StoredProcedure;
-                    vCmd.Parameters.Add("pID_EUM", vId_Eum);
+                    vCmd.Parameters.Add("pID_EUM", vT_Sgpam_Maestra.ID_EUM);
+                    vCmd.Parameters.Add("pUSU_MODIFICA", vT_Sgpam_Maestra.USU_MODIFICA);
+                    vCmd.Parameters.Add("pFEC_MODIFICA", vT_Sgpam_Maestra.FEC_MODIFICA);
+                    vCmd.Parameters.Add("pIP_MODIFICA", vT_Sgpam_Maestra.IP_MODIFICA);
                     vCnn.Open();
                     vResultado = vCmd.ExecuteNonQuery();
                     vCnn.Close();
+                    vResultado = (vResultado == -1) ? vResultado * -1 : vResultado;
                 }
             }
             return vResultado;
@@ -173,8 +176,8 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
 
         public IEnumerable<T_Sgpam_Maestra> ListarPaginadoT_Sgpam_Maestra(string vFiltro, string vUbigeo, int vNumPag, int vCantRegxPag)
         {
-           List<T_Sgpam_Maestra> vLista = new List<T_Sgpam_Maestra>();
-           T_Sgpam_Maestra vEntidad;
+            List<T_Sgpam_Maestra> vLista = new List<T_Sgpam_Maestra>();
+            T_Sgpam_Maestra vEntidad;
 
             using (OracleConnection vCnn = new OracleConnection(CnnString))
             {
