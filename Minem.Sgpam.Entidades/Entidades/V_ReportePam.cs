@@ -106,6 +106,34 @@ namespace Minem.Sgpam.Entidades.Entidades
                 this.Id_Historico = Convert.ToString(vRdr["Id_Historico"]);
             }
 
+            if (!Convert.IsDBNull(vRdr["DescripcionCom"]))
+            {
+                this.DescripcionCom = Convert.ToString(vRdr["DescripcionCom"]);
+            }
+            if (!Convert.IsDBNull(vRdr["SituacionCom"]))
+            {
+                this.SituacionCom = Convert.ToString(vRdr["SituacionCom"]);
+            }
+            if (!Convert.IsDBNull(vRdr["FechaInformeUno"]))
+            {
+                this.FechaInformeUno = Convert.ToString(vRdr["FechaInformeUno"]);
+            }
+            if (!Convert.IsDBNull(vRdr["ResolucionIga"]))
+            {
+                this.ResolucionIga = Convert.ToString(vRdr["ResolucionIga"]);
+            }
+            if (!Convert.IsDBNull(vRdr["InstrumentoGestionAmbiental"]))
+            {
+                this.InstrumentoGestionAmbiental = Convert.ToString(vRdr["InstrumentoGestionAmbiental"]);
+            }
+            if (!Convert.IsDBNull(vRdr["AñoUno"]))
+            {
+                this.AñoUno = Convert.ToString(vRdr["AñoUno"]);
+            }
+            if (!Convert.IsDBNull(vRdr["Imagen1"]))
+            {
+                this.Imagen1 = Convert.ToString(vRdr["Imagen1"]);
+            }
         }
 
         public string NroInforme { get; set; }
@@ -130,5 +158,14 @@ namespace Minem.Sgpam.Entidades.Entidades
         public string Area { get; set; }
         public string Estado { get; set; }
         public string Id_Historico { get; set; }
+
+        public string DescripcionCom { get; set; }
+        public string SituacionCom { get; set; }
+        public string FechaInformeUno { get; set; }
+        public string ResolucionIga { get; set; }
+        public string InstrumentoGestionAmbiental { get; set; }
+        public string AñoUno { get; set; }
+        public string Imagen1 { get; set; }
+
     }
 }

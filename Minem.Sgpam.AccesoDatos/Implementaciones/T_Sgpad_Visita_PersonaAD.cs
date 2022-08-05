@@ -196,6 +196,5 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
         }
 
 
-
     }
 }

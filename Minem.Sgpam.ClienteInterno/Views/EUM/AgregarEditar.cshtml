@@ -12,7 +12,7 @@
         <h1 class="grupoT">1. Historial Modificaciones</h1>
         <div class="col-md-12 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre EUM</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre EUM (*)</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                     <input asp-for="@Model.Eum.Eum_Descripcion" class="form-control text-uppercase" maxlength="100" />
                 </div>
@@ -20,7 +20,8 @@
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Acceso a EUM</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Acceso a EUM (*)</label>
+                @*<label class="control-label col-md-1 col-sm-3 col-xs-12" style="text-align:right; color:#ff0000">*</label>*@
                 <div class="col-md-9 col-sm-9 col-xs-12">
                     <input asp-for="@Model.Eum.Acceso_Eum" class="form-control" maxlength="300" />
                 </div>
@@ -159,7 +160,7 @@
         <h1 class="grupoT">4. Información adicional</h1>
         <div class="col-md-12 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Historia EUM</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Historia EUM (*)</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                     <textarea asp-for="@Model.Eum.Historia_Eum" rows="3" class="form-controlArea" maxlength="400"></textarea>
                 </div>
@@ -167,7 +168,7 @@
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Evidencia de actividades recientes</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Evidencia de actividades recientes (*)</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                     <textarea asp-for="@Model.Eum.Evidencia_Act_Rec" rows="3" class="form-controlArea  has-feedback-left" maxlength="400"></textarea>
                 </div>
@@ -249,7 +250,7 @@
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Tipo sustancia:</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Tipo sustancia (*)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <select id="vId_Tipo_Sustancia" class="select2_single form-control" asp-for="@Model.Eum.Id_Tipo_Sustancia" asp-items="(List<SelectListItem>)ViewBag.CboTipoSustancia">
                         <option value="">Seleccione</option>
@@ -274,7 +275,7 @@
         <h1 class="grupoT">6. Ambiente Circulante</h1>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Relieve:</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Relieve (*)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <input asp-for="@Model.Eum.Relieve" class="form-control" maxlength="300" />
                 </div>
@@ -282,7 +283,7 @@
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Cuerpos de agua:</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Cuerpos de agua (*)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <input asp-for="@Model.Eum.Cuerpos_Agua" class="form-control" maxlength="100" />
                 </div>
@@ -290,7 +291,7 @@
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Conflicto social:</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Conflicto social (*)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <select id="vId_Conflicto_Social" class="select2_single form-control" asp-for="@Model.Eum.Id_Conflicto_Social" asp-items="(List<SelectListItem>)ViewBag.CboConflictoSocial">
                         <option value="">Seleccione</option>
@@ -301,7 +302,7 @@
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Flora Terr.:</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Flora Terr. (*)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <input asp-for="@Model.Eum.Flora_Terrestre" class="form-control" maxlength="300" />
                 </div>
@@ -309,7 +310,7 @@
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Fauna Terr.:</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Fauna Terr. (*)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <input asp-for="@Model.Eum.Fauna_Terreste" class="form-control" maxlength="300" />
                 </div>
@@ -317,7 +318,7 @@
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Flora y Fauna Acuat.:</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Flora y Fauna Acuat. (*)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <input asp-for="@Model.Eum.Flora_Fauna_Acuatica" class="form-control" maxlength="300" />
                 </div>
@@ -326,7 +327,7 @@
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Infraestructura urbana:</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Infraestructura urbana (*)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <input asp-for="@Model.Eum.Infra_Urbana" class="form-control" maxlength="300" />
                 </div>
@@ -334,7 +335,7 @@
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Usos de Suelo:</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Usos de Suelo (*)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <input asp-for="@Model.Eum.Uso_Suelo" class="form-control" maxlength="100" />
                 </div>
@@ -342,7 +343,7 @@
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Usos de Agua:</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Usos de Agua (*)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <input asp-for="@Model.Eum.Uso_Agua" class="form-control" maxlength="300" />
                 </div>
@@ -351,7 +352,7 @@
 
         <div class="col-md-12 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Áreas de conservación:</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Áreas de conservación (*)</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                     <input asp-for="@Model.Eum.Area_Conservacion" class="form-control" maxlength="300" />
                 </div>
@@ -360,7 +361,7 @@
 
         <div class="col-md-12 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Sitios Arq. o Turist.:</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Sitios Arq. o Turist. (*)</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                     <input asp-for="@Model.Eum.Sitio_Arque_Turistico" class="form-control" maxlength="300" />
                 </div>
@@ -369,7 +370,7 @@
 
         <div class="col-md-12 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Conflicto Social:</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Conflicto Social</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                     <input asp-for="@Model.Eum.Conflicto_Social" class="form-control" maxlength="300" />
                 </div>
@@ -383,7 +384,7 @@
         <h1 class="grupoT">7. Comentarios adicional</h1>
         <div class="col-md-12 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Descripción EUM</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Descripción EUM (*)</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                     <textarea asp-for="@Model.Eum.Descripcion_Eum" class="form-controlArea  has-feedback-left" rows="2" maxlength="400"></textarea>
                 </div>
@@ -1118,11 +1119,11 @@
 
         $('#btnSubmit').click(function () {
             var vModel = $("#MyForm").serializeArray();
-            console.log(vModel);
+            //console.log(vModel);
 
             var vData = {};
             $.map(vModel, function (n, i) { vData[n.name.replace("Eum.", "")] = n.value; });
-            console.log(vData);
+            //console.log(vData);
 
             $.ajax({
                 type: "POST",
@@ -1133,11 +1134,12 @@
                         Success("@Constantes.MsgOk");
                         window.location.reload();
                     } else {
-                        Error("@Constantes.MsgErr");
+                        //Error("@Constantes.MsgErr");
+                        "@((int)TipoErr.MODEL)" == data.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr")
                     }
                 },
                 error: function (req, status, error) {
-                    console.log(req)
+                    //console.log(req)
                     alert(req);
                     alert(status);
                     alert(error);
@@ -1147,7 +1149,7 @@
 
         });
 
-        
+
         $("#btnReporte").click(function () {
             window.location = "@Url.Action("DescargarInformePam", "Eum")?vKey=1";
         });
@@ -1348,7 +1350,6 @@
 
                 }
             })
-
         }
 
 

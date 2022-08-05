@@ -52,3 +52,9 @@ D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\Minem.Sgpa
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\ref\Minem.Sgpam.WebApi.dll
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\Minem.Sgpam.WebApi.pdb
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\Minem.Sgpam.WebApi.genruntimeconfig.cache
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\bin\Release\net5.0\Microsoft.Extensions.DependencyInjection.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\bin\Release\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\bin\Release\net5.0\Microsoft.Extensions.Logging.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\bin\Release\net5.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\bin\Release\net5.0\Microsoft.Extensions.Options.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\bin\Release\net5.0\System.Diagnostics.DiagnosticSource.dll

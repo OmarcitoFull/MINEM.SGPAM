@@ -106,9 +106,9 @@
                         <tr class="even pointer">
                             <td class=" col-lg-1 ">@item.Tipo_Registro</td>
                             <td class=" col-lg-1 ">@item.Nro_Expediente</td>
-                            <td class=" col-lg-3 ">@item.Nombre_Eum</td>
+                            <td class=" col-lg-4 ">@item.Nombre_Eum</td>
                             <td class=" col-lg-3 ">@item.Motivo</td>
-                            <td class=" col-lg-2 ">@item.Observacion</td>
+                            <td class=" col-lg-3 ">@item.Observacion</td>
                             <td class=" col-lg-1" style="text-align:center">
                                 <ul class="nav navbar-center panel_toolbox">
                                     <li>
@@ -153,10 +153,10 @@
                         @foreach (var item in Model.listaVisitaDetComLnr)
                         {
                             <tr class="even pointer">
-                                <td class=" col-lg-1 ">@item.Id_Componente</td>
-                                <td class=" col-lg-2 ">@item.Id_Lnr</td>
-                                <td class=" col-lg-1 ">@item.Id_Visita_Det</td>
                                 <td class=" col-lg-1 ">@item.Id_Visita_Det_Com_Lnr</td>
+                                <td class=" col-lg-2 ">@item.Id_Visita_Det</td>
+                                <td class=" col-lg-1 ">@item.Id_Lnr</td>
+                                <td class=" col-lg-1 ">@item.Id_Componente</td>
                                 <td class=" col-lg-1 ">@item.Ip_Modifica</td>
                                 <td class=" col-lg-1 ">@item.Fec_Modifica</td>
                                 <td class=" col-lg-1 ">@item.Fec_Ingreso</td>
@@ -213,7 +213,7 @@
                         <th class="column-title">Nombre y Apellido</th>
                         <th class="column-title">Correo Electronico</th>
                         <th class="column-title">Contacto</th>
-                        @*<th class="column-title no-link last" style="text-align:center"><span class="nobr">Opciones</span></th>*@
+                        <th class="column-title no-link last" style="text-align:center"><span class="nobr">Opción</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -372,7 +372,7 @@
 
             var vData = {};
             $.map(vModel, function (n, i) { vData[n.name.replace("Visita.", "")] = n.value; });
-            console.log(vData);
+            //console.log(vData);
 
             $.ajax({
                 type: "POST",
@@ -383,7 +383,8 @@
                         Success("@Constantes.MsgOk");
                         window.location.reload();
                     } else {
-                        Error("@Constantes.MsgErr");
+                        //Error("@Constantes.MsgErr");
+                        "@((int)TipoErr.MODEL)" == data.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr")
                     }
                 },
                 error: function (req, status, error) {
@@ -456,9 +457,34 @@
 
                 }
             })
-
         }
 
+        function RemoveVisitaPersona(vId) {
+            Swal.fire({
+                title: '¿Está seguro?',
+                text: "¡No podrás revertir esto!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#23527c',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si , Borralo!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    $.post("@Url.Action("RemoveVisitaPersona", "Visita")?vId=" + vId).done(function (x) {
+                        if (x.operation == "@Constantes.Ok") {
+                            Removed("@Constantes.MsgDelOk");
+                            window.location.reload();
+                        } else {
+                            Error("@Constantes.MsgDelKo");
+                        }
+                    }).fail(function (a, b, c) {
+                        alert("Result: " + b + " " + c + " " + a.status + " " + a.statusText)
+                    });
+
+                }
+            })
+        }
 
 
         function DescargarArchivo(vKey, vName) {

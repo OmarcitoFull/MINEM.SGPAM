@@ -1,5 +1,6 @@
 using Minem.Sgpam.TransporteDatos.Base;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Minem.Sgpam.TransporteDatos.DtoEntidades
 {
@@ -12,7 +13,9 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
     {
 		#region Propiedades
 		public int Id_Visita { get; set; }
+		[Required]
 		public string Ubigeo { get; set; }
+		[Required]
 		public DateTime Fecha_Salida { get; set; }
 		public DateTime? Fecha_Regreso { get; set; }
 		public string Usu_Ingreso { get; set; }

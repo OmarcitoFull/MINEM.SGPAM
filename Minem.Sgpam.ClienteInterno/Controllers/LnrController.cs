@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Minem.Sgpam.ClienteInterno.Helpers;
 using Minem.Sgpam.ClienteInterno.Models;
 using Minem.Sgpam.InfraEstructura;
@@ -19,12 +20,22 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
 {
     public class LnrController : Controller
     {
+        private readonly ILogger<LnrController> Logger;
         public IConfiguration Configuration { get; }
 
-        public LnrController(IConfiguration vIConfiguration)
+        public LnrController(IConfiguration vIConfiguration, ILogger<LnrController> vILogger)
         {
             Configuration = vIConfiguration;
+            Logger = vILogger;
         }
+
+
+
+
+
+
+
+
 
 
 
@@ -39,64 +50,83 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         [HttpGet]
         public async Task<IActionResult> AgregarEditar(int vId = 0, int vIdExpediente = 0)
         {
-            RegistrarLnrDTO vRecord = new RegistrarLnrDTO();
-
-            vRecord = await Services<RegistrarLnrDTO>.Obtener("Lnr/GetFull?vId=" + vId);
-            if (vId == 0)
-                vRecord.Lnr = new LnrDTO { Id_Expediente = vIdExpediente };
-
-            ViewBag.CboTipoLnr = vRecord.CboTipo.ConvertAll(x =>
+            try
             {
-                return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Tipo_Pam.ToString() };
-            });
-            ViewBag.CboSubTipoLnr = vRecord.CboSubTipo.Where(x => x.Id_Tipo_Pam == vRecord.Lnr.Id_Tipo_Lnr).ToList().ConvertAll(x =>
+                RegistrarLnrDTO vRecord = new RegistrarLnrDTO();
+
+                vRecord = await Services<RegistrarLnrDTO>.Obtener("Lnr/GetFull?vId=" + vId);
+                if (vId == 0)
+                    vRecord.Lnr = new LnrDTO { Id_Expediente = vIdExpediente };
+
+                ViewBag.CboTipoLnr = vRecord.CboTipo.ConvertAll(x =>
+                {
+                    return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Tipo_Pam.ToString() };
+                });
+                ViewBag.CboSubTipoLnr = vRecord.CboSubTipo.Where(x => x.Id_Tipo_Pam == vRecord.Lnr.Id_Tipo_Lnr).ToList().ConvertAll(x =>
+                {
+                    return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Sub_Tipo_Pam.ToString() };
+                });
+
+                ViewBag.CboTemporalidad = vRecord.CboTemporalidad.ConvertAll(x =>
+                {
+                    return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Temporalidad.ToString() };
+                });
+
+                ViewBag.CboZona = Enum.GetValues(typeof(Zona)).Cast<Zona>().ToList().ConvertAll(x =>
+                {
+                    return new SelectListItem() { Text = x.ToString(), Value = ((int)x).ToString() };
+                });
+
+                ViewBag.CboRegion = vRecord.CboUbigeo.Select(x => new { x.Id_Departamento, x.Departamento }).Distinct().OrderBy(x => x.Departamento).ToList().ConvertAll(x =>
+                {
+                    return new SelectListItem() { Text = x.Departamento, Value = x.Id_Departamento.ToString() };
+                });
+
+                ViewBag.CboProvincia = vRecord.CboUbigeo.Where(x => x.Id_Departamento == vRecord.Lnr.Id_Region).Select(x => new { x.Id_Provincia, x.Provincia }).Distinct().OrderBy(x => x.Provincia).ToList().ConvertAll(x =>
+                {
+                    return new SelectListItem() { Text = x.Provincia, Value = x.Id_Provincia.ToString() };
+                });
+
+                ViewBag.CboDistrito = vRecord.CboUbigeo.Where(x => x.Id_Provincia == vRecord.Lnr.Id_Provincia).Select(x => new { x.Id_Distrito, x.Distrito }).Distinct().OrderBy(x => x.Distrito).ToList().ConvertAll(x =>
+                {
+                    return new SelectListItem() { Text = x.Distrito, Value = x.Id_Distrito.ToString() };
+                });
+
+                ViewBag.FullUbigeo = vRecord.CboUbigeo.Select(x => new { x.Id_Departamento, x.Departamento, x.Id_Provincia, x.Provincia, x.Id_Distrito, x.Distrito }).Distinct().OrderBy(x => x.Departamento).ThenBy(x => x.Provincia).ThenBy(x => x.Distrito).ToList();
+
+                return View(vRecord);
+            }
+            catch (Exception ex)
             {
-                return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Sub_Tipo_Pam.ToString() };
-            });
-
-            ViewBag.CboTemporalidad = vRecord.CboTemporalidad.ConvertAll(x =>
-            {
-                return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Temporalidad.ToString() };
-            });
-
-            ViewBag.CboZona = Enum.GetValues(typeof(Zona)).Cast<Zona>().ToList().ConvertAll(x =>
-            {
-                return new SelectListItem() { Text = x.ToString(), Value = ((int)x).ToString() };
-            });
-
-            ViewBag.CboRegion = vRecord.CboUbigeo.Select(x => new { x.Id_Departamento, x.Departamento }).Distinct().OrderBy(x => x.Departamento).ToList().ConvertAll(x =>
-            {
-                return new SelectListItem() { Text = x.Departamento, Value = x.Id_Departamento.ToString() };
-            });
-
-            ViewBag.CboProvincia = vRecord.CboUbigeo.Where(x => x.Id_Departamento == vRecord.Lnr.Id_Region).Select(x => new { x.Id_Provincia, x.Provincia }).Distinct().OrderBy(x => x.Provincia).ToList().ConvertAll(x =>
-            {
-                return new SelectListItem() { Text = x.Provincia, Value = x.Id_Provincia.ToString() };
-            });
-
-            ViewBag.CboDistrito = vRecord.CboUbigeo.Where(x => x.Id_Provincia == vRecord.Lnr.Id_Provincia).Select(x => new { x.Id_Distrito, x.Distrito }).Distinct().OrderBy(x => x.Distrito).ToList().ConvertAll(x =>
-            {
-                return new SelectListItem() { Text = x.Distrito, Value = x.Id_Distrito.ToString() };
-            });
-
-            ViewBag.FullUbigeo = vRecord.CboUbigeo.Select(x => new { x.Id_Departamento, x.Departamento, x.Id_Provincia, x.Provincia, x.Id_Distrito, x.Distrito }).Distinct().OrderBy(x => x.Departamento).ThenBy(x => x.Provincia).ThenBy(x => x.Distrito).ToList();
-
-
-            return View(vRecord);
+                Logger.LogError(ex.Message, ex);
+                throw;
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> AgregarEditar(LnrDTO vModel)
         {
-            vModel.Fec_Ingreso = vModel.Fec_Modifica = DateTime.Now;
-            vModel.Usu_Ingreso = vModel.Usu_Modifica = Constantes.GuestUser;
-            vModel.Ip_Ingreso = vModel.Ip_Modifica = DnsFullNet.GetIp();
-            if (ModelState.IsValid)
+            try
             {
-                vModel = await Services<LnrDTO>.Grabar("Lnr/Save", vModel);
-                return Ok(new ComponentResultModel(vModel?.Id_Lnr ?? 0));
+                vModel.Fec_Ingreso = vModel.Fec_Modifica = DateTime.Now;
+                vModel.Usu_Ingreso = vModel.Usu_Modifica = Constantes.GuestUser;
+                vModel.Ip_Ingreso = vModel.Ip_Modifica = DnsFullNet.GetIp();
+                if (ModelState.IsValid)
+                {
+                    vModel = await Services<LnrDTO>.Grabar("Lnr/Save", vModel);
+                    return Ok(new ComponentResultModel(vModel?.Id_Lnr ?? 0));
+                }
+                else
+                {
+                    return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+                }
+                //return View(vModel);
             }
-            return View(vModel);
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.Message, ex);
+                throw;
+            }
         }
 
 

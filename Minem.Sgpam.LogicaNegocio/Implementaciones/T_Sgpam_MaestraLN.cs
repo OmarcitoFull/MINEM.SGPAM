@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 using Minem.Sgpam.AccesoDatos.Interfaces;
 using Minem.Sgpam.Entidades;
 using Minem.Sgpam.LogicaNegocio.Base;
@@ -33,7 +34,7 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         private readonly IT_Sgpad_Comp_Dd_MineroLN Comp_Dd_MineroLN;
         private readonly IT_Sgpad_Comp_Dm_SituacionLN Comp_Dm_SituacionLN;
         private readonly IT_Sgpad_Comp_Dm_TitularLN Comp_Dm_TitularLN;
-
+        private readonly ILogger<T_Sgpam_MaestraLN> Logger;
 
         public T_Sgpam_MaestraLN
         (
@@ -51,7 +52,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             IT_Sgpad_ComponenteLN vIT_Sgpad_ComponenteLN,
             IT_Sgpad_Comp_Dd_MineroLN vIT_Sgpad_Comp_Dd_MineroLN,
             IT_Sgpad_Comp_Dm_SituacionLN vIT_Sgpad_Comp_Dm_SituacionLN,
-            IT_Sgpad_Comp_Dm_TitularLN vIT_Sgpad_Comp_Dm_TitularLN
+            IT_Sgpad_Comp_Dm_TitularLN vIT_Sgpad_Comp_Dm_TitularLN,
+            ILogger<T_Sgpam_MaestraLN> vILogger
         )
         {
             MaestraAD = vT_Sgpam_MaestraAD;
@@ -69,6 +71,7 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             Comp_Dd_MineroLN = vIT_Sgpad_Comp_Dd_MineroLN;
             Comp_Dm_SituacionLN = vIT_Sgpad_Comp_Dm_SituacionLN;
             Comp_Dm_TitularLN = vIT_Sgpad_Comp_Dm_TitularLN;
+            Logger = vILogger;
         }
 
         public IEnumerable<MaestraDTO> ListarMaestraDTO()
@@ -343,7 +346,7 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
             }
             catch (Exception ex)
             {
-                //Log.Error(ex.Message, ex);
+                Logger.LogError(ex.Message, ex);
                 throw;
             }
         }

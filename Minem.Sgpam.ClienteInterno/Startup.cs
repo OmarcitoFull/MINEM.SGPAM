@@ -39,7 +39,7 @@ namespace Minem.Sgpam.ClienteInterno
             {
                 vApp.UseExceptionHandler("/Home/Error");
             }
-
+            //vApp.UseDeveloperExceptionPage();
             vApp.UseStaticFiles();
             vApp.UseRouting();
             vApp.UseRequestLocalization(vApp.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>().Value);

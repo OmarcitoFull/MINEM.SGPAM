@@ -52,8 +52,15 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                                      A.Region,
                                      A.Riesgo,
                                      A.SubTipoPam,
-                                     A.TipoPam
-                                 }).ToList();
+                                     A.TipoPam,
+                                     A.AñoUno,
+                                     A.DescripcionCom,
+                                     A.FechaInformeUno,
+                                     A.Imagen1,
+                                     A.InstrumentoGestionAmbiental,
+                                     A.ResolucionIga,
+                                     A.SituacionCom
+                                 }).OrderBy(x => x.IdComponente).ToList();
 
                 int vCaracteristica = 0;
                 int vResultados = 0;
@@ -64,9 +71,41 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                     ListaZonasPAM = string.Join(",", vListaNew.Select(y => y.ListaZonasPAM).Distinct().ToArray()),
                     ListaCaracteristicaPam = (from x in vListaNew select new CaracteristicaPam { Nro = (++vCaracteristica).ToString(), Este = x.Este, Id = x.IdComponente, Eum = x.NombreEUM, Norte = x.Norte, Pje = x.PuntajeNormalizado, Riesgo = x.Riesgo ?? string.Empty, SubTipo = x.SubTipoPam, Tipo = x.TipoPam }).ToList(),
                     ListaResultadosPam = (from z in vListaNew select new ResultadoPam { Nro = (++vResultados).ToString(), Area = z.Area, Q = z.Caudal, Cond = z.Conductividad, Este = z.Este, Id = z.IdComponente, Eum = z.NombreEUM, Iga = z.NomEstudioAmbiental, Norte = z.Norte, PH = z.PH, Pje = z.PuntajeNormalizado, SubTipo = z.SubTipoPam, Tipo = z.TipoPam }).ToList(),
-                    Distrito = string.Join(",", vListaNew.Select(y => y.Distrito).Distinct().ToArray()),
-                    Provincia = string.Join(",", vListaNew.Select(y => y.Provincia).Distinct().ToArray()),
-                    Region = string.Join(",", vListaNew.Select(y => y.Region).Distinct().ToArray()),
+                    ListaAnexoPam = (from z in vListaNew
+                                     select new AnexoPam
+                                     {
+                                         Nro = (++vResultados).ToString(),
+                                         Id = z.IdComponente,
+                                         Eum = z.NombreEUM,
+                                         DistritoCom = z.Distrito,
+                                         ProvinciaCom = z.Provincia,
+                                         RegionCom = z.Region,
+                                         CuencaCom = "",
+                                         FechaInspeccionCom = DateTime.Now.ToString("dd/MM/yyyy"),
+                                         DescripcionCom = z.DescripcionCom,
+                                         Tipo = z.TipoPam,
+                                         SubTpo = z.SubTipoPam,
+                                         Este = z.Este,
+                                         Norte = z.Norte,
+                                         Pje = z.PuntajeNormalizado,
+                                         Riesgo = z.Riesgo ?? string.Empty,
+                                         SituacionCom = z.SituacionCom,
+                                         Q = z.Caudal,
+                                         PH = z.PH,
+                                         Cond = z.Conductividad,
+                                         Area = z.Area,
+                                         FechaInformeUno = z.FechaInformeUno,
+                                         ResolucionIga = z.ResolucionIga,
+                                         Iga = z.NomEstudioAmbiental,
+                                         InstrumentoGestionAmbiental = z.InstrumentoGestionAmbiental,
+                                         AñoUno = z.AñoUno,
+                                         AñoDos = DateTime.Now.Year.ToString(),
+                                         Imagen1 = z.Imagen1
+                                     }).ToList(),
+
+                    Distritosx = string.Join(",", vListaNew.Select(y => y.Distrito).Distinct().ToArray()),
+                    Provincias = string.Join(",", vListaNew.Select(y => y.Provincia).Distinct().ToArray()),
+                    Regiones = string.Join(",", vListaNew.Select(y => y.Region).Distinct().ToArray()),
                     NombreEUM = vListaNew.FirstOrDefault().NombreEUM,
                     NroExpediente = vListaNew.FirstOrDefault().NroExpediente,
                     NroInforme = vListaNew.FirstOrDefault().NroInforme,

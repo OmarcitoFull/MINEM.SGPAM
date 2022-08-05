@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Minem.Sgpam.ClienteInterno.Helpers;
 using Minem.Sgpam.ClienteInterno.Models;
 using Minem.Sgpam.InfraEstructura;
@@ -19,105 +20,152 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
 {
     public class EumController : Controller
     {
+        private readonly ILogger<EumController> Logger;
         public IConfiguration Configuration { get; }
 
-        public EumController(IConfiguration vIConfiguration)
+        public EumController(IConfiguration vIConfiguration, ILogger<EumController> vILogger)
         {
             Configuration = vIConfiguration;
+            Logger = vILogger;
         }
 
 
-        public async Task<IActionResult> Index(string vNombreEUM = "", string vUbigeo= "0")
+        public async Task<IActionResult> Index(string vNombreEUM = "", string vUbigeo = "0")
         {
-            ListarEumDTO vRecord = new ListarEumDTO();
-            vRecord.ListaEum = await Services<MaestraDTO>.Listar("Eum/ListarPaginadoMaestraDTO?vFiltro=" + vNombreEUM + "&vUbigeo=" + vUbigeo + "&vNumPag=" + 1 + "&vCantRegxPag=" + 10);
-            vRecord.ListaUbigeo = await Services<Ubigeo_IneiDTO>.Listar("Ubigeo/List_Ubigeo_Inei");
-            ViewBag.Ubigeo = vRecord.ListaUbigeo;
-            return View(vRecord);
+            try
+            {
+                ListarEumDTO vRecord = new ListarEumDTO();
+                vRecord.ListaEum = await Services<MaestraDTO>.Listar("Eum/ListarPaginadoMaestraDTO?vFiltro=" + vNombreEUM + "&vUbigeo=" + vUbigeo + "&vNumPag=" + 1 + "&vCantRegxPag=" + 10);
+                vRecord.ListaUbigeo = await Services<Ubigeo_IneiDTO>.Listar("Ubigeo/List_Ubigeo_Inei");                //Logger.LogInformation("PASO UBIGEO");
+                ViewBag.Ubigeo = vRecord.ListaUbigeo;
+                return View(vRecord);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.Message, ex);
+                throw;
+            }
         }
 
         [HttpGet]
         public async Task<IActionResult> AgregarEditar(int vId = 0)
         {
-            RegistrarEumDTO vRecord = new RegistrarEumDTO();
+            try
+            {
+                RegistrarEumDTO vRecord = new RegistrarEumDTO();
 
-            vRecord = await Services<RegistrarEumDTO>.Obtener("Eum/GetFull?vId=" + vId);
-            if (vId == 0)
-                vRecord.Eum = new MaestraDTO();
+                vRecord = await Services<RegistrarEumDTO>.Obtener("Eum/GetFull?vId=" + vId);
+                if (vId == 0)
+                    vRecord.Eum = new MaestraDTO();
 
-            ViewBag.CboTipoPam = vRecord.CboTipoPam.ConvertAll(x =>
-            {
-                return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Tipo_Pam.ToString() };
-            });
-            ViewBag.CboTipoOperacion = vRecord.CboTipoOperacion.ConvertAll(x =>
-            {
-                return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Tipo_Operacion.ToString() };
-            });
-            ViewBag.CboTipoSustancia = vRecord.CboTipoSustancia.ConvertAll(x =>
-            {
-                return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Tipo_Sustancia.ToString() };
-            });
-            ViewBag.CboConflictoSocial = vRecord.CboConflictoSocial.ConvertAll(x =>
-            {
-                return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Conflicto_Social.ToString() };
-            });
+                ViewBag.CboTipoPam = vRecord.CboTipoPam.ConvertAll(x =>
+                {
+                    return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Tipo_Pam.ToString() };
+                });
+                ViewBag.CboTipoOperacion = vRecord.CboTipoOperacion.ConvertAll(x =>
+                {
+                    return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Tipo_Operacion.ToString() };
+                });
+                ViewBag.CboTipoSustancia = vRecord.CboTipoSustancia.ConvertAll(x =>
+                {
+                    return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Tipo_Sustancia.ToString() };
+                });
+                ViewBag.CboConflictoSocial = vRecord.CboConflictoSocial.ConvertAll(x =>
+                {
+                    return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Conflicto_Social.ToString() };
+                });
 
-            return View(vRecord);
+                return View(vRecord);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.Message, ex);
+                throw;
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> AgregarEditar(MaestraDTO vModel)
         {
-            vModel.Fec_Ingreso = vModel.Fec_Modifica = DateTime.Now;
-            vModel.Usu_Ingreso = vModel.Usu_Modifica = Constantes.GuestUser;
-            vModel.Ip_Ingreso = vModel.Ip_Modifica = DnsFullNet.GetIp();
-            if (ModelState.IsValid)
+            try
             {
-                vModel = await Services<MaestraDTO>.Grabar("Eum/Save", vModel);
-                return Ok(new ComponentResultModel(vModel?.Id_Eum ?? 0));
+                vModel.Fec_Ingreso = vModel.Fec_Modifica = DateTime.Now;
+                vModel.Usu_Ingreso = vModel.Usu_Modifica = Constantes.GuestUser;
+                vModel.Ip_Ingreso = vModel.Ip_Modifica = DnsFullNet.GetIp();
+                if (ModelState.IsValid)
+                {
+                    vModel = await Services<MaestraDTO>.Grabar("Eum/Save", vModel);
+                    return Ok(new ComponentResultModel(vModel?.Id_Eum ?? 0));
+                }
+                else
+                {
+                    return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+                }
+                //return View(vModel);
             }
-            return View(vModel);
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.Message, ex);
+                throw;
+            }
         }
+
 
 
         [HttpPost]
         public async Task<IActionResult> CreateComponent(int vIdEum, int vIdTipo)
         {
-            ComponenteDTO vRegistro = new ComponenteDTO
+            try
             {
-                Id_Componente = 0,
-                Id_Eum = vIdEum,
-                Id_Tipo_Pam = vIdTipo,
-                Flg_Estado = Constantes.Activo,
-                Fec_Ingreso = DateTime.Now,
-                Fec_Modifica = DateTime.Now,
-                Usu_Ingreso = Constantes.GuestUser,
-                Usu_Modifica = Constantes.GuestUser,
-                Ip_Ingreso = DnsFullNet.GetIp(),
-                Ip_Modifica = DnsFullNet.GetIp()
-            };
+                ComponenteDTO vRegistro = new ComponenteDTO
+                {
+                    Id_Componente = 0,
+                    Id_Eum = vIdEum,
+                    Id_Tipo_Pam = vIdTipo,
+                    Flg_Estado = Constantes.Activo,
+                    Fec_Ingreso = DateTime.Now,
+                    Fec_Modifica = DateTime.Now,
+                    Usu_Ingreso = Constantes.GuestUser,
+                    Usu_Modifica = Constantes.GuestUser,
+                    Ip_Ingreso = DnsFullNet.GetIp(),
+                    Ip_Modifica = DnsFullNet.GetIp()
+                };
 
-            vRegistro = await Services<ComponenteDTO>.Grabar("Componente/Save", vRegistro);
-            return Json(new ComponentResultModel { Operation = vRegistro.Id_Componente > 0 ? Constantes.Ok : Constantes.Error, Key = vRegistro.Id_Componente });
+                vRegistro = await Services<ComponenteDTO>.Grabar("Componente/Save", vRegistro);
+                return Json(new ComponentResultModel { Operation = vRegistro.Id_Componente > 0 ? Constantes.Ok : Constantes.Error, Key = vRegistro.Id_Componente });
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.Message, ex);
+                throw;
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> RemoveComponent(int vId)
         {
-            ComponenteDTO vRegistro = new ComponenteDTO
+            try
             {
-                Id_Componente = vId,
-                Flg_Estado = Constantes.Activo,
-                Fec_Ingreso = DateTime.Now,
-                Fec_Modifica = DateTime.Now,
-                Usu_Ingreso = Constantes.GuestUser,
-                Usu_Modifica = Constantes.GuestUser,
-                Ip_Ingreso = DnsFullNet.GetIp(),
-                Ip_Modifica = DnsFullNet.GetIp()
-            };
-            bool vResult;
-            vResult = await Services<ComponenteDTO>.Eliminar("Componente/Remove", vRegistro);
-            return Json(new ComponentResultModel { Operation = vResult ? Constantes.Ok : Constantes.Error });
+                ComponenteDTO vRegistro = new ComponenteDTO
+                {
+                    Id_Componente = vId,
+                    Flg_Estado = Constantes.Activo,
+                    Fec_Ingreso = DateTime.Now,
+                    Fec_Modifica = DateTime.Now,
+                    Usu_Ingreso = Constantes.GuestUser,
+                    Usu_Modifica = Constantes.GuestUser,
+                    Ip_Ingreso = DnsFullNet.GetIp(),
+                    Ip_Modifica = DnsFullNet.GetIp()
+                };
+                bool vResult;
+                vResult = await Services<ComponenteDTO>.Eliminar("Componente/Remove", vRegistro);
+                return Json(new ComponentResultModel { Operation = vResult ? Constantes.Ok : Constantes.Error });
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.Message, ex);
+                throw;
+            }
         }
 
 
@@ -126,35 +174,77 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         [HttpGet]
         public async Task<IActionResult> CrearInspeccion(int vIdEum)
         {
-            RegistrarEumInspeccionDTO vRecord = await Services<RegistrarEumInspeccionDTO>.Obtener("Inspeccion/GetFull?vId=" + 0);
-            vRecord.Eum_Inspeccion = new Eum_InspeccionDTO { Fecha_Inspeccion = DateTime.Now, Id_Eum = vIdEum };
-
-            //ViewBag.CboTipoClima = vRecord.CboTipoClima.ConvertAll(x =>
-            //{
-            //    return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Tipo_Clima.ToString() };
-            //});
-            ViewBag.CboInspector = vRecord.CboInspector.ConvertAll(x =>
+            try
             {
-                return new SelectListItem() { Text = x.Nombre_Completo, Value = x.Id_Inspector.ToString() };
-            });
-            return PartialView("_ModalInspeccion", vRecord.Eum_Inspeccion);
+                RegistrarEumInspeccionDTO vRecord = await Services<RegistrarEumInspeccionDTO>.Obtener("Inspeccion/GetFull?vId=" + 0);
+                vRecord.Eum_Inspeccion = new Eum_InspeccionDTO { Fecha_Inspeccion = DateTime.Now, Id_Eum = vIdEum };
+                //ViewBag.CboTipoClima = vRecord.CboTipoClima.ConvertAll(x =>
+                //{
+                //    return new SelectListItem() { Text = x.Descripcion, Value = x.Id_Tipo_Clima.ToString() };
+                //});
+                ViewBag.CboInspector = vRecord.CboInspector.ConvertAll(x =>
+                {
+                    return new SelectListItem() { Text = x.Nombre_Completo, Value = x.Id_Inspector.ToString() };
+                });
+                return PartialView("_ModalInspeccion", vRecord.Eum_Inspeccion);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.Message, ex);
+                throw;
+            }
         }
 
         [HttpPost]
         public async Task<JsonResult> GrabarInspeccion(Eum_InspeccionDTO vEum_Inspeccion)
         {
-            vEum_Inspeccion.Flg_Estado = Constantes.Activo;
-            vEum_Inspeccion.Fec_Ingreso = vEum_Inspeccion.Fec_Modifica = DateTime.Now;
-            vEum_Inspeccion.Usu_Ingreso = vEum_Inspeccion.Usu_Modifica = Constantes.GuestUser;
-            vEum_Inspeccion.Ip_Ingreso = vEum_Inspeccion.Ip_Modifica = DnsFullNet.GetIp();
-            if (ModelState.IsValid)
+            try
             {
-                vEum_Inspeccion = await Services<Eum_InspeccionDTO>.Grabar("Inspeccion/Save", vEum_Inspeccion);
-                return Json(new ComponentResultModel { Operation = vEum_Inspeccion.Id_Eum_Inspeccion > 0 ? Constantes.Ok : Constantes.Error });
+                vEum_Inspeccion.Flg_Estado = Constantes.Activo;
+                vEum_Inspeccion.Fec_Ingreso = vEum_Inspeccion.Fec_Modifica = DateTime.Now;
+                vEum_Inspeccion.Usu_Ingreso = vEum_Inspeccion.Usu_Modifica = Constantes.GuestUser;
+                vEum_Inspeccion.Ip_Ingreso = vEum_Inspeccion.Ip_Modifica = DnsFullNet.GetIp();
+                if (ModelState.IsValid)
+                {
+                    vEum_Inspeccion = await Services<Eum_InspeccionDTO>.Grabar("Inspeccion/Save", vEum_Inspeccion);
+                    return Json(new ComponentResultModel { Operation = vEum_Inspeccion.Id_Eum_Inspeccion > 0 ? Constantes.Ok : Constantes.Error });
+                }
+                else
+                    return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
             }
-            else
+            catch (Exception ex)
             {
-                return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+                Logger.LogError(ex.Message, ex);
+                throw;
+            }
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> RemoveInspeccion(int vId)
+        {
+            try
+            {
+                Eum_InspeccionDTO vRegistro = new Eum_InspeccionDTO
+                {
+                    Id_Eum_Inspeccion = vId,
+                    Flg_Estado = Constantes.Inactivo,
+                    Fec_Modifica = DateTime.Now,
+                    Usu_Modifica = Constantes.GuestUser,
+                    Ip_Modifica = DnsFullNet.GetIp()
+                };
+                if (ModelState.IsValid)
+                {
+                    bool vResult;
+                    vResult = await Services<Eum_InspeccionDTO>.Eliminar("Inspeccion/Remove", vRegistro);
+                    return Json(new ComponentResultModel { Operation = vResult ? Constantes.Ok : Constantes.Error });
+                }
+                else
+                    return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.Message, ex);
+                throw;
             }
         }
         #endregion
@@ -165,23 +255,31 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         [HttpGet]
         public async Task<IActionResult> CrearTipoOperacion(int vIdEum)
         {
-            RegistrarTipoOperacionDTO vRegistro1 = new RegistrarTipoOperacionDTO();
-            vRegistro1.ListaTipoOperacion = await Services<Tipo_OperacionDTO>.Listar("TipoOperacion/ListSinIdEum?vIdEum=" + vIdEum);
-            //vRegistro.Id_Eum =  vIdEum;
-            RegistrarEumOperacionDTO vRegistro = new RegistrarEumOperacionDTO();
-            List<Eum_OperacionDTO> vLista = new List<Eum_OperacionDTO>();
-            Eum_OperacionDTO vEum_Operacion;
-            foreach (var item in vRegistro1.ListaTipoOperacion)
+            try
             {
-                vEum_Operacion = new Eum_OperacionDTO();
-                vEum_Operacion.Id_Eum_Operacion = 0;
-                vEum_Operacion.Id_Eum = vIdEum;
-                vEum_Operacion.Id_Tipo_Operacion = item.Id_Tipo_Operacion;
-                vEum_Operacion.Tipo_Operacion = item.Descripcion;
-                vLista.Add(vEum_Operacion);
+                RegistrarTipoOperacionDTO vRegistro1 = new RegistrarTipoOperacionDTO();
+                vRegistro1.ListaTipoOperacion = await Services<Tipo_OperacionDTO>.Listar("TipoOperacion/ListSinIdEum?vIdEum=" + vIdEum);
+                //vRegistro.Id_Eum =  vIdEum;
+                RegistrarEumOperacionDTO vRegistro = new RegistrarEumOperacionDTO();
+                List<Eum_OperacionDTO> vLista = new List<Eum_OperacionDTO>();
+                Eum_OperacionDTO vEum_Operacion;
+                foreach (var item in vRegistro1.ListaTipoOperacion)
+                {
+                    vEum_Operacion = new Eum_OperacionDTO();
+                    vEum_Operacion.Id_Eum_Operacion = 0;
+                    vEum_Operacion.Id_Eum = vIdEum;
+                    vEum_Operacion.Id_Tipo_Operacion = item.Id_Tipo_Operacion;
+                    vEum_Operacion.Tipo_Operacion = item.Descripcion;
+                    vLista.Add(vEum_Operacion);
+                }
+                vRegistro.ListaEumOperacion = vLista;
+                return PartialView("_ModalTipoOperacion", vRegistro);
             }
-            vRegistro.ListaEumOperacion = vLista;
-            return PartialView("_ModalTipoOperacion", vRegistro);
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.Message, ex);
+                throw;
+            }
         }
 
         [HttpPost]
@@ -227,25 +325,30 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         [HttpPost]
         public async Task<JsonResult> RemoveEumOperacion(int vId)
         {
-            Eum_OperacionDTO vRegistro = new Eum_OperacionDTO
+            try
             {
-                Id_Eum_Operacion = vId,
-                Flg_Estado = Constantes.Inactivo,
-                Fec_Modifica = DateTime.Now,
-                Usu_Modifica = Constantes.GuestUser,
-                Ip_Modifica = DnsFullNet.GetIp()
-            };
-            if (ModelState.IsValid)
-            {
-                bool vResult;
-                vResult = await Services<Eum_OperacionDTO>.Eliminar("EumOperacion/Remove", vRegistro);
-                return Json(new ComponentResultModel { Operation = vResult ? Constantes.Ok : Constantes.Error });
+                Eum_OperacionDTO vRegistro = new Eum_OperacionDTO
+                {
+                    Id_Eum_Operacion = vId,
+                    Flg_Estado = Constantes.Inactivo,
+                    Fec_Modifica = DateTime.Now,
+                    Usu_Modifica = Constantes.GuestUser,
+                    Ip_Modifica = DnsFullNet.GetIp()
+                };
+                if (ModelState.IsValid)
+                {
+                    bool vResult;
+                    vResult = await Services<Eum_OperacionDTO>.Eliminar("EumOperacion/Remove", vRegistro);
+                    return Json(new ComponentResultModel { Operation = vResult ? Constantes.Ok : Constantes.Error });
+                }
+                else
+                    return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
             }
-            else
+            catch (Exception ex)
             {
-                return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+                Logger.LogError(ex.Message, ex);
+                throw;
             }
-
         }
         #endregion
 
@@ -267,7 +370,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vInfo_Grafica.Flg_Estado = Constantes.Activo;
             vInfo_Grafica.Fec_Ingreso = vInfo_Grafica.Fec_Modifica = DateTime.Now;
-            vInfo_Grafica.Usu_Ingreso = vInfo_Grafica.Usu_Modifica = Constantes.GuestUser; 
+            vInfo_Grafica.Usu_Ingreso = vInfo_Grafica.Usu_Modifica = Constantes.GuestUser;
             vInfo_Grafica.Ip_Ingreso = vInfo_Grafica.Ip_Modifica = DnsFullNet.GetIp();
 
             if (vFile != null)
@@ -310,7 +413,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
                                 if (vResult != Constantes.Error)
                                 {
                                     vInfo_Grafica.Id_LaserFiche = Convert.ToInt64(vResult.Replace("\"", ""));
-                                    vInfo_Grafica = await Services<Eum_Info_GraficaDTO>.Grabar("InfoGrafica/Save", vInfo_Grafica); 
+                                    vInfo_Grafica = await Services<Eum_Info_GraficaDTO>.Grabar("InfoGrafica/Save", vInfo_Grafica);
                                     return Json(new ComponentResultModel { Operation = vInfo_Grafica.Id_Eum_Info_Grafica > 0 ? Constantes.Ok : Constantes.Error });
                                 }
                                 else
@@ -347,7 +450,6 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
                 return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
             }
         }
-
         #endregion
 
 
@@ -447,31 +549,34 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             }
         }
 
-
         [HttpPost]
         public async Task<JsonResult> RemoveEumDescargo(int vId)
         {
-            Eum_Info_DescargoDTO vRegistro = new Eum_Info_DescargoDTO
+            try
             {
-                Id_Eum_Info_Descargo = vId,
-                Flg_Estado = Constantes.Inactivo,
-                Fec_Modifica = DateTime.Now,
-                Usu_Modifica = Constantes.GuestUser,
-                Ip_Modifica = DnsFullNet.GetIp()
-            };
-            if (ModelState.IsValid)
-            {
-                bool vResult;
-                vResult = await Services<Eum_Info_DescargoDTO>.Eliminar("InfoDescargo/Remove", vRegistro);
-                return Json(new ComponentResultModel { Operation = vResult ? Constantes.Ok : Constantes.Error });
+                Eum_Info_DescargoDTO vRegistro = new Eum_Info_DescargoDTO
+                {
+                    Id_Eum_Info_Descargo = vId,
+                    Flg_Estado = Constantes.Inactivo,
+                    Fec_Modifica = DateTime.Now,
+                    Usu_Modifica = Constantes.GuestUser,
+                    Ip_Modifica = DnsFullNet.GetIp()
+                };
+                if (ModelState.IsValid)
+                {
+                    bool vResult;
+                    vResult = await Services<Eum_Info_DescargoDTO>.Eliminar("InfoDescargo/Remove", vRegistro);
+                    return Json(new ComponentResultModel { Operation = vResult ? Constantes.Ok : Constantes.Error });
+                }
+                else
+                    return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
             }
-            else
+            catch (Exception ex)
             {
-                return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+                Logger.LogError(ex.Message, ex);
+                throw;
             }
-
         }
-
         #endregion
 
 
@@ -486,7 +591,6 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             return PartialView("_ModalInforme", vRegistro);
         }
 
-
         [HttpGet]
         public async Task<IActionResult> DescargarInformePam(int vKey)
         {
@@ -494,14 +598,13 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             {
                 var vLista = await Services<ReportePamDTO>.Obtener("Reportes/GetReportPam?vId=" + vKey);
 
-
                 string vRouteTemplate = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, Configuration.GetSection("Reports:DirectorySource").Value));
                 string vRouteDestination = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, Configuration.GetSection("Reports:DirectoryDestination").Value));
-                string vTemplateFile = vRouteTemplate + Configuration.GetSection("Reports:TemplatePam").Value;
+                string vFileTemplate = vRouteTemplate + Configuration.GetSection("Reports:TemplatePam").Value;
                 string vReportName = Configuration.GetSection("Reports:ReportName").Value + DateTime.Now.ToString("yyyyMMddHHmmssff") + ".docx";
                 string vReportFile = vRouteDestination + @"\" + vReportName;
 
-                System.IO.File.Copy(vTemplateFile, vReportFile);
+                System.IO.File.Copy(vFileTemplate, vReportFile);
                 Reports.ReplaceLabels(vReportFile, vLista);
 
                 var fileStream = System.IO.File.OpenRead(vReportFile);

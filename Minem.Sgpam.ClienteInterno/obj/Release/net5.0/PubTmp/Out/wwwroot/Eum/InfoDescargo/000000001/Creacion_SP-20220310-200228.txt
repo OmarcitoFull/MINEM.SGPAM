@@ -1,0 +1,827 @@
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_ESTADO_EUM_S"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para listar los estados de la ex unidad minera
+-- Parámetros:
+--   @P_DESCRIPCION - Descripción del estado de la EUM
+--   @P_ESTADO - Estado del registro
+-- Retorna:    Lista de estados de la EUM
+-- =================================================================================
+(
+  P_DESCRIPCION IN NVARCHAR2,
+  P_ESTADO IN NUMBER := NULL,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+OPEN PRC FOR 
+    SELECT
+        ID_ESTADO_EUM,
+        DESCRIPCION_ESTADO_EUM,
+        FLG_ESTADO AS ESTADO
+    FROM
+        "SIGEPAM".T_SGPAL_ESTADO_EUM WHERE (FLG_ESTADO = P_ESTADO) OR ( DESCRIPCION_ESTADO_EUM = P_DESCRIPCION) ORDER BY 1 ASC;
+END USP_ESTADO_EUM_S;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_ESTADO_EUM_S
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_ESTADO_EUM_G"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para recuperar un estado de la ex unidad minera
+-- Parámetros:
+--   @P_ID_ESTADO_EUM - Identificador del estado de la EUM
+-- Retorna:    Recupera un estado de la EUM
+-- =================================================================================
+(
+  P_ID_ESTADO_EUM IN NUMBER,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+OPEN PRC FOR 
+    SELECT
+        ID_ESTADO_EUM,
+        DESCRIPCION_ESTADO_EUM,
+        FLG_ESTADO
+    FROM
+        "SIGEPAM".T_SGPAL_ESTADO_EUM WHERE (FLG_ESTADO = '1') OR ( ID_ESTADO_EUM = P_ID_ESTADO_EUM) ORDER BY 1 ASC;
+END USP_ESTADO_EUM_G;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_ESTADO_EUM_G
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_ESTADO_EUM_D"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para eliminar un estado de la ex unidad minera por su llave primaria
+-- Parámetros:
+--   @P_ID_ESTADO_EUM - Identificador del estado de la EUM
+-- Retorna:    Cantidad de filas afectadas
+-- =================================================================================
+(
+  P_ID_ESTADO_EUM IN NUMBER,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+
+    UPDATE SIGEPAM.T_SGPAL_ESTADO_EUM
+    SET FLG_ESTADO = '1'
+    WHERE  ID_ESTADO_EUM = P_ID_ESTADO_EUM;
+
+    
+END USP_ESTADO_EUM_D;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_ESTADO_EUM_D
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_ESTADO_EUM_U"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para actualizar un estado de la ex unidad minera por su llave primaria
+-- Parámetros:
+--   @P_ID_ESTADO_EUM - Identificador del estado de la EUM
+--   @P_DESCRIPCION  - Texto que se registra en el descripción
+--   @P_USU_MODIFICA - Usuario que hace la modificación
+--   @P_FEC_MODIFICA - Fecha en la que hace la modificación
+--   @P_IP_MODIFICA  - Ip de la pc desde donde se hace la modificación  
+-- Retorna:    Cantidad de filas afectadas
+-- =================================================================================
+(
+  P_ID_ESTADO_EUM IN NUMBER,
+  P_DESCRIPCION IN NVARCHAR2,
+  P_USU_MODIFICA IN NVARCHAR2,
+  P_FEC_MODIFICA IN DATE,
+  P_IP_MODIFICA IN NVARCHAR2,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+
+    UPDATE SIGEPAM.T_SGPAL_ESTADO_EUM
+    SET DESCRIPCION_ESTADO_EUM = P_DESCRIPCION,
+        USU_MODIFICA = P_USU_MODIFICA,
+        FEC_MODIFICA = P_FEC_MODIFICA,
+        IP_MODIFICA = P_IP_MODIFICA  
+    WHERE  ID_ESTADO_EUM = P_ID_ESTADO_EUM;
+
+    
+END USP_ESTADO_EUM_U;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_ESTADO_EUM_U
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_ESTADO_EUM_I"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para insertar un estado de EUM
+-- Parámetros:
+--   @P_DESCRIPCION - Texto que se registra en el descripción
+--   @P_USU_INGRESO - Usuario que hace la creación del registro
+--   @P_FEC_INGRESO - Fecha en la que hace la creación del registro
+--   @P_IP_INGRESO  - Ip de la pc desde donde se hace la creación del registro  
+-- Retorna:    Cantidad de filas afectadas
+-- =================================================================================
+(
+  P_DESCRIPCION IN NVARCHAR2,
+  P_USU_INGRESO IN NVARCHAR2,
+  P_FEC_INGRESO IN DATE,
+  P_IP_INGRESO IN NVARCHAR2,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+
+    INSERT INTO SIGEPAM.T_SGPAL_ESTADO_EUM
+            ("DESCRIPCION_ESTADO_EUM", "USU_INGRESO", "FEC_INGRESO", "IP_INGRESO", "FLG_ESTADO") 
+    VALUES (P_DESCRIPCION, P_USU_INGRESO, P_FEC_INGRESO, P_IP_INGRESO, '1');
+   
+    
+END USP_ESTADO_EUM_I;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_ESTADO_EUM_I
+--------------------------------------------------------
+
+
+
+
+
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_SITUACION_EUM_S"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para listar las siatuaciones de la ex unidad minera
+-- Parámetros:
+--   @P_DESCRIPCION - Descripción de la situación de la EUM
+--   @P_ESTADO - Estado del registro
+-- Retorna:    Lista de las situaciones de la EUM
+-- =================================================================================
+(
+  P_DESCRIPCION IN NVARCHAR2,
+  P_ESTADO IN NUMBER := NULL,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+OPEN PRC FOR 
+    SELECT
+        ID_SITUACION_EUM,
+        DESCRIPCION_SITUACION_EUM,
+        FLG_ESTADO
+    FROM
+        "SIGEPAM".T_SGPAL_SITUACION_EUM WHERE (FLG_ESTADO = P_ESTADO) OR ( DESCRIPCION_SITUACION_EUM = P_DESCRIPCION) ORDER BY 1 ASC;
+END USP_SITUACION_EUM_S;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_SITUACION_EUM_S
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_SITUACION_EUM_G"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para recuperar una situación de la ex unidad minera
+-- Parámetros:
+--   @P_ID_SITUACION_EUM - Identificador de la situación de la EUM
+-- Retorna:    Recupera una situación de la EUM
+-- =================================================================================
+(
+  P_ID_SITUACION_EUM IN NUMBER,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+OPEN PRC FOR 
+    SELECT
+        ID_SITUACION_EUM,
+        DESCRIPCION_SITUACION_EUM,
+        FLG_ESTADO
+    FROM
+        "SIGEPAM".T_SGPAL_SITUACION_EUM WHERE (FLG_ESTADO = '1') OR ( ID_SITUACION_EUM = P_ID_SITUACION_EUM) ORDER BY 1 ASC;
+END USP_SITUACION_EUM_G;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_SITUACION_EUM_G
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_SITUACION_EUM_D"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para eliminar una situación de la ex unidad minera por su llave primaria
+-- Parámetros:
+--   @P_ID_SITUACION_EUM - Identificador de ls situación de la EUM
+-- Retorna:    Cantidad de filas afectadas
+-- =================================================================================
+(
+  P_ID_SITUACION_EUM IN NUMBER,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+
+    UPDATE SIGEPAM.T_SGPAL_SITUACION_EUM
+    SET FLG_ESTADO = '1'
+    WHERE  ID_SITUACION_EUM = P_ID_SITUACION_EUM;
+
+    
+END USP_SITUACION_EUM_D;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_SITUACION_EUM_D
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_SITUACION_EUM_U"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para actualizar una situación de la ex unidad minera por su llave primaria
+-- Parámetros:
+--   @P_ID_SITUACION_EUM - Identificador de la situación de la EUM
+--   @P_DESCRIPCION  - Texto que se registra en el descripción
+--   @P_USU_MODIFICA - Usuario que hace la modificación
+--   @P_FEC_MODIFICA - Fecha en la que hace la modificación
+--   @P_IP_MODIFICA  - Ip de la pc desde donde se hace la modificación  
+-- Retorna:    Cantidad de filas afectadas
+-- =================================================================================
+(
+  P_ID_SITUACION_EUM IN NUMBER,
+  P_DESCRIPCION IN NVARCHAR2,
+  P_USU_MODIFICA IN NVARCHAR2,
+  P_FEC_MODIFICA IN DATE,
+  P_IP_MODIFICA IN NVARCHAR2,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+
+    UPDATE SIGEPAM.T_SGPAL_SITUACION_EUM
+    SET DESCRIPCION_SITUACION_EUM = P_DESCRIPCION,
+        USU_MODIFICA = P_USU_MODIFICA,
+        FEC_MODIFICA = P_FEC_MODIFICA,
+        IP_MODIFICA = P_IP_MODIFICA  
+    WHERE  ID_SITUACION_EUM = P_ID_SITUACION_EUM;
+
+    
+END USP_SITUACION_EUM_U;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_SITUACION_EUM_U
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_SITUACION_EUM_I"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para insertar una situación de EUM
+-- Parámetros:
+--   @P_DESCRIPCION - Texto que se registra en el descripción
+--   @P_USU_INGRESO - Usuario que hace la creación del registro
+--   @P_FEC_INGRESO - Fecha en la que hace la creación del registro
+--   @P_IP_INGRESO  - Ip de la pc desde donde se hace la creación del registro  
+-- Retorna:    Cantidad de filas afectadas
+-- =================================================================================
+(
+  P_DESCRIPCION IN NVARCHAR2,
+  P_USU_INGRESO IN NVARCHAR2,
+  P_FEC_INGRESO IN DATE,
+  P_IP_INGRESO IN NVARCHAR2,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+
+    INSERT INTO SIGEPAM.T_SGPAL_SITUACION_EUM
+            ("DESCRIPCION_SITUACION_EUM", "USU_INGRESO", "FEC_INGRESO", "IP_INGRESO", "FLG_ESTADO") 
+    VALUES (P_DESCRIPCION, P_USU_INGRESO, P_FEC_INGRESO, P_IP_INGRESO, '1');
+   
+    
+END USP_SITUACION_EUM_I;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_SITUACION_EUM_I
+--------------------------------------------------------
+
+
+
+
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_TIPO_SUSTANCIA_S"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para listar los tipos de sustancia
+-- Parámetros:
+--   @P_DESCRIPCION - Descripción del tipo de sustencia
+--   @P_ESTADO - Estado del registro
+-- Retorna:    Lista los tipos de sustancia
+-- =================================================================================
+(
+  P_DESCRIPCION IN NVARCHAR2,
+  P_ESTADO IN NUMBER := NULL,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+OPEN PRC FOR 
+    SELECT
+        ID_TIPO_SUSTANCIA,
+        DESCRIPCION_TIPO_SUSTANCIA,
+        FLG_ESTADO
+    FROM
+        "SIGEPAM".T_SGPAL_TIPO_SUSTANCIA WHERE (FLG_ESTADO = P_ESTADO) OR ( DESCRIPCION_TIPO_SUSTANCIA = P_DESCRIPCION) ORDER BY 1 ASC;
+END USP_TIPO_SUSTANCIA_S;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_TIPO_SUSTANCIA_S
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_TIPO_SUSTANCIA_G"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para recuperar un tipo de sustancia por su llave primaria
+-- Parámetros:
+--   @P_ID_TIPO_SUSTANCIA - Identificador de la situación de la EUM
+-- Retorna:    Recupera un tipo de sustancia
+-- =================================================================================
+(
+  P_ID_TIPO_SUSTANCIA IN NUMBER,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+OPEN PRC FOR 
+    SELECT
+        ID_TIPO_SUSTANCIA,
+        DESCRIPCION_TIPO_SUSTANCIA,
+        FLG_ESTADO
+    FROM
+        "SIGEPAM".T_SGPAL_TIPO_SUSTANCIA WHERE (FLG_ESTADO = '1') OR ( ID_TIPO_SUSTANCIA = P_ID_TIPO_SUSTANCIA) ORDER BY 1 ASC;
+END USP_TIPO_SUSTANCIA_G;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_TIPO_SUSTANCIA_G
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_TIPO_SUSTANCIA_D"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para eliminar un tipo de sustancia por su llave primaria
+-- Parámetros:
+--   @P_ID_TIPO_SUSTANCIA - Identificador del tipo de sustancia
+-- Retorna:    Cantidad de filas afectadas
+-- =================================================================================
+(
+  P_ID_TIPO_SUSTANCIA IN NUMBER,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+
+    UPDATE SIGEPAM.T_SGPAL_TIPO_SUSTANCIA
+    SET FLG_ESTADO = '1'
+    WHERE  ID_TIPO_SUSTANCIA = P_ID_TIPO_SUSTANCIA;
+
+    
+END USP_TIPO_SUSTANCIA_D;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_TIPO_SUSTANCIA_D
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_TIPO_SUSTANCIA_U"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para actualizar un tipo de sustancia por su llave primaria
+-- Parámetros:
+--   @P_ID_TIPO_SUSTANCIA - Identificador del tipo de sustancia
+--   @P_DESCRIPCION  - Texto que se registra en el descripción
+--   @P_USU_MODIFICA - Usuario que hace la modificación
+--   @P_FEC_MODIFICA - Fecha en la que hace la modificación
+--   @P_IP_MODIFICA  - Ip de la pc desde donde se hace la modificación  
+-- Retorna:    Cantidad de filas afectadas
+-- =================================================================================
+(
+  P_ID_TIPO_SUSTANCIA IN NUMBER,
+  P_DESCRIPCION IN NVARCHAR2,
+  P_USU_MODIFICA IN NVARCHAR2,
+  P_FEC_MODIFICA IN DATE,
+  P_IP_MODIFICA IN NVARCHAR2,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+
+    UPDATE SIGEPAM.T_SGPAL_TIPO_SUSTANCIA
+    SET DESCRIPCION_TIPO_SUSTANCIA = P_DESCRIPCION,
+        USU_MODIFICA = P_USU_MODIFICA,
+        FEC_MODIFICA = P_FEC_MODIFICA,
+        IP_MODIFICA = P_IP_MODIFICA  
+    WHERE  ID_TIPO_SUSTANCIA = P_ID_TIPO_SUSTANCIA;
+
+    
+END USP_TIPO_SUSTANCIA_U;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_TIPO_SUSTANCIA_U
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_TIPO_SUSTANCIA_I"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para insertar un tipo de sustancia
+-- Parámetros:
+--   @P_DESCRIPCION - Texto que se registra en el descripción
+--   @P_USU_INGRESO - Usuario que hace la creación del registro
+--   @P_FEC_INGRESO - Fecha en la que hace la creación del registro
+--   @P_IP_INGRESO  - Ip de la pc desde donde se hace la creación del registro  
+-- Retorna:    Cantidad de filas afectadas
+-- =================================================================================
+(
+  P_DESCRIPCION IN NVARCHAR2,
+  P_USU_INGRESO IN NVARCHAR2,
+  P_FEC_INGRESO IN DATE,
+  P_IP_INGRESO IN NVARCHAR2,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+
+    INSERT INTO SIGEPAM.T_SGPAL_TIPO_SUSTANCIA
+            ("DESCRIPCION_TIPO_SUSTANCIA", "USU_INGRESO", "FEC_INGRESO", "IP_INGRESO", "FLG_ESTADO") 
+    VALUES (P_DESCRIPCION, P_USU_INGRESO, P_FEC_INGRESO, P_IP_INGRESO, '1');
+   
+    
+END USP_TIPO_SUSTANCIA_I;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_TIPO_SUSTANCIA_I
+--------------------------------------------------------
+
+
+
+
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_FUENTE_PASIVO_S"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para listar el fuentE de pasivo 
+-- Parámetros:
+--   @P_DESCRIPCION - Descripción del fuente de pasivo
+--   @P_ESTADO - Estado del registro
+-- Retorna:    Lista los funtes de pasivo
+-- =================================================================================
+(
+  P_DESCRIPCION IN NVARCHAR2,
+  P_ESTADO IN NUMBER := NULL,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+OPEN PRC FOR 
+    SELECT
+        ID_FUENTE_PASIVO,
+        DESCRIPCION,
+        FLG_ESTADO
+    FROM
+        "SIGEPAM".T_SGPAL_FUENTE_PASIVO WHERE (FLG_ESTADO = P_ESTADO) OR ( DESCRIPCION = P_DESCRIPCION) ORDER BY 1 ASC;
+END USP_FUENTE_PASIVO_S;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_FUENTE_PASIVO_S
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_FUENTE_PASIVO_G"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para recuperar una fuente de pasivo por su llave primaria
+-- Parámetros:
+--   @P_ID_TIPO_COMPONENTE - Identificador de la fuente de pasivo
+-- Retorna:    Recupera una fuente de pasivo
+-- =================================================================================
+(
+  P_ID_FUENTE_PASIVO IN NUMBER,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+OPEN PRC FOR 
+    SELECT
+        ID_FUENTE_PASIVO,
+        DESCRIPCION,
+        FLG_ESTADO
+    FROM
+        "SIGEPAM".T_SGPAL_FUENTE_PASIVO WHERE (FLG_ESTADO = '1') OR ( ID_FUENTE_PASIVO = P_ID_FUENTE_PASIVO) ORDER BY 1 ASC;
+END USP_FUENTE_PASIVO_G;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_FUENTE_PASIVO_G
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_FUENTE_PASIVO_D"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para eliminar una fuente de pasivo por su llave primaria
+-- Parámetros:
+--   @P_ID_FUENTE_PASIVO - Identificador de la fuente de pasivo
+-- Retorna:    Cantidad de filas afectadas
+-- =================================================================================
+(
+  P_ID_FUENTE_PASIVO IN NUMBER,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+
+    UPDATE SIGEPAM.T_SGPAL_FUENTE_PASIVO
+    SET FLG_ESTADO = '1'
+    WHERE  ID_FUENTE_PASIVO = P_ID_FUENTE_PASIVO;
+
+    
+END USP_FUENTE_PASIVO_D;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_FUENTE_PASIVO_D
+--------------------------------------------------------
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_FUENTE_PASIVO_U"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para actualizar una fuente de pasivo por su llave primaria
+-- Parámetros:
+--   @P_ID_FUENTE_PASIVO - Identificador de la fuente de pasivo
+--   @P_DESCRIPCION  - Texto que se registra en el descripción
+--   @P_USU_MODIFICA - Usuario que hace la modificación
+--   @P_FEC_MODIFICA - Fecha en la que hace la modificación
+--   @P_IP_MODIFICA  - Ip de la pc desde donde se hace la modificación  
+-- Retorna:    Cantidad de filas afectadas
+-- =================================================================================
+(
+  P_ID_FUENTE_PASIVO IN NUMBER,
+  P_DESCRIPCION IN NVARCHAR2,
+  P_USU_MODIFICA IN NVARCHAR2,
+  P_FEC_MODIFICA IN DATE,
+  P_IP_MODIFICA IN NVARCHAR2,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+
+    UPDATE SIGEPAM.T_SGPAL_FUENTE_PASIVO
+    SET DESCRIPCION = P_DESCRIPCION,
+        USU_MODIFICA = P_USU_MODIFICA,
+        FEC_MODIFICA = P_FEC_MODIFICA,
+        IP_MODIFICA = P_IP_MODIFICA  
+    WHERE  ID_FUENTE_PASIVO = P_ID_FUENTE_PASIVO;
+
+    
+END USP_FUENTE_PASIVO_U;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_FUENTE_PASIVO_U
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_FUENTE_PASIVO_I"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para insertar una fuente de pasivo
+-- Parámetros:
+--   @P_DESCRIPCION  - Texto que se registra en el descripción
+--   @P_USU_INGRESO - Usuario que hace la creación del registro
+--   @P_FEC_INGRESO - Fecha en la que hace la creación del registro
+--   @P_IP_INGRESO  - Ip de la pc desde donde se hace la creación del registro  
+-- Retorna:    Cantidad de filas afectadas
+-- =================================================================================
+(
+  P_DESCRIPCION IN NVARCHAR2,
+  P_USU_INGRESO IN NVARCHAR2,
+  P_FEC_INGRESO IN DATE,
+  P_IP_INGRESO IN NVARCHAR2,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+
+    INSERT INTO SIGEPAM.T_SGPAL_FUENTE_PASIVO
+            ("DESCRIPCION", "USU_INGRESO", "FEC_INGRESO", "IP_INGRESO", "FLG_ESTADO") 
+    VALUES (P_DESCRIPCION, P_USU_INGRESO, P_FEC_INGRESO, P_IP_INGRESO, '1');
+   
+    
+END USP_FUENTE_PASIVO_I;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_FUENTE_PASIVO_I
+--------------------------------------------------------
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_TIPO_COMPONENTE_S"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para listar el tipo de componente 
+-- Parámetros:
+--   @P_DESCRIPCION - Descripción del tipo de componente
+--   @P_ESTADO - Estado del registro
+-- Retorna:    Lista los tipos de componente
+-- =================================================================================
+(
+  P_DESCRIPCION IN NVARCHAR2,
+  P_ESTADO IN NUMBER := NULL,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+OPEN PRC FOR 
+    SELECT
+        ID_TIPO_COMPONENTE,
+        DESCRIPCION,
+        FLG_ESTADO
+    FROM
+        "SIGEPAM".T_SGPAL_TIPO_COMPONENTE WHERE (FLG_ESTADO = P_ESTADO) OR ( DESCRIPCION = P_DESCRIPCION) ORDER BY 1 ASC;
+END USP_TIPO_COMPONENTE_S;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_TIPO_COMPONENTE_S
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_TIPO_COMPONENTE_G"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para recuperar un tipo de componente por su llave primaria
+-- Parámetros:
+--   @P_ID_TIPO_COMPONENTE - Identificador del tipo de componente
+-- Retorna:    Recupera un tipo de componente
+-- =================================================================================
+(
+  P_ID_TIPO_COMPONENTE IN NUMBER,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+OPEN PRC FOR 
+    SELECT
+        ID_TIPO_COMPONENTE,
+        DESCRIPCION,
+        FLG_ESTADO
+    FROM
+        "SIGEPAM".T_SGPAL_TIPO_COMPONENTE WHERE (FLG_ESTADO = '1') OR ( ID_TIPO_COMPONENTE = P_ID_TIPO_COMPONENTE) ORDER BY 1 ASC;
+END USP_TIPO_COMPONENTE_G;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_TIPO_COMPONENTE_G
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_TIPO_COMPONENTE_D"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para eliminar un tipo de componente por su llave primaria
+-- Parámetros:
+--   @P_ID_TIPO_COMPONENTE - Identificador del tipo de componente
+-- Retorna:    Cantidad de filas afectadas
+-- =================================================================================
+(
+  P_ID_TIPO_COMPONENTE IN NUMBER,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+
+    UPDATE SIGEPAM.T_SGPAL_TIPO_COMPONENTE
+    SET FLG_ESTADO = '1'
+    WHERE  ID_TIPO_COMPONENTE = P_ID_TIPO_COMPONENTE;
+
+    
+END USP_TIPO_COMPONENTE_D;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_TIPO_COMPONENTE_D
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_TIPO_COMPONENTE_U"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para actualizar un tipo de componente por su llave primaria
+-- Parámetros:
+--   @P_ID_TIPO_COMPONENTE - Identificador del tipo de componente
+--   @P_DESCRIPCION  - Texto que se registra en el descripción
+--   @P_USU_MODIFICA - Usuario que hace la modificación
+--   @P_FEC_MODIFICA - Fecha en la que hace la modificación
+--   @P_IP_MODIFICA  - Ip de la pc desde donde se hace la modificación  
+-- Retorna:    Cantidad de filas afectadas
+-- =================================================================================
+(
+  P_ID_TIPO_COMPONENTE IN NUMBER,
+  P_DESCRIPCION IN NVARCHAR2,
+  P_USU_MODIFICA IN NVARCHAR2,
+  P_FEC_MODIFICA IN DATE,
+  P_IP_MODIFICA IN NVARCHAR2,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+
+    UPDATE SIGEPAM.T_SGPAL_TIPO_COMPONENTE
+    SET DESCRIPCION = P_DESCRIPCION,
+        USU_MODIFICA = P_USU_MODIFICA,
+        FEC_MODIFICA = P_FEC_MODIFICA,
+        IP_MODIFICA = P_IP_MODIFICA  
+    WHERE  ID_TIPO_COMPONENTE = P_ID_TIPO_COMPONENTE;
+
+    
+END USP_TIPO_COMPONENTE_U;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_TIPO_COMPONENTE_U
+--------------------------------------------------------
+
+
+GO
+CREATE OR REPLACE PROCEDURE SIGEPAM."USP_TIPO_COMPONENTE_I"
+-- =================================================================================
+-- Autor:      Consultora LqG
+-- Fecha de creación: 22/09/2021
+-- Descripción: Procedimiento almacenado para insertar un tipo de componente
+-- Parámetros:
+--   @P_DESCRIPCION - Texto que se registra en el descripción
+--   @P_USU_INGRESO - Usuario que hace la creación del registro
+--   @P_FEC_INGRESO - Fecha en la que hace la creación del registro
+--   @P_IP_INGRESO  - Ip de la pc desde donde se hace la creación del registro  
+-- Retorna:    Cantidad de filas afectadas
+-- =================================================================================
+(
+  P_DESCRIPCION IN NVARCHAR2,
+  P_USU_INGRESO IN NVARCHAR2,
+  P_FEC_INGRESO IN DATE,
+  P_IP_INGRESO IN NVARCHAR2,
+  PRC OUT SYS_REFCURSOR
+) AS 
+BEGIN
+
+    INSERT INTO SIGEPAM.T_SGPAL_TIPO_COMPONENTE
+            ("DESCRIPCION", "USU_INGRESO", "FEC_INGRESO", "IP_INGRESO", "FLG_ESTADO") 
+    VALUES (P_DESCRIPCION, P_USU_INGRESO, P_FEC_INGRESO, P_IP_INGRESO, '1');
+   
+    
+END USP_TIPO_COMPONENTE_I;
+
+--------------------------------------------------------
+--  DDL for Procedure USP_TIPO_COMPONENTE_I
+--------------------------------------------------------
+
+
+

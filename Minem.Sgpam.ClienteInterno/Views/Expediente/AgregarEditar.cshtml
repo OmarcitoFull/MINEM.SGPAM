@@ -1,4 +1,5 @@
 ﻿@using Minem.Sgpam.InfraEstructura;
+@using Minem.Sgpam.InfraEstructura.Enumerados;
 @model Minem.Sgpam.TransporteDatos.DtoEntidades.RegistrarExpedienteDTO
 
 @{
@@ -10,7 +11,7 @@
     <div class="row">
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Nro. Expediente</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Nro. Expediente (*)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <input asp-for="@Model.Expediente.Nro_Expediente" class="form-control" placeholder="253-2019" maxlength="15" />
                 </div>
@@ -51,9 +52,9 @@
                     <li>
                         @if (@Model.Expediente.Id_Expediente != 0)
                         {
-                            <div class="boton">
-                                <a asp-controller="Lnr" asp-action="GenerarInfoExp"> Generar Informe <i class="fa fa-eject"></i></a>
-                            </div>
+                            @*<div class="boton">
+                                    <a asp-controller="Lnr" asp-action="GenerarInfoExp"> Generar Informe <i class="fa fa-eject"></i></a>
+                                </div>*@
                         }
                     </li>
                 </ul>
@@ -199,12 +200,14 @@
     <script type="text/javascript">
 
 
+
+
         $('#btnSubmit').click(function () {
             var vModel = $("#MyForm").serializeArray();
 
             var vData = {};
             $.map(vModel, function (n, i) { vData[n.name.replace("Expediente.", "")] = n.value; });
-            console.log(vData);
+            //console.log(vData);
 
             $.ajax({
                 type: "POST",
@@ -215,7 +218,8 @@
                         Success("@Constantes.MsgOk");
                         window.location.reload();
                     } else {
-                        Error("@Constantes.MsgErr");
+                        //Error("@Constantes.MsgErr");
+                        "@((int)TipoErr.MODEL)" == data.type ? Info("@Constantes.MsgModel") : Error("@Constantes.MsgErr")
                     }
                 },
                 error: function (req, status, error) {
@@ -228,7 +232,6 @@
 
 
         });
-
 
 
         function DescargarArchivo(vKey, vName) {

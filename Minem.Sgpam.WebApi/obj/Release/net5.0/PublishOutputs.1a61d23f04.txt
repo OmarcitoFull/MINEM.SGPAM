@@ -6,6 +6,11 @@ D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out\Minem.Sgpam.WebApi.runtimeconfig.json
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out\Minem.Sgpam.WebApi.pdb
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out\Microsoft.Extensions.DependencyInjection.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out\Microsoft.Extensions.Logging.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out\Microsoft.Extensions.Logging.Abstractions.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out\Microsoft.Extensions.Options.dll
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out\Microsoft.Extensions.Primitives.dll
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out\Microsoft.OpenApi.dll
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out\Oracle.ManagedDataAccess.dll
@@ -13,6 +18,7 @@ D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out\System.Configuration.ConfigurationManager.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out\System.Diagnostics.DiagnosticSource.dll
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out\System.Diagnostics.PerformanceCounter.dll
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out\System.DirectoryServices.dll
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApi\obj\Release\net5.0\PubTmp\Out\System.DirectoryServices.Protocols.dll

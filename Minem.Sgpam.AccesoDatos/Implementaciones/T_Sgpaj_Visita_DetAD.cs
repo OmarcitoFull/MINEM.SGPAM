@@ -136,6 +136,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     vCnn.Open();
                     vResultado = vCmd.ExecuteNonQuery();
                     vCnn.Close();
+                    vResultado = (vResultado == -1) ? vResultado * -1 : vResultado;
                 }
             }
             return vResultado;
@@ -194,5 +195,7 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             }
             return vLista;
         }
+
+
     }
 }

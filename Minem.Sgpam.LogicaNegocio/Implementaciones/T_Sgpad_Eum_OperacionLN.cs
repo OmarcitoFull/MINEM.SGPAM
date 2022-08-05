@@ -141,7 +141,7 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                                       Id_Eum = vTmp.ID_EUM,
                                       Id_Tipo_Operacion = vTmp.ID_TIPO_OPERACION,
 
-                                      //Descripcion = vTmp.DESCRIPCION,
+                                      Tipo_Operacion = vTmp.TIPO_OPERACION,
                                       //Fecha_Toma = vTmp.FECHA_TOMA,
                                       //Nombre_Imagen = vTmp.NOMBRE_IMAGEN,
                                       //Ruta_Imagen = vTmp.RUTA_IMAGEN,

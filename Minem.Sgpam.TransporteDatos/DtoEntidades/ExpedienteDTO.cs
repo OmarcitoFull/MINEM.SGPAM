@@ -1,5 +1,6 @@
 using Minem.Sgpam.TransporteDatos.Base;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Minem.Sgpam.TransporteDatos.DtoEntidades
 {
@@ -11,7 +12,8 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
     public partial class ExpedienteDTO : BaseOTD
     {
 		#region Propiedades
-		public int Id_Expediente { get; set; }  
+		public int Id_Expediente { get; set; }
+		[Required]
 		public string Nro_Expediente { get; set; }  
 		public string Zona { get; set; }
 		public string Declarante { get; set; }

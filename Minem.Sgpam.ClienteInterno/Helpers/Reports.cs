@@ -4,9 +4,14 @@ using DocumentFormat.OpenXml.Wordprocessing;
 using Minem.Sgpam.TransporteDatos.DtoEntidades;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using A = DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Drawing.Wordprocessing;
+using DocumentFormat.OpenXml.Drawing.Pictures;
+
 
 namespace Minem.Sgpam.ClienteInterno.Helpers
 {
@@ -15,131 +20,238 @@ namespace Minem.Sgpam.ClienteInterno.Helpers
         public static void ReplaceLabels(string vReportFile, ReportePamDTO vDataReport)
         {
             Type vMiObjeto = vDataReport.GetType();
-            IList<PropertyInfo> vMisAtributos = new List<PropertyInfo>(vMiObjeto.GetProperties());
+            IList<PropertyInfo> vMyGetProperties = new List<PropertyInfo>(vMiObjeto.GetProperties());
 
             using (WordprocessingDocument vWordDoc = WordprocessingDocument.Open(vReportFile, true))
             {
-                #region Combinación de Etiquetas 
-                string vDocTexto = vWordDoc.MainDocumentPart.Document.Body.OuterXml;
-                var vDocumentLabels = new List<PropertyInfo>(vDataReport.GetType().GetProperties());
-                Regex vRegexTexto;
+                string vTableLabelReplace = "";
 
-                foreach (var vLabel in vDocumentLabels)
+                #region Combinación de Etiquetas 
+                var vTextDocument = vWordDoc.MainDocumentPart.Document.Body.OuterXml;
+                var vLabelsDocument = new List<PropertyInfo>(vDataReport.GetType().GetProperties());
+                Regex vTextRegularExpression;
+
+                foreach (var vLabel in vLabelsDocument)
                 {
-                    var vProp = vMisAtributos.FirstOrDefault(x => x.Name == vLabel.Name);
-                    if (vProp != null)
+                    var vProperty = vMyGetProperties.FirstOrDefault(x => x.Name == vLabel.Name);
+                    if (vProperty != null)
                     {
-                        var vData = vProp.GetValue(vDataReport, null);
+                        var vData = vProperty.GetValue(vDataReport, null);
                         if (vData != null)
                         {
-                            vRegexTexto = new Regex(vLabel.Name);
-                            vDocTexto = vRegexTexto.Replace(vDocTexto, vData.ToString());
+                            vTextRegularExpression = new Regex(vLabel.Name);
+                            vTextDocument = vTextRegularExpression.Replace(vTextDocument, vData.ToString());
                         }
                     }
                 }
 
-                vWordDoc.MainDocumentPart.Document.Body = new Body(vDocTexto);
+                vWordDoc.MainDocumentPart.Document.Body = new Body(vTextDocument);
                 vWordDoc.MainDocumentPart.Document.Save();
                 #endregion
 
                 #region Combinacion de Tabla Caracteristica
-                Table vTabla = new Table();
-                TableBorder(vTabla);
+                Table vTableTrait = new Table();
+                TableBorder(vTableTrait);
 
-                for (int vRegistro = 0; vRegistro < vDataReport.ListaCaracteristicaPam.Count(); vRegistro++)
+                for (int vRecord = 0; vRecord < vDataReport.ListaCaracteristicaPam.Count(); vRecord++)
                 {
-                    var vFila = new TableRow();
+                    var vRow = new TableRow();
 
-                    if (vRegistro == 0)
+                    if (vRecord == 0)
                     {
-                        var vCabecera = new List<PropertyInfo>(vDataReport.ListaCaracteristicaPam[vRegistro].GetType().GetProperties());
-                        foreach (var vRotulo in vCabecera)
+                        var vHead = new List<PropertyInfo>(vDataReport.ListaCaracteristicaPam[vRecord].GetType().GetProperties());
+                        foreach (var vLabel in vHead)
                         {
-                            vFila.Append(CellComplete(vWordDoc, vRotulo.Name.ToUpper(), true));
+                            vRow.Append(CellComplete(vWordDoc, vLabel.Name.ToUpper(), true));
                         }
-                        vTabla.Append(vFila);
-                        vFila = new TableRow();
-                        foreach (var vDatos in vCabecera)
+                        vTableTrait.Append(vRow);
+                        vRow = new TableRow();
+                        foreach (var vData in vHead)
                         {
-                            vFila.Append(CellComplete(vWordDoc, vDatos.GetValue(vDataReport.ListaCaracteristicaPam[vRegistro], null).ToString(), false));
+                            vRow.Append(CellComplete(vWordDoc, vData.GetValue(vDataReport.ListaCaracteristicaPam[vRecord], null).ToString(), false));
                         }
                     }
                     else
                     {
-                        var vDetalle = new List<PropertyInfo>(vDataReport.ListaCaracteristicaPam[vRegistro].GetType().GetProperties());
-                        foreach (var vDatos in vDetalle)
+                        var vDetail = new List<PropertyInfo>(vDataReport.ListaCaracteristicaPam[vRecord].GetType().GetProperties());
+                        foreach (var vData in vDetail)
                         {
-                            vFila.Append(CellComplete(vWordDoc, vDatos.GetValue(vDataReport.ListaCaracteristicaPam[vRegistro], null).ToString(), false));
+                            vRow.Append(CellComplete(vWordDoc, vData.GetValue(vDataReport.ListaCaracteristicaPam[vRecord], null).ToString(), false));
                         }
                     }
-                    vTabla.Append(vFila);
+                    vTableTrait.Append(vRow);
                 }
 
-                string vTableLabelReplace = "Tabla_Caracteristica";
+                vTableLabelReplace = "Tabla_Caracteristica";
                 Text vTableReplace = vWordDoc.MainDocumentPart.Document.Body.Descendants<Text>().FirstOrDefault(x => x.Text.Contains(vTableLabelReplace));
                 if (vTableReplace != null)
                 {
                     var vParent = vTableReplace.Parent.Parent.Parent;
-                    vParent.InsertAfter(vTabla, vTableReplace.Parent.Parent);
+                    vParent.InsertAfter(vTableTrait, vTableReplace.Parent.Parent);
                     vTableReplace.Text = vTableReplace.Text.Replace(vTableLabelReplace, "");
                     vWordDoc.MainDocumentPart.Document.Save();
                 }
                 #endregion
 
                 #region Combinacion de Tabla Resultado
-                Table vTabla2 = new Table();
-                TableBorder(vTabla2);
+                Table vTableResult = new Table();
+                TableBorder(vTableResult);
 
-                for (int vRegistro = 0; vRegistro < vDataReport.ListaResultadosPam.Count(); vRegistro++)
+                for (int vRecord = 0; vRecord < vDataReport.ListaResultadosPam.Count(); vRecord++)
                 {
-                    var vFila = new TableRow();
+                    var vRow = new TableRow();
 
-                    if (vRegistro == 0)
+                    if (vRecord == 0)
                     {
-                        var vCabecera = new List<PropertyInfo>(vDataReport.ListaResultadosPam[vRegistro].GetType().GetProperties());
-                        foreach (var vRotulo in vCabecera)
+                        var vHead = new List<PropertyInfo>(vDataReport.ListaResultadosPam[vRecord].GetType().GetProperties());
+                        foreach (var vLabel in vHead)
                         {
-                            vFila.Append(CellComplete(vWordDoc, vRotulo.Name.ToUpper(), true));
+                            vRow.Append(CellComplete(vWordDoc, vLabel.Name.ToUpper(), true));
                         }
-                        vTabla2.Append(vFila);
-                        vFila = new TableRow();
-                        foreach (var vDatos in vCabecera)
+                        vTableResult.Append(vRow);
+                        vRow = new TableRow();
+                        foreach (var vData in vHead)
                         {
-                            vFila.Append(CellComplete(vWordDoc, vDatos.GetValue(vDataReport.ListaResultadosPam[vRegistro], null).ToString(), false));
+                            vRow.Append(CellComplete(vWordDoc, vData.GetValue(vDataReport.ListaResultadosPam[vRecord], null).ToString(), false));
                         }
                     }
                     else
                     {
-                        var vDetalle = new List<PropertyInfo>(vDataReport.ListaResultadosPam[vRegistro].GetType().GetProperties());
-                        foreach (var vDatos in vDetalle)
+                        var vDetail = new List<PropertyInfo>(vDataReport.ListaResultadosPam[vRecord].GetType().GetProperties());
+                        foreach (var vData in vDetail)
                         {
-                            vFila.Append(CellComplete(vWordDoc, vDatos.GetValue(vDataReport.ListaResultadosPam[vRegistro], null).ToString(), false));
+                            vRow.Append(CellComplete(vWordDoc, vData.GetValue(vDataReport.ListaResultadosPam[vRecord], null).ToString(), false));
                         }
                     }
-                    vTabla2.Append(vFila);
+                    vTableResult.Append(vRow);
 
-
-                    var vDetalle2 = new List<PropertyInfo>(vDataReport.ListaResultadosPam[vRegistro].GetType().GetProperties());
-                    vFila = new TableRow();
-                    foreach (var vDatos in vDetalle2)
+                    var vDetailLineEmpty = new List<PropertyInfo>(vDataReport.ListaResultadosPam[vRecord].GetType().GetProperties());
+                    vRow = new TableRow();
+                    foreach (var vData in vDetailLineEmpty)
                     {
-                        vFila.Append(CellComplete2(vWordDoc));
+                        vRow.Append(CellComplete2(vWordDoc));
                     }
-                    vTabla2.Append(vFila);
+                    vTableResult.Append(vRow);
                 }
 
-                string vTableLabelReplace2 = "Tabla_Evaluacion";
-                Text vTableReplace2 = vWordDoc.MainDocumentPart.Document.Body.Descendants<Text>().FirstOrDefault(x => x.Text.Contains(vTableLabelReplace2));
+                vTableLabelReplace = "Tabla_Evaluacion";
+                Text vTableReplace2 = vWordDoc.MainDocumentPart.Document.Body.Descendants<Text>().FirstOrDefault(x => x.Text.Contains(vTableLabelReplace));
                 if (vTableReplace2 != null)
                 {
                     var vParent = vTableReplace2.Parent.Parent.Parent;
-                    vParent.InsertAfter(vTabla2, vTableReplace2.Parent.Parent);
-                    vTableReplace2.Text = vTableReplace2.Text.Replace(vTableLabelReplace2, "");
+                    vParent.InsertAfter(vTableResult, vTableReplace2.Parent.Parent);
+                    vTableReplace2.Text = vTableReplace2.Text.Replace(vTableLabelReplace, "");
                     vWordDoc.MainDocumentPart.Document.Save();
                 }
                 #endregion
+
+                #region Combinacion de Tabla Anexos
+                var vLastTable = vWordDoc.MainDocumentPart.Document.Body.Descendants<Table>().LastOrDefault();
+                var vLastLine = vWordDoc.MainDocumentPart.Document.Body.Descendants<Break>().LastOrDefault();
+                var vSection = vWordDoc.MainDocumentPart.Document.Body.Descendants<Text>().FirstOrDefault(x => x.Text.Contains("ANEXO:"));
+
+                if (vSection != null)
+                {
+                    var vParent = vSection.Parent.Parent.Parent;
+                    int vCount = vDataReport.ListaAnexoPam.Count;
+                    Paragraph vWhiteSpace = vWordDoc.MainDocumentPart.Document.Body.AppendChild(new Paragraph());
+
+                    foreach (var vComponente in vDataReport.ListaAnexoPam)
+                    {
+                        if (vCount != vDataReport.ListaAnexoPam.Count) vParent.InsertAfter(vLastLine.CloneNode(true), vSection.Parent.Parent);
+                        var vCloneTable = vLastTable.CloneNode(true);
+                        var vTextTable = vCloneTable.OuterXml;
+                        vTextTable = vTextTable.Replace("Imagen1", "Full" + vCount.ToString());
+
+                        Regex vTextRegularExpression2;
+                        var vLabelsTable = new List<PropertyInfo>(vComponente.GetType().GetProperties());
+                        foreach (var vLabel in vLabelsTable)
+                        {
+                            var vProperty = vLabelsTable.FirstOrDefault(x => x.Name == vLabel.Name);
+                            if (vProperty != null)
+                            {
+                                var vData = vProperty.GetValue(vComponente, null);
+                                if (vData != null)
+                                {
+                                    if (vLabel.Name == "Imagen1")
+                                    {
+                                        bool vFileExist = File.Exists(vData.ToString());
+                                        if (vFileExist)
+                                        {
+                                            var vKey = vLabelsTable.FirstOrDefault(X => X.Name == "Id").GetValue(vComponente, null);
+                                            vTextTable = vTextTable.Replace("Full" + vCount.ToString(), "Full" + vKey.ToString());
+                                        }
+                                        else
+                                        {
+                                            vTextTable = vTextTable.Replace("Full" + vCount.ToString(), "");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        vTextRegularExpression2 = new Regex(vLabel.Name);
+                                        vTextTable = vTextRegularExpression2.Replace(vTextTable, vData.ToString());
+                                    }
+                                }
+                            }
+                        }
+
+                        vCount -= 1;
+                        vCloneTable.InnerXml = vTextTable;
+                        vParent.InsertAfter(vCloneTable, vSection.Parent.Parent);
+                        vParent.InsertAfter(vWhiteSpace.CloneNode(true), vSection.Parent.Parent);
+                    }
+
+                    vLastTable.Remove();
+                    vWordDoc.MainDocumentPart.Document.Save();
+                }
+
+                #endregion
             }
+
+
+            #region Combinacion de Imagenes en Tabla 
+            using (WordprocessingDocument vWordDoc = WordprocessingDocument.Open(vReportFile, true))
+            {
+                foreach (var vComponente in vDataReport.ListaAnexoPam)
+                {
+                    var vLabelsTable = new List<PropertyInfo>(vComponente.GetType().GetProperties());
+                    string vKey = "";
+                    string vImage = "";
+
+                    var vPropertyKey = vLabelsTable.FirstOrDefault(x => x.Name == "Id");
+                    if (vPropertyKey != null) vKey = vPropertyKey.GetValue(vComponente, null).ToString();
+
+                    var vPropertyImage = vLabelsTable.FirstOrDefault(x => x.Name == "Imagen1");
+                    if (vPropertyImage != null) vImage = vPropertyImage.GetValue(vComponente, null).ToString();
+
+                    if (vPropertyKey != null && vPropertyImage != null)
+                    {
+                        bool vFileExist = File.Exists(vImage);
+                        if (vFileExist)
+                        {
+                            ImagePart vImagePart = vWordDoc.MainDocumentPart.AddImagePart(ImagePartType.Jpeg);
+                            var vTableList = vWordDoc.MainDocumentPart.Document.Body.Elements<Table>().ToList();
+
+                            foreach (Table vTable in vTableList)
+                            {
+                                var vElement = vTable.Elements().FirstOrDefault().Elements().FirstOrDefault(x => x.InnerText.Contains("Full" + vKey.ToString()));
+                                if (vElement != null)
+                                {
+                                    var vOpenXmlElement = vElement.ChildElements.FirstOrDefault().Elements().LastOrDefault().Elements().LastOrDefault().Elements().LastOrDefault();
+
+                                    FileStream vStream = new FileStream(vImage, FileMode.Open);
+                                    vImagePart.FeedData(vStream);
+                                    AddImageToCell(vOpenXmlElement, vWordDoc.MainDocumentPart.GetIdOfPart(vImagePart));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #endregion
         }
+
+
 
         public static TableCell CellComplete(WordprocessingDocument vWordDoc, string vDataCell, bool vIsHeader)
         {
@@ -279,6 +391,27 @@ namespace Minem.Sgpam.ClienteInterno.Helpers
             vStyles.Append(vMyStyle);
         }
 
+        private static void AddImageToCell(OpenXmlElement vOpenXmlElement, string vGetIdOfPart)
+        {
+            var vImagen =
+                 new Drawing(
+                     new Inline(
+                         new Extent() { Cx = 2139893L, Cy = 1918499L },
+                         new DocProperties() { Id = (UInt32Value)1U, Name = "Picture" },
+                         new A.Graphic(
+                             new A.GraphicData(
+                                 new DocumentFormat.OpenXml.Drawing.Pictures.Picture(
+                                     new NonVisualPictureProperties(new NonVisualDrawingProperties() { Id = (UInt32Value)0U, Name = "fullshito.jpg" }, new NonVisualPictureDrawingProperties()),
+                                     new BlipFill(new A.Blip() { Embed = vGetIdOfPart, CompressionState = A.BlipCompressionValues.Print }, new A.Stretch(new A.FillRectangle())),
+                                     new ShapeProperties(new A.Transform2D(new A.Offset() { X = 0L, Y = 0L }, new A.Extents() { Cx = 2139893L, Cy = 1918499L }), new A.PresetGeometry(new A.AdjustValueList()) { Preset = A.ShapeTypeValues.Rectangle })
+                                     )
+                             )
+                             { Uri = "http://schemas.openxmlformats.org/drawingml/2006/picture" }
+                             )
+                     )
+                     );
 
+            vOpenXmlElement.AppendChild(new Paragraph(new Run(vImagen)));
+        }
     }
 }
