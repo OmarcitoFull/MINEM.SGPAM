@@ -2,7 +2,7 @@
 @model Minem.Sgpam.TransporteDatos.DtoEntidades.ListarVisitaDTO
 
 @{
-    ViewData["Title"] = "Programación de visitas  de LNR o EUM";
+    ViewData["Title"] = "Programación de visitas de LNR o EUM";
 }
 
 <form id="MyForm" asp-controller="Visita" asp-action="Index" autocomplete="off" data-ajax="true" data-ajax-method="POST">
@@ -10,9 +10,9 @@
     <div class="row">
         <div class="col-md-3 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">LNR/EUM:</label>
-                <div class="col-md-8 col-sm-9 col-xs-12">
-                    <select class="select2_single form-control" tabindex="-1">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">LNR / EUM</label>
+                <div class="col-md-5 col-sm-8 col-xs-12">
+                    <select class="select2_single form-control" tabindex="-1" id="cboTipo">
                         <option value="0" selected>Todos</option>
                         <option value="1">LNR</option>
                         <option value="2">EUM</option>
@@ -22,38 +22,43 @@
         </div>
         <div class="col-md-3 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Expediente: </label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input asp-for="@Model.Visita.Usu_Ingreso" class="form-control" placeholder="253-2019" maxlength="10" />
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Expediente </label>
+                <div class="col-md-5 col-sm-8 col-xs-12">
+                    <input type="text" class="form-control text-uppercase" name=vNroExpediente placeholder="25320" maxlength="5">
                 </div>
             </div>
         </div>
         <div class="col-md-5 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre EUM: </label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input class="form-control" placeholder="Empresa S. A." maxlength="50">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre EUM </label>
+                <div class="col-md-8 col-sm-9 col-xs-12">
+                    <input type="text" class="form-control text-uppercase" name=vNombreEUM placeholder="Empresa S. A." maxlength="50">
                 </div>
             </div>
         </div>
-
         <div class="col-md-1 col-sm-12 col-xs-12 form-group">
             <div class="boton">
-                <a asp-action="Index">Buscar <i class="fa fa-search"></i></a>
-                @*<button type="submit" class="btn btn-agrosecondary mr-sm-1">Buscar <i class="fa fa-search"></i></button>*@
+                <button type="submit" class="bottom">Buscar  <i class="fa fa-search"></i></button>
+                @*<a asp-action="Index">Buscar <i class="fa fa-search"></i></a>*@
             </div>
         </div>
 
         <div class="col-md-3 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Cant. año</label>
-                <div class="col-md-7 col-sm-9 col-xs-12">
-                    <select class="select2_single form-control" tabindex="-1">
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Cant. años</label>
+                <div class="col-md-5 col-sm-8 col-xs-12">
+                    <select class="select2_single form-control" id="cboCantAnios" tabindex="-1">
                         <option></option>
                         <option value="0" selected>Todos</option>
                         <option value="1">+ 2 años</option>
                         <option value="2">+ 3 años</option>
                     </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <div class="col-md-5 col-sm-8 col-xs-12">
                 </div>
             </div>
         </div>
@@ -72,10 +77,10 @@
                 </div>
             </li>
             @*<li>
-            <div class="boton">
-                <a asp-action="Exportar">Exportar  <i class="fa fa-sign-out"></i></a>
-            </div>
-        </li>*@
+                    <div class="boton">
+                        <a asp-action="Exportar">Exportar  <i class="fa fa-sign-out"></i></a>
+                    </div>
+                </li>*@
         </ul>
 
         <div class="clearfix"></div>
@@ -87,19 +92,21 @@
                 <th>Expediente</th>
                 <th>EUM</th>
                 <th>Declarante</th>
-                <th>Año</th>
-                @*<th>Región</th>
-        <th>Provincia</th>
-        <th>Distrito</th>*@
+                @*<th>Año</th>*@
+                <th>Región</th>
+                <th>Provincia</th>
+                <th>Distrito</th>
                 <th>Ultima Visita</th>
                 <th>Tiempo sin visitar</th>
+                @*<th>Visita a campo</th>*@
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @if (!Model.ListaVisita.Any())
             {
                 <tr class="even pointer">
-                    <td class=" " colspan="6">No existen registros</td>
+                    <td class=" " colspan="9">No existen registros</td>
                 </tr>
             }
             else
@@ -107,11 +114,15 @@
                 foreach (var item in Model.ListaVisita)
                 {
                     <tr class="even pointer">
-                        <td class=" "></td>
+                        <td class=" ">@item.Nro_Expediente</td>
+                        <td class=" ">@item.Nombre_Eum</td>
+                        <td class=" ">@item.Declarante</td>
+                        <td class=" ">@item.Nom_Region</td>
+                        <td class=" ">@item.Nom_Provincia</td>
+                        <td class=" ">@item.Nom_Distrito</td>
                         <td class=" ">@item.Fecha_Salida</td>
-                        <td class=" ">@item.Fecha_Regreso</td>
-                        <td class=" "></td>
-                        <td class=" "></td>
+                        <td class=" ">@item.TiempoSinVisita</td>
+                        @*<td class=" "></td>*@
                         <td class=" ">
                             <ul class="nav navbar-left panel_toolbox">
                                 <li>
@@ -119,14 +130,14 @@
                                         <a asp-action="AgregarEditar" asp-route-vId="@item.Id_Visita" title="Editar Registro"><i class="fas fa-edit"></i></a>
                                     </div>
                                     @*<div class="boton2">
-                                            <a href="#">                                                                        <i class="fa fa-edit"></i></a>
-                                        </div>*@
+                                    <a href="#">                                                                        <i class="fa fa-edit"></i></a>
+                                </div>*@
                                 </li>
                                 @*<li>
-                                        <div class="boton2">
-                                            <a href="#"> <i class="fa fa-dedent "></i></a>
-                                        </div>
-                                    </li>*@
+                                <div class="boton2">
+                                    <a href="#"> <i class="fa fa-dedent "></i></a>
+                                </div>
+                            </li>*@
                             </ul>
                         </td>
                     </tr>
@@ -136,8 +147,30 @@
     </table>
 
 
-    <input type="hidden" name="vUbigeo" id="vUbigeo" />
+    @*<div id="DivInformacionGrafica">
+            @Html.Partial("_PartialVisita", Model.ListaVisita)
+        </div>*@
 
 
+
+    <input type="hidden" name="vTipo" id="vTipo" />
+    <input type="hidden" name="vCantAnios" id="vCantAnios" />
 
 </form>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+            $('#cboTipo').on('change', function () {
+                console.log($("#cboTipo").val());
+                $("#vTipo").val($("#cboTipo").val());
+            });
+
+            $('#cboCantAnios').on('change', function () {
+                $("#vCantAnios").val($("#cboCantAnios").val());
+            });
+
+        });
+    </script>
+}

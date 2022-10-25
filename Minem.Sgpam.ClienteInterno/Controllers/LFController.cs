@@ -5,9 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using Minem.Sgpam.InfraEstructura;
 using Minem.Sgpam.ClienteInterno.Helpers;
 using System.Net.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Minem.Sgpam.ClienteInterno.Controllers
 {
+    [Authorize]
     public class LFController : Controller
     {
         public ActionResult Index()

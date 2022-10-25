@@ -3,7 +3,7 @@
 @model Minem.Sgpam.TransporteDatos.DtoEntidades.RegistrarExpedienteDTO
 
 @{
-    ViewData["Title"] = "Expediente de LNRs";
+    ViewData["Title"] = "Expediente de LNR";
 }
 
 <form id="MyForm" asp-controller="Expediente" asp-action="AgregarEditar" autocomplete="off" data-ajax="true" data-ajax-method="POST">
@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Nro. Expediente (*)</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Nro. Expediente (<font color="red">*</font>)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <input asp-for="@Model.Expediente.Nro_Expediente" class="form-control" placeholder="253-2019" maxlength="15" />
                 </div>
@@ -25,7 +25,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 
@@ -34,7 +33,7 @@
             <div class="form-group">
                 <label class="control-label col-md-4 col-sm-4 col-xs-12">Fecha Expediente</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <input asp-for="@Model.Expediente.Fec_Ingreso" class="form-control" placeholder="01/01/2022" maxlength="10" />
+                    <input asp-for="@Model.Expediente.Fec_Ingreso" type="date" class="form-control" placeholder="01/01/2022" maxlength="10" />
                 </div>
             </div>
         </div>
@@ -67,7 +66,7 @@
 
     <div class="x_title2">
         <div align="center" class="titulo-m">
-            <h3>Labores no Rehabilitados</h3>
+            <h3>Labores no Rehabilitadas</h3>
         </div>
 
         <ul class="nav navbar-right panel_toolbox">
@@ -89,6 +88,9 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre Declarante</th>
+                <th>Región</th>
+                <th>Provincia</th>
+                <th>Distrito</th>
                 <th>Tipo de LNR</th>
                 <th>Codigo</th>
                 <th>Este</th>
@@ -100,7 +102,7 @@
             @if (!Model.ListaLNR.Any())
             {
                 <tr class="even pointer">
-                    <td class=" " colspan="7">
+                    <td class=" " colspan="10">
                         No existe registros
                     </td>
                 </tr>
@@ -112,6 +114,9 @@
                     <tr class="odd pointer">
                         <td class=" col-lg-1 ">@item.Id_Lnr.ToString("D9")</td>
                         <td class=" col-lg-3 ">@item.Nom_Declarante</td>
+                        <td class=" col-lg-1 ">@item.Region</td>
+                        <td class=" col-lg-1 ">@item.Provincia</td>
+                        <td class=" col-lg-1 ">@item.Distrito</td>
                         <td class=" col-lg-2 ">@item.Des_Tipo_Lnr</td>
                         <td class=" col-lg-1 ">@item.Codigo_Declarado</td>
                         <td class=" col-lg-1 ">@item.Este</td>
@@ -182,7 +187,7 @@
                 </li>
                 <li>
                     <div class="boton">
-                        <a asp-action="Index"> Cancelar <i class="fa fa-ban"></i></a>
+                        <a asp-action="Index"> Retornar <i class="fa fa-ban"></i></a>
                     </div>
                 </li>
             </ul>

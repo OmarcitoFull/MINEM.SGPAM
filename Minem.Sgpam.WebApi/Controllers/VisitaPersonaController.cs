@@ -7,7 +7,7 @@ namespace Minem.Sgpam.WebApi.Controllers
 {
     /// <summary>
     /// Objetivo:	Controlador que implementa los servicios
-    /// Creado Por:	Mateo Salvado Paucar
+    /// Creado Por:	Mateo Salvador Paucar
     /// Fecha Creación:	31/05/2022
     /// </summary>
     public class VisitaPersonaController : BaseController

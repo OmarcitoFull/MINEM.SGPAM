@@ -2,7 +2,7 @@
 
 <div class="col-md-4 col-sm-12 col-xs-12 form-group">
     <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12">Este</label>
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Este (<font color="red">*</font>)</label>
         <div class="col-md-9 col-sm-9 col-xs-12">
             <input type="number" asp-for="Este" class="form-control" max="99999999.99" min="-99999999.99" maxlength="10" oninput="fMaxLength(this)" />
         </div>
@@ -10,7 +10,7 @@
 </div>
 <div class="col-md-4 col-sm-12 col-xs-12 form-group">
     <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12">Norte</label>
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Norte (<font color="red">*</font>)</label>
         <div class="col-md-9 col-sm-9 col-xs-12">
             <input type="number" asp-for="Norte" class="form-control" max="99999999.99" min="-99999999.99" maxlength="10" oninput="fMaxLength(this)" />
         </div>
@@ -18,7 +18,7 @@
 </div>
 <div class="col-md-4 col-sm-12 col-xs-12 form-group">
     <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12">Zona</label>
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Zona (<font color="red">*</font>)</label>
         <div class="col-md-9 col-sm-9 col-xs-12">
             <select id="vZona" class="select2_single form-control" asp-for="Id_Zona" asp-items="(List<SelectListItem>)ViewBag.CboZona">
                 <option value="">SELECCIONE</option>
@@ -28,7 +28,7 @@
 </div>
 <div class="col-md-4 col-sm-12 col-xs-12 form-group">
     <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12">Datum</label>
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Datum (<font color="red">*</font>)</label>
         <div class="col-md-9 col-sm-9 col-xs-12">
             <select id="vDatum" class="select2_single form-control" asp-for="Id_Datum" asp-items="(List<SelectListItem>)ViewBag.CboDatum">
                 <option value="">SELECCIONE</option>
@@ -38,7 +38,7 @@
 </div>
 <div class="col-md-4 col-sm-12 col-xs-12 form-group">
     <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12">Ubicación</label>
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Ubicación </label>
         <div class="col-md-9 col-sm-9 col-xs-12">
             <input asp-for="Ubicacion" class="form-control" maxlength="500" />
         </div>
@@ -46,7 +46,7 @@
 </div>
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
     <div class="form-group">
-        <label class="control-label col-md-2 col-sm-2 col-xs-12">Descripción</label>
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">Descripción </label>
         <div class="col-md-10 col-sm-10 col-xs-12">
             <textarea class="form-controlArea" rows="3" asp-for="Descripcion" maxlength="500"></textarea>
         </div>

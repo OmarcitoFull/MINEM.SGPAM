@@ -377,7 +377,10 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                             Flg_Estado = item.FLG_ESTADO,
                             Ip_Ingreso = item.IP_INGRESO,
                             Usu_Ingreso = item.USU_INGRESO,
-                            Des_Tipo_Lnr = item.DES_TIPO_LNR
+                            Des_Tipo_Lnr = item.DES_TIPO_LNR,
+                            Region = item.REGION,
+                            Provincia = item.PROVINCIA,
+                            Distrito = item.DISTRITO
                         };
                         vLista.Add(vEntidad);
                     }

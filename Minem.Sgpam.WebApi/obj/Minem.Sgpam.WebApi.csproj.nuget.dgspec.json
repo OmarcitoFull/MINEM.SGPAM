@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.WebApi\\Minem.Sgpam.WebApi.csproj": {}
+    "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.WebApi\\Minem.Sgpam.WebApi.csproj": {}
   },
   "projects": {
-    "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.AccesoDatos\\Minem.Sgpam.AccesoDatos.csproj": {
+    "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.AccesoDatos\\Minem.Sgpam.AccesoDatos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.AccesoDatos\\Minem.Sgpam.AccesoDatos.csproj",
+        "projectUniqueName": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.AccesoDatos\\Minem.Sgpam.AccesoDatos.csproj",
         "projectName": "Minem.Sgpam.AccesoDatos",
-        "projectPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.AccesoDatos\\Minem.Sgpam.AccesoDatos.csproj",
+        "projectPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.AccesoDatos\\Minem.Sgpam.AccesoDatos.csproj",
         "packagesPath": "C:\\Users\\omar.rodriguez\\.nuget\\packages\\",
-        "outputPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.AccesoDatos\\obj\\",
+        "outputPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.AccesoDatos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,11 +32,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\Minem.Sgpam.Entidades.csproj": {
-                "projectPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\Minem.Sgpam.Entidades.csproj"
+              "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\Minem.Sgpam.Entidades.csproj": {
+                "projectPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\Minem.Sgpam.Entidades.csproj"
               },
-              "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.InfraEstructura\\Minem.Sgpam.InfraEstructura.csproj": {
-                "projectPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.InfraEstructura\\Minem.Sgpam.InfraEstructura.csproj"
+              "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.InfraEstructura\\Minem.Sgpam.InfraEstructura.csproj": {
+                "projectPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.InfraEstructura\\Minem.Sgpam.InfraEstructura.csproj"
               }
             }
           }
@@ -75,18 +75,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\Minem.Sgpam.Entidades.csproj": {
+    "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\Minem.Sgpam.Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\Minem.Sgpam.Entidades.csproj",
+        "projectUniqueName": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\Minem.Sgpam.Entidades.csproj",
         "projectName": "Minem.Sgpam.Entidades",
-        "projectPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\Minem.Sgpam.Entidades.csproj",
+        "projectPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\Minem.Sgpam.Entidades.csproj",
         "packagesPath": "C:\\Users\\omar.rodriguez\\.nuget\\packages\\",
-        "outputPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\obj\\",
+        "outputPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -133,18 +133,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.InfraEstructura\\Minem.Sgpam.InfraEstructura.csproj": {
+    "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.InfraEstructura\\Minem.Sgpam.InfraEstructura.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.InfraEstructura\\Minem.Sgpam.InfraEstructura.csproj",
+        "projectUniqueName": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.InfraEstructura\\Minem.Sgpam.InfraEstructura.csproj",
         "projectName": "Minem.Sgpam.InfraEstructura",
-        "projectPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.InfraEstructura\\Minem.Sgpam.InfraEstructura.csproj",
+        "projectPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.InfraEstructura\\Minem.Sgpam.InfraEstructura.csproj",
         "packagesPath": "C:\\Users\\omar.rodriguez\\.nuget\\packages\\",
-        "outputPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.InfraEstructura\\obj\\",
+        "outputPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.InfraEstructura\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -191,18 +191,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.LogicaNegocio\\Minem.Sgpam.LogicaNegocio.csproj": {
+    "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.LogicaNegocio\\Minem.Sgpam.LogicaNegocio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.LogicaNegocio\\Minem.Sgpam.LogicaNegocio.csproj",
+        "projectUniqueName": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.LogicaNegocio\\Minem.Sgpam.LogicaNegocio.csproj",
         "projectName": "Minem.Sgpam.LogicaNegocio",
-        "projectPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.LogicaNegocio\\Minem.Sgpam.LogicaNegocio.csproj",
+        "projectPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.LogicaNegocio\\Minem.Sgpam.LogicaNegocio.csproj",
         "packagesPath": "C:\\Users\\omar.rodriguez\\.nuget\\packages\\",
-        "outputPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.LogicaNegocio\\obj\\",
+        "outputPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.LogicaNegocio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -223,11 +223,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.AccesoDatos\\Minem.Sgpam.AccesoDatos.csproj": {
-                "projectPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.AccesoDatos\\Minem.Sgpam.AccesoDatos.csproj"
+              "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.AccesoDatos\\Minem.Sgpam.AccesoDatos.csproj": {
+                "projectPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.AccesoDatos\\Minem.Sgpam.AccesoDatos.csproj"
               },
-              "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\Minem.Sgpam.TransporteDatos.csproj": {
-                "projectPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\Minem.Sgpam.TransporteDatos.csproj"
+              "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\Minem.Sgpam.TransporteDatos.csproj": {
+                "projectPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\Minem.Sgpam.TransporteDatos.csproj"
               }
             }
           }
@@ -262,18 +262,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\Minem.Sgpam.TransporteDatos.csproj": {
+    "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\Minem.Sgpam.TransporteDatos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\Minem.Sgpam.TransporteDatos.csproj",
+        "projectUniqueName": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\Minem.Sgpam.TransporteDatos.csproj",
         "projectName": "Minem.Sgpam.TransporteDatos",
-        "projectPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\Minem.Sgpam.TransporteDatos.csproj",
+        "projectPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\Minem.Sgpam.TransporteDatos.csproj",
         "packagesPath": "C:\\Users\\omar.rodriguez\\.nuget\\packages\\",
-        "outputPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\obj\\",
+        "outputPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.TransporteDatos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -320,18 +320,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.WebApi\\Minem.Sgpam.WebApi.csproj": {
+    "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.WebApi\\Minem.Sgpam.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.WebApi\\Minem.Sgpam.WebApi.csproj",
+        "projectUniqueName": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.WebApi\\Minem.Sgpam.WebApi.csproj",
         "projectName": "Minem.Sgpam.WebApi",
-        "projectPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.WebApi\\Minem.Sgpam.WebApi.csproj",
+        "projectPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.WebApi\\Minem.Sgpam.WebApi.csproj",
         "packagesPath": "C:\\Users\\omar.rodriguez\\.nuget\\packages\\",
-        "outputPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.WebApi\\obj\\",
+        "outputPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -352,8 +352,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.LogicaNegocio\\Minem.Sgpam.LogicaNegocio.csproj": {
-                "projectPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.LogicaNegocio\\Minem.Sgpam.LogicaNegocio.csproj"
+              "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.LogicaNegocio\\Minem.Sgpam.LogicaNegocio.csproj": {
+                "projectPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.LogicaNegocio\\Minem.Sgpam.LogicaNegocio.csproj"
               }
             }
           }
@@ -391,7 +391,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -4,7 +4,7 @@
 
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
     <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado de Gestión (*)</label>
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado de Gestión (<font color="red">*</font>)</label>
         <div class="col-md-9 col-sm-9 col-xs-12">
             <select id="vId_Tipo_Pam" class="select2_single form-control" asp-for="Id_Estado_Gestion" asp-items="(List<SelectListItem>)ViewBag.CboEstadoGestion">
                 <option value="">SELECCIONE</option>
@@ -41,7 +41,7 @@
         </li>
         <li>
             <div class="boton" data-dismiss="modal">
-                <a href="#">Cancelar  <i class="fa fa-ban"></i></a>
+                <a href="#">Retornar  <i class="fa fa-ban"></i></a>
             </div>
         </li>
     </ul>

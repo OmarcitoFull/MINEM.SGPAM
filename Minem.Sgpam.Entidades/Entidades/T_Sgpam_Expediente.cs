@@ -24,6 +24,9 @@ namespace Minem.Sgpam.Entidades
 
         public int TOTAL_LNR { get; set; }
         public string NRO_INFORME { get; set; }
+        //public string REGION { get; set; }
+        //public string PROVINCIA { get; set; }
+        //public string DISTRITO { get; set; }
 
         #endregion
     }

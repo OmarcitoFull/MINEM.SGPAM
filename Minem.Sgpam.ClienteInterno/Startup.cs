@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,11 +22,20 @@ namespace Minem.Sgpam.ClienteInterno
 
         public void ConfigureServices(IServiceCollection vServices)
         {
+            Environment.SetEnvironmentVariable(Constantes.ServiceRouteLF, Configuration.GetValue<string>("BackEndConfig:UrlApiLF"));
             Environment.SetEnvironmentVariable(Constantes.ServiceRoute, Configuration.GetValue<string>("BackEndConfig:UrlApi"));
             vServices.Configure<RequestLocalizationOptions>(vOption => {
                 vOption.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");
                 vOption.SupportedCultures = vOption.SupportedUICultures = new[] { new CultureInfo("en"), new CultureInfo("pe") };
             });
+
+            vServices.AddAuthentication(x =>
+            {
+                x.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                x.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            }).AddCookie(x => { x.LoginPath = "/Intro"; });
+
             vServices.AddControllersWithViews();
         }
 
@@ -44,10 +54,7 @@ namespace Minem.Sgpam.ClienteInterno
             vApp.UseRouting();
             vApp.UseRequestLocalization(vApp.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>().Value);
             vApp.UseAuthorization();
-            vApp.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
+            vApp.UseEndpoints(ep => { ep.MapControllerRoute(name: "default", pattern: "{controller=Intro}/{action=Index}/{id?}"); });
         }
     }
 }

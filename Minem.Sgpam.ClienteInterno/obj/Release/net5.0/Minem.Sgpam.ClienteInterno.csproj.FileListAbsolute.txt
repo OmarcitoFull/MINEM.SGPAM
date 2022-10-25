@@ -438,3 +438,5 @@ D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\bin\Release\net5.0\Se
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\bin\Release\net5.0\Serilog.Sinks.Console.dll
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\bin\Release\net5.0\Serilog.Sinks.Debug.dll
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\bin\Release\net5.0\Serilog.Sinks.File.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\Razor\Views\Reporte\InventarioLNR.cshtml.g.cs
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\Razor\Views\Reporte\InventarioPAM.cshtml.g.cs

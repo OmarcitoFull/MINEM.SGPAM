@@ -335,7 +335,10 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
 
                             Ult_Visita = item.ULT_VISITA,
                             Fecha_Informe = item.FECHA_INFORME,
-                            Nro_Informe = item.NRO_INFORME
+                            Nro_Informe = item.NRO_INFORME//,
+                            //Region = item.REGION,
+                            //Provincia = item.PROVINCIA,
+                            //Distrito = item.DISTRITO
                         };
                         vLista.Add(vEntidad);
                     }
@@ -386,6 +389,41 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                 throw;
             }
 
+        }
+
+        public IEnumerable<MaestraDTO> ListaAutocompletarMaestraDTO(string vFiltro)
+        {
+            try
+            {
+                if (vFiltro == null || vFiltro.Trim().Length == 0)
+                    vFiltro = "";
+                else
+                    vFiltro = vFiltro.ToUpper();
+
+                IEnumerable<T_Sgpam_Maestra> vResultado = MaestraAD.ListarAutocompletarT_Sgpam_Maestra(vFiltro);
+                if (vResultado != null)
+                {
+                    List<MaestraDTO> vLista = new List<MaestraDTO>();
+                    MaestraDTO vEntidad;
+                    foreach (T_Sgpam_Maestra item in vResultado)
+                    {
+                        vEntidad = new MaestraDTO()
+                        {
+                            Eum_Descripcion = item.EUM_DESCRIPCION,
+                            Id_Eum = item.ID_EUM//,
+                            //Distrito = item.DISTRITO
+                        };
+                        vLista.Add(vEntidad);
+                    }
+                    return vLista;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.Message, ex);
+                throw;
+            }
         }
 
     }

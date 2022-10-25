@@ -74,6 +74,8 @@ namespace Minem.Sgpam.WebApi
             vServices.AddTransient<IT_Sgpad_Visita_PersonaAD, T_Sgpad_Visita_PersonaAD>();
             vServices.AddTransient<IT_Sgpad_Visita_PersonaLN, T_Sgpad_Visita_PersonaLN>();
 
+
+
             vServices.AddTransient<IT_Sgpal_CargoAD, T_Sgpal_CargoAD>();
             vServices.AddTransient<IT_Sgpal_CargoLN, T_Sgpal_CargoLN>();
 

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 using Minem.Sgpam.AccesoDatos.Interfaces;
 using Minem.Sgpam.Entidades;
 using Minem.Sgpam.LogicaNegocio.Base;
@@ -17,11 +18,13 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
     {
         private readonly IT_Sgpam_ExpedienteAD ExpedienteAD;
         private readonly IT_Sgpad_LnrLN LnrLN;
+        private readonly ILogger<T_Sgpam_MaestraLN> Logger;
 
-        public T_Sgpam_ExpedienteLN(IT_Sgpam_ExpedienteAD vT_Sgpam_ExpedienteAD, IT_Sgpad_LnrLN vIT_Sgpad_LnrLN)
+        public T_Sgpam_ExpedienteLN(IT_Sgpam_ExpedienteAD vT_Sgpam_ExpedienteAD, IT_Sgpad_LnrLN vIT_Sgpad_LnrLN, ILogger<T_Sgpam_MaestraLN> vILogger)
         {
             ExpedienteAD = vT_Sgpam_ExpedienteAD;
             LnrLN = vIT_Sgpad_LnrLN;
+            Logger = vILogger;
         }
 
         public IEnumerable<ExpedienteDTO> ListarExpedienteDTO()
@@ -202,7 +205,10 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                             anio = 2022,
 
                             Total_Lnr = item.TOTAL_LNR,
-                            Nro_Informe = item.NRO_INFORME
+                            Nro_Informe = item.NRO_INFORME//,
+                            //Region = item.REGION,
+                            //Provincia = item.PROVINCIA,
+                            //Distrito = item.DISTRITO
                         };
                         vLista.Add(vEntidad);
                     }
@@ -234,9 +240,42 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                 //Log.Error(ex.Message, ex);
                 throw;
             }
-
         }
+
+        public IEnumerable<ExpedienteDTO> ListaAutocompletarExpedienteDTO(string vNroExp)
+        {
+            try
+            {
+                if (vNroExp == null || vNroExp.Trim().Length == 0)
+                    vNroExp = "";
+                else
+                    vNroExp = vNroExp.ToUpper();
+
+                IEnumerable<T_Sgpam_Expediente> vResultado = ExpedienteAD.ListarAutocompletarT_Sgpam_Expediente(vNroExp);
+                if (vResultado != null)
+                {
+                    List<ExpedienteDTO> vLista = new List<ExpedienteDTO>();
+                    ExpedienteDTO vEntidad;
+                    foreach (T_Sgpam_Expediente item in vResultado)
+                    {
+                        vEntidad = new ExpedienteDTO()
+                        {
+                            Id_Expediente = item.ID_EXPEDIENTE,
+                            Nro_Expediente = item.NRO_EXPEDIENTE//,
+                            //Distrito = item.DISTRITO
+                        };
+                        vLista.Add(vEntidad);
+                    }
+                    return vLista;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.Message, ex);
+                throw;
+            }
+        }
+
     }
-
-
 }

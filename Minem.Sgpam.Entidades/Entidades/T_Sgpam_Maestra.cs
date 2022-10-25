@@ -45,6 +45,9 @@ namespace Minem.Sgpam.Entidades
 		public DateTime? ULT_VISITA { get; set; }
 		public DateTime? FECHA_INFORME { get; set; }
 		public string NRO_INFORME { get; set; }
+		public string REGION { get; set; }
+		public string PROVINCIA { get; set; }
+		public string DISTRITO { get; set; }
 		#endregion
 	}
 }

@@ -1,0 +1,105 @@
+﻿@using Minem.Sgpam.InfraEstructura;
+@model Minem.Sgpam.TransporteDatos.DtoEntidades.ListarExpedienteDTO
+
+@{
+    ViewData["Title"] = "Reporte de LNR";
+}
+
+<form id="MyForm" asp-controller="Reporte" asp-action="InventarioLNR" autocomplete="off" data-ajax="true" data-ajax-method="POST">
+
+    <div class="row">
+
+        <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cboDepartamento">Región:</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <select class="select2_single form-control" id="cboDepartamento" tabindex="-1">
+                        <option value="0" selected="selected">Seleccione</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cboProvincia">Provincia:</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <select class="select2_single form-control" id="cboProvincia" tabindex="-1">
+                        <option value="0" selected="selected">Seleccione</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cboDistrito">Distrito:</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <select class="select2_single form-control" id="cboDistrito" tabindex="-1">
+                        <option value="0" selected="selected">Seleccione</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</form>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var IdUbigeo = @Html.Raw(Json.Serialize(ViewBag.Ubigeo));
+            const dpto = [...new Map(IdUbigeo.map(function (a) { return { id_Departamento: a.id_Departamento, departamento: a.departamento } }).map(a => [a.id_Departamento, a])).values()];
+            dpto.sort((a, b) => {
+                if (a.departamento.toLowerCase() < b.departamento.toLowerCase()) { return -1; }
+                if (a.departamento.toLowerCase() > b.departamento.toLowerCase()) { return 1; }
+                return 0;
+            });
+            dpto.forEach(function (o, t) { $("#cboDepartamento").append('<option value="' + o.id_Departamento + '">' + o.departamento + "</option>") });
+            $("#cboDepartamento").on("change", function () {
+                var data = IdUbigeo.filter(o => o.id_Departamento == $("#cboDepartamento").val());
+                const prov = [...new Map(data.map(function (o) { return { id_Provincia: o.id_Provincia, provincia: o.provincia } }).map(o => [o.id_Provincia, o])).values()];
+                prov.sort((a, b) => {
+                    if (a.provincia.toLowerCase() < b.provincia.toLowerCase()) { return -1; }
+                    if (a.provincia.toLowerCase() > b.provincia.toLowerCase()) { return 1; }
+                    return 0;
+                });
+                $("#cboProvincia").empty();
+                $("#cboProvincia").append('<option value="0">Seleccione</option>');
+                prov.forEach(function (o, i) { $("#cboProvincia").append('<option value="' + o.id_Provincia + '">' + o.provincia + "</option>") })
+                $("#vUbigeo").val($("#cboDepartamento").val());
+            });
+
+            $('#cboProvincia').on('change', function () {
+                var data = IdUbigeo.filter(x => x.id_Provincia == $('#cboProvincia').val());
+                const dist = [...new Map(data.map(function (o) { return { id_Distrito: o.id_Distrito, distrito: o.distrito } }).map(o => [o.id_Distrito, o])).values()];
+                dist.sort((a, b) => {
+                    if (a.distrito.toLowerCase() < b.distrito.toLowerCase()) { return -1; }
+                    if (a.distrito.toLowerCase() > b.distrito.toLowerCase()) { return 1; }
+                    return 0;
+                });
+                $('#cboDistrito').empty();
+                $('#cboDistrito').append('<option value="0">Seleccione</option>');
+                dist.forEach(function (o, i) { $('#cboDistrito').append('<option value="' + o.id_Distrito + '">' + o.distrito + '</option>') })
+                if ($("#cboProvincia").val() === '0')
+                    $("#vUbigeo").val($("#cboDepartamento").val());
+                else
+                    $("#vUbigeo").val($("#cboProvincia").val());
+            });
+
+            $('#cboDistrito').on('change', function () {
+                var data = IdUbigeo.filter(x => x.id_Distrito == $('#cboDistrito').val());
+                if ($("#cboDistrito").val() === '0')
+                    $("#vUbigeo").val($("#cboProvincia").val());
+                else
+                    $("#vUbigeo").val($("#cboDistrito").val());
+            });
+
+        });
+
+
+    </script>
+}
+

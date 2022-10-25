@@ -17,5 +17,6 @@ namespace Minem.Sgpam.LogicaNegocio.Interfaces
         int AnularMaestraDTOPorCodigo(MaestraDTO vMaestraDTO);
         IEnumerable<MaestraDTO> ListarPaginadoMaestraDTO(string vFiltro, string vUbigeo, int vNumPag, int vCantRegxPag);
         RegistrarEumDTO RecuperarFullMaestraDTOPorCodigo(int vId_Eum);
+        IEnumerable<MaestraDTO> ListaAutocompletarMaestraDTO(string vFiltro);
     }
 }

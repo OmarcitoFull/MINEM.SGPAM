@@ -5,7 +5,7 @@
 
     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha (*)</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha (<font color="red">*</font>)</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
                 <input asp-for="Fecha_Desicion" type="date" class="form-control has-feedback-left" aria-describedby="inputSuccess2Status2">
             </div>
@@ -14,34 +14,34 @@
 
     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">PH (*)</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">PH (<font color="red">*</font>)</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
-                <input asp-for="Ph" type="number" class="form-control" max="99.9" min="-99.9" maxlength="4" oninput="fMaxLength(this)" asp-is-invariant="true" />
+                <input asp-for="Ph" type="number" class="form-control" max="99.9" min="-99.9" maxlength="4" oninput="fMaxLength(this)" asp-is-invariant="true" value="" placeholder="00.0" />
             </div>
         </div>
     </div>
 
     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Conductividad (*)</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Conductividad (<font color="red">*</font>)</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
-                <input asp-for="Conductividad" type="number" class="form-control" max="99999.9" min="-99999.9" maxlength="7" oninput="fMaxLength(this)" asp-is-invariant="true" />
+                <input asp-for="Conductividad" type="number" class="form-control" max="99999.9" min="-99999.9" maxlength="4" oninput="fMaxLength(this)" asp-is-invariant="true" value="" placeholder="00.0" />
             </div>
         </div>
     </div>
 
     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Caudal (*)</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Caudal (<font color="red">*</font>)</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
-                <input asp-for="Caudal" type="number" class="form-control" max="999" min="-999" maxlength="3" oninput="fMaxLength(this)" asp-is-invariant="true" />
+                <input asp-for="Caudal" type="number" class="form-control" max="999" min="-999" maxlength="3" oninput="fMaxLength(this)" asp-is-invariant="true" value="" placeholder="000" />
             </div>
         </div>
     </div>
 
     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Observación (*)</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Observación (<font color="red">*</font>)</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
                 <textarea asp-for="Observacion" class="form-controlArea " rows="3" maxlength="250"></textarea>
             </div>

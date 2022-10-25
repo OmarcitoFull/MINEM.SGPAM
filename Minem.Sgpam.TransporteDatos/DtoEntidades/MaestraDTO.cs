@@ -68,6 +68,9 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
 		public DateTime? Ult_Visita { get; set; }
 		public DateTime? Fecha_Informe { get; set; }
 		public string Nro_Informe { get; set; }
+		public string Region { get; set; }
+		public string Provincia { get; set; }
+		public string Distrito { get; set; }
 		#endregion
 	}
 }

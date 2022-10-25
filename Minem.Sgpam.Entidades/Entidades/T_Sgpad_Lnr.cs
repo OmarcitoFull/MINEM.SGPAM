@@ -48,6 +48,9 @@ namespace Minem.Sgpam.Entidades
 		public string FLG_ESTADO { get; set; }  
 			
 		public string DES_TIPO_LNR { get; set; }
+		public string REGION { get; set; }
+		public string PROVINCIA { get; set; }
+		public string DISTRITO { get; set; }
 
 		#endregion
 	}

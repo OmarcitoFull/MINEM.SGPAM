@@ -5,8 +5,8 @@
 
     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Cargo</label>
-            <div class="col-md-7 col-sm-7 col-xs-12">
+            <label class="control-label col-md-4 col-sm-4 col-xs-12">Cargo (<font color="red">*</font>)</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
                 <select id="vId_Cargo" class="select2_single form-control" asp-for="Id_Cargo" asp-items="(List<SelectListItem>)ViewBag.CboCargo">
                     <option value="">SELECCIONE</option>
                 </select>
@@ -16,36 +16,36 @@
 
     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">DNI:</label>
-            <div class="col-md-7 col-sm-7 col-xs-12">
-                <input type="text" asp-for="Dni" class="form-control" maxlength="10" placeholder="">
+            <label class="control-label col-md-4 col-sm-4 col-xs-12">DNI (<font color="red">*</font>)</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="text" asp-for="Dni" class="form-control" maxlength="8" placeholder="" onkeypress="return ValidaNumero(event)"> @*OnlyNumeric*@
             </div>
         </div>
     </div>
 
     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre y apellido:</label>
-            <div class="col-md-7 col-sm-7 col-xs-12">
-                <input type="text" asp-for="Nombre_Completo" class="form-control" maxlength="100" placeholder="">
+            <label class="control-label col-md-4 col-sm-4 col-xs-12">Nombre y apellido (<font color="red">*</font>)</label>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <input type="text" asp-for="Nombre_Completo" class="form-control" maxlength="50" placeholder="Juan Perez" onkeypress="return ValidaLetras(event)">
             </div>
         </div>
     </div>
 
     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Correo electrónico:</label>
-            <div class="col-md-7 col-sm-7 col-xs-12">
-                <input type="text" asp-for="Correo" class="form-control" maxlength="100" placeholder="">
+            <label class="control-label col-md-4 col-sm-4 col-xs-12">Correo electrónico </label>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <input type="text" asp-for="Correo" class="form-control" maxlength="50" placeholder="nombre@correo.com"> @*onkeypress="return validateEmail(event)"*@
             </div>
         </div>
     </div>
 
     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Contacto:</label>
-            <div class="col-md-7 col-sm-7 col-xs-12">
-                <input type="text" asp-for="Contacto" class="form-control" maxlength="100" placeholder="">
+            <label class="control-label col-md-4 col-sm-4 col-xs-12">Contacto</label>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <input type="text" asp-for="Contacto" class="form-control" maxlength="50" placeholder="" onkeypress="return ValidaLetras(event)" >
             </div>
         </div>
     </div>
@@ -72,4 +72,34 @@
     <div class="clearfix"></div>
 
 </div>
+
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            function OnlyNumeric(e) {
+                var key = e.which ? e.which : e.keyCode;
+                if ((key < 48 || key > 57)) {
+                    if (key == 8 || key == 46 || key == 0) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+            }
+
+        });
+
+        function onlyNumberKey(evt) {
+
+            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                return false;
+            return true;
+        }
+
+    </script>
+}
 

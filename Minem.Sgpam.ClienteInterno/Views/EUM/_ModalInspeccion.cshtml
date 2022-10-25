@@ -5,8 +5,8 @@
 
     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Inspector</label>
-            <div class="col-md-9 col-sm-9 col-xs-12">
+            <label class="control-label col-md-4 col-sm-4 col-xs-12">Inspector (<font color="red">*</font>)</label>
+            <div class="col-md-8 col-sm-8 col-xs-12">
                 <select id="vId_Inspector" class="select2_single form-control" asp-for="Id_Inspector" asp-items="(List<SelectListItem>)ViewBag.CboInspector">
                     <option value="">SELECCIONE</option>
                 </select>
@@ -16,8 +16,8 @@
 
     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha de Inspección</label>
-            <div class="col-md-9 col-sm-9 col-xs-12">
+            <label class="control-label col-md-4 col-sm-4 col-xs-12">Fecha de Inspección (<font color="red">*</font>)</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
                 <input asp-for="Fecha_Inspeccion" type="date" class="form-control has-feedback-left" placeholder="First Name" aria-describedby="inputSuccess2Status2">
             </div>
         </div>
@@ -25,8 +25,8 @@
 
     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Hora de Inspección</label>
-            <div class="col-md-9 col-sm-9 col-xs-12">
+            <label class="control-label col-md-4 col-sm-4 col-xs-12">Hora de Inspección</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
                 <input type="time" class="form-control" placeholder="">
             </div>
         </div>
@@ -34,8 +34,8 @@
 
     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Descripción del Clima:</label>
-            <div class="col-md-7 col-sm-7 col-xs-12">
+            <label class="control-label col-md-4 col-sm-4 col-xs-12">Descripción del Clima:</label>
+            <div class="col-md-8 col-sm-8 col-xs-12">
                 <input type="text" asp-for="Descripcion_Clima" class="form-control" maxlength="50" placeholder="">
             </div>
         </div>

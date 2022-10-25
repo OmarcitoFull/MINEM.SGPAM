@@ -1,5 +1,6 @@
 ﻿using Minem.Sgpam.TransporteDatos.Base;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Minem.Sgpam.TransporteDatos.DtoEntidades
 {
@@ -15,6 +16,8 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
 		public int Id_Visita { get; set; }
 		public int Id_Cargo { get; set; }
 		public string Dni { get; set; }
+		[Required]
+		[StringLength(100)]
 		public string Nombre_Completo { get; set; }
 		public string Correo { get; set; }
 		public string Contacto { get; set; }

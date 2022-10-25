@@ -2,7 +2,7 @@
 
 <div class="col-md-4 col-sm-12 col-xs-12 form-group">
     <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12">Unid. Hidrográfica</label>
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Unid. Hidrográfica (<font color="red">*</font>)</label>
         <div class="col-md-9 col-sm-9 col-xs-12">
             <input asp-for="Id_Cuenca_Hidro" class="form-control" max="99999999" min="-99999999" maxlength = "8" oninput="fMaxLength(this)"/>
         </div>
@@ -10,7 +10,7 @@
 </div>
 <div class="col-md-4 col-sm-12 col-xs-12 form-group">
     <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12">Región</label>
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Región (<font color="red">*</font>)</label>
         <div class="col-md-9 col-sm-9 col-xs-12">
             <select id="vId_Region" class="select2_single form-control" asp-for="Id_Region" asp-items="(List<SelectListItem>)ViewBag.CboRegion">
                 <option value="">SELECCIONE</option>
@@ -21,7 +21,7 @@
 </div>
 <div class="col-md-4 col-sm-12 col-xs-12 form-group">
     <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12">Provincia</label>
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Provincia (<font color="red">*</font>)</label>
         <div class="col-md-9 col-sm-9 col-xs-12">
             <select id="vId_Provincia" class="select2_single form-control" asp-for="Id_Provincia" asp-items="(List<SelectListItem>)ViewBag.CboProvincia">
                 <option value="">SELECCIONE</option>
@@ -32,7 +32,7 @@
 </div>
 <div class="col-md-4 col-sm-12 col-xs-12 form-group">
     <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12">Distrito</label>
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Distrito (<font color="red">*</font>)</label>
         <div class="col-md-9 col-sm-9 col-xs-12">
             <select id="vId_Distrito" class="select2_single form-control" asp-for="Id_Distrito" asp-items="(List<SelectListItem>)ViewBag.CboDistrito">
                 <option value="">SELECCIONE</option>
@@ -43,7 +43,7 @@
 </div>
 <div class="col-md-4 col-sm-12 col-xs-12 form-group">
     <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenca Pr. </label>
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenca Pr. (<font color="red">*</font>)</label>
         <div class="col-md-9 col-sm-9 col-xs-12">
             <select id="vId_Cuenca" class="select2_single form-control" asp-for="Id_Cuenca" asp-items="(List<SelectListItem>)ViewBag.CboCuencaPrincipal">
                 <option value="">SELECCIONE</option>

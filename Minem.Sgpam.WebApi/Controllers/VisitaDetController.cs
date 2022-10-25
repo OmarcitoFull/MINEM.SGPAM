@@ -54,4 +54,5 @@ namespace Minem.Sgpam.WebApi.Controllers
             return Visita_DetLN.RecuperarFullVisita_DetDTOPorCodigo(vId);
         }
     }
+
 }

@@ -36,19 +36,23 @@
                     <div class="clearfix"></div>
                     <br />
 
-                    <!-- sidebar menu -->
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section">
                             <ul class="nav side-menu">
-                                <li><a href="#"><i class="fa fa-address-card"></i> <span>  Administración </span></a></li>
-                                <li><a asp-controller="Expediente" asp-action="Index"><i class="fa fa-folder-open-o">  </i><span> Expediente </span></a></li>
-                                <li><a asp-controller="Visita" asp-action="Index"><i class="fa fa-calendar-check"></i><span> Programación </span></a></li>
-                                <li><a asp-controller="Eum" asp-action="Index"><i class="fa fa-archive"> </i><span> Ex. Unid. Minera </span></a></li>
-                                @*<li><a href="#"><i class="fa fa-line-chart">  </i><span> Reportes </span></a></li>*@
+                                @*<li><a href="#"><i class="fa fa-address-card"></i>                                      <span> Administración </span></a></li>*@
+                                <li><a asp-controller="Eum" asp-action="Index"><i class="fa fa-archive"> </i>           <span> Gestión de PAM </span></a></li>
+                                <li><a asp-controller="Expediente" asp-action="Index"><i class="fa fa-folder-open-o"></i><span> Gestión de LNR </span></a></li>
+                                <li><a asp-controller="Visita" asp-action="Index"><i class="fa fa-calendar-check"></i>  <span> Cronograma </span></a></li>
+                                <li>
+                                    <a href="#"><i class="fa fa-line-chart">  </i>                                      <span> Reportes </span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a asp-controller="Reporte" asp-action="InventarioPAM">Inventario de PAM</a></li>
+                                        <li><a asp-controller="Reporte" asp-action="InventarioLNR">Inventario de LNR</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                     </div>
-                    <!-- /sidebar menu -->
                 </div>
             </div>
 
@@ -89,11 +93,11 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Bienvenido</h2>
+                                    <h2>@ViewData["Title"]</h2>
                                     <ul class="nav navbar-right panel_toolbox">
-                                        <li>
-                                            <a href="#" class="bread">Home </a>
-                                        </li>
+                                        @*<li>
+                                                <a href="#" class="bread">Home </a>
+                                            </li>*@
                                         @*<li>
                                                 <a href="#" class="on"><i class="fa fa-chevron-right"></i> Reportes</a>
                                             </li>*@
@@ -113,7 +117,6 @@
 
         </div>
     </div>
-
     <script src="~/lib/moment/min/moment.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -138,6 +141,7 @@
     <script src="~/js/site.js"></script>
     <script src="~/js/alert.js"></script>
     <script src="~/js/botonesAlert.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

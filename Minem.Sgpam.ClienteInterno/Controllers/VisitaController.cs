@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -18,6 +19,7 @@ using System.Threading.Tasks;
 
 namespace Minem.Sgpam.ClienteInterno.Controllers
 {
+    [Authorize]
     public class VisitaController : Controller
     {
         private readonly ILogger<VisitaController> Logger;
@@ -158,29 +160,29 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             try
             {
-
+                Visita_DetDTO vRegistro = new Visita_DetDTO
+                {
+                    Id_Visita_Det = vId,
+                    Flg_Estado = Constantes.Inactivo,
+                    Fec_Modifica = DateTime.Now,
+                    Usu_Modifica = Constantes.GuestUser,
+                    Ip_Modifica = DnsFullNet.GetIp()
+                };
+                if (ModelState.IsValid)
+                {
+                    bool vResult;
+                    vResult = await Services<Visita_DetDTO>.Eliminar("VisitaDet/Remove", vRegistro);
+                    return Json(new ComponentResultModel { Operation = vResult ? Constantes.Ok : Constantes.Error });
+                }
+                else
+                    return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
             }
             catch (Exception ex)
             {
                 Logger.LogError(ex.Message, ex);
                 throw;
             }
-            Visita_DetDTO vRegistro = new Visita_DetDTO
-            {
-                Id_Visita_Det = vId,
-                Flg_Estado = Constantes.Inactivo,
-                Fec_Modifica = DateTime.Now,
-                Usu_Modifica = Constantes.GuestUser,
-                Ip_Modifica = DnsFullNet.GetIp()
-            };
-            if (ModelState.IsValid)
-            {
-                bool vResult;
-                vResult = await Services<Visita_DetDTO>.Eliminar("VisitaDet/Remove", vRegistro);
-                return Json(new ComponentResultModel { Operation = vResult ? Constantes.Ok : Constantes.Error });
-            }
-            else
-                return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+       
         }
         #endregion
 
@@ -252,6 +254,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
                 }
                 else
                     return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+
             }
             catch (Exception ex)
             {

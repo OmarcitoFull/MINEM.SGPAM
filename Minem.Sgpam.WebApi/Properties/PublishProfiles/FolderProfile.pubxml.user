@@ -5,6 +5,6 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\AppServicio</_PublishTargetUrl>
-    <History>True|2022-08-01T09:25:06.5059473Z;True|2022-07-01T16:17:55.2877245-05:00;True|2022-06-16T16:10:08.4778176-05:00;</History>
+    <History>True|2022-10-17T16:13:01.8099627Z;True|2022-09-22T08:13:58.3221261-05:00;True|2022-08-11T06:11:57.6108211-05:00;True|2022-08-01T04:25:06.5059473-05:00;True|2022-07-01T16:17:55.2877245-05:00;True|2022-06-16T16:10:08.4778176-05:00;</History>
   </PropertyGroup>
 </Project>

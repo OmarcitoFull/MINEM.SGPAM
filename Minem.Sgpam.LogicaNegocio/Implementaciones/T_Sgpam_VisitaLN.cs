@@ -133,7 +133,8 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
         {
             try
             {
-                var vRegistro = new T_Sgpam_Visita {
+                var vRegistro = new T_Sgpam_Visita
+                {
                     ID_VISITA = vVisitaDTO.Id_Visita,
                     UBIGEO = vVisitaDTO.Ubigeo,
                     FECHA_SALIDA = vVisitaDTO.Fecha_Salida,
@@ -197,14 +198,22 @@ namespace Minem.Sgpam.LogicaNegocio.Implementaciones
                     {
                         vEntidad = new VisitaDTO()
                         {
-                            Fecha_Regreso = item.FECHA_REGRESO,
+                            //Fecha_Regreso = item.FECHA_REGRESO,
                             Fecha_Salida = item.FECHA_SALIDA,
                             Id_Visita = item.ID_VISITA,
                             Ubigeo = item.UBIGEO,
                             Fec_Ingreso = item.FEC_INGRESO,
                             Flg_Estado = item.FLG_ESTADO,
                             Ip_Ingreso = item.IP_INGRESO,
-                            Usu_Ingreso = item.USU_INGRESO
+                            Usu_Ingreso = item.USU_INGRESO,
+
+                            Nro_Expediente = item.NRO_EXPEDIENTE,
+                            Nombre_Eum = item.EUM_DESCRIPCION,
+                            Declarante = item.DECLARANTE,
+                            TiempoSinVisita = item.TIEMPO_SIN_VISITA,
+                            Nom_Region = item.DEPARTAMENTO,
+                            Nom_Provincia = item.PROVINCIA,
+                            Nom_Distrito = item.DISTRITO
                         };
                         vLista.Add(vEntidad);
                     }

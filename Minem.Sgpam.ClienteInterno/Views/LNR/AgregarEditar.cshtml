@@ -21,7 +21,7 @@
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Tipo de LNR (*)</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Tipo de LNR (<font color="red">*</font>)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <select id="vId_Tipo_Lnr" class="select2_single form-control" asp-for="@Model.Lnr.Id_Tipo_Lnr" asp-items="(List<SelectListItem>)ViewBag.CboTipoLnr">
                         <option value="">SELECCIONE</option>
@@ -31,7 +31,7 @@
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Subtipo de LNR (*)</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Subtipo de LNR (<font color="red">*</font>)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <select id="vId_Sub_Tipo_Lnr" class="select2_single form-control" asp-for="@Model.Lnr.Id_Sub_Tipo_Lnr" asp-items="(List<SelectListItem>)ViewBag.CboSubTipoLnr">
                         <option value="">SELECCIONE</option>
@@ -64,7 +64,7 @@
         <h1 class="grupoT">2. Ubicación</h1>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Región (*)</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Región (<font color="red">*</font>)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <select id="vId_Region" class="select2_single form-control" asp-for="@Model.Lnr.Id_Region" asp-items="(List<SelectListItem>)ViewBag.CboRegion">
                         <option value="">SELECCIONE</option>
@@ -74,7 +74,7 @@
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Provincia (*)</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Provincia (<font color="red">*</font>)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <select id="vId_Provincia" class="select2_single form-control" asp-for="@Model.Lnr.Id_Provincia" asp-items="(List<SelectListItem>)ViewBag.CboProvincia">
                         <option value="">SELECCIONE</option>
@@ -84,7 +84,7 @@
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Distrito (*)</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Distrito (<font color="red">*</font>)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <select id="vId_Distrito" class="select2_single form-control" asp-for="@Model.Lnr.Id_Distrito" asp-items="(List<SelectListItem>)ViewBag.CboDistrito">
                         <option value="">SELECCIONE</option>
@@ -95,7 +95,7 @@
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Coordenada Este (*)</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Coordenada Este (<font color="red">*</font>)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <input type="number" asp-for="@Model.Lnr.Este" class="form-control" max="99999999.99" min="-99999999.99" maxlength="10" oninput="fMaxLength(this)" />
                 </div>
@@ -103,7 +103,7 @@
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Coordenada Norte (*)</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Coordenada Norte (<font color="red">*</font>)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <input type="number" asp-for="@Model.Lnr.Norte" class="form-control" max="99999999.99" min="-99999999.99" maxlength="10" oninput="fMaxLength(this)" />
                 </div>
@@ -111,7 +111,7 @@
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Zona (*)</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Zona (<font color="red">*</font>)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <select id="vZona" class="select2_single form-control" asp-for="@Model.Lnr.Id_Zona" asp-items="(List<SelectListItem>)ViewBag.CboZona">
                         <option value="">SELECCIONE</option>
@@ -383,7 +383,7 @@
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <div class="form-group">
-                <label class="control-label col-md-4 col-sm-4 col-xs-12">Temporalidad (*)</label>
+                <label class="control-label col-md-4 col-sm-4 col-xs-12">Temporalidad (<font color="red">*</font>)</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <select id="vId_Temporalidad" class="select2_single form-control" asp-for="@Model.Lnr.Id_Temporalidad" asp-items="(List<SelectListItem>)ViewBag.CboTemporalidad">
                         <option value="">Seleccione</option>
@@ -520,7 +520,7 @@
                 </li>
                 <li>
                     <div class="boton">
-                        <a href="@Url.Action("AgregarEditar", "Expediente", new { vId = Model.Lnr.Id_Expediente })">Cancelar  <i class="fa fa-ban"></i></a>
+                        <a href="@Url.Action("AgregarEditar", "Expediente", new { vId = Model.Lnr.Id_Expediente })">Retornar  <i class="fa fa-ban"></i></a>
                     </div>
                 </li>
             </ul>

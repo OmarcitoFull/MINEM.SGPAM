@@ -1,5 +1,6 @@
 using Minem.Sgpam.TransporteDatos.Base;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Minem.Sgpam.TransporteDatos.DtoEntidades
@@ -28,6 +29,16 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
 		public string Id_Region { get; set; }
 		public string Id_Provincia { get; set; }
 		public string Id_Distrito { get; set; }
+		public string Nro_Expediente { get; set; }
+		public string Nombre_Eum { get; set; }
+		public string Motivo { get; set; }
+		public string Obseravcion { get; set; }
+		public string Declarante { get; set; }
+		public string TiempoSinVisita { get; set; }
+		public string Nom_Region { get; set; }
+		public string Nom_Provincia { get; set; }
+		public string Nom_Distrito { get; set; }
+		public List<Visita_DetDTO> ListaVisitaDet { get; set; }
 
 		#endregion
 	}

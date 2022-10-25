@@ -30,6 +30,9 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
 		public int anio { get; set; }
 		public int Total_Lnr { get; set; }
 		public string Nro_Informe { get; set; }
+		//public string Region { get; set; }
+		//public string Provincia { get; set; }
+		//public string Distrito { get; set; }
 
 		#endregion
 	}

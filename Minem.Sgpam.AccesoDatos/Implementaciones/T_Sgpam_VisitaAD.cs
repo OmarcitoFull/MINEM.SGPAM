@@ -157,7 +157,21 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
                     OracleDataReader vRdr = vCmd.ExecuteReader();
                     while (vRdr.Read())
                     {
-                        vEntidad = new T_Sgpam_Visita(vRdr);
+                        vEntidad = new T_Sgpam_Visita() {
+                            ID_VISITA = Convert.ToInt32(vRdr["ID_VISITA"]),
+                            UBIGEO = Convert.ToString(vRdr["UBIGEO"]),
+                            FECHA_SALIDA = Convert.ToDateTime(vRdr["FECHA_SALIDA"]),
+                            //FECHA_REGRESO   = Convert.ToDateTime(vRdr["FECHA_REGRESO"]),
+                            MOTIVO = Convert.ToString(vRdr["MOTIVO"]),
+                            OBSERVACION = Convert.ToString(vRdr["OBSERVACION"]),
+                            DEPARTAMENTO = Convert.ToString(vRdr["DEPARTAMENTO"]),
+                            PROVINCIA = Convert.ToString(vRdr["PROVINCIA"]),
+                            DISTRITO = Convert.ToString(vRdr["DISTRITO"]),
+                            EUM_DESCRIPCION = Convert.ToString(vRdr["EUM_DESCRIPCION"]),
+                            NRO_EXPEDIENTE = Convert.ToString(vRdr["NRO_EXPEDIENTE"]),
+                            DECLARANTE = Convert.ToString(vRdr["DECLARANTE"]),
+                            TIEMPO_SIN_VISITA = Convert.ToString(vRdr["TIEMPO_SIN_VISITA"])
+                        };
                         //vEntidad.TotalVirtual = System.Convert.ToInt32(vRdr["TotalVirtual"]);
                         vLista.Add(vEntidad);
                     }

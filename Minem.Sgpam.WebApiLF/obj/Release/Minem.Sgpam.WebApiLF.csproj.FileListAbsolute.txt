@@ -90,3 +90,5 @@ D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApiLF\obj\Release\Minem.Sgpam.Web
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApiLF\obj\Release\Minem.Sgpam.WebApiLF.csproj.CopyComplete
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApiLF\obj\Release\Minem.Sgpam.WebApiLF.dll
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApiLF\obj\Release\Minem.Sgpam.WebApiLF.pdb
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApiLF\bin\System.Xml.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.WebApiLF\bin\System.Xml.Linq.dll

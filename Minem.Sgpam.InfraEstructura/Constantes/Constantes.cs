@@ -9,6 +9,8 @@
     {
         public const string BD = "OracleBD";
         public const string ServiceRoute = "ASPNETCORE.SGPAM";
+        public const string ServiceRouteLF = "ASPNETCORE.SGPAM.LS";
+
         public const string Ok = "OK";
         public const string Error = "ERROR";
         public const string Activo = "1";

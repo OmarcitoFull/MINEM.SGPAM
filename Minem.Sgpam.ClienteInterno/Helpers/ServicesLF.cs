@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using Minem.Sgpam.InfraEstructura;
 
 namespace Minem.Sgpam.ClienteInterno.Helpers
 {
@@ -13,7 +14,9 @@ namespace Minem.Sgpam.ClienteInterno.Helpers
     /// </summary>
     public class ServicesLF
     {
-        static string ApiPam = "http://localhost:63140/LF/ServicioLF/";
+        //static string ApiPam = Environment.GetEnvironmentVariable(Constantes.ServiceRouteLF);
+        static string ApiPam = "https://172.25.0.91//SIGEPAM_LF/";
+        //static string ApiPam = "http://localhost:63140/LF/ServicioLF/";
 
         public static async Task<string> ObtenerProceso(string vRouter)
         {

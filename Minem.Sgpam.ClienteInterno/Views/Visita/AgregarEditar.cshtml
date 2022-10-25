@@ -45,7 +45,7 @@
             <div class="form-group">
                 <label class="control-label col-md-4 col-sm-4 col-xs-12">Fecha Salida</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <input asp-for="@Model.Visita.Fecha_Salida" class="form-control" maxlength="100" />
+                    <input id="dtpFechaSalida" asp-for="@Model.Visita.Fecha_Salida" type="date" class="form-control" placeholder="01/01/2022" onkeypress="formatearFecha(this)" maxlength="10" />
                 </div>
             </div>
         </div>
@@ -53,7 +53,7 @@
             <div class="form-group">
                 <label class="control-label col-md-4 col-sm-4 col-xs-12">Fecha Regreso</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <input asp-for="@Model.Visita.Fecha_Regreso" class="form-control" maxlength="300" />
+                    <input id="dtpFechaRegreso"  asp-for="@Model.Visita.Fecha_Regreso" type="date" class="form-control" placeholder="01/01/2022" onkeypress="formatearFecha(this)" maxlength="10" />
                 </div>
             </div>
         </div>
@@ -220,7 +220,7 @@
                     @if (!Model.ListaVisitaPersona.Any())
                     {
                         <tr class="even pointer">
-                            <td class=" " colspan="5">No existen registros</td>
+                            <td class=" " colspan="6">No existen registros</td>
                         </tr>
                     }
                     else
@@ -314,7 +314,7 @@
 
 <!-- Modal 2 Eum - Expediente -->
 <div id="modal2" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-mg">
         <div class="modal-content">
             <form id="frmEumExpediente" data-ajax-method="POST" asp-controller="GrabarEumExpediente" asp-action="Visita" enctype="multipart/form-data" autocomplete="off" data-ajax="true">
                 <div class="rowGroup" id="fullEumExpediente">
@@ -326,7 +326,7 @@
 <!-- fin modal-->
 <!-- Modal 3 Visita Persona -->
 <div id="modal3" class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-mg">
         <div class="modal-content">
             <form id="frmVisitaPersona" data-ajax-method="POST" asp-controller="GrabarVisitaPersona" asp-action="Visita" enctype="multipart/form-data" autocomplete="off" data-ajax="true">
                 <div class="rowGroup" id="fullVisitaPersona">
@@ -343,6 +343,10 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
+            //$('#dtpFechaSalida').on('change', fn_validarRangoFecha());
+            $('#dtpFechaRegreso').on('change', fn_validarRangoFecha());
+
+            $('#dtpFechaSalida').on('change', function () {                fn_validarRangoFecha();            });
 
 
 
@@ -351,6 +355,11 @@
             $("#vId_Region").on("change", function () {
                 var data = IdUbigeo.filter(o => o.id_Departamento == $("#vId_Region").val());
                 const prov = [...new Map(data.map(function (o) { return { id_Provincia: o.id_Provincia, provincia: o.provincia } }).map(o => [o.id_Provincia, o])).values()];
+                prov.sort((a, b) => {
+                    if (a.provincia.toLowerCase() < b.provincia.toLowerCase()) { return -1; }
+                    if (a.provincia.toLowerCase() > b.provincia.toLowerCase()) { return 1; }
+                    return 0;
+                });
                 $("#vId_Provincia,#vId_Distrito").empty().append('<option value="0">SELECCIONE</option>');
                 prov.forEach(function (o, i) { $("#vId_Provincia").append('<option value="' + o.id_Provincia + '">' + o.provincia + "</option>") })
             });
@@ -358,6 +367,11 @@
             $("#vId_Provincia").on("change", function () {
                 var data = IdUbigeo.filter(x => x.id_Provincia == $("#vId_Provincia").val());
                 const dist = [...new Map(data.map(function (o) { return { id_Distrito: o.id_Distrito, distrito: o.distrito } }).map(o => [o.id_Distrito, o])).values()];
+                dist.sort((a, b) => {
+                    if (a.distrito.toLowerCase() < b.distrito.toLowerCase()) { return -1; }
+                    if (a.distrito.toLowerCase() > b.distrito.toLowerCase()) { return 1; }
+                    return 0;
+                });
                 $("#vId_Distrito").empty();
                 $("#vId_Distrito").append('<option value="0">SELECCIONE</option>');
                 dist.forEach(function (o, i) { $("#vId_Distrito").append('<option value="' + o.id_Distrito + '">' + o.distrito + '</option>') })
@@ -400,6 +414,7 @@
         ShowModal = function (vUrl, vBody) {
         $.get(vUrl + "?vIdVisita=@Model.Visita.Id_Visita", function (data) { $('#'+vBody).html(data) });
         }
+
 
         SaveEumExpediente = function () {
             $.post("@Url.Action("GrabarEumExpediente", "Visita")", $("#frmEumExpediente").serialize()).done(function (x)
@@ -491,6 +506,39 @@
             window.location = "@Url.Action("DescargarArchivo", "RegistrarPAM")?vKey=" + vKey + "&vName=" + vName;
         }
 
+        function formatearFecha(control) {
+            if (control.value.length == 2 || control.value.length == 5)
+                control.value = control.value + "/";
+        }
+
+        function fn_validarRangoFecha() {
+            var strfechaInicio = $('#dtpFechaSalida').val();
+            var strfechaFin = $('#dtpFechaRegreso').val();
+
+            if (strfechaInicio != '' && strfechaFin != '') {
+                if (!validarRangoFechas(strfechaInicio, strfechaFin)) {
+                    alert('La Fecha de Salida no puede ser mayor que la Fecha de Regreso.');
+                    $('#dtpFechaRegreso').val('');
+                    return false;
+                }
+            }
+        };
+
+        function validarRangoFechas(fechaInicio, fechaFin) {
+            var aFechaInicio = fechaInicio.split('-');
+            var aFechaFin    = fechaFin.split('-');
+
+            var fFechaInicio = Date.UTC(aFechaInicio[2], aFechaInicio[1] - 1, aFechaInicio[0]);
+            var fFechaFin    = Date.UTC(aFechaFin[2],    aFechaFin[1] - 1, aFechaFin[0]);
+
+            if (fFechaInicio > fFechaFin) {
+                return true;
+            } else {
+                return false;
+            }
+        };
 
     </script>
 }
+
+<script src="~/js/funciones.generales.js"></script>

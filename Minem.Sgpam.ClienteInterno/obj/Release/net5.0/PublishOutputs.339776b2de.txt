@@ -74,6 +74,7 @@ D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\Pu
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\InformacionGrafica\000007261\Baby-20220319-094633.jpg
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\js\alert.js
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\js\botonesAlert.js
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\js\funciones.generales.js
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\js\site.js
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\.bower.json
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\bower.json
@@ -900,9 +901,11 @@ D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\Pu
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\pdfmake\build\pdfmake.min.js.map
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\pdfmake\build\vfs_fonts.js
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\pdfmake\LICENSE
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Lnr\InfoDocumento\000000001\InformePAM_2022080509565682-20220825-072049.docx
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Lnr\InfoDocumento\000000006\Exp-2022-20220428-104806 (1)-20220609-165751.docx
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Lnr\InfoDocumento\000000006\Info16-20220701-151840.docx
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Lnr\InfoDocumento\000000013\Exp-2021-20220622-143205.docx
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Lnr\InfoGrafica\000000001\EQUI-20220825-071802.png
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Lnr\InfoGrafica\000000006\EQUIVALENCIAS-20220609-161113.png
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Lnr\InfoGrafica\000000006\EQUIVALENCIAS-20220609-161756.png
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Lnr\InfoGrafica\000000006\relacion PAM_RECONOCIMIENTO VISUAL-20220609-160643.png
@@ -916,6 +919,9 @@ D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\Pu
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Lnr\InfoGrafica\000000013\descarga-20220622-105556.jfif
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Lnr\InfoGrafica\000000013\descarga-20220622-105957.jfif
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Lnr\InfoGrafica\000000013\EQUI-20220622-114147.png
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Lnr\InfoGrafica\000000018\20220515-20221013-161110.jpg
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Lnr\InfoGrafica\000000018\Felpa-20220515-180510 (1)-20220922-060559.jpg
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Lnr\InfoGrafica\000000018\Felpa-20221016-040648.jpg
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Pam\EstadoAmbiental\000007261\Exp-2022-20220428-104806 (1)-20220613-213708.docx
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Pam\EstadoAmbiental\000007261\Exp-2022-20220428-104806.docx
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Pam\EstadoAmbiental\000007261\InventarioPAM- Final-20220607-173030.pdf
@@ -935,16 +941,14 @@ D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\Pu
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Pam\InformacionGrafica\000007261\rtrr8888-20220428-095314.png
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Pam\InformacionGrafica\000007261\rtrr8888-20220428-100109.png
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Pam\InformacionGrafica\000007361\Baby-20220215-221559-20220511-201023.jpg
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Pam\InformacionGrafica\004208766\Felpa-20221016-234429.jpg
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Pam\InformacionGrafica\004208766\Felpa-20221016-234901.jpg
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Pam\InformacionGrafica\004208766\OTRA_FOTO-20221016-234522.jpg
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Pam\InformacionGrafica\004208766\OTRA_FOTO-20221016-234758.jpg
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Pam\InformacionGrafica\004208766\OTRA_FOTO-20221016-235024.jpg
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Pam\InformacionGrafica\004208801\Felpa-20220515-180510 (3)-20220531-231108.jpg
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Pam\InformacionGrafica\004208841\UBICA-20220701-191021.jpg
-D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Reports\InformePAM_2022063023251839.docx
-D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Reports\InformePAM_2022063023281813.docx
-D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Reports\InformePAM_2022063023342957.docx
-D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Reports\InformePAM_2022063023510285.docx
-D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Reports\InformePAM_2022063023544724.docx
-D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Reports\InformePAM_2022070100362913.docx
-D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Reports\InformePAM_2022070111082333.docx
-D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Reports\InformePAM_2022070112141116.docx
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\wwwroot\Reports\InformePAM_2022082508594794.docx
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\appsettings.Development.json
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\appsettings.json
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\obj\Release\net5.0\PubTmp\Out\Minem.Sgpam.ClienteInterno.dll

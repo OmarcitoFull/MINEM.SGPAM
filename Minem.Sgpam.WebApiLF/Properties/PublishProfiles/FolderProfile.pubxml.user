@@ -5,14 +5,14 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\appLF</_PublishTargetUrl>
-    <History>True|2022-07-01T21:18:32.6828198Z;True|2022-06-16T15:46:18.9381409-05:00;</History>
+    <History>True|2022-10-17T13:31:57.2550179Z;True|2022-09-22T08:15:05.9445268-05:00;True|2022-08-25T08:32:19.0321810-05:00;True|2022-07-01T16:18:32.6828198-05:00;True|2022-06-16T15:46:18.9381409-05:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>07/01/2022 16:18:31</publishTime>
+      <publishTime>10/17/2022 08:31:55</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>07/01/2022 16:18:31</publishTime>
+      <publishTime>10/17/2022 08:31:55</publishTime>
     </File>
     <File Include="bin/es/System.Net.Http.Formatting.resources.dll">
       <publishTime>11/28/2018 08:00:46</publishTime>
@@ -39,16 +39,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/25/2012 06:48:56</publishTime>
     </File>
     <File Include="bin/Minem.Sgpam.SoporteLaserFiche.dll">
-      <publishTime>06/16/2022 15:46:11</publishTime>
+      <publishTime>10/17/2022 08:31:51</publishTime>
     </File>
     <File Include="bin/Minem.Sgpam.SoporteLaserFiche.pdb">
-      <publishTime>06/16/2022 15:46:11</publishTime>
+      <publishTime>10/17/2022 08:31:51</publishTime>
     </File>
     <File Include="bin/Minem.Sgpam.WebApiLF.dll">
-      <publishTime>07/01/2022 16:18:26</publishTime>
+      <publishTime>10/17/2022 08:31:51</publishTime>
     </File>
     <File Include="bin/Minem.Sgpam.WebApiLF.pdb">
-      <publishTime>07/01/2022 16:18:26</publishTime>
+      <publishTime>10/17/2022 08:31:51</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>04/22/2019 01:06:16</publishTime>
@@ -230,8 +230,14 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="bin/System.Web.WebPages.Razor.dll">
       <publishTime>04/11/2022 14:12:58</publishTime>
     </File>
+    <File Include="bin/System.Xml.dll">
+      <publishTime>03/26/2018 16:24:54</publishTime>
+    </File>
+    <File Include="bin/System.Xml.Linq.dll">
+      <publishTime>03/26/2018 16:24:54</publishTime>
+    </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/01/2022 16:18:28</publishTime>
+      <publishTime>10/17/2022 08:31:52</publishTime>
     </File>
     <File Include="Web.config">
       <publishTime>06/16/2022 15:46:12</publishTime>

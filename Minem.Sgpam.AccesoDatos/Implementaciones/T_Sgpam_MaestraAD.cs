@@ -202,5 +202,34 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             }
             return vLista;
         }
+
+        public IEnumerable<T_Sgpam_Maestra> ListarAutocompletarT_Sgpam_Maestra(string vFiltro)
+        {
+            List<T_Sgpam_Maestra> vLista = new List<T_Sgpam_Maestra>();
+            T_Sgpam_Maestra vEntidad;
+
+            using (OracleConnection vCnn = new OracleConnection(CnnString))
+            {
+                using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_MAESTRA.USP_LIS_AUT_MAESTRA", vCnn))
+                {
+                    vCmd.CommandType = CommandType.StoredProcedure;
+                    vCmd.Parameters.Add("pFILTRO", vFiltro);
+                    vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                    vCnn.Open();
+                    OracleDataReader vRdr = vCmd.ExecuteReader();
+                    while (vRdr.Read())
+                    {
+                        vEntidad = new T_Sgpam_Maestra() {
+                            ID_EUM = Convert.ToInt32(vRdr["ID_EUM"]),
+                            EUM_DESCRIPCION = Convert.ToString(vRdr["EUM_DESCRIPCION"])
+                        };
+                        vLista.Add(vEntidad);
+                    }
+                }
+                vCnn.Close();
+            }
+            return vLista;
+        }
+
     }
 }

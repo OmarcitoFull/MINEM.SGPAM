@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -22,6 +23,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
     /// Creado Por:	Omar Rodriguez Muñoz
     /// Fecha Creación:	01/12/2021
     /// </summary>
+    [Authorize]
     public class RegistrarPAMController : Controller
     {
         public IConfiguration Configuration { get; }

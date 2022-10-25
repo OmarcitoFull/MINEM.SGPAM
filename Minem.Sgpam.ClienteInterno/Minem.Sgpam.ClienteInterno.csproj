@@ -649,6 +649,10 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Open-XML-SDK" Version="2.9.1" />
     <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.8.*" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.8.*" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.8.*" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.8.*" />
   </ItemGroup>
 
   <ItemGroup>

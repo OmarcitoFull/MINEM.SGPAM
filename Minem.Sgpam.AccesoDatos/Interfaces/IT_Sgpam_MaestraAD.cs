@@ -16,5 +16,6 @@ namespace Minem.Sgpam.AccesoDatos.Interfaces
         T_Sgpam_Maestra ActualizarT_Sgpam_Maestra(T_Sgpam_Maestra vT_Sgpam_Maestra);
         int AnularT_Sgpam_MaestraPorCodigo(T_Sgpam_Maestra vT_Sgpam_Maestra);
         IEnumerable<T_Sgpam_Maestra> ListarPaginadoT_Sgpam_Maestra(string vFiltro, string vUbigeo, int vNumPag, int vCantRegxPag);
+        IEnumerable<T_Sgpam_Maestra> ListarAutocompletarT_Sgpam_Maestra(string vFiltro);
     }
 }

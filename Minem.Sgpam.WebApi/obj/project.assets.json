@@ -1502,11 +1502,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.WebApi\\Minem.Sgpam.WebApi.csproj",
+      "projectUniqueName": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.WebApi\\Minem.Sgpam.WebApi.csproj",
       "projectName": "Minem.Sgpam.WebApi",
-      "projectPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.WebApi\\Minem.Sgpam.WebApi.csproj",
+      "projectPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.WebApi\\Minem.Sgpam.WebApi.csproj",
       "packagesPath": "C:\\Users\\omar.rodriguez\\.nuget\\packages\\",
-      "outputPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.WebApi\\obj\\",
+      "outputPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1527,8 +1527,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.LogicaNegocio\\Minem.Sgpam.LogicaNegocio.csproj": {
-              "projectPath": "D:\\A FULLSOFT\\2021\\MINEM\\Publicado\\MINEM.SGPAM\\Minem.Sgpam.LogicaNegocio\\Minem.Sgpam.LogicaNegocio.csproj"
+            "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.LogicaNegocio\\Minem.Sgpam.LogicaNegocio.csproj": {
+              "projectPath": "D:\\A FULLSOFT\\2022\\MINEM\\Fuente\\MINEM.SGPAM\\Minem.Sgpam.LogicaNegocio\\Minem.Sgpam.LogicaNegocio.csproj"
             }
           }
         }
@@ -1566,7 +1566,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -166,6 +166,33 @@ namespace Minem.Sgpam.AccesoDatos.Implementaciones
             return vLista;
         }
 
+        public IEnumerable<T_Sgpam_Expediente> ListarAutocompletarT_Sgpam_Expediente(string vNroExp)
+        {
+            List<T_Sgpam_Expediente> vLista = new List<T_Sgpam_Expediente>();
+            T_Sgpam_Expediente vEntidad;
+
+            using (OracleConnection vCnn = new OracleConnection(CnnString))
+            {
+                using (OracleCommand vCmd = new OracleCommand("SIGEPAM.PKG_EXPEDIENTE.USP_LIS_AUT_EXPEDIENTE", vCnn))
+                {
+                    vCmd.CommandType = CommandType.StoredProcedure;
+                    vCmd.Parameters.Add("pNroExp", vNroExp);
+                    vCmd.Parameters.Add("c_Cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                    vCnn.Open();
+                    OracleDataReader vRdr = vCmd.ExecuteReader();
+                    while (vRdr.Read())
+                    {
+                        vEntidad = new T_Sgpam_Expediente() { 
+                            ID_EXPEDIENTE = Convert.ToInt32(vRdr["ID_EXPEDIENTE"]), 
+                            NRO_EXPEDIENTE = Convert.ToString(vRdr["NRO_EXPEDIENTE"])
+                        };
+                        vLista.Add(vEntidad);
+                    }
+                }
+                vCnn.Close();
+            }
+            return vLista;
+        }
 
     }
 }

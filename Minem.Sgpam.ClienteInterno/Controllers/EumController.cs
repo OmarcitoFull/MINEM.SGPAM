@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -18,6 +19,7 @@ using System.Threading.Tasks;
 
 namespace Minem.Sgpam.ClienteInterno.Controllers
 {
+    [Authorize]
     public class EumController : Controller
     {
         private readonly ILogger<EumController> Logger;
@@ -36,7 +38,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             {
                 ListarEumDTO vRecord = new ListarEumDTO();
                 vRecord.ListaEum = await Services<MaestraDTO>.Listar("Eum/ListarPaginadoMaestraDTO?vFiltro=" + vNombreEUM + "&vUbigeo=" + vUbigeo + "&vNumPag=" + 1 + "&vCantRegxPag=" + 10);
-                vRecord.ListaUbigeo = await Services<Ubigeo_IneiDTO>.Listar("Ubigeo/List_Ubigeo_Inei");                //Logger.LogInformation("PASO UBIGEO");
+                vRecord.ListaUbigeo = await Services<Ubigeo_IneiDTO>.Listar("Ubigeo/List_Ubigeo_Inei");               
                 ViewBag.Ubigeo = vRecord.ListaUbigeo;
                 return View(vRecord);
             }
@@ -169,6 +171,19 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         }
 
 
+        [HttpGet]
+        public async Task<JsonResult> ListaAutocompletar(string vPar)
+        {
+            List<MaestraDTO> lista = await Services<MaestraDTO>.Listar("Eum/ListaAutocompletar?vFiltro=" + vPar );
+            var listaRes = (from x in lista
+                            select new
+                            {
+                                label = x.Eum_Descripcion,
+                                id = x.Id_Eum
+                            }).ToList();
+            return Json(listaRes);
+        }
+
 
         #region Inspeccion
         [HttpGet]
@@ -184,7 +199,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
                 //});
                 ViewBag.CboInspector = vRecord.CboInspector.ConvertAll(x =>
                 {
-                    return new SelectListItem() { Text = x.Nombre_Completo, Value = x.Id_Inspector.ToString() };
+                    return new SelectListItem() { Text = x.Nombre_Completo.ToUpper(), Value = x.Id_Inspector.ToString() };
                 });
                 return PartialView("_ModalInspeccion", vRecord.Eum_Inspeccion);
             }
@@ -257,22 +272,35 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             try
             {
-                RegistrarTipoOperacionDTO vRegistro1 = new RegistrarTipoOperacionDTO();
-                vRegistro1.ListaTipoOperacion = await Services<Tipo_OperacionDTO>.Listar("TipoOperacion/ListSinIdEum?vIdEum=" + vIdEum);
-                //vRegistro.Id_Eum =  vIdEum;
-                RegistrarEumOperacionDTO vRegistro = new RegistrarEumOperacionDTO();
-                List<Eum_OperacionDTO> vLista = new List<Eum_OperacionDTO>();
+                //RegistrarTipoOperacionDTO vRegistro1 = new RegistrarTipoOperacionDTO();
+                //vRegistro1.ListaTipoOperacion = await Services<Tipo_OperacionDTO>.Listar("TipoOperacion/ListSinIdEum?vIdEum=" + vIdEum);
+                //RegistrarEumOperacionDTO vRegistro = new RegistrarEumOperacionDTO();
+                //List<Eum_OperacionDTO> vLista = new List<Eum_OperacionDTO>();
+                //Eum_OperacionDTO vEum_Operacion;
+                //foreach (var item in vRegistro1.ListaTipoOperacion)
+                //{
+                //    vEum_Operacion = new Eum_OperacionDTO();
+                //    vEum_Operacion.Id_Eum_Operacion = 0;
+                //    vEum_Operacion.Id_Eum = vIdEum;
+                //    vEum_Operacion.Id_Tipo_Operacion = item.Id_Tipo_Operacion;
+                //    vEum_Operacion.Tipo_Operacion = item.Descripcion;
+                //    vLista.Add(vEum_Operacion);
+                //}
+                //vRegistro.ListaEumOperacion = vLista;
+                List<Tipo_OperacionDTO> vListaTipoOperacion = new List<Tipo_OperacionDTO>();
+                vListaTipoOperacion = await Services<Tipo_OperacionDTO>.Listar("TipoOperacion/ListSinIdEum?vIdEum=" + vIdEum);
+                List<Eum_OperacionDTO> vRegistro = new List<Eum_OperacionDTO>();
                 Eum_OperacionDTO vEum_Operacion;
-                foreach (var item in vRegistro1.ListaTipoOperacion)
+                foreach (var item in vListaTipoOperacion)
                 {
                     vEum_Operacion = new Eum_OperacionDTO();
                     vEum_Operacion.Id_Eum_Operacion = 0;
                     vEum_Operacion.Id_Eum = vIdEum;
                     vEum_Operacion.Id_Tipo_Operacion = item.Id_Tipo_Operacion;
                     vEum_Operacion.Tipo_Operacion = item.Descripcion;
-                    vLista.Add(vEum_Operacion);
+                    vRegistro.Add(vEum_Operacion);
                 }
-                vRegistro.ListaEumOperacion = vLista;
+
                 return PartialView("_ModalTipoOperacion", vRegistro);
             }
             catch (Exception ex)
@@ -321,6 +349,35 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             }
 
         }
+
+        [HttpPost]
+        public async Task<JsonResult> SaveEumOperacion(int vId, int vIdEum)
+        {
+            try
+            {
+                Eum_OperacionDTO vEum_Operacion = new Eum_OperacionDTO();
+                vEum_Operacion.Id_Eum_Operacion = 0;
+                vEum_Operacion.Id_Eum = vIdEum;
+                vEum_Operacion.Id_Tipo_Operacion = vId;
+                vEum_Operacion.Flg_Estado = Constantes.Activo;
+                vEum_Operacion.Fec_Ingreso = vEum_Operacion.Fec_Modifica = DateTime.Now;
+                vEum_Operacion.Usu_Ingreso = vEum_Operacion.Usu_Modifica = Constantes.GuestUser;
+                vEum_Operacion.Ip_Ingreso = vEum_Operacion.Ip_Modifica = DnsFullNet.GetIp();
+                if (ModelState.IsValid)
+                {
+                    vEum_Operacion = await Services<Eum_OperacionDTO>.Grabar("EumOperacion/Save", vEum_Operacion);
+                    return Json(new ComponentResultModel { Operation = vEum_Operacion.Id_Eum_Operacion > 0 ? Constantes.Ok : Constantes.Error });
+                }
+                else
+                    return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.Message, ex);
+                throw;
+            }
+        }
+        
 
         [HttpPost]
         public async Task<JsonResult> RemoveEumOperacion(int vId)
@@ -448,6 +505,36 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             else
             {
                 return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+            }
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> RemoveInfoGrafica(int vId)
+        {
+            try
+            {
+                Eum_Info_GraficaDTO vRegistro = new Eum_Info_GraficaDTO
+                {
+                    Id_Eum_Info_Grafica = vId,
+                    Flg_Estado = Constantes.Inactivo,
+                    Fec_Modifica = DateTime.Now,
+                    Usu_Modifica = Constantes.GuestUser,
+                    Ip_Modifica = DnsFullNet.GetIp()
+                };
+                if (ModelState.IsValid)
+                {
+                    bool vResult;
+                    vResult = await Services<Eum_Info_GraficaDTO>.Eliminar("InfoGrafica/Remove", vRegistro);
+                    return Json(new ComponentResultModel { Operation = vResult ? Constantes.Ok : Constantes.Error });
+                }
+                else
+                    return Json(new ComponentResultModel() { Type = TipoErr.MODEL });
+
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.Message, ex);
+                throw;
             }
         }
         #endregion

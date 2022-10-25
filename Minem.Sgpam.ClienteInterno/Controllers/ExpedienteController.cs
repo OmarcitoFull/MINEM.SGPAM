@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -18,6 +19,7 @@ using System.Threading.Tasks;
 
 namespace Minem.Sgpam.ClienteInterno.Controllers
 {
+    [Authorize]
     public class ExpedienteController : Controller
     {
         private readonly ILogger<ExpedienteController> Logger;
@@ -98,6 +100,19 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             }
         }
 
+
+        [HttpGet]
+        public async Task<JsonResult> ListaAutocompletar(string vPar)
+        {
+            List<ExpedienteDTO> lista = await Services<ExpedienteDTO>.Listar("Expediente/ListaAutocompletar?vFiltro=" + vPar);
+            var listaRes = (from x in lista
+                            select new
+                            {
+                                label = x.Nro_Expediente,
+                                id = x.Id_Expediente
+                            }).ToList();
+            return Json(listaRes);
+        }
 
 
     }

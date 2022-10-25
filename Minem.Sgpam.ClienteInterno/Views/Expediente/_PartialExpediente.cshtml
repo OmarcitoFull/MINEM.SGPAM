@@ -34,6 +34,9 @@
                         <td class=" col-lg-1 ">@item.Nro_Expediente</td>
                         <td class=" col-lg-2 ">@item.Zona</td>
                         <td class=" col-lg-1 ">@item.Fec_Ingreso</td>
+                        @*<td class=" col-lg-1 ">@item.Region</td>
+                        <td class=" col-lg-1 ">@item.Provincia</td>
+                        <td class=" col-lg-1 ">@item.Distrito</td>*@
                         <td class=" col-lg-2 ">@item.Declarante</td>
                         <td class=" col-lg-1 ">@item.Total_Lnr</td>
                         <td class=" col-lg-1 ">@item.Nro_Informe</td>
@@ -45,10 +48,10 @@
                                     </div>
                                 </li>
                                 @*<li>
-                                    <div class="boton2">
-                                        <a asp-action="AgregarEliminar" asp-route-vId="@item.Id_Expediente" title="Eliminar Registro"><i class="fas fa-trash"></i></a>
-                                    </div>
-                                </li>*@
+                                <div class="boton2">
+                                    <a asp-action="AgregarEliminar" asp-route-vId="@item.Id_Expediente" title="Eliminar Registro"><i class="fas fa-trash"></i></a>
+                                </div>
+                            </li>*@
                             </ul>
                         </td>
                     </tr>

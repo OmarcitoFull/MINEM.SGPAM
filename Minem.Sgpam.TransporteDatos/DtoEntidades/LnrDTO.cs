@@ -15,7 +15,7 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
 		public int Id_Lnr { get; set; }
 		[Required]
 		public int Id_Expediente { get; set; }
-		[Required]
+		//[Required]
 		public string Nro_Expediente { get; set; }
 		public string Codigo_Declarado { get; set; }
 		[Required]
@@ -57,7 +57,7 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
 		public bool Eva_Posibilidad { get; set; }
 		public bool Eva_Potencial { get; set; }
 		public bool Eva_Elemento { get; set; }
-		[Required]
+		//[Required]
 		public DateTime Fec_Registro { get; set; }
 		public string Nom_Declarante { get; set; }
 		public string Usu_Ingreso { get; set; }  		public DateTime? Fec_Ingreso { get; set; }
@@ -70,6 +70,10 @@ namespace Minem.Sgpam.TransporteDatos.DtoEntidades
 		public string Id_Provincia { get; set; }
 		public string Id_Distrito { get; set; }
 		public string Des_Tipo_Lnr { get; set; }
+
+		public string Region { get; set; }
+		public string Provincia { get; set; }
+		public string Distrito { get; set; }
 		#endregion
 	}
 }

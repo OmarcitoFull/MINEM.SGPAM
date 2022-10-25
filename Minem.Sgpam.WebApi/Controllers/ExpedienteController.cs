@@ -43,5 +43,11 @@ namespace Minem.Sgpam.WebApi.Controllers
             return Expediente_LN.ListarPaginadoExpedienteDTO(vNroExp, vZona, vUbigeo, vNumPag, vCantRegxPag);
         }
 
+        [HttpGet("ListaAutocompletar")]
+        public IEnumerable<ExpedienteDTO> ListaAutocompletarExpedienteDTO(string vFiltro)
+        {
+            return Expediente_LN.ListaAutocompletarExpedienteDTO(vFiltro);
+        }
+
     }
 }

@@ -12,3 +12,10 @@ D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\obj\Release\Minem.
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\obj\Release\Minem.Sgpam.SoporteLaserFiche.csproj.CopyComplete
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\obj\Release\Minem.Sgpam.SoporteLaserFiche.dll
 D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\obj\Release\Minem.Sgpam.SoporteLaserFiche.pdb
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\bin\Release\Microsoft.CSharp.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\bin\Release\System.Data.DataSetExtensions.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\bin\Release\System.Data.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\bin\Release\System.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\bin\Release\System.Net.Http.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\bin\Release\System.Xml.dll
+D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.SoporteLaserFiche\bin\Release\System.Xml.Linq.dll
