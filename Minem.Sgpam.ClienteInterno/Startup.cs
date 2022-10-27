@@ -24,6 +24,8 @@ namespace Minem.Sgpam.ClienteInterno
         {
             Environment.SetEnvironmentVariable(Constantes.ServiceRouteLF, Configuration.GetValue<string>("BackEndConfig:UrlApiLF"));
             Environment.SetEnvironmentVariable(Constantes.ServiceRoute, Configuration.GetValue<string>("BackEndConfig:UrlApi"));
+            Environment.SetEnvironmentVariable(Constantes.KeyApp, Configuration.GetValue<string>("BackEndConfig:KeyApp"));
+            Environment.SetEnvironmentVariable(Constantes.IntranetWeb, Configuration.GetValue<string>("BackEndConfig:IntranetWeb"));
             vServices.Configure<RequestLocalizationOptions>(vOption => {
                 vOption.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");
                 vOption.SupportedCultures = vOption.SupportedUICultures = new[] { new CultureInfo("en"), new CultureInfo("pe") };
@@ -52,8 +54,9 @@ namespace Minem.Sgpam.ClienteInterno
             //vApp.UseDeveloperExceptionPage();
             vApp.UseStaticFiles();
             vApp.UseRouting();
-            vApp.UseRequestLocalization(vApp.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>().Value);
+            vApp.UseAuthentication();
             vApp.UseAuthorization();
+            vApp.UseRequestLocalization(vApp.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>().Value);
             vApp.UseEndpoints(ep => { ep.MapControllerRoute(name: "default", pattern: "{controller=Intro}/{action=Index}/{id?}"); });
         }
     }

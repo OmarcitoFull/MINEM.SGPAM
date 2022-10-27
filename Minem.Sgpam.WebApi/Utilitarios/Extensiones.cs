@@ -281,6 +281,8 @@ namespace Minem.Sgpam.WebApi
             vServices.AddTransient<IT_Sgpad_Comp_Est_AmbAD, T_Sgpad_Comp_Est_AmbAD>();
             vServices.AddTransient<IT_Sgpad_Comp_Est_AmbLN, T_Sgpad_Comp_Est_AmbLN>();
 
+            vServices.AddTransient<IV_SeguridadAD, V_SeguridadAD>();
+            vServices.AddTransient<IV_SeguridadLN, V_SeguridadLN>();
         }
     }
 }

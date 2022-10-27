@@ -1,0 +1,23 @@
+﻿@model string
+@{
+    ViewData["Title"] = "Roles del Usuario";
+}
+
+<select id="cboFullRoles" class="select2_single form-control" asp-items="(List<SelectListItem>)ViewBag.CboRoles">
+    <option value="">SELECCIONE</option>
+</select>
+<input id="Usuario" name="Usuario" type="hidden" value="@Model.ToString()">
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#cboFullRoles").on("change", function () {
+                if ($("#cboFullRoles").val().trim().length > 0) {
+                    window.location.href = "@Url.Action("Rol", "Intro", new { Usuario = Model.ToString() })" + "&Rol=" + $("#cboFullRoles").val()
+                    @*$.get("@Url.Action("Rol", "Intro", new { Usuario = Model.ToString() })" + "&Rol=" + $("#cboFullRoles").val() );*@
+                    /*alert($("#cboFullRoles").val());*/
+                }
+            });
+        });
+    </script>
+}

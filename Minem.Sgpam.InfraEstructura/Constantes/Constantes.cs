@@ -10,6 +10,9 @@
         public const string BD = "OracleBD";
         public const string ServiceRoute = "ASPNETCORE.SGPAM";
         public const string ServiceRouteLF = "ASPNETCORE.SGPAM.LS";
+        public const string KeyApp = "666";
+        public const string IntranetWeb = "http://intranet.minem.gob.pe";
+        
 
         public const string Ok = "OK";
         public const string Error = "ERROR";

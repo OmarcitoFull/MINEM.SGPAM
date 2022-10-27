@@ -40,16 +40,17 @@
                         <div class="menu_section">
                             <ul class="nav side-menu">
                                 @*<li><a href="#"><i class="fa fa-address-card"></i>                                      <span> Administración </span></a></li>*@
-                                <li><a asp-controller="Eum" asp-action="Index"><i class="fa fa-archive"> </i>           <span> Gestión de PAM </span></a></li>
+                                <li><a asp-controller="Eum" asp-action="Index"><i class="fa fa-archive"> </i> <span> Gestión de PAM </span></a></li>
                                 <li><a asp-controller="Expediente" asp-action="Index"><i class="fa fa-folder-open-o"></i><span> Gestión de LNR </span></a></li>
-                                <li><a asp-controller="Visita" asp-action="Index"><i class="fa fa-calendar-check"></i>  <span> Cronograma </span></a></li>
+                                <li><a asp-controller="Visita" asp-action="Index"><i class="fa fa-calendar-check"></i> <span> Cronograma </span></a></li>
                                 <li>
-                                    <a href="#"><i class="fa fa-line-chart">  </i>                                      <span> Reportes </span></a>
+                                    <a href="#"><i class="fa fa-line-chart">  </i> <span> Reportes </span></a>
                                     <ul class="nav child_menu">
                                         <li><a asp-controller="Reporte" asp-action="InventarioPAM">Inventario de PAM</a></li>
                                         <li><a asp-controller="Reporte" asp-action="InventarioLNR">Inventario de LNR</a></li>
                                     </ul>
                                 </li>
+                                <li><a asp-controller="Intro" asp-action="SignOff"><i class="fa fa-calendar-check"></i> <span> Cerrar Sesión </span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -72,10 +73,21 @@
                             <div class="title_right">
                                 <div align="right" class="col-md-12 col-sm-12 col-xs-12 form-group pull-right top_search">
                                     <div class="input-group">
-                                        <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                            <img src="~/images/img.jpg" alt="">Mateo Salvador P.
-                                            <span class=" fa fa-angle-down"></span>
-                                        </a>
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                <img src="~/images/img.jpg" alt=""> @( ((System.Security.Claims.ClaimsIdentity)User.Identity).FindFirst("UserName").Value)
+                                                <span class=" fa fa-angle-down"></span>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                <img src="~/images/img.jpg" alt="">Usuario no autenticado
+                                                <span class=" fa fa-angle-down"></span>
+                                            </a>
+                                        }
+
                                     </div>
                                 </div>
                             </div>
