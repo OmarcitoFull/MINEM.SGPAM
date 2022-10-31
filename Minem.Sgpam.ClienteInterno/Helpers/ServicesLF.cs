@@ -14,9 +14,7 @@ namespace Minem.Sgpam.ClienteInterno.Helpers
     /// </summary>
     public class ServicesLF
     {
-        //static string ApiPam = Environment.GetEnvironmentVariable(Constantes.ServiceRouteLF);
-        static string ApiPam = "https://172.25.0.91//SIGEPAM_LF/";
-        //static string ApiPam = "http://localhost:63140/LF/ServicioLF/";
+        static string ApiPam = Environment.GetEnvironmentVariable(Constantes.ServiceRouteLF);
 
         public static async Task<string> ObtenerProceso(string vRouter)
         {

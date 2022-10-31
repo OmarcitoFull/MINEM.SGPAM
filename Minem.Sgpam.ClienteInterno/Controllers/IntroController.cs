@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Threading.Tasks;
 using WCFSeguridad;
 
@@ -18,7 +19,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
     public class IntroController : Controller
     {
         [HttpGet]
-        public async Task<IActionResult> Index(string Usuario = "22543420454344704748208510363511850513566516256517182518096519550520976523661523744526668524480525908528006529187530932532395533696534983536784538979")
+        public async Task<IActionResult> Index(string Usuario = "2254250844446460754729649399510902512614515240516214517168518630520064522705522848525724523664525092527170528359530096531559532864534155536120537232")
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -43,7 +44,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
 
                     if (!string.IsNullOrEmpty(vSessionName))
                     {
-                        var vRecord = await Services<SessionUserDto>.Obtener("FullSecurity/GeUserRoles?vAplicacion=" + vRootSystem.ID_Sistema + "&vUsuario=" + "ORODRIGUEZ");
+                        var vRecord = await Services<SessionUserDto>.Obtener("FullSecurity/GeUserRoles?vAplicacion=" + vRootSystem.ID_Sistema + "&vUsuario=" + vSessionName);
 
                         if (vRecord.Roles.Any())
                         {
@@ -59,6 +60,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
                                     ExpiresUtc = DateTime.Now.AddHours(8),
                                     IsPersistent = true
                                 });
+
                                 return RedirectToAction("Index", "Home");
                             }
                             else
@@ -78,7 +80,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Rol(string Usuario = "22543420454344704748208510363511850513566516256517182518096519550520976523661523744526668524480525908528006529187530932532395533696534983536784538979", int Rol = 0)
+        public async Task<IActionResult> Rol(string Usuario = "2254250844446460754729649399510902512614515240516214517168518630520064522705522848525724523664525092527170528359530096531559532864534155536120537232", int Rol = 0)
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -103,7 +105,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
 
                     if (!string.IsNullOrEmpty(vSessionName))
                     {
-                        var vRecord = await Services<SessionUserDto>.Obtener("FullSecurity/GeUserRoles?vAplicacion=" + vRootSystem.ID_Sistema + "&vUsuario=" + "ORODRIGUEZ");
+                        var vRecord = await Services<SessionUserDto>.Obtener("FullSecurity/GeUserRoles?vAplicacion=" + vRootSystem.ID_Sistema + "&vUsuario=" + vSessionName);
 
                         if (vRecord.Roles.Any())
                         {
@@ -121,6 +123,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
                                     ExpiresUtc = DateTime.Now.AddHours(8),
                                     IsPersistent = true
                                 });
+
                                 return RedirectToAction("Index", "Home");
                             }
                         }

@@ -1,0 +1,671 @@
+2022-10-28 08:36:02.870 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 08:36:03.163 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 08:36:03.164 -05:00 [INF] Hosting environment: Development
+2022-10-28 08:36:03.164 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 08:36:03.187 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 08:36:03.239 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 08:36:03.285 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 10:32:14.457 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 10:32:14.828 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 10:32:14.829 -05:00 [INF] Hosting environment: Development
+2022-10-28 10:32:14.829 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 10:32:14.850 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 10:32:14.893 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 10:32:14.932 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 10:32:19.349 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 10:32:19.354 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 4417.8659ms
+2022-10-28 10:32:19.355 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 10:32:19.368 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 4520.2485ms
+2022-10-28 10:39:47.553 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 10:39:47.897 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 10:39:47.897 -05:00 [INF] Hosting environment: Development
+2022-10-28 10:39:47.898 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 10:39:47.925 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 10:39:47.973 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 10:39:48.017 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 10:39:49.799 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 10:39:49.802 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 1782.2162ms
+2022-10-28 10:39:49.803 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 10:39:49.812 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 1888.3916ms
+2022-10-28 10:44:46.848 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 10:44:47.170 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 10:44:47.171 -05:00 [INF] Hosting environment: Development
+2022-10-28 10:44:47.171 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 10:44:47.193 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 10:44:47.232 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 10:44:47.267 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 10:44:49.437 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 10:44:49.440 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 2169.9619ms
+2022-10-28 10:44:49.442 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 10:44:49.450 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 2258.7519ms
+2022-10-28 10:49:10.185 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 10:49:10.500 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 10:49:10.500 -05:00 [INF] Hosting environment: Development
+2022-10-28 10:49:10.500 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 10:49:10.520 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 10:49:10.568 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 10:49:10.612 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 10:49:13.013 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 10:49:13.017 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 2401.4574ms
+2022-10-28 10:49:13.018 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 10:49:13.026 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 2507.7355ms
+2022-10-28 10:53:10.883 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 10:53:11.171 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 10:53:11.171 -05:00 [INF] Hosting environment: Development
+2022-10-28 10:53:11.172 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 10:53:11.192 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 10:53:11.237 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 10:53:11.272 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 10:55:05.903 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 10:55:05.907 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 114631.5123ms
+2022-10-28 10:55:05.908 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 10:55:05.920 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 114729.8715ms
+2022-10-28 11:07:27.635 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 11:07:27.928 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 11:07:27.928 -05:00 [INF] Hosting environment: Development
+2022-10-28 11:07:27.928 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 11:07:27.952 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 11:07:27.994 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:07:28.032 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 11:08:57.726 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 11:08:57.729 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 89694.6431ms
+2022-10-28 11:08:57.730 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:08:57.742 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 89791.6495ms
+2022-10-28 11:12:08.681 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 11:12:08.979 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 11:12:08.980 -05:00 [INF] Hosting environment: Development
+2022-10-28 11:12:08.980 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 11:12:09.002 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 11:12:09.042 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:12:09.079 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 11:12:13.079 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 11:12:13.082 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 3999.2475ms
+2022-10-28 11:12:13.083 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:12:13.096 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 4096.4608ms
+2022-10-28 11:13:11.660 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 11:13:12.010 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 11:13:12.010 -05:00 [INF] Hosting environment: Development
+2022-10-28 11:13:12.010 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 11:13:12.032 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 11:13:12.077 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:13:12.114 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 11:13:15.896 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 11:13:15.900 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 3782.7267ms
+2022-10-28 11:13:15.901 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:13:15.910 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 3879.3155ms
+2022-10-28 11:21:23.262 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 11:21:23.562 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 11:21:23.563 -05:00 [INF] Hosting environment: Development
+2022-10-28 11:21:23.563 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 11:21:23.586 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 11:21:23.630 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:21:23.669 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 11:21:26.896 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 11:21:26.899 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 3227.7563ms
+2022-10-28 11:21:26.901 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:21:26.909 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 3325.9121ms
+2022-10-28 11:30:27.958 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 11:30:28.299 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 11:30:28.299 -05:00 [INF] Hosting environment: Development
+2022-10-28 11:30:28.299 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 11:30:28.321 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 11:30:28.364 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:30:28.404 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 11:30:31.007 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 11:30:31.010 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 2603.551ms
+2022-10-28 11:30:31.012 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:30:31.024 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 2704.3578ms
+2022-10-28 11:33:37.616 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 11:33:37.886 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 11:33:37.887 -05:00 [INF] Hosting environment: Development
+2022-10-28 11:33:37.887 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 11:33:37.906 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 11:33:37.947 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:33:37.983 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 11:33:40.749 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 11:33:40.753 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 2766.9529ms
+2022-10-28 11:33:40.755 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:33:40.766 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 2861.9100ms
+2022-10-28 11:38:13.421 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 11:38:13.745 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 11:38:13.745 -05:00 [INF] Hosting environment: Development
+2022-10-28 11:38:13.745 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 11:38:13.766 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 11:38:13.808 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:38:13.847 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 11:38:19.255 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 5404.2551ms
+2022-10-28 11:38:19.259 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:38:19.263 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.UriFormatException: Invalid URI: The format of the URI could not be determined.
+   at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   at System.Uri..ctor(String uriString)
+   at System.ServiceModel.EndpointAddress..ctor(String uri)
+   at Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index(String Usuario) in D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\Controllers\IntroController.cs:line 32
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-10-28 11:38:19.329 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 500 - text/html;+charset=utf-8 5565.4436ms
+2022-10-28 11:41:13.502 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 11:41:13.781 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 11:41:13.781 -05:00 [INF] Hosting environment: Development
+2022-10-28 11:41:13.782 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 11:41:13.804 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 11:41:13.843 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:41:13.884 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 11:42:30.517 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 11:42:30.786 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 11:42:30.787 -05:00 [INF] Hosting environment: Development
+2022-10-28 11:42:30.787 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 11:42:30.806 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 11:42:30.846 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:42:30.881 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 11:43:47.102 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 11:43:47.106 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 76221.4501ms
+2022-10-28 11:43:47.107 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:43:47.119 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 76314.7596ms
+2022-10-28 11:45:40.362 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 11:45:40.649 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 11:45:40.650 -05:00 [INF] Hosting environment: Development
+2022-10-28 11:45:40.650 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 11:45:40.671 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 11:45:40.711 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:45:40.745 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 11:46:02.323 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 11:46:02.422 -05:00 [INF] Executed ViewResult - view Index executed in 123.8721ms.
+2022-10-28 11:46:02.425 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 21680.1904ms
+2022-10-28 11:46:02.426 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 11:46:02.431 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 200 - text/html;+charset=utf-8 21762.1347ms
+2022-10-28 11:46:02.441 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/css/site.css - -
+2022-10-28 11:46:02.449 -05:00 [INF] The file /css/site.css was not modified
+2022-10-28 11:46:02.450 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/css/site.css - - - 304 - text/css 8.9928ms
+2022-10-28 13:40:46.507 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 13:40:46.872 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 13:40:46.872 -05:00 [INF] Hosting environment: Development
+2022-10-28 13:40:46.872 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 13:40:46.896 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 13:40:46.956 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:40:46.997 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 13:40:52.045 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 13:40:52.144 -05:00 [INF] Executed ViewResult - view Index executed in 122.9206ms.
+2022-10-28 13:40:52.147 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 5148.4537ms
+2022-10-28 13:40:52.148 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:40:52.154 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 200 - text/html;+charset=utf-8 5259.3945ms
+2022-10-28 13:40:56.574 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Intro/Rol?Usuario=22543876459284753348664510845512324514042516764517666518560520010521432524139524192527140524888526316528424529601531350532813534112535397537202539775&Rol=2 - -
+2022-10-28 13:40:56.582 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:40:56.584 -05:00 [INF] Route matched with {action = "Rol", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Rol(System.String, Int32) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 13:41:27.715 -05:00 [INF] AuthenticationScheme: Cookies signed in.
+2022-10-28 13:41:30.602 -05:00 [INF] Executing RedirectResult, redirecting to /Home.
+2022-10-28 13:41:30.602 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno) in 34018.2606ms
+2022-10-28 13:41:30.603 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:41:30.604 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Intro/Rol?Usuario=22543876459284753348664510845512324514042516764517666518560520010521432524139524192527140524888526316528424529601531350532813534112535397537202539775&Rol=2 - - - 302 - - 34029.8128ms
+2022-10-28 13:41:30.606 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Home - -
+2022-10-28 13:41:30.612 -05:00 [INF] Authorization was successful.
+2022-10-28 13:41:30.612 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:41:30.613 -05:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Minem.Sgpam.ClienteInterno.Controllers.HomeController (Minem.Sgpam.ClienteInterno).
+2022-10-28 13:41:30.615 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 13:41:30.620 -05:00 [INF] Executed ViewResult - view Index executed in 7.2922ms.
+2022-10-28 13:41:30.620 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno) in 7.6337ms
+2022-10-28 13:41:30.620 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:41:30.621 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Home - - - 200 - text/html;+charset=utf-8 15.1842ms
+2022-10-28 13:53:02.605 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 13:53:02.891 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 13:53:02.894 -05:00 [INF] Hosting environment: Development
+2022-10-28 13:53:02.894 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 13:53:02.914 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 13:53:02.962 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:53:03.000 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 13:53:39.541 -05:00 [INF] Executing RedirectResult, redirecting to /Home.
+2022-10-28 13:53:39.545 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 36542.1167ms
+2022-10-28 13:53:39.546 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:53:39.556 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Home - -
+2022-10-28 13:53:39.565 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 36652.7178ms
+2022-10-28 13:53:39.575 -05:00 [INF] Authorization was successful.
+2022-10-28 13:53:39.575 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:53:39.577 -05:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Minem.Sgpam.ClienteInterno.Controllers.HomeController (Minem.Sgpam.ClienteInterno).
+2022-10-28 13:53:39.603 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 13:53:39.657 -05:00 [INF] Executed ViewResult - view Index executed in 76.1399ms.
+2022-10-28 13:53:39.657 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno) in 80.7968ms
+2022-10-28 13:53:39.657 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:53:39.660 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Home - - - 200 - text/html;+charset=utf-8 106.1172ms
+2022-10-28 13:55:25.835 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 13:55:26.291 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 13:55:26.292 -05:00 [INF] Hosting environment: Development
+2022-10-28 13:55:26.292 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 13:55:26.322 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 13:55:26.376 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:55:26.417 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 13:55:29.544 -05:00 [INF] Executing RedirectResult, redirecting to /Home.
+2022-10-28 13:55:29.547 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 3127.5087ms
+2022-10-28 13:55:29.549 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:55:29.557 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Home - -
+2022-10-28 13:55:29.571 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 3253.2979ms
+2022-10-28 13:55:29.583 -05:00 [INF] Authorization was successful.
+2022-10-28 13:55:29.583 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:55:29.585 -05:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Minem.Sgpam.ClienteInterno.Controllers.HomeController (Minem.Sgpam.ClienteInterno).
+2022-10-28 13:55:29.614 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 13:55:29.673 -05:00 [INF] Executed ViewResult - view Index executed in 83.4077ms.
+2022-10-28 13:55:29.673 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno) in 87.8487ms
+2022-10-28 13:55:29.673 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:55:29.676 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Home - - - 200 - text/html;+charset=utf-8 120.4111ms
+2022-10-28 13:55:33.562 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Intro/SignOff - -
+2022-10-28 13:55:33.566 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:55:33.568 -05:00 [INF] Route matched with {action = "SignOff", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignOff() on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 13:55:33.574 -05:00 [INF] AuthenticationScheme: Cookies signed out.
+2022-10-28 13:55:33.575 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 13:55:33.575 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno) in 7.1207ms
+2022-10-28 13:55:33.575 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:55:33.576 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Intro/SignOff - - - 302 - - 13.5463ms
+2022-10-28 13:55:43.026 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 13:55:43.352 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 13:55:43.352 -05:00 [INF] Hosting environment: Development
+2022-10-28 13:55:43.352 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 13:55:43.372 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 13:55:43.415 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:55:43.451 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 13:55:46.930 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 13:55:47.036 -05:00 [INF] Executed ViewResult - view Index executed in 127.4348ms.
+2022-10-28 13:55:47.038 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 3586.7238ms
+2022-10-28 13:55:47.039 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:55:47.045 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 200 - text/html;+charset=utf-8 3673.2966ms
+2022-10-28 13:55:50.617 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Intro/Rol?Usuario=22543876459284753348664510845512324514042516764517666518560520010521432524139524192527140524888526316528424529601531350532813534112535397537202539775&Rol=3 - -
+2022-10-28 13:55:50.622 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:55:50.625 -05:00 [INF] Route matched with {action = "Rol", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Rol(System.String, Int32) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 13:55:52.843 -05:00 [INF] AuthenticationScheme: Cookies signed in.
+2022-10-28 13:55:52.844 -05:00 [INF] Executing RedirectResult, redirecting to /Home.
+2022-10-28 13:55:52.844 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno) in 2219.1465ms
+2022-10-28 13:55:52.844 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:55:52.845 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Intro/Rol?Usuario=22543876459284753348664510845512324514042516764517666518560520010521432524139524192527140524888526316528424529601531350532813534112535397537202539775&Rol=3 - - - 302 - - 2228.4316ms
+2022-10-28 13:55:52.846 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Home - -
+2022-10-28 13:55:52.852 -05:00 [INF] Authorization was successful.
+2022-10-28 13:55:52.853 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:55:52.853 -05:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Minem.Sgpam.ClienteInterno.Controllers.HomeController (Minem.Sgpam.ClienteInterno).
+2022-10-28 13:55:52.856 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 13:55:52.863 -05:00 [INF] Executed ViewResult - view Index executed in 9.3686ms.
+2022-10-28 13:55:52.863 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno) in 9.7346ms
+2022-10-28 13:55:52.863 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 13:55:52.864 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Home - - - 200 - text/html;+charset=utf-8 17.2145ms
+2022-10-28 14:11:50.752 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 14:11:51.536 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 14:11:51.536 -05:00 [INF] Hosting environment: Development
+2022-10-28 14:11:51.536 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 14:11:51.559 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 14:11:51.627 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:11:51.673 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:11:56.586 -05:00 [INF] Executing RedirectResult, redirecting to /Home.
+2022-10-28 14:11:56.590 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 4913.4225ms
+2022-10-28 14:11:56.591 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:11:56.597 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Home - -
+2022-10-28 14:11:56.611 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 5054.3123ms
+2022-10-28 14:11:56.624 -05:00 [INF] Authorization was successful.
+2022-10-28 14:11:56.625 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:11:56.627 -05:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Minem.Sgpam.ClienteInterno.Controllers.HomeController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:11:56.676 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 14:11:56.738 -05:00 [INF] Executed ViewResult - view Index executed in 107.0255ms.
+2022-10-28 14:11:56.738 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno) in 111.1017ms
+2022-10-28 14:11:56.738 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:11:56.740 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Home - - - 200 - text/html;+charset=utf-8 142.8331ms
+2022-10-28 14:12:00.249 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Intro/SignOff - -
+2022-10-28 14:12:00.252 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:12:00.254 -05:00 [INF] Route matched with {action = "SignOff", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignOff() on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:12:00.261 -05:00 [INF] AuthenticationScheme: Cookies signed out.
+2022-10-28 14:12:00.261 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 14:12:00.261 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno) in 7.0573ms
+2022-10-28 14:12:00.261 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:12:00.263 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Intro/SignOff - - - 302 - - 14.3522ms
+2022-10-28 14:12:15.226 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 14:12:15.526 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 14:12:15.526 -05:00 [INF] Hosting environment: Development
+2022-10-28 14:12:15.526 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 14:12:15.549 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 14:12:15.592 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:12:15.627 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:12:19.218 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 14:12:19.321 -05:00 [INF] Executed ViewResult - view Index executed in 122.1373ms.
+2022-10-28 14:12:19.324 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 3696.3994ms
+2022-10-28 14:12:19.324 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:12:19.331 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 200 - text/html;+charset=utf-8 3783.1119ms
+2022-10-28 14:12:22.720 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/lib/pdfmake/build/pdfmake.min.js.map - -
+2022-10-28 14:12:22.744 -05:00 [INF] Sending file. Request path: '/lib/pdfmake/build/pdfmake.min.js.map'. Physical path: 'D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\wwwroot\lib\pdfmake\build\pdfmake.min.js.map'
+2022-10-28 14:12:22.767 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/lib/pdfmake/build/pdfmake.min.js.map - - - 200 2258934 text/plain 47.2462ms
+2022-10-28 14:12:22.784 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/lib/bootstrap/dist/css/bootstrap.min.css.map - -
+2022-10-28 14:12:22.787 -05:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css.map'. Physical path: 'D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map'
+2022-10-28 14:12:22.793 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/lib/bootstrap/dist/css/bootstrap.min.css.map - - - 200 542194 text/plain 8.9868ms
+2022-10-28 14:12:31.785 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Intro/Rol?Usuario=22543876459284753348664510845512324514042516764517666518560520010521432524139524192527140524888526316528424529601531350532813534112535397537202539775&Rol=3 - -
+2022-10-28 14:12:31.790 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:12:31.793 -05:00 [INF] Route matched with {action = "Rol", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Rol(System.String, Int32) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:12:31.881 -05:00 [INF] AuthenticationScheme: Cookies signed in.
+2022-10-28 14:12:31.882 -05:00 [INF] Executing RedirectResult, redirecting to /Home.
+2022-10-28 14:12:31.883 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno) in 89.5493ms
+2022-10-28 14:12:31.883 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:12:31.888 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Intro/Rol?Usuario=22543876459284753348664510845512324514042516764517666518560520010521432524139524192527140524888526316528424529601531350532813534112535397537202539775&Rol=3 - - - 302 - - 100.3857ms
+2022-10-28 14:12:31.888 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Home - -
+2022-10-28 14:12:31.895 -05:00 [INF] Authorization was successful.
+2022-10-28 14:12:31.895 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:12:31.896 -05:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Minem.Sgpam.ClienteInterno.Controllers.HomeController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:12:31.898 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 14:12:31.906 -05:00 [INF] Executed ViewResult - view Index executed in 9.0758ms.
+2022-10-28 14:12:31.906 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno) in 9.5488ms
+2022-10-28 14:12:31.906 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:12:31.906 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Home - - - 200 - text/html;+charset=utf-8 18.2063ms
+2022-10-28 14:12:31.989 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/lib/pdfmake/build/pdfmake.min.js.map - -
+2022-10-28 14:12:31.992 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/lib/bootstrap/dist/css/bootstrap.min.css.map - -
+2022-10-28 14:12:31.996 -05:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css.map'. Physical path: 'D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map'
+2022-10-28 14:12:32.002 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/lib/bootstrap/dist/css/bootstrap.min.css.map - - - 200 542194 text/plain 9.5703ms
+2022-10-28 14:12:32.025 -05:00 [INF] Sending file. Request path: '/lib/pdfmake/build/pdfmake.min.js.map'. Physical path: 'D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\wwwroot\lib\pdfmake\build\pdfmake.min.js.map'
+2022-10-28 14:12:32.047 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/lib/pdfmake/build/pdfmake.min.js.map - - - 200 2258934 text/plain 58.5988ms
+2022-10-28 14:13:51.496 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Intro/SignOff - -
+2022-10-28 14:13:51.498 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:13:51.500 -05:00 [INF] Route matched with {action = "SignOff", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignOff() on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:13:51.501 -05:00 [INF] AuthenticationScheme: Cookies signed out.
+2022-10-28 14:13:51.502 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 14:13:51.502 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno) in 1.8503ms
+2022-10-28 14:13:51.502 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:13:51.503 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Intro/SignOff - - - 302 - - 6.9785ms
+2022-10-28 14:14:05.745 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 14:14:06.032 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 14:14:06.033 -05:00 [INF] Hosting environment: Development
+2022-10-28 14:14:06.033 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 14:14:06.053 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 14:14:06.100 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:14:06.143 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:14:09.762 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 14:14:09.853 -05:00 [INF] Executed ViewResult - view Index executed in 110.8362ms.
+2022-10-28 14:14:09.857 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 3712.4405ms
+2022-10-28 14:14:09.857 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:14:09.864 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 200 - text/html;+charset=utf-8 3811.6877ms
+2022-10-28 14:14:14.501 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/lib/pdfmake/build/pdfmake.min.js.map - -
+2022-10-28 14:14:14.514 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/lib/bootstrap/dist/css/bootstrap.min.css.map - -
+2022-10-28 14:14:14.517 -05:00 [INF] Sending file. Request path: '/lib/pdfmake/build/pdfmake.min.js.map'. Physical path: 'D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\wwwroot\lib\pdfmake\build\pdfmake.min.js.map'
+2022-10-28 14:14:14.517 -05:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css.map'. Physical path: 'D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map'
+2022-10-28 14:14:14.523 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/lib/bootstrap/dist/css/bootstrap.min.css.map - - - 200 542194 text/plain 8.8601ms
+2022-10-28 14:14:14.538 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/lib/pdfmake/build/pdfmake.min.js.map - - - 200 2258934 text/plain 36.1274ms
+2022-10-28 14:14:17.488 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Intro/Rol?Usuario=22543876459284753348664510845512324514042516764517666518560520010521432524139524192527140524888526316528424529601531350532813534112535397537202539775&Rol=3 - -
+2022-10-28 14:14:17.492 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:14:17.495 -05:00 [INF] Route matched with {action = "Rol", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Rol(System.String, Int32) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:14:17.577 -05:00 [INF] AuthenticationScheme: Cookies signed in.
+2022-10-28 14:14:17.578 -05:00 [INF] Executing RedirectResult, redirecting to /Home.
+2022-10-28 14:14:17.579 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno) in 83.8023ms
+2022-10-28 14:14:17.579 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:14:17.580 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Intro/Rol?Usuario=22543876459284753348664510845512324514042516764517666518560520010521432524139524192527140524888526316528424529601531350532813534112535397537202539775&Rol=3 - - - 302 - - 91.6025ms
+2022-10-28 14:14:17.582 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Home - -
+2022-10-28 14:14:17.588 -05:00 [INF] Authorization was successful.
+2022-10-28 14:14:17.589 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:14:17.589 -05:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Minem.Sgpam.ClienteInterno.Controllers.HomeController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:14:17.592 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 14:14:17.599 -05:00 [INF] Executed ViewResult - view Index executed in 9.2608ms.
+2022-10-28 14:14:17.599 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno) in 9.6623ms
+2022-10-28 14:14:17.599 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:14:17.600 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Home - - - 200 - text/html;+charset=utf-8 17.8005ms
+2022-10-28 14:14:17.673 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/lib/pdfmake/build/pdfmake.min.js.map - -
+2022-10-28 14:14:17.678 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/lib/bootstrap/dist/css/bootstrap.min.css.map - -
+2022-10-28 14:14:17.760 -05:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css.map'. Physical path: 'D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map'
+2022-10-28 14:14:17.766 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/lib/bootstrap/dist/css/bootstrap.min.css.map - - - 200 542194 text/plain 88.3288ms
+2022-10-28 14:14:17.774 -05:00 [INF] Sending file. Request path: '/lib/pdfmake/build/pdfmake.min.js.map'. Physical path: 'D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\wwwroot\lib\pdfmake\build\pdfmake.min.js.map'
+2022-10-28 14:14:17.796 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/lib/pdfmake/build/pdfmake.min.js.map - - - 200 2258934 text/plain 122.2633ms
+2022-10-28 14:22:40.758 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Intro/SignOff - -
+2022-10-28 14:22:40.759 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:22:40.761 -05:00 [INF] Route matched with {action = "SignOff", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignOff() on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:22:40.763 -05:00 [INF] AuthenticationScheme: Cookies signed out.
+2022-10-28 14:22:40.763 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 14:22:40.764 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno) in 2.2528ms
+2022-10-28 14:22:40.764 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:22:40.764 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Intro/SignOff - - - 302 - - 6.7711ms
+2022-10-28 14:23:07.417 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 14:23:07.674 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 14:23:07.675 -05:00 [INF] Hosting environment: Development
+2022-10-28 14:23:07.675 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 14:23:07.695 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 14:23:07.736 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:23:07.773 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:25:16.861 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 14:25:16.953 -05:00 [INF] Executed ViewResult - view Index executed in 112.1739ms.
+2022-10-28 14:25:16.956 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 129183.4743ms
+2022-10-28 14:25:16.957 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:25:16.963 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 200 - text/html;+charset=utf-8 129269.2652ms
+2022-10-28 14:26:13.433 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 14:26:13.810 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 14:26:13.810 -05:00 [INF] Hosting environment: Development
+2022-10-28 14:26:13.810 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 14:26:13.834 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 14:26:13.879 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:26:13.925 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:26:17.438 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 14:26:17.539 -05:00 [INF] Executed ViewResult - view Index executed in 120.9991ms.
+2022-10-28 14:26:17.542 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 3616.7848ms
+2022-10-28 14:26:17.544 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:26:17.551 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 200 - text/html;+charset=utf-8 3717.4614ms
+2022-10-28 14:26:21.795 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/lib/pdfmake/build/pdfmake.min.js.map - -
+2022-10-28 14:26:21.808 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/lib/bootstrap/dist/css/bootstrap.min.css.map - -
+2022-10-28 14:26:21.812 -05:00 [INF] Sending file. Request path: '/lib/pdfmake/build/pdfmake.min.js.map'. Physical path: 'D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\wwwroot\lib\pdfmake\build\pdfmake.min.js.map'
+2022-10-28 14:26:21.812 -05:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css.map'. Physical path: 'D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map'
+2022-10-28 14:26:21.818 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/lib/bootstrap/dist/css/bootstrap.min.css.map - - - 200 542194 text/plain 10.3109ms
+2022-10-28 14:26:21.833 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/lib/pdfmake/build/pdfmake.min.js.map - - - 200 2258934 text/plain 38.0960ms
+2022-10-28 14:26:57.399 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Intro/Rol?Usuario=22543876459284753348664510845512324514042516764517666518560520010521432524139524192527140524888526316528424529601531350532813534112535397537202539775&Rol=3 - -
+2022-10-28 14:26:57.414 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:26:57.417 -05:00 [INF] Route matched with {action = "Rol", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Rol(System.String, Int32) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:27:00.488 -05:00 [INF] AuthenticationScheme: Cookies signed in.
+2022-10-28 14:27:00.488 -05:00 [INF] Executing RedirectResult, redirecting to /Home.
+2022-10-28 14:27:00.488 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno) in 3071.8279ms
+2022-10-28 14:27:00.489 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:27:00.490 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Intro/Rol?Usuario=22543876459284753348664510845512324514042516764517666518560520010521432524139524192527140524888526316528424529601531350532813534112535397537202539775&Rol=3 - - - 302 - - 3090.7599ms
+2022-10-28 14:27:00.492 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Home - -
+2022-10-28 14:27:00.498 -05:00 [INF] Authorization was successful.
+2022-10-28 14:27:00.499 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:27:00.499 -05:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Minem.Sgpam.ClienteInterno.Controllers.HomeController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:27:00.501 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 14:27:00.509 -05:00 [INF] Executed ViewResult - view Index executed in 9.0638ms.
+2022-10-28 14:27:00.509 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno) in 9.387ms
+2022-10-28 14:27:00.509 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:27:00.509 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Home - - - 200 - text/html;+charset=utf-8 17.0943ms
+2022-10-28 14:27:00.731 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/lib/pdfmake/build/pdfmake.min.js.map - -
+2022-10-28 14:27:00.742 -05:00 [INF] Sending file. Request path: '/lib/pdfmake/build/pdfmake.min.js.map'. Physical path: 'D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\wwwroot\lib\pdfmake\build\pdfmake.min.js.map'
+2022-10-28 14:27:00.761 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/lib/bootstrap/dist/css/bootstrap.min.css.map - -
+2022-10-28 14:27:00.766 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/lib/pdfmake/build/pdfmake.min.js.map - - - 200 2258934 text/plain 35.0868ms
+2022-10-28 14:27:00.766 -05:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css.map'. Physical path: 'D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map'
+2022-10-28 14:27:00.772 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/lib/bootstrap/dist/css/bootstrap.min.css.map - - - 200 542194 text/plain 11.3019ms
+2022-10-28 14:28:42.803 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Intro/SignOff - -
+2022-10-28 14:28:42.806 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:28:42.808 -05:00 [INF] Route matched with {action = "SignOff", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignOff() on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:28:42.809 -05:00 [INF] AuthenticationScheme: Cookies signed out.
+2022-10-28 14:28:42.809 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 14:28:42.809 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno) in 1.5707ms
+2022-10-28 14:28:42.809 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:28:42.811 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Intro/SignOff - - - 302 - - 8.6349ms
+2022-10-28 14:28:56.115 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 14:28:56.393 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 14:28:56.393 -05:00 [INF] Hosting environment: Development
+2022-10-28 14:28:56.393 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 14:28:56.412 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 14:28:56.451 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:28:56.486 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:36:45.145 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 14:36:45.241 -05:00 [INF] Executed ViewResult - view Index executed in 116.6512ms.
+2022-10-28 14:36:45.244 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 468760.2449ms
+2022-10-28 14:36:45.245 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:36:45.250 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 200 - text/html;+charset=utf-8 468841.4906ms
+2022-10-28 14:36:56.383 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/lib/pdfmake/build/pdfmake.min.js.map - -
+2022-10-28 14:36:56.399 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/lib/bootstrap/dist/css/bootstrap.min.css.map - -
+2022-10-28 14:36:56.403 -05:00 [INF] Sending file. Request path: '/lib/pdfmake/build/pdfmake.min.js.map'. Physical path: 'D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\wwwroot\lib\pdfmake\build\pdfmake.min.js.map'
+2022-10-28 14:36:56.403 -05:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css.map'. Physical path: 'D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map'
+2022-10-28 14:36:56.408 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/lib/bootstrap/dist/css/bootstrap.min.css.map - - - 200 542194 text/plain 8.5573ms
+2022-10-28 14:36:56.423 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/lib/pdfmake/build/pdfmake.min.js.map - - - 200 2258934 text/plain 40.2665ms
+2022-10-28 14:36:59.371 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Intro/Rol?Usuario=22543876459284753348664510845512324514042516764517666518560520010521432524139524192527140524888526316528424529601531350532813534112535397537202539775&Rol=4 - -
+2022-10-28 14:36:59.374 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:36:59.376 -05:00 [INF] Route matched with {action = "Rol", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Rol(System.String, Int32) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:37:06.993 -05:00 [INF] AuthenticationScheme: Cookies signed in.
+2022-10-28 14:37:06.993 -05:00 [INF] Executing RedirectResult, redirecting to /Home.
+2022-10-28 14:37:06.993 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno) in 7616.871ms
+2022-10-28 14:37:06.993 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:37:06.994 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Intro/Rol?Usuario=22543876459284753348664510845512324514042516764517666518560520010521432524139524192527140524888526316528424529601531350532813534112535397537202539775&Rol=4 - - - 302 - - 7623.6179ms
+2022-10-28 14:37:06.996 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Home - -
+2022-10-28 14:37:07.005 -05:00 [INF] Authorization was successful.
+2022-10-28 14:37:07.006 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:37:07.006 -05:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Minem.Sgpam.ClienteInterno.Controllers.HomeController (Minem.Sgpam.ClienteInterno).
+2022-10-28 14:37:07.010 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 14:37:07.018 -05:00 [INF] Executed ViewResult - view Index executed in 10.3868ms.
+2022-10-28 14:37:07.018 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno) in 11.2286ms
+2022-10-28 14:37:07.018 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 14:37:07.018 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Home - - - 200 - text/html;+charset=utf-8 22.0726ms
+2022-10-28 14:37:07.106 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/lib/pdfmake/build/pdfmake.min.js.map - -
+2022-10-28 14:37:07.112 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/lib/bootstrap/dist/css/bootstrap.min.css.map - -
+2022-10-28 14:37:07.128 -05:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css.map'. Physical path: 'D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map'
+2022-10-28 14:37:07.128 -05:00 [INF] Sending file. Request path: '/lib/pdfmake/build/pdfmake.min.js.map'. Physical path: 'D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno\wwwroot\lib\pdfmake\build\pdfmake.min.js.map'
+2022-10-28 14:37:07.132 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/lib/bootstrap/dist/css/bootstrap.min.css.map - - - 200 542194 text/plain 20.6306ms
+2022-10-28 14:37:07.149 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/lib/pdfmake/build/pdfmake.min.js.map - - - 200 2258934 text/plain 42.3301ms
+2022-10-28 18:20:35.014 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 18:20:35.326 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 18:20:35.327 -05:00 [INF] Hosting environment: Development
+2022-10-28 18:20:35.327 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 18:20:35.351 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 18:20:35.400 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 18:20:35.438 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 19:00:31.886 -05:00 [INF] Executing RedirectResult, redirecting to /Home.
+2022-10-28 19:00:31.889 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 2396446.265ms
+2022-10-28 19:00:31.891 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 19:00:31.900 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Home - -
+2022-10-28 19:00:31.913 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 2396561.5708ms
+2022-10-28 19:00:31.922 -05:00 [INF] Authorization was successful.
+2022-10-28 19:00:31.922 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 19:00:31.924 -05:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Minem.Sgpam.ClienteInterno.Controllers.HomeController (Minem.Sgpam.ClienteInterno).
+2022-10-28 19:00:31.952 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 19:00:32.013 -05:00 [INF] Executed ViewResult - view Index executed in 85.2311ms.
+2022-10-28 19:00:32.013 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno) in 89.5498ms
+2022-10-28 19:00:32.013 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 19:00:32.016 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Home - - - 200 - text/html;+charset=utf-8 115.7413ms
+2022-10-28 19:00:36.040 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Intro/SignOff - -
+2022-10-28 19:00:36.046 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno)'
+2022-10-28 19:00:36.048 -05:00 [INF] Route matched with {action = "SignOff", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignOff() on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 19:00:36.050 -05:00 [INF] AuthenticationScheme: Cookies signed out.
+2022-10-28 19:00:36.050 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 19:00:36.050 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno) in 1.9202ms
+2022-10-28 19:00:36.050 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno)'
+2022-10-28 19:00:36.051 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Intro/SignOff - - - 302 - - 11.2329ms
+2022-10-28 19:00:50.094 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 19:00:50.370 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 19:00:50.370 -05:00 [INF] Hosting environment: Development
+2022-10-28 19:00:50.371 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 19:00:50.391 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 19:00:50.432 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 19:00:50.468 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 19:00:59.737 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 19:00:59.836 -05:00 [INF] Executed ViewResult - view Index executed in 120.0245ms.
+2022-10-28 19:00:59.839 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 9370.3211ms
+2022-10-28 19:00:59.840 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 19:00:59.849 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 200 - text/html;+charset=utf-8 9459.2291ms
+2022-10-28 19:01:07.222 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Intro/Rol?Usuario=22543876459284753348664510845512324514042516764517666518560520010521432524139524192527140524888526316528424529601531350532813534112535397537202539775&Rol=3 - -
+2022-10-28 19:01:07.225 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno)'
+2022-10-28 19:01:07.229 -05:00 [INF] Route matched with {action = "Rol", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Rol(System.String, Int32) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 19:01:08.877 -05:00 [INF] AuthenticationScheme: Cookies signed in.
+2022-10-28 19:01:08.878 -05:00 [INF] Executing RedirectResult, redirecting to /Home.
+2022-10-28 19:01:08.878 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno) in 1648.892ms
+2022-10-28 19:01:08.878 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno)'
+2022-10-28 19:01:08.879 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Intro/Rol?Usuario=22543876459284753348664510845512324514042516764517666518560520010521432524139524192527140524888526316528424529601531350532813534112535397537202539775&Rol=3 - - - 302 - - 1657.0876ms
+2022-10-28 19:01:08.881 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Home - -
+2022-10-28 19:01:08.887 -05:00 [INF] Authorization was successful.
+2022-10-28 19:01:08.888 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 19:01:08.888 -05:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Minem.Sgpam.ClienteInterno.Controllers.HomeController (Minem.Sgpam.ClienteInterno).
+2022-10-28 19:01:08.891 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 19:01:08.898 -05:00 [INF] Executed ViewResult - view Index executed in 9.6425ms.
+2022-10-28 19:01:08.898 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno) in 9.9982ms
+2022-10-28 19:01:08.898 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 19:01:08.899 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Home - - - 200 - text/html;+charset=utf-8 18.4043ms
+2022-10-28 20:37:29.230 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Intro/index - -
+2022-10-28 20:37:29.232 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 20:37:29.232 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 20:40:46.965 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 20:40:47.254 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 20:40:47.254 -05:00 [INF] Hosting environment: Development
+2022-10-28 20:40:47.255 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 20:40:47.274 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 20:40:47.320 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 20:40:47.360 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 20:40:59.422 -05:00 [INF] Executing RedirectResult, redirecting to /Home.
+2022-10-28 20:40:59.425 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 12062.0398ms
+2022-10-28 20:40:59.427 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 20:40:59.436 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Home - -
+2022-10-28 20:40:59.449 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 12177.0206ms
+2022-10-28 20:40:59.459 -05:00 [INF] Authorization was successful.
+2022-10-28 20:40:59.460 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 20:40:59.461 -05:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Minem.Sgpam.ClienteInterno.Controllers.HomeController (Minem.Sgpam.ClienteInterno).
+2022-10-28 20:40:59.491 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 20:40:59.546 -05:00 [INF] Executed ViewResult - view Index executed in 79.9759ms.
+2022-10-28 20:40:59.546 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno) in 84.5808ms
+2022-10-28 20:40:59.546 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 20:40:59.548 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Home - - - 200 - text/html;+charset=utf-8 112.3339ms
+2022-10-28 20:41:05.521 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Intro/SignOff - -
+2022-10-28 20:41:05.525 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno)'
+2022-10-28 20:41:05.527 -05:00 [INF] Route matched with {action = "SignOff", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignOff() on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 20:41:05.534 -05:00 [INF] AuthenticationScheme: Cookies signed out.
+2022-10-28 20:41:05.535 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 20:41:05.535 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno) in 7.9935ms
+2022-10-28 20:41:05.535 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.SignOff (Minem.Sgpam.ClienteInterno)'
+2022-10-28 20:41:05.537 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Intro/SignOff - - - 302 - - 16.4550ms
+2022-10-28 20:41:17.256 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 20:41:17.543 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 20:41:17.544 -05:00 [INF] Hosting environment: Development
+2022-10-28 20:41:17.544 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 20:41:17.564 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 20:41:17.603 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 20:41:17.640 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 20:42:25.355 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 20:42:25.635 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 20:42:25.635 -05:00 [INF] Hosting environment: Development
+2022-10-28 20:42:25.635 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 20:42:25.656 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 20:42:25.698 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 20:42:25.733 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 20:42:29.973 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 20:42:29.976 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 4240.0165ms
+2022-10-28 20:42:29.977 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 20:42:29.988 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 4333.5385ms
+2022-10-28 20:46:37.508 -05:00 [INF] User profile is available. Using 'C:\Users\externo_SIGEPAM\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-28 20:46:37.847 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-28 20:46:37.848 -05:00 [INF] Hosting environment: Development
+2022-10-28 20:46:37.848 -05:00 [INF] Content root path: D:\fullshito\Fuente\MINEM.SGPAM\Minem.Sgpam.ClienteInterno
+2022-10-28 20:46:37.874 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/ - -
+2022-10-28 20:46:37.920 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 20:46:37.962 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 20:46:40.756 -05:00 [INF] Executing RedirectResult, redirecting to http://intranet.minem.gob.pe.
+2022-10-28 20:46:40.759 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 2794.1769ms
+2022-10-28 20:46:40.761 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 20:46:40.769 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/ - - - 302 - - 2897.1238ms
+2022-10-28 20:47:11.151 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Intro/index/?usuario=22543876459284753348664510845512324514042516764517666518560520010521432524139524192527140524888526316528424529601531350532813534112535397537202539775 - -
+2022-10-28 20:47:11.170 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 20:47:11.171 -05:00 [INF] Route matched with {action = "Index", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 20:47:14.463 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 20:47:14.539 -05:00 [INF] Executed ViewResult - view Index executed in 101.9749ms.
+2022-10-28 20:47:14.540 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno) in 3369.0579ms
+2022-10-28 20:47:14.540 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 20:47:14.543 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Intro/index/?usuario=22543876459284753348664510845512324514042516764517666518560520010521432524139524192527140524888526316528424529601531350532813534112535397537202539775 - - - 200 - text/html;+charset=utf-8 3394.8467ms
+2022-10-28 20:47:17.349 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Intro/Rol?Usuario=22543876459284753348664510845512324514042516764517666518560520010521432524139524192527140524888526316528424529601531350532813534112535397537202539775&Rol=3 - -
+2022-10-28 20:47:17.352 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno)'
+2022-10-28 20:47:17.354 -05:00 [INF] Route matched with {action = "Rol", controller = "Intro"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Rol(System.String, Int32) on controller Minem.Sgpam.ClienteInterno.Controllers.IntroController (Minem.Sgpam.ClienteInterno).
+2022-10-28 20:47:18.458 -05:00 [INF] AuthenticationScheme: Cookies signed in.
+2022-10-28 20:47:18.459 -05:00 [INF] Executing RedirectResult, redirecting to /Home.
+2022-10-28 20:47:18.459 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno) in 1104.134ms
+2022-10-28 20:47:18.459 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.IntroController.Rol (Minem.Sgpam.ClienteInterno)'
+2022-10-28 20:47:18.459 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Intro/Rol?Usuario=22543876459284753348664510845512324514042516764517666518560520010521432524139524192527140524888526316528424529601531350532813534112535397537202539775&Rol=3 - - - 302 - - 1110.0223ms
+2022-10-28 20:47:18.461 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:4021/Home - -
+2022-10-28 20:47:18.466 -05:00 [INF] Authorization was successful.
+2022-10-28 20:47:18.466 -05:00 [INF] Executing endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 20:47:18.467 -05:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Minem.Sgpam.ClienteInterno.Controllers.HomeController (Minem.Sgpam.ClienteInterno).
+2022-10-28 20:47:18.469 -05:00 [INF] Executing ViewResult, running view Index.
+2022-10-28 20:47:18.478 -05:00 [INF] Executed ViewResult - view Index executed in 10.5291ms.
+2022-10-28 20:47:18.478 -05:00 [INF] Executed action Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno) in 10.8762ms
+2022-10-28 20:47:18.478 -05:00 [INF] Executed endpoint 'Minem.Sgpam.ClienteInterno.Controllers.HomeController.Index (Minem.Sgpam.ClienteInterno)'
+2022-10-28 20:47:18.479 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:4021/Home - - - 200 - text/html;+charset=utf-8 17.6033ms

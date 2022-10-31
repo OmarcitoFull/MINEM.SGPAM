@@ -6,5 +6,6 @@
         public const string Volume = "VOLDESARROLLO";
         public const string Success = "Ok";
         public const string Err = "Error";
+        public const string KeyApp = "6010";
     }
 }

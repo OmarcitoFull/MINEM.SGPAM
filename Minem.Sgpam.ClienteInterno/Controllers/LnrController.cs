@@ -111,7 +111,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             try
             {
                 vModel.Fec_Ingreso = vModel.Fec_Modifica = DateTime.Now;
-                vModel.Usu_Ingreso = vModel.Usu_Modifica = Constantes.GuestUser;
+                vModel.Usu_Ingreso = vModel.Usu_Modifica = GlobalAppSession.GetCurrentSesion(User);
                 vModel.Ip_Ingreso = vModel.Ip_Modifica = DnsFullNet.GetIp();
                 if (ModelState.IsValid)
                 {
@@ -162,7 +162,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vInfo_Grafica.Flg_Estado = Constantes.Activo;
             vInfo_Grafica.Fec_Ingreso = vInfo_Grafica.Fec_Modifica = DateTime.Now;
-            vInfo_Grafica.Usu_Ingreso = vInfo_Grafica.Usu_Modifica = Constantes.GuestUser;
+            vInfo_Grafica.Usu_Ingreso = vInfo_Grafica.Usu_Modifica = GlobalAppSession.GetCurrentSesion(User);
             vInfo_Grafica.Ip_Ingreso = vInfo_Grafica.Ip_Modifica = DnsFullNet.GetIp();
 
             if (vFile != null)
@@ -266,7 +266,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
         {
             vInfo_Documento.Flg_Estado = Constantes.Activo;
             vInfo_Documento.Fec_Ingreso = vInfo_Documento.Fec_Modifica = DateTime.Now;
-            vInfo_Documento.Usu_Ingreso = vInfo_Documento.Usu_Modifica = Constantes.GuestUser;
+            vInfo_Documento.Usu_Ingreso = vInfo_Documento.Usu_Modifica = GlobalAppSession.GetCurrentSesion(User);
             vInfo_Documento.Ip_Ingreso = vInfo_Documento.Ip_Modifica = DnsFullNet.GetIp();
 
             if (vFile != null)

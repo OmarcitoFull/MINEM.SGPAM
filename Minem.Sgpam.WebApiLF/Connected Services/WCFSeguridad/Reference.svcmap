@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="82675382-b7bd-4768-9efb-232afbef7987" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://vservicios/ServicioAcceso2/WCFSistemasService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WCFSistemasService.disco" MetadataType="Disco" ID="0dda52f2-88e6-4514-b8a9-d991d5484f57" SourceId="1" SourceUrl="http://vservicios/ServicioAcceso2/WCFSistemasService.svc?disco" />
+    <MetadataFile FileName="WCFSistemasService.wsdl" MetadataType="Wsdl" ID="2414526e-d91f-4161-9643-b3ee45e7d4e2" SourceId="1" SourceUrl="http://vservicios/ServicioAcceso2/WCFSistemasService.svc?wsdl" />
+    <MetadataFile FileName="WCFSistemasService.xsd" MetadataType="Schema" ID="942ac9fa-31cd-4df0-83e0-4945861bb6d2" SourceId="1" SourceUrl="http://vservicios/ServicioAcceso2/WCFSistemasService.svc?xsd=xsd0" />
+    <MetadataFile FileName="WCFSistemasService1.xsd" MetadataType="Schema" ID="751a516a-1524-41fe-91be-1714568a31d2" SourceId="1" SourceUrl="http://vservicios/ServicioAcceso2/WCFSistemasService.svc?xsd=xsd1" />
+    <MetadataFile FileName="WCFSistemasService2.xsd" MetadataType="Schema" ID="2a948360-667b-49ef-a4ac-0cc12b20225e" SourceId="1" SourceUrl="http://vservicios/ServicioAcceso2/WCFSistemasService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

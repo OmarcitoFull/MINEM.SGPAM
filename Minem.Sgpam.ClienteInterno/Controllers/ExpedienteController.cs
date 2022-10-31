@@ -80,7 +80,7 @@ namespace Minem.Sgpam.ClienteInterno.Controllers
             try
             {
                 vModel.Fec_Ingreso = vModel.Fec_Modifica = DateTime.Now;
-                vModel.Usu_Ingreso = vModel.Usu_Modifica = Constantes.GuestUser;
+                vModel.Usu_Ingreso = vModel.Usu_Modifica = GlobalAppSession.GetCurrentSesion(User);
                 vModel.Ip_Ingreso = vModel.Ip_Modifica = DnsFullNet.GetIp();
                 if (ModelState.IsValid)
                 {

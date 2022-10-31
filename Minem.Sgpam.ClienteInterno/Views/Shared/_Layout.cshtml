@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Minem.Sgpam.ClienteInterno.Helpers
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -38,20 +39,26 @@
 
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section">
-                            <ul class="nav side-menu">
-                                @*<li><a href="#"><i class="fa fa-address-card"></i>                                      <span> Administración </span></a></li>*@
-                                <li><a asp-controller="Eum" asp-action="Index"><i class="fa fa-archive"> </i> <span> Gestión de PAM </span></a></li>
-                                <li><a asp-controller="Expediente" asp-action="Index"><i class="fa fa-folder-open-o"></i><span> Gestión de LNR </span></a></li>
-                                <li><a asp-controller="Visita" asp-action="Index"><i class="fa fa-calendar-check"></i> <span> Cronograma </span></a></li>
-                                <li>
-                                    <a href="#"><i class="fa fa-line-chart">  </i> <span> Reportes </span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a asp-controller="Reporte" asp-action="InventarioPAM">Inventario de PAM</a></li>
-                                        <li><a asp-controller="Reporte" asp-action="InventarioLNR">Inventario de LNR</a></li>
-                                    </ul>
-                                </li>
-                                <li><a asp-controller="Intro" asp-action="SignOff"><i class="fa fa-calendar-check"></i> <span> Cerrar Sesión </span></a></li>
-                            </ul>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                var vMenu = GlobalAppSession.GetListOptions(User);
+
+
+                                <ul class="nav side-menu">
+                                    @*<li><a href="#"><i class="fa fa-address-card"></i>                                      <span> Administración </span></a></li>*@
+                                    <li><a asp-controller="Eum" asp-action="Index"><i class="fa fa-archive"> </i> <span> Gestión de PAM </span></a></li>
+                                    <li><a asp-controller="Expediente" asp-action="Index"><i class="fa fa-folder-open-o"></i><span> Gestión de LNR </span></a></li>
+                                    <li><a asp-controller="Visita" asp-action="Index"><i class="fa fa-calendar-check"></i> <span> Cronograma </span></a></li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-line-chart">  </i> <span> Reportes </span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a asp-controller="Reporte" asp-action="InventarioPAM">Inventario de PAM</a></li>
+                                            <li><a asp-controller="Reporte" asp-action="InventarioLNR">Inventario de LNR</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a asp-controller="Intro" asp-action="SignOff"><i class="fa fa-calendar-check"></i> <span> Cerrar Sesión </span></a></li>
+                                </ul>
+                            }
                         </div>
                     </div>
                 </div>
@@ -107,12 +114,6 @@
                                 <div class="x_title">
                                     <h2>@ViewData["Title"]</h2>
                                     <ul class="nav navbar-right panel_toolbox">
-                                        @*<li>
-                                                <a href="#" class="bread">Home </a>
-                                            </li>*@
-                                        @*<li>
-                                                <a href="#" class="on"><i class="fa fa-chevron-right"></i> Reportes</a>
-                                            </li>*@
                                     </ul>
                                     <div class="clearfix"></div>
                                 </div>
@@ -157,3 +158,4 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+

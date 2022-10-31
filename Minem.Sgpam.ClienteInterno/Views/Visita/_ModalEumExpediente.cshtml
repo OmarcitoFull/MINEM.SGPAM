@@ -7,9 +7,11 @@
         <div class="form-group">
             <label class="control-label col-md-4 col-sm-4 col-xs-12">Tipo (<font color="red">*</font>)</label>
             <div class="col-md-4 col-sm-4 col-xs-12">
-                <select id="vId_Tipo" class="select2_single form-control" asp-items="(List<SelectListItem>)ViewBag.CboTipo">
-                    @*<option value="">SELECCIONE</option>*@
+                <select id="cboTipo" class="select2_single form-control" asp-items="(List<SelectListItem>)ViewBag.CboTipo">
+                    @*<option value="0">SELECCIONE</option>*@
                 </select>
+                <input type="hidden" asp-for="Id_Tipo_Registro" class="form-control" />
+                <input type="hidden" name="vId_Tipo_Registro" id="vId_Tipo_Registro" />
             </div>
         </div>
     </div>
@@ -17,27 +19,26 @@
     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
         <div class="form-group">
             <label class="control-label col-md-4 col-sm-4 col-xs-12">Expediente - Eum (<font color="red">*</font>)</label>
-            <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="col-md-8 col-sm-8 col-xs-12">
                 <input type="text" asp-for="Nombre_Eum" class="form-control" maxlength="10" placeholder="" id="txtParametro">
                 <input type="hidden" asp-for="Id_Eum" class="form-control" />
                 <input type="hidden" asp-for="Id_Expediente" class="form-control" />
-                <input type="hidden" asp-for="Id_Tipo_Registro" class="form-control" />
             </div>
         </div>
     </div>
 
     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre:</label>
+            <label class="control-label col-md-4 col-sm-4 col-xs-12">Nombre:</label>
             <div class="col-md-8 col-sm-8 col-xs-12">
-                <input type="text" class="form-control" maxlength="50" placeholder="">
+                <input type="text" class="form-control" maxlength="10" placeholder="">
             </div>
         </div>
     </div>
 
     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Motivo:</label>
+            <label class="control-label col-md-4 col-sm-4 col-xs-12">Motivo:</label>
             <div class="col-md-8 col-sm-8 col-xs-12">
                 <input type="text" asp-for="Motivo" class="form-control" maxlength="200" placeholder="">
             </div>
@@ -46,7 +47,7 @@
 
     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Observación:</label>
+            <label class="control-label col-md-4 col-sm-4 col-xs-12">Observación:</label>
             <div class="col-md-8 col-sm-8 col-xs-12">
                 <input type="text" asp-for="Observacion" class="form-control" maxlength="200" placeholder="">
             </div>
@@ -81,6 +82,23 @@
 <script>
     $(document).ready(function () {
 
+        //var cod = document.getElementById("cboTipo").value;
+        //console.log(cod);
+
+        $("#cboTipo").on("change", function () {
+            console.log(100);
+            //$("#vId_Tipo_Registro").val($("#cboTipo").val());
+
+            $("#txtParametro").val("");
+            //$("#Id_Expediente").val(null);
+            //$("#Id_Eum").val(null);
+            console.log($("#cboTipo").val());
+            //console.log($("#Id_Expediente"));
+            //console.log(Id_Eum);
+        });
+
+
+
         //$("#txtParametro").autocomplete({
         //    source: function (request, response) {
         //        $.ajax({
@@ -92,7 +110,7 @@
         //            success: function (data) {
         //                response($.map(data, function (item) {
         //                    return {
-        //                        label: item.label, 
+        //                        label: item.label,
         //                        id: item.id
         //                    }
         //                }))
@@ -107,7 +125,21 @@
 
         //});
 
+
+
+        ///////////////////////////////////////////////////////////////////
         $("#txtParametro").autocomplete({
+
+            //if ( 1 == 1 ) {
+            //    console.log("Hola");
+            //}
+
+           // ($("#cboTipoComponente").val())
+
+            //if($("#cboTipo").val() == 2) {
+            //    console.log("Chau");
+            //};
+
             source: function (request, response) {
                 $.ajax({
                     url: "/Expediente/ListaAutocompletar?vPar=" + $("#txtParametro").val(),
@@ -131,7 +163,12 @@
                 $("#Id_Tipo_Registro").val(2)
             }
 
+
+
         });
+        /////////////////////////////////////////////////////////////////
+
+
 
 
     });
